@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="trunkBean" type="com.cabletech.linepatrol.resource.beans.TrunkBean" />
+		<form-bean name="resBean" type="com.cabletech.linepatrol.resource.beans.RepeaterSectionBean"/>
+		<form-bean name="resAddoneBean" type="com.cabletech.linepatrol.resource.beans.RepeaterSectionAddoneBean"/>
+		<form-bean name="pipeAddoneBean" type="com.cabletech.linepatrol.resource.beans.PipeAddoneBean"/>
+		<form-bean name="pipeBean" type="com.cabletech.linepatrol.resource.beans.PipeBean"/>
+		<form-bean name="datumInfoBean" type="com.cabletech.linepatrol.resource.beans.DatumInfoBean"/>
+	</form-beans>
+
+	<action-mappings>	
+		<action name="trunkBean" parameter="method" path="/trunkAction" scope="request" 
+			type="com.cabletech.linepatrol.resource.action.TrunkAction">
+			<forward name="link" path="/linepatrol/resource/chooseTrunk.jsp" />
+			<forward name="close" path="/linepatrol/resource/closeTrunk.jsp" />
+			<forward name="updateTrunk" path="/linepatrol/resource/updateTrunk.jsp" />
+			<forward name="updateSuccess" path="/linepatrol/resource/updateSuccess.jsp" />
+			<forward name="updateTrunkApprove" path="/linepatrol/resource/updateTrunkApprove.jsp" />
+			<forward name="updateTrunkView" path="/linepatrol/resource/updateTrunkView.jsp" />
+			<forward name="queryTrunks" path="/trunkAction.do?method=queryTrunks"></forward>
+		</action>
+		<action name="datumInfoBean" parameter="method" path="/datumAction" scope="request" 
+			type="com.cabletech.linepatrol.resource.action.DatumAction">
+			<forward name="list" path="/linepatrol/resource/datumList.jsp" />
+			<forward name="edit" path="/linepatrol/resource/datumEdit.jsp" />
+			<forward name="history" path="/linepatrol/resource/datumHistory.jsp" />
+			<forward name="approve" path="/linepatrol/resource/datumApprove.jsp" />
+			<forward name="typelist" path="/linepatrol/resource/datumTypeList.jsp" />
+			<forward name="typelists" path="/datumAction.do?method=typelist" />
+			<forward name="updateType" path="/linepatrol/resource/datumTypeupdate.jsp" />
+		</action>
+		<action path="/resAction" name="resBean" parameter="method" scope="request" type="com.cabletech.linepatrol.resource.action.RepeaterSectionAction">
+			<forward name="edit" path="/linepatrol/resource/res_edit_cable.jsp"/>
+			<forward name="add" path="/linepatrol/resource/res_add_cable.jsp"/>
+			<forward name="list" path="/linepatrol/resource/res_list_cable.jsp"/>
+			<forward name="view" path="/linepatrol/resource/res_view_cable.jsp"/>
+			<forward name="approveCableList" path="/linepatrol/resource/res_approve_cable_list.jsp"/>
+			<forward name="approveCable" path="/linepatrol/resource/res_approve_cable.jsp"/>
+			
+			<forward name="cableAssignOne" path="/linepatrol/resource/cable_assign1.jsp"/>
+			<forward name="cableAssignTwo" path="/linepatrol/resource/cable_assign2.jsp"/>
+			<forward name="cableAssignThree" path="/linepatrol/resource/cable_assign3.jsp"/>
+		</action>
+		<action path="/pipeAction" name="pipeBean" parameter="method" scope="request" type="com.cabletech.linepatrol.resource.action.PipeAction">
+			<forward name="edit" path="/linepatrol/resource/res_edit_pipe.jsp"/>
+			<forward name="add" path="/linepatrol/resource/res_add_pipe.jsp"/>
+			<forward name="list" path="/linepatrol/resource/res_list_pipe.jsp"/>
+			<forward name="view" path="/linepatrol/resource/res_view_pipe.jsp"/>
+			
+			<forward name="pipeAssignOne" path="/linepatrol/resource/pipe_assign1.jsp"/>
+			<forward name="pipeAssignTwo" path="/linepatrol/resource/pipe_assign2.jsp"/>
+			<forward name="pipeAssignThree" path="/linepatrol/resource/pipe_assign3.jsp"/>
+		</action>
+	</action-mappings>
+</struts-config>

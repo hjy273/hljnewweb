@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.baseinfo.domainobjects.Contractor"  table="Contractorinfo">
+        <id name="contractorID" type="string" unsaved-value="null" >
+            <column name="CONTRACTORID" sql-type="char(32)" not-null="true"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="contractorName"/>
+        <property name="linkmanInfo"/>
+        <property name="principalInfo"/>
+        <property name="pactBeginDate"/>
+		<property name="pactTerm"/>
+        <property name="remark"/>
+        <property name="state"/>
+        <property name="parentcontractorid"/>
+        <property name="regionid"/>
+         <property name="depttype"/>
+        <property name="alias"/>
+        
+        <property name="fax" column="FAX"/>
+        <property name="workPhone" column="WORK_PHONE"/>
+        <property name="principalB" column="PRINCIPALB"/>
+        <property name="email" column="EMAIL"/>
+        <property name="address" column="ADDRESS"/>
+        <property name="maintenanceArea" column="MAINTENANCE_AREA"/>
+    </class>
+</hibernate-mapping>
+

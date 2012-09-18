@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.linepatrol.resource.model.RepeaterSectionAddone"  table="REPEATERSECTION_ADDONE" lazy="false">
+        <id name="id" type="java.lang.String">
+        	<generator class="com.cabletech.commons.hb.StrSequenceGenerator">
+               <param name="sequence">SEQ_REPEATERSECTION_ADDONE_ID</param>
+               <param name="length">12</param>
+            </generator>
+		</id>
+        <property column="KID" name="kid"/>
+		<property column="IS_TD" name="isTd"/>
+		<property column="CABLELINE_ID" name="cablelineId"/>
+		<property column="TRUNKMENT_LENGTH_0" name="trunkmentLength0"/>
+		<property column="TRUNKMENT_LENGTH_1" name="trunkmentLength1"/>
+		<property column="TRUNKMENT_LENGTH_2" name="trunkmentLength2"/>
+		<property column="TRUNKMENT_LENGTH_3" name="trunkmentLength3"/>
+		<property column="PIPE_LENGTH_0" name="pipeLength0"/>
+		<property column="PIPE_LENGTH_1" name="pipeLength1"/>
+		<property column="PIPE_LENGTH_2" name="pipeLength2"/>
+		<property column="PIPE_LENGTH_3" name="pipeLength3"/>
+		<property column="PIPE_LENGTH_4" name="pipeLength4"/>
+		<property column="E1_LENGTH" name="e1Length"/>
+		<property column="E1_NUMBER" name="e1Number"/>
+		<property column="E2_LENGTH" name="e2Length"/>
+		<property column="E2_NUMBER" name="e2Number"/>
+		<property column="E3_LENGTH" name="e3Length"/>
+		<property column="E3_NUMBER" name="e3Number"/>
+		<property column="T1_LENGTH" name="t1Length"/>
+		<property column="T1_NUMBER" name="t1Number"/>
+		<property column="T2_LENGTH" name="t2Length"/>
+		<property column="T2_NUMBER" name="t2Number"/>
+		<property column="T3_LENGTH" name="t3Length"/>
+		<property column="T3_NUMBER" name="t3Number"/>
+		<property column="J_NUMBER" name="jNumber"/>
+		<property column="OTHER1" name="other1"/>
+		<property column="OTHER1_NUMBER" name="other1Number"/>
+		<property column="OTHER2" name="other2"/>
+		<property column="OTHER2_NUMBER" name="other2Number"/>
+    </class>
+</hibernate-mapping>

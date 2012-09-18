@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		
+		
+		<!-- 派单管理模块 -->
+		<form-bean name="SendTaskBean"	type="com.cabletech.linepatrol.sendtask.beans.SendTaskBean" />
+		
+	   </form-beans>
+	   <global-forwards>
+			<forward name="sucessMsg" path="/globinfo/sucessinfo.jsp" />
+			<forward name="errorMsg" path="/globinfo/errorinfo.jsp" />
+			<forward name="powererror" path="/globinfo/powererror.jsp" />
+			<forward name="giserror" path="/realtime/errorinfo.jsp" />
+		</global-forwards>
+		<action-mappings>
+		<!--  派单管理模块  fjj -->
+		<action name="SendTaskBean" parameter="method"	path="/SendTaskAction" scope="request"
+			type="com.cabletech.linepatrol.sendtask.action.SendTaskAction">
+			<forward name="success" path="/linepatrol/sendTaskManage/sendtask.jsp" />
+			<forward name="querytotal"	path="/linepatrol/sendTaskManage/queryTotal.jsp" />
+		</action>
+		<action name="SendTaskBean" parameter="method"	path="/EndorseAction" scope="request"
+			type="com.cabletech.linepatrol.sendtask.action.EndorseAction">
+			<forward name="success" path="/linepatrol/sendTaskManage/endorseTask.jsp" />
+		</action>
+		<action name="SendTaskBean" parameter="method"	path="/ReplyAction" scope="request"
+			type="com.cabletech.linepatrol.sendtask.action.ReplyAction">
+			<forward name="success"	path="/linepatrol/sendTaskManage/replyTask.jsp" />
+		</action>
+		<action name="SendTaskBean" parameter="method"	path="/ValidateAction" scope="request"
+			type="com.cabletech.linepatrol.sendtask.action.ValidateAction">
+			<forward name="success"	path="/linepatrol/sendTaskManage/validateTask.jsp" />
+		</action>
+	</action-mappings>
+	
+</struts-config>
+

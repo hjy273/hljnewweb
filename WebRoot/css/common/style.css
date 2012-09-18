@@ -1,0 +1,428 @@
+
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 5px; SCROLLBAR-FACE-COLOR: #7ca5e0; FONT-SIZE: 12px; PADDING-BOTTOM: 5px; MARGIN: 0px; SCROLLBAR-HIGHLIGHT-COLOR: #ffffff; SCROLLBAR-SHADOW-COLOR: #ffffff; COLOR: #000000; SCROLLBAR-3DLIGHT-COLOR: #ffffff; SCROLLBAR-ARROW-COLOR: #ffffff; PADDING-TOP: 5px; SCROLLBAR-TRACK-COLOR: #ffffff; SCROLLBAR-DARKSHADOW-COLOR: #ffffff; SCROLLBAR-BASE-COLOR: #ffffff; BACKGROUND-COLOR: #ffffff; margin:0px; padding:0px;
+}
+DIV {
+	FONT-SIZE: 12px
+}
+TABLE {
+	FONT-SIZE: 12px; LINE-HEIGHT: 140%
+}
+FORM {
+	MARGIN: 0px
+}
+A:link {
+	COLOR: #2764b5; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #2764b5; TEXT-DECORATION: none
+}
+A:active {
+	COLOR: #2764b5; TEXT-DECORATION: underline
+}
+A:hover {
+	COLOR: #ff9900; TEXT-DECORATION: none
+}
+A.tt:link {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.tt:visited {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.tt:active {
+	COLOR: #ffffff; TEXT-DECORATION: underline
+}
+A.tt:hover {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.drag {
+	POSITION: relative
+}
+.label {
+	FONT-STYLE: normal
+}
+.word {
+	TEXT-INDENT: 20px; LINE-HEIGHT: 150%
+}
+.cardActive {
+	BORDER-RIGHT: #578ce1 1px solid; BACKGROUND-POSITION: center top; BORDER-TOP: #578ce1 1px solid; FONT-WEIGHT: bold; BACKGROUND-IMAGE: url(../../images/bg_card_active.gif); BORDER-LEFT: #578ce1 1px solid; WIDTH: 100px; COLOR: #000000; BORDER-BOTTOM: #ffffff 1px solid; BACKGROUND-REPEAT: repeat-x; HEIGHT: 25px; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: center
+}
+.cardNormal {
+	BORDER-RIGHT: #578ce1 1px solid; BACKGROUND-POSITION: center top; BORDER-TOP: #578ce1 1px solid; BACKGROUND-IMAGE: url(../../images/bg_card_normal.gif); BORDER-LEFT: #578ce1 1px solid; WIDTH: 100px; CURSOR: hand; COLOR: #ffffff; BORDER-BOTTOM: #559ec7 1px solid; BACKGROUND-REPEAT: repeat-x; HEIGHT: 25px; BACKGROUND-COLOR: #578ce1; TEXT-ALIGN: center
+}
+.cardHover {
+	BORDER-RIGHT: #578ce1 1px solid; BORDER-TOP: #578ce1 1px solid; BACKGROUND-IMAGE: url(../../images/bg_card_hover.gif); BORDER-LEFT: #578ce1 1px solid; CURSOR: hand; BORDER-BOTTOM: #559ec7 1px solid; HEIGHT: 25px; TEXT-ALIGN: center
+}
+.cardDisabled {
+	BORDER-RIGHT: #578ce1 1px solid; BORDER-TOP: #578ce1 1px solid; BACKGROUND-IMAGE: url(../../images/bg_card_hover.gif); BORDER-LEFT: #578ce1 1px solid; CURSOR: default; COLOR: #888888; BORDER-BOTTOM: #559ec7 1px solid; HEIGHT: 25px; TEXT-ALIGN: center
+}
+.cardTh {
+	BORDER-BOTTOM: #578ce1 1pt solid; TEXT-ALIGN: right
+}
+.cardBody {
+	BORDER-RIGHT: #578ce1 1px solid; PADDING-BOTTOM: 10px; BORDER-LEFT: #578ce1 1px solid; PADDING-TOP: 10px; BORDER-BOTTOM: #578ce1 1pt solid; BACKGROUND-COLOR: #ffffff
+}
+A.cardLink:link {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.cardLink:visited {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.cardLink:active {
+	COLOR: #ffffff; TEXT-DECORATION: underline
+}
+A.cardLink:hover {
+	COLOR: #e4f0ff; TEXT-DECORATION: none
+}
+TABLE.yourPlace {
+	MARGIN-BOTTOM: 5px; WIDTH: 100%; HEIGHT: 20px; BACKGROUND-COLOR: #f6f6f6
+}
+TABLE.yourPlace TD {
+	PADDING-LEFT: 15px; COLOR: #000000
+}
+TABLE.tabtitle TD {
+	PADDING-LEFT: 20px; FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #000000; LETTER-SPACING: 2px; TEXT-ALIGN: left
+}
+TABLE.tabtitle {
+	BORDER-RIGHT: #cccccc 1px solid; BORDER-TOP: #cccccc 1px solid; FILTER: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#C7E0ED', endColorStr='#FFFFFF', gradientType='0'); MARGIN-BOTTOM: 5px; BORDER-LEFT: #cccccc 1px solid; BORDER-BOTTOM: #cccccc 1px solid; HEIGHT: 25px
+}
+.searchTltBar {
+	BACKGROUND-POSITION: center 50%; BACKGROUND-IMAGE: url(../../images/icon_search_titlebar.gif); WIDTH: 20px; CURSOR: hand; TEXT-INDENT: 0px; BACKGROUND-REPEAT: no-repeat
+}
+.searchDiv {
+	DISPLAY: none
+}
+TABLE.tabMainTop {
+	BORDER-RIGHT: #1c2a9f 0px solid; BORDER-TOP: #2c437e 0px solid; BORDER-LEFT: #1c2a9f 0px solid; BORDER-BOTTOM: #dadada 0px solid; HEIGHT: 30px
+}
+TABLE.tabMainTop TD {
+	BORDER-RIGHT: #eeeeee 0px solid; PADDING-RIGHT: 10px; BORDER-TOP: #ffffff 0px solid; BORDER-LEFT: #ffffff 0px solid; BORDER-BOTTOM: #eeeeee 0px solid; LETTER-SPACING: 2px
+}
+TABLE.tabMainBot {
+	BORDER-RIGHT: #cccccc 0px solid; BORDER-TOP: #cccccc 0px solid; MARGIN-TOP: 5px; BORDER-LEFT: #cccccc 0px solid; BORDER-BOTTOM: #cccccc 0px solid; HEIGHT: 24px
+}
+TABLE.tabMainBot TD {
+	PADDING-RIGHT: 10px; BACKGROUND-COLOR: #f6f6f6; TEXT-ALIGN: center
+}
+.tabout {
+	/*BORDER-RIGHT: #2c437e 0px solid; BORDER-TOP: #7ca5e0 2px solid; BEHAVIOR: url(../css/common/colorTable.htc); BORDER-LEFT: #2c437e 0px solid; BORDER-BOTTOM: #7ca5e0 2px solid*/
+}
+.tabout {
+	border-left-style:solid;
+	border-left-width:10px;
+	border-left-color:#B4DEF7;
+	border-right-style:solid;
+	border-right-width:10px;
+	border-right-color:#B4DEF7;
+	
+	border-bottom-style:solid;
+	border-bottom-width:15px;
+	border-bottom-color:#B4DEF7;
+}
+
+.tabout td{
+	border-bottom-style:solid;
+	border-bottom-width:1px;
+	border-bottom-color:#CECECE;
+	border-right-style:solid;
+	border-right-width:1px;
+	border-right-color:#B4DEF7;
+}
+.taboutView {
+	width:90%;
+	border-left-style:solid;
+	border-left-width:1px;
+	border-left-color:#98BAC4;
+	border-top-style:solid;
+	border-top-width:1px;
+	border-top-color:#98BAC4;
+}
+.taboutView td{
+	border-bottom-style:solid;
+	border-bottom-width:1px;
+	border-bottom-color:#98BAC4;
+	border-right-style:solid;
+	border-right-width:1px;
+	border-right-color:#98BAC4;
+}
+.thListNormal {
+	BORDER-RIGHT: #dfddce 0px solid; BORDER-TOP: #dfddce 0px solid; 
+	background-image: url(../../images/lbj.jpg);
+	VERTICAL-ALIGN: middle; BORDER-LEFT: #dfddce 0px solid; 
+    COLOR: #000000; 
+	BORDER-BOTTOM: #ff9900 1px solid;
+	HEIGHT: 24px; 
+	BACKGROUND-COLOR: #ffffff;
+	TEXT-ALIGN: center
+}
+.thListLeft {
+	BORDER-RIGHT: #dfddce 0px solid; BORDER-TOP: #dfddce 0px solid; PADDING-LEFT: 10px; VERTICAL-ALIGN: middle; BORDER-LEFT: #dfddce 0px solid; COLOR: #000000; BORDER-BOTTOM: #ff9900 1px solid; HEIGHT: 24px; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: left
+}
+.thListRight {
+	BORDER-RIGHT: #eae9e4 1px solid; PADDING-RIGHT: 10px; BORDER-TOP: #eae9e4 0px solid; VERTICAL-ALIGN: middle; BORDER-LEFT: #eae9e4 0px solid; COLOR: #000000; BORDER-BOTTOM: #ff9900 1px solid; HEIGHT: 24px; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: right
+}
+.thFormNormal {
+	BORDER-RIGHT: #dfddce 0px solid; BORDER-TOP: #dfddce 0px solid; VERTICAL-ALIGN: middle; BORDER-LEFT: #dfddce 0px solid; COLOR: #000000; BORDER-BOTTOM: #ff9900 1px solid; HEIGHT: 24px; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: center
+}
+.trColor {
+	
+}
+.trWhite {
+	
+}
+.trColor01 {
+	
+}
+.trColor02 {
+	
+}
+.tdlistCenter {
+	BORDER-RIGHT: #e8e6d9 0px solid; BACKGROUND-POSITION: 50% bottom; BORDER-TOP: #dfddce 0px solid; BACKGROUND-IMAGE: url(../../images/xxline_h.gif); BORDER-LEFT: #dfddce 0px solid; BORDER-BOTTOM: #dfddce 0px solid; BACKGROUND-REPEAT: repeat-x; HEIGHT: 20px; TEXT-ALIGN: center;
+}
+.tdListRight {
+	BORDER-RIGHT: #e8e6d9 0px solid; BACKGROUND-POSITION: 50% bottom; BORDER-TOP: #dfddce 0px solid; BACKGROUND-IMAGE: url(../../images/xxline_h.gif); VERTICAL-ALIGN: middle; BORDER-LEFT: #dfddce 0px solid; BORDER-BOTTOM: #dfddce 0px solid; BACKGROUND-REPEAT: repeat-x; HEIGHT: 20px; TEXT-ALIGN: right
+}
+.tdListLeft {
+	BORDER-RIGHT: #e8e6d9 0px solid; BACKGROUND-POSITION: 50% bottom; BORDER-TOP: #dfddce 0px solid; BACKGROUND-IMAGE: url(../../images/xxline_h.gif); VERTICAL-ALIGN: middle; BORDER-LEFT: #dfddce 0px solid; BORDER-BOTTOM: #dfddce 0px solid; BACKGROUND-REPEAT: repeat-x; HEIGHT: 20px; TEXT-ALIGN: center;
+}
+.tdFormleft {
+	BORDER-RIGHT: #e8e6d9 0px solid; BACKGROUND-POSITION: 50% bottom; BORDER-TOP: #dfddce 0px solid; BACKGROUND-IMAGE: url(../../images/xxline_h.gif); BORDER-LEFT: #dfddce 0px solid; WIDTH: 25%; COLOR: #2764b5; BORDER-BOTTOM: #dfddce 0px solid; BACKGROUND-REPEAT: repeat-x; HEIGHT: 20px; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: right
+}
+.tdFormRight {
+	BORDER-RIGHT: #e8e6d9 0px solid; BACKGROUND-POSITION: 50% bottom; BORDER-TOP: #dfddce 0px solid; BACKGROUND-IMAGE: url(../../images/xxline_h.gif); BORDER-LEFT: #dfddce 0px solid; WIDTH: 75%; BORDER-BOTTOM: #dfddce 0px solid; BACKGROUND-REPEAT: repeat-x; HEIGHT: 20px; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: left
+}
+.tdFormText {
+	BORDER-RIGHT: #e8e6d9 0px solid; BACKGROUND-POSITION: 50% bottom; BORDER-TOP: #dfddce 0px solid; BACKGROUND-IMAGE: url(../../images/xxline_h.gif); BORDER-LEFT: #dfddce 0px solid; COLOR: #2764b5; PADDING-TOP: 3px; BORDER-BOTTOM: #dfddce 0px solid; BACKGROUND-REPEAT: repeat-x; HEIGHT: 20px; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: right
+}
+.tdFormInput {
+	BORDER-RIGHT: #e8e6d9 0px solid; BACKGROUND-POSITION: 50% bottom; BORDER-TOP: #dfddce 0px solid; BACKGROUND-IMAGE: url(../../images/xxline_h.gif); BORDER-LEFT: #dfddce 0px solid; BORDER-BOTTOM: #dfddce 0px solid; BACKGROUND-REPEAT: repeat-x; HEIGHT: 20px; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: left
+}
+.tdFormCenter {
+	BORDER-RIGHT: #e8e6d9 0px solid; BACKGROUND-POSITION: 50% bottom; BORDER-TOP: #dfddce 0px solid; BACKGROUND-IMAGE: url(../../images/xxline_h.gif); BORDER-LEFT: #dfddce 0px solid; BORDER-BOTTOM: #dfddce 0px solid; BACKGROUND-REPEAT: repeat-x; HEIGHT: 20px; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: center
+}
+.fieldsetStyle {
+	BORDER-RIGHT: #BBD2DA 1px solid; BORDER-TOP: #BBD2DA 1px solid; PADDING-BOTTOM: 10px; BORDER-LEFT: #BBD2DA 1px solid; WIDTH: 100%; PADDING-TOP: 10px; BORDER-BOTTOM: #BBD2DA 1px solid
+}
+FIELDSET.fieldsetStyle LEGEND {
+	BORDER-RIGHT: #7ca5e0 1px solid; PADDING-RIGHT: 10px; BORDER-TOP: #7ca5e0 1px solid; PADDING-LEFT: 10px; MARGIN-BOTTOM: 10px; PADDING-BOTTOM: 1px; BORDER-LEFT: #7ca5e0 1px solid; LINE-HEIGHT: 22px; PADDING-TOP: 1px; BORDER-BOTTOM: #7ca5e0 1px solid; HEIGHT: 22px; BACKGROUND-COLOR: #ffffcc
+}
+.formStyle {
+	
+}
+.selectStyleNormal {
+	BORDER-RIGHT: #fafefa 1px solid; BORDER-TOP: #323230 1px solid; BORDER-LEFT: #323230 1px solid; BORDER-BOTTOM: #fafefa 1px solid; BACKGROUND-COLOR: #ffffff
+}
+.selectStyleLong {
+	BORDER-RIGHT: #fafefa 1px solid; BORDER-TOP: #323230 1px solid; BORDER-LEFT: #323230 1px solid; WIDTH: 100%; BORDER-BOTTOM: #fafefa 1px solid; BACKGROUND-COLOR: #ffffff
+}
+.textarea {
+	BORDER-RIGHT: #a7b7c1 1px solid; BORDER-TOP: #a7b7c1 1px solid; BACKGROUND: #ffffff; BEHAVIOR: url(input_text.htc); OVERFLOW: auto; BORDER-LEFT: #a7b7c1 1px solid; WIDTH: 98%; LINE-HEIGHT: 140%; BORDER-BOTTOM: #a7b7c1 1px solid
+}
+.button {
+	BORDER-RIGHT: #7b9ebd 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #7b9ebd 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 12px; FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#cecfde); BORDER-LEFT: #7b9ebd 1px solid; CURSOR: hand; COLOR: black; PADDING-TOP: 2px; BORDER-BOTTOM: #7b9ebd 1px solid
+}
+.button2 {
+	BORDER-RIGHT: #7b9ebd 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #7b9ebd 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 12px; FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#cecfde); BORDER-LEFT: #7b9ebd 1px solid; CURSOR: hand; COLOR: black; PADDING-TOP: 2px; BORDER-BOTTOM: #7b9ebd 1px solid
+} 
+.buttonNormal {
+	BORDER-RIGHT: #89ade4 1px solid; BORDER-TOP: #98b8e9 1px solid; FILTER: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#90baf2', endColorStr='#688bcc', gradientType='0'); BEHAVIOR: url(button.htc); BORDER-LEFT: #98b8e9 1px solid; COLOR: #ffffff; BORDER-BOTTOM: #89ade4 1px solid; HEIGHT: 21px; TEXT-ALIGN: center
+}
+.buttonBig {
+	BORDER-RIGHT: #89ade4 1px solid; BORDER-TOP: #98b8e9 1px solid; FILTER: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#90baf2', endColorStr='#688bcc', gradientType='0'); BEHAVIOR: url(button.htc); BORDER-LEFT: #98b8e9 1px solid; WIDTH: 150px; COLOR: #ffffff; BORDER-BOTTOM: #89ade4 1px solid; HEIGHT: 21px; TEXT-ALIGN: center
+}
+.goButton {
+	BORDER-RIGHT: #5a6ca2 0px solid; BORDER-TOP: #5a6ca2 0px solid; FONT-SIZE: 12px; BORDER-LEFT: #5a6ca2 0px solid; WIDTH: 25px; CURSOR: hand; COLOR: #ffffff; BORDER-BOTTOM: #5a6ca2 0px solid; HEIGHT: 19px; TEXT-ALIGN: center
+}
+.arrowButton {
+	BORDER-RIGHT: #98b8e9 1px solid; BORDER-TOP: #98b8e9 1px solid; MARGIN-TOP: 4px; FILTER: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#90baf2', endColorStr='#688bcc', gradientType='0'); BEHAVIOR: url(button.htc); BORDER-LEFT: #98b8e9 1px solid; WIDTH: 24px; CURSOR: hand; COLOR: #ffffff; BORDER-BOTTOM: #98b8e9 1px solid; HEIGHT: 21px; TEXT-ALIGN: center
+}
+.inputTextLong {
+	BORDER-RIGHT: #a7b7c1 1px solid; BORDER-TOP: #a7b7c1 1px solid; FONT-SIZE: 12px; BACKGROUND: #ffffff; BEHAVIOR: url(input_text.htc); BORDER-LEFT: #a7b7c1 1px solid; WIDTH: 90%; BORDER-BOTTOM: #a7b7c1 1px solid; HEIGHT: 20px
+}
+.inputTextNormal {
+	BORDER-RIGHT: #a7b7c1 1px solid; BORDER-TOP: #a7b7c1 1px solid; FONT-SIZE: 12px; BACKGROUND: #ffffff; BEHAVIOR: url(input_text.htc); BORDER-LEFT: #a7b7c1 1px solid; BORDER-BOTTOM: #a7b7c1 1px solid; HEIGHT: 20px
+}
+.inputTextNumber {
+	BORDER-RIGHT: #a7b7c1 1px solid; BORDER-TOP: #a7b7c1 1px solid; FONT-SIZE: 12px; BACKGROUND: #ffffff; BEHAVIOR: url(input_text.htc); BORDER-LEFT: #a7b7c1 1px solid; BORDER-BOTTOM: #a7b7c1 1px solid; HEIGHT: 20px; TEXT-ALIGN: right
+}
+.inputTextSmall {
+	BORDER-RIGHT: #a7b7c1 1px solid; BORDER-TOP: #a7b7c1 1px solid; FONT-SIZE: 12px; BACKGROUND: #fefeec; BEHAVIOR: url(input_text.htc); BORDER-LEFT: #a7b7c1 1px solid; WIDTH: 20px; COLOR: #7ca5e0; BORDER-BOTTOM: #a7b7c1 1px solid; HEIGHT: 17px; TEXT-ALIGN: center
+}
+.inputTextFile {
+	BORDER-RIGHT: #7F9DB9 1px solid; BORDER-TOP: #7F9DB9 1px solid; FONT-SIZE: 12px; BACKGROUND: #ffffff; BEHAVIOR: url(input_text.htc); BORDER-LEFT: #7F9DB9 1px solid; BORDER-BOTTOM: #7F9DB9 1px solid; HEIGHT: 20px
+}
+.noticeWord {
+	
+}
+.input_line {
+	BORDER-TOP-STYLE: none; BORDER-BOTTOM: #cccccc 1px solid; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none
+}
+table th{
+font-size:12px; font-weight:bold; background-image: url(../../images/bg3.jpg);height:50px; font-style:top;
+}
+
+.titlebg{
+ 	width:100%;
+ 	color:#064764;
+	height:31px;
+	background-image: url(../../images/center-2.jpg);
+}
+
+
+/*
+	注意：请不要向该文件添加样式
+	css。css这个里面的样式以后一点点移到其他文件，这个文件将来会被删掉
+*/
+/* 在这里加上这个Css文件的作用范围... */
+/* 页面主体部分 */
+body, input
+{
+	margin: 0px;
+	font-size: 12px;
+}
+
+/* 整站背景边框无 */
+img{
+	border:none;}
+
+/* login文本框样式 */
+.Login #UserName, #Password
+{
+	background-image: url(../../Images/Text.Bg.jpg);
+}
+
+.titlebg{
+ 	width:100%;
+	height:31px;
+	color:#064764;
+	background-image: url(../../images/center-2.jpg);
+}
+
+
+.logotd {
+	font-size:18px;
+	font-weight:bold;
+	text-align:left;
+	vertical-align:bottom;
+	}	
+	
+/*头部背景样式 */
+.topbg{
+	width:100%;
+	height:88px;
+	background-image:url(../../images/top-1.jpg);}
+
+.leftbg{
+	with:100%;
+	height:24px;
+	background-image:url(../../images/3.jpg)}
+/*首页面标题样式 */
+.title{
+	font-size:12px;
+	font-weight:bold;
+	color:#4CA8C5;
+	height:28px;
+	}
+.title1{
+	font-size:12px;
+	font-weight:bold;
+	color:#000000;
+	}
+
+	
+/*头部字体链接样式*/
+.zt a:link{
+	color:#000000;
+	font-size:12px;
+	text-decoration:none;}
+.zt a:visited{
+	color:#FF0000;
+	font-size:12px;
+	text-decoration:none}
+/*链接样式*/
+a:link{
+	color:#000000;
+	font-size:12px;
+	text-decoration:none;}
+a:visited{
+	color:#000000;
+	font-size:12px;
+	text-decoration:none;}
+	
+	
+/*子页面背景定义*/
+.td1{
+	width:15px;
+	height:9px;
+	background-image:url(../../images/bk-left.jpg);
+}
+.td2{
+	width:15px;
+	height:9px;
+	background-image:url(../../images/bk-right.jpg);
+}
+.td3{
+	width:15px;
+	height:9px;
+	background-image:url(../../images/bk-xial.jpg);
+	vertical-align:left;
+	
+}
+.td4{
+	width:15px;
+	height:9px;
+	background-image:url(../../images/bk-xiar.jpg);
+}
+.td5{
+	width:5px;
+	height:100%;
+	background-image:url(../../images/bk-left1.jpg);
+}
+.td6{
+	width:15px;
+	height:100%;
+	background-image:url(../../images/bk-right1.jpg);
+}
+.td7{
+	width:98%;
+	height:9px;
+	background-image:url(../../images/bk-s1.jpg);
+}
+.td8{
+	width:98%;
+	height:34px;
+	background-image:url(../../images/title1.jpg);
+	text-align:center;
+	font-size:14px;
+	font-weight:bold;
+}
+.taboutbg{
+	background-image:url(../../images/titlebg.jpg);
+}
+
+.tdLabel {
+	text-align:right;
+	vertical-align:top; 
+	font-weight:bold;
+	width: 40%;
+} 
+.tdLabe2 {
+	text-align:right;
+	vertical-align:top; 
+	color:#085B75;
+	text-align:left;
+}
+/*表单样式*/
+.button {
+	BORDER-RIGHT: #7b9ebd 1px solid; 
+	PADDING-RIGHT: 2px; BORDER-TOP: #7b9ebd 1px solid; 
+	PADDING-LEFT: 2px; FONT-SIZE: 12px; 
+	FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#cecfde); 
+	BORDER-LEFT: #7b9ebd 1px solid; CURSOR: hand; COLOR: black; PADDING-TOP: 2px; BORDER-BOTTOM: #7b9ebd 1px solid;
+}
+.button1 {
+	BORDER-RIGHT: #7b9ebd 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #7b9ebd 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 12px; FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#cecfde); BORDER-LEFT: #7b9ebd 1px solid; CURSOR: hand; COLOR: black; PADDING-TOP: 2px; BORDER-BOTTOM: #7b9ebd 1px solid
+} 
+
+
+

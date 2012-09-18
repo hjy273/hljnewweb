@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="drillPlanBean" type="com.cabletech.linepatrol.drill.beans.DrillPlanBean" />
+		<form-bean name="drillPlanModifyBean" type="com.cabletech.linepatrol.drill.beans.DrillPlanModifyBean" />
+		<form-bean name="drillSummaryBean" type="com.cabletech.linepatrol.drill.beans.DrillSummaryBean" />
+		<form-bean name="drillTaskBean" type="com.cabletech.linepatrol.drill.beans.DrillTaskBean" />
+		<form-bean name="drillQueryConditionBean" type="com.cabletech.linepatrol.drill.beans.DrillQueryConditionBean" />
+		<form-bean name="drillExamBean" type="com.cabletech.linepatrol.drill.beans.DrillExamBean" />
+	</form-beans>
+	
+	<global-forwards>
+	</global-forwards>
+	
+	<action-mappings>
+		<action parameter="method" path="/drillTaskAction" scope="request" name="drillTaskBean"
+			type="com.cabletech.linepatrol.drill.action.DrillTaskAction">
+			<forward name="addDrillTask" path="/linepatrol/drill/drill_task_add.jsp"/>
+			<forward name="viewDrillTask" path="/linepatrol/drill/drill_task_view.jsp"/>
+			<forward name="drill_cancel" path="/linepatrol/drill/drill_cancel.jsp"/>
+			<forward name="view_drill_task_process" path="/linepatrol/drill/view_drill_task_process.jsp"/>
+			<forward name="query_drill_task_state" path="/linepatrol/drill/query_drill_task_state.jsp"/>
+			<forward name="agentList" path="/linepatrol/drill/drill_task_agentList.jsp"/>
+			<forward name="perfectDrillTaskList" path="/linepatrol/drill/drill_task_perfectlist.jsp"/>
+			<forward name="perfectDrillTask" path="/linepatrol/drill/drill_task_perfect.jsp"/>
+			<forward name="queryFinishHandledDrillList" path="/linepatrol/drill/drill_task_finish_agentList.jsp"/>
+		</action>
+		<action parameter="method" path="/drillPlanAction" scope="request" name="drillPlanBean"
+			type="com.cabletech.linepatrol.drill.action.DrillPlanAction">
+			<forward name="addDrillPlan" path="/linepatrol/drill/drill_plan_add.jsp"/>
+			<forward name="viewDrillPlan" path="/linepatrol/drill/drill_plan_view.jsp"/>
+			<forward name="editDrillPlan" path="/linepatrol/drill/drill_plan_edit.jsp"/>
+			<forward name="approveDrillPlan" path="/linepatrol/drill/drill_plan_approve.jsp"/>
+		</action>
+		<action parameter="method" path="/drillPlanModifyAction" scope="request" name="drillPlanModifyBean"
+			type="com.cabletech.linepatrol.drill.action.DrillPlanModifyAction">
+			<forward name="addDrillPlanModify" path="/linepatrol/drill/drill_plan_modify_add.jsp"/>
+			<forward name="viewDrillPlanModify" path="/linepatrol/drill/drill_plan_modify_view.jsp"/>
+			<forward name="approveDrillPlanModify" path="/linepatrol/drill/drill_plan_modify_approve.jsp"/>
+			<forward name="agentList" path="/linepatrol/drill/drill_plan_modify_agentList.jsp"/>
+			<forward name="drillEndQueryList" path="/linepatrol/drill/drill_plan_modify_list.jsp"/>
+			<forward name="viewDrillPlanModifyByPlanId" path="/linepatrol/drill/drill_plan_modify_otherview.jsp"/>
+		</action>
+		<action parameter="method" path="/drillSummaryAction" scope="request" name="drillSummaryBean"
+			type="com.cabletech.linepatrol.drill.action.DrillSummaryAction">
+			<forward name="addDrillSummary" path="/linepatrol/drill/drill_summary_add.jsp"/>
+			<forward name="viewDrillSummary" path="/linepatrol/drill/drill_summary_view.jsp"/>
+			<forward name="approveDrillSummary" path="/linepatrol/drill/drill_summary_approve.jsp"/>
+			<forward name="editDrillSummary" path="/linepatrol/drill/drill_summary_edit.jsp"/>
+		</action>
+		<action parameter="method" path="/queryStatAction" scope="request" name="drillQueryConditionBean"
+			type="com.cabletech.linepatrol.drill.action.QueryStatAction">
+			<forward name="drillQuery" path="/linepatrol/drill/drill_querystat_query.jsp"/>
+			<forward name="drillStat" path="/linepatrol/drill/drill_querystat_stat_query.jsp"/>
+			<forward name="queryList" path="/linepatrol/drill/drill_querystat_query.jsp"/>
+			<forward name="statList" path="/linepatrol/drill/drill_querystat_stat_query.jsp"/>
+			<forward name="viewDrill" path="/linepatrol/drill/drill_querystat_view.jsp"/>
+		</action>
+		<action parameter="method" path="/drillExamAction" scope="request" name="drillExamBean"
+			type="com.cabletech.linepatrol.drill.action.DrillExamAction">
+			<forward name="examList" path="/linepatrol/drill/drill_exam_list.jsp"/>
+			<forward name="examDrill" path="/linepatrol/drill/drill_exam_mark.jsp"/>
+		</action>
+		
+		<!-- 2010-4-17  杨隽  添加WAP操作的action START	-->
+		<action parameter="method" path="/wap/drillTaskAction" scope="request" name="drillTaskBean"
+			type="com.cabletech.linepatrol.drill.action.DrillTaskAction">
+			<forward name="drill_task_wait_handle_wap_list" path="/wap/drill/drill_task_wait_handle_wap_list.jsp"/>
+		</action>
+		<action parameter="method" path="/wap/drillPlanAction" scope="request" name="drillPlanBean"
+			type="com.cabletech.linepatrol.drill.action.DrillPlanAction">
+			<forward name="read_drill_plan_wap_task" path="/wap/drill/read_drill_plan_wap_task.jsp"/>
+			<forward name="approve_drill_plan_wap_task" path="/wap/drill/approve_drill_plan_wap_task.jsp"/>
+		</action>
+		<action parameter="method" path="/wap/drillPlanModifyAction" scope="request" name="drillPlanModifyBean"
+			type="com.cabletech.linepatrol.drill.action.DrillPlanModifyAction">
+			<forward name="read_drill_plan_modify_wap_task" path="/wap/drill/read_drill_plan_modify_wap_task.jsp"/>
+			<forward name="approve_drill_plan_modify_wap_task" path="/wap/drill/approve_drill_plan_modify_wap_task.jsp"/>
+		</action>
+		<action parameter="method" path="/wap/drillSummaryAction" scope="request" name="drillSummaryBean"
+			type="com.cabletech.linepatrol.drill.action.DrillSummaryAction">
+			<forward name="read_drill_summary_wap_task" path="/wap/drill/read_drill_summary_wap_task.jsp"/>
+			<forward name="approve_drill_summary_wap_task" path="/wap/drill/approve_drill_summary_wap_task.jsp"/>
+		</action>
+		<!-- 2010-4-17  杨隽  添加WAP操作的action END	-->
+	</action-mappings>
+</struts-config>
+

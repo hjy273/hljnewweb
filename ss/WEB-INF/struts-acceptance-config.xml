@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="applyBean"
+			type="com.cabletech.linepatrol.acceptance.beans.ApplyBean" />
+		<form-bean name="cableBean"
+			type="com.cabletech.linepatrol.acceptance.beans.CableBean" />
+		<form-bean name="pipesBean"
+			type="com.cabletech.linepatrol.acceptance.beans.PipesBean" />
+		<form-bean name="rcBean"
+			type="com.cabletech.linepatrol.acceptance.beans.RcBean" />
+		<form-bean name="rpBean"
+			type="com.cabletech.linepatrol.acceptance.beans.RpBean" />
+		<form-bean name="applyQueryBean"
+			type="com.cabletech.linepatrol.acceptance.beans.QueryBean" />
+		<form-bean name="queryReinspectBean"
+			type="com.cabletech.linepatrol.acceptance.beans.QueryReinspectBean" />
+		<form-bean name="accptanceExamBean"
+			type="com.cabletech.linepatrol.acceptance.beans.ExamBean" />
+	</form-beans>
+
+	<global-forwards>
+		<forward name="sucessMsg" path="/globinfo/sucessinfo.jsp" />
+		<forward name="errorMsg" path="/globinfo/errorinfo.jsp" />
+	</global-forwards>
+
+	<action-mappings>
+		<action parameter="method" path="/acceptanceAction" scope="request"
+			name="applyBean" type="com.cabletech.linepatrol.acceptance.action.AcceptanceAction">
+			<forward name="applyLink" path="/linepatrol/acceptance/apply.jsp" />
+			<forward name="reinspect" path="/linepatrol/acceptance/reinspect.jsp" />
+			<forward name="recheck" path="/linepatrol/acceptance/recheck.jsp" />
+			<forward name="cableList" path="/linepatrol/acceptance/cableList.jsp" />
+			<forward name="pipeList" path="/linepatrol/acceptance/pipeList.jsp" />
+			<forward name="toDoWork" path="/linepatrol/acceptance/toDoWork.jsp" />
+			<forward name="finishedWork" path="/linepatrol/acceptance/finishedWork.jsp" />
+			<forward name="allotTasks" path="/linepatrol/acceptance/allotTasks.jsp" />
+			<forward name="claimTask" path="/linepatrol/acceptance/claimTask.jsp" />
+			<forward name="chooseTask" path="/linepatrol/acceptance/chooseTask.jsp" />
+			<forward name="recordCableData" path="/linepatrol/acceptance/recordCableData.jsp" />
+			<forward name="editCableData" path="/linepatrol/acceptance/editCableData.jsp" />
+			<forward name="recordPipeData" path="/linepatrol/acceptance/recordPipeData.jsp" />
+			<forward name="editPipeData" path="/linepatrol/acceptance/editPipeData.jsp" />
+			<forward name="approveTasks" path="/linepatrol/acceptance/checkTasks.jsp" />
+			<forward name="approve" path="/linepatrol/acceptance/approve.jsp" />
+			<forward name="cancel_acceptance" path="/linepatrol/acceptance/cancel_acceptance.jsp" />
+			<forward name="viewPipe" path="/linepatrol/acceptance/viewPipe.jsp" />
+			<forward name="viewPipeData" path="/linepatrol/acceptance/viewPipeData.jsp" />
+			<forward name="viewPipeResult" path="/linepatrol/acceptance/viewPipeResult.jsp" />
+			<forward name="viewCable" path="/linepatrol/acceptance/viewCable.jsp" />
+			<forward name="viewCableData" path="/linepatrol/acceptance/viewCableData.jsp" />
+			<forward name="viewCableResult" path="/linepatrol/acceptance/viewCableResult.jsp" />
+			<forward name="query_acceptance_state"
+				path="/linepatrol/acceptance/query_acceptance_state.jsp" />
+			<forward name="view_acceptance_process"
+				path="/linepatrol/acceptance/view_acceptance_process.jsp" />
+		</action>
+		
+		<action parameter="method" path="/acceptanceExamAction" scope="request"
+			name="accptanceExamBean" type="com.cabletech.linepatrol.acceptance.action.AcceptanceAction">
+			<forward name="exam" path="/linepatrol/acceptance/exam.jsp" />
+		</action>
+
+		<action parameter="method" path="/acceptanceCableAction" scope="request"
+			name="cableBean" type="com.cabletech.linepatrol.acceptance.action.AcceptanceAction">
+			<forward name="recordResult" path="/linepatrol/acceptance/cableList.jsp" />
+		</action>
+
+		<action parameter="method" path="/acceptancePipesAction" scope="request"
+			name="pipesBean" type="com.cabletech.linepatrol.acceptance.action.AcceptanceAction">
+			<forward name="recordResult" path="/linepatrol/acceptance/pipeList.jsp" />
+		</action>
+		
+		<!-- 验收交维管道统计 -->
+		<action parameter="method" path="/acceptancePipeStatAction" scope="request"
+			name="pipesBean" type="com.cabletech.linepatrol.acceptance.action.AcceptancePipeStatAction">
+			<forward name="forwardPipeStatPage" path="/linepatrol/acceptance/pipe_stat_query.jsp" />
+		</action>
+
+		<action parameter="method" path="/acceptanceQueryAction" scope="request"
+			name="applyQueryBean" type="com.cabletech.linepatrol.acceptance.action.AcceptanceAction">
+			<forward name="queryLink" path="/linepatrol/acceptance/query.jsp" />
+			<forward name="result" path="/linepatrol/acceptance/query.jsp" />
+			<forward name="view" path="/linepatrol/acceptance/view.jsp" />
+			<forward name="cableResult" path="/linepatrol/acceptance/queryCable.jsp" />
+		</action>
+
+		<action parameter="method" path="/acceptanceRcAction" scope="request"
+			name="rcBean" type="com.cabletech.linepatrol.acceptance.action.AcceptanceAction" />
+
+		<action parameter="method" path="/acceptanceRpAction" scope="request"
+			name="rpBean" type="com.cabletech.linepatrol.acceptance.action.AcceptanceAction" />
+
+		<action parameter="method" path="/acceptanceReinspectAction"
+			scope="request" name="queryReinspectBean"
+			type="com.cabletech.linepatrol.acceptance.action.AcceptanceAction">
+			<forward name="pipe" path="/linepatrol/acceptance/reinspect_pipe.jsp" />
+			<forward name="cable" path="/linepatrol/acceptance/reinspect_cable.jsp" />
+		</action>
+		
+		<action parameter="method" path="/resourceBlendAction" scope="request" name="applyBean"
+			type="com.cabletech.linepatrol.acceptance.action.ResourceBlendAction">
+			<forward name="searchForm" path="/linepatrol/acceptance/resourceBlend.jsp"></forward>
+			<forward name="searchResult" path="/linepatrol/acceptance/resourceBlend.jsp"></forward>
+		</action>
+		
+		<!-- 验收交维计划查询 -->
+		<action parameter="method" path="/acceptancePlanQueryAction" scope="request"
+			name="applyBean" type="com.cabletech.linepatrol.acceptance.action.AcceptancePlanQueryAction">
+			<forward name="forwardPlanQueryPage" path="/linepatrol/acceptance/acceptance_plan_query.jsp" />
+			<forward name="editAcceptancePlanForm" path="/linepatrol/acceptance/acceptance_plan_edit.jsp" />
+			<forward name="cableList" path="/linepatrol/acceptance/cableList.jsp" />
+			<forward name="pipeList" path="/linepatrol/acceptance/pipeList.jsp" />
+		</action>
+	</action-mappings>
+</struts-config>

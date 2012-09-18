@@ -1,0 +1,2071 @@
+<?xml version='1.0' ?>
+<SystemMsgs>
+	<Message id="saveDict">
+		<info>该条信息保存成功。</info>
+		<link>/WebApp/dictionary.do?method=queryDictionary</link>
+	</Message>
+	<Message id="75001s">
+		<info>短信已经发送。</info>
+		<link>/WebApp/baseinfo/assignsubline.jsp</link>
+	</Message>
+	<Message id="75001S">
+		<info>短信定时发送任务已经启动。</info>
+		<link>/WebApp/baseinfo/assignsubline.jsp</link>
+	</Message>
+	<Message id="75101s">
+		<info>定时任务已经取消。</info>
+		<link>/WebApp/baseinfo/assignsubline.jsp</link>
+	</Message>
+	<Message id="75501s">
+		<info>添加邮箱信息成功！</info>
+		<link>/WebApp/baseinfo/assignsubline.jsp</link>
+	</Message>
+	<Message id="75502s">
+		<info>修改邮箱信息成功！</info>
+		<link>/WebApp/baseinfo/assignsubline.jsp</link>
+	</Message>
+	<Message id="75503s">
+		<info>删除邮箱信息成功！</info>
+		<link>/WebApp/baseinfo/assignsubline.jsp</link>
+	</Message>
+	<Message id="76001s">
+		<info>添加常用链接信息成功！</info>
+		<link>/WebApp/baseinfo/assignsubline.jsp</link>
+	</Message>
+	<Message id="76002s">
+		<info>修改常用链接信息成功！</info>
+		<link>/WebApp/baseinfo/assignsubline.jsp</link>
+	</Message>
+	<Message id="76003s">
+		<info>删除常用链接信息成功！</info>
+		<link>/WebApp/baseinfo/assignsubline.jsp</link>
+	</Message>
+	<Message id="76004s">
+		<info>添加公用链接信息成功！</info>
+		<link>/WebApp/baseinfo/assignsubline.jsp</link>
+	</Message>
+	<Message id="76005s">
+		<info>修改公用链接信息成功！</info>
+		<link>/WebApp/baseinfo/assignsubline.jsp</link>
+	</Message>
+	<Message id="76006s">
+		<info>删除公用链接信息成功！</info>
+		<link>/WebApp/baseinfo/assignsubline.jsp</link>
+	</Message>
+	<!-- 资源分配 -->
+	<Message id="72501f">
+		<info>线段重新分配失败，请重试。</info>
+		<link>/WebApp/baseinfo/assignsubline.jsp</link>
+	</Message>
+	<Message id="72501s">
+		<info>线段重新分配成功。</info>
+		<link>/WebApp/baseinfo/assignsubline.jsp</link>
+	</Message>
+	<Message id="72502f">
+		<info>设备重新分配失败，请重试。</info>
+		<link>/WebApp/baseinfo/assignterminal.jsp</link>
+	</Message>
+	<Message id="72502s">
+		<info>设备重新分配成功。</info>
+		<link>/WebApp/baseinfo/assignterminal.jsp</link>
+	</Message>
+	<!-- 月统计 -->
+	<Message id="s120201f">
+		<info>没有找到该月数据。</info>
+		<link>返回</link>
+	</Message>
+	<!-- 报告管理 -->
+	<Message id="r140101s">
+		<info>成功上报文件。</info>
+		<link>/WebApp/report/addreport.jsp</link>
+	</Message>
+	<Message id="r140101f">
+		<info>上报文件失败。</info>
+		<link>/WebApp/report/addreport.jsp</link>
+	</Message>
+	<Message id="r140102s">
+		<info>成功删除上报文件。</info>
+		<link>/WebApp/report/queryreport.jsp</link>
+	</Message>
+	<Message id="r140102f">
+		<info>删除上报文件失败。</info>
+		<link>/WebApp/report/queryreport.jsp</link>
+	</Message>
+	<Message id="r140103s">
+		<info>成功修改上报文件。</info>
+		<link>/WebApp/report/queryreport.jsp</link>
+	</Message>
+	<Message id="r140103f">
+		<info>修改上报文件失败。</info>
+		<link>/WebApp/report/queryreport.jsp</link>
+	</Message>
+	<Message id="r140201s">
+		<info>成功审核。</info>
+		<link>/WebApp/ReportAction.do?method=queryReport&amp;con=noauditing</link>
+	</Message>
+	<Message id="r140201f">
+		<info>审核失败。</info>
+		<link>/WebApp/ReportAction.do?method=queryReport&amp;con=noauditing</link>
+	</Message>
+	<!-- 知识管理 -->
+	<Message id="d130101s">
+		<info>成功保存制度。</info>
+		<link>/WebApp/datum/addsystemfile.jsp</link>
+	</Message>
+	<Message id="d130101f">
+		<info>保存制度失败。</info>
+		<link>返回</link>
+	</Message>
+	<Message id="d130102s">
+		<info>成功修改制度。</info>
+		<link>/WebApp/datum/querysystemfile.jsp</link>
+	</Message>
+	<Message id="d130102f">
+		<info>修改制度失败。</info>
+		<link>返回</link>
+	</Message>
+	<Message id="d130103s">
+		<info>成功删除制度。</info>
+		<link>/WebApp/datum/querysystemfile.jsp</link>
+	</Message>
+	<Message id="d130103f">
+		<info>删除制度失败。</info>
+		<link>返回</link>
+	</Message>
+
+	<Message id="d130201s">
+		<info>成功保存技术规范。</info>
+		<link>/WebApp/datum/addcriterionfile.jsp</link>
+	</Message>
+	<Message id="d130201f">
+		<info>保存技术规范失败。</info>
+		<link>返回</link>
+	</Message>
+	<Message id="d130202s">
+		<info>成功修改技术规范。</info>
+		<link>/WebApp/datum/querycriterionfile.jsp</link>
+	</Message>
+	<Message id="d130202f">
+		<info>修改技术规范失败。</info>
+		<link>返回</link>
+	</Message>
+	<Message id="d130203s">
+		<info>成功删除技术规范。</info>
+		<link>/WebApp/datum/querycriterionfile.jsp</link>
+	</Message>
+	<Message id="d130203f">
+		<info>删除技术规范失败。</info>
+		<link>返回</link>
+	</Message>
+
+	<Message id="d130301s">
+		<info>成功保存代维经验。</info>
+		<link>/WebApp/datum/addexperiencefile.jsp</link>
+	</Message>
+	<Message id="d130301f">
+		<info>保存代维经验失败。</info>
+		<link>返回</link>
+	</Message>
+	<Message id="d130302s">
+		<info>成功修改代维经验。</info>
+		<link>/WebApp/datum/queryexperiencefile.jsp</link>
+	</Message>
+	<Message id="d130302f">
+		<info>修改代维经验失败。</info>
+		<link>返回</link>
+	</Message>
+	<Message id="d130303s">
+		<info>成功删除代维经验。</info>
+		<link>/WebApp/datum/queryexperiencefile.jsp</link>
+	</Message>
+	<Message id="d130303f">
+		<info>删除代维经验失败。</info>
+		<link>返回</link>
+	</Message>
+
+	<Message id="0011quxian">
+		<info>成功创建区县信息！</info>
+		<link>/WebApp/linepatrol/remedy/addCounty.jsp</link>
+	</Message>
+	<Message id="0011quxianerror">
+		<info>存在相同的区县信息！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="0022quxian">
+		<info>成功修改区县信息 !</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="0023quxian">
+		<info>成功删除区县信息 !</info>
+		<link>{0}</link>
+	</Message>
+
+	<!-- 公告管理 -->
+
+	<Message id="s72301">
+		<info>成功保存信息。</info>
+		<link>/WebApp/NoticeAction.do?method=addForm</link>
+	</Message>
+	<Message id="f723012">
+		<info>与会人员不能为空！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="f72301">
+		<info>保存信息失败。</info>
+		<link>返回</link>
+	</Message>
+	<Message id="s72301f">
+		<info>成功发布信息。</info>
+		<link>/WebApp/NoticeAction.do?method=addForm</link>
+	</Message>
+	<Message id="f72301f">
+		<info>发布信息失败。</info>
+		<link>返回</link>
+	</Message>
+
+	<Message id="s72302">
+		<info>成功修改信息。</info>
+		<link>/WebApp/NoticeAction.do?method=queryNoticeForm</link>
+	</Message>
+	<Message id="f72302">
+		<info>修改信息失败。</info>
+		<link>返回</link>
+	</Message>
+	<Message id="s72303">
+		<info>成功删除信息。</info>
+		<link>/WebApp/NoticeAction.do?method=queryNoticeForm</link>
+	</Message>
+	<Message id="f72303">
+		<info>删除信息失败。</info>
+		<link>返回</link>
+	</Message>
+	<Message id="SS72303">
+		<info>成功取消会议信息。</info>
+		<link>/WebApp/NoticeAction.do?method=queryNoticeForm</link>
+	</Message>
+	<!--CT故障码管理 -->
+	<Message id="72202">
+		<info>成功添加隐患码。</info>
+		<link>/WebApp/TroubleCodeAction.do?method=load_TroubleCode</link>
+	</Message>
+	<Message id="e72202">
+		<info>添加隐患码失败。</info>
+		<link>/WebApp/TroubleCodeAction.do?method=load_TroubleCode</link>
+	</Message>
+	<Message id="72204">
+		<info>成功修改隐患码。</info>
+		<link>/WebApp/TroubleCodeAction.do?method=load_TroubleCode</link>
+	</Message>
+	<Message id="e72204">
+		<info>修改隐患码失败。</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="72205">
+		<info>成功删除隐患码。</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="e72205">
+		<info>删除隐患码失败。</info>
+		<link>/WebApp/TroubleCodeAction.do?method=load_TroubleCode</link>
+	</Message>
+	<Message id="72207">
+		<info>成功添加隐患类型。</info>
+		<link>/WebApp/TroubleCodeAction.do?method=load_TroubleType</link>
+	</Message>
+	<Message id="e72207">
+		<info>添加隐患类型失败。</info>
+		<link>/WebApp/TroubleCodeAction.do?method=load_TroubleType</link>
+	</Message>
+	<Message id="72208">
+		<info>成功修改隐患类型。</info>
+		<link>/WebApp/TroubleCodeAction.do?method=load_TroubleType</link>
+	</Message>
+	<Message id="e72208">
+		<info>修改隐患类型失败。</info>
+		<link>/WebApp/TroubleCodeAction.do?method=load_TroubleType</link>
+	</Message>
+	<Message id="72209">
+		<info>成功删除隐患类型。</info>
+		<link>/WebApp/TroubleCodeAction.do?method=load_TroubleType</link>
+	</Message>
+	<Message id="e72209">
+		<info>删除隐患类型失败。</info>
+		<link>/WebApp/TroubleCodeAction.do?method=load_TroubleType</link>
+	</Message>
+	<Message id="72210">
+		<info>成功下传隐患码。</info>
+		<link>/WebApp/TroubleCodeAction.do?method=load_TroubleCode</link>
+	</Message>
+	<Message id="e72210">
+		<info>下传隐患码失败。</info>
+		<link>/WebApp/TroubleCodeAction.do?method=load_TroubleCode</link>
+	</Message>
+	<!--通讯录管理 -->
+	<Message id="70808e1">
+		<info>通讯录中缺少姓名或者密码！更新失败。</info>
+		<link>/WebApp/terminalAction.do?method=showPhoneBook</link>
+	</Message>
+	<Message id="70808e2">
+		<info>通讯录更新失败。</info>
+		<link>/WebApp/terminalAction.do?method=showPhoneBook</link>
+	</Message>
+	<Message id="70808e3">
+		<info>通讯录中有空数据,更新失败。</info>
+		<link>/WebApp/terminalAction.do?method=showPhoneBook</link>
+	</Message>
+	<Message id="70808">
+		<info>通讯录更新成功。</info>
+		<link>/WebApp/terminalAction.do?method=showPhoneBook</link>
+	</Message>
+	
+	<!-- 集团客户资料管理 -->
+	<Message id="150101">
+		<info>增加客户资料成功！</info>
+		<link>/WebApp/GroupCustomerAction.do?method=showGroupCustomerAdd</link>
+	</Message>
+
+	<Message id="150101up">
+		<info>导入客户资料成功！</info>
+		<link>/WebApp/GroupCustomerAction.do?method=showGroupCustomerAdd</link>
+	</Message>
+	<Message id="150102">
+		<info>修改客户资料成功！</info>
+		<link>/WebApp/GroupCustomerAction.do?method=doBack</link>
+	</Message>
+	<Message id="150102d">
+		<info>删除客户资料成功！</info>
+		<link>/WebApp/GroupCustomerAction.do?method=doBack</link>
+	</Message>
+	<!-- 临时点导入 -->
+	<Message id="101101">
+		<info>导入临时点资料成功！</info>
+		<link>/WebApp/TemppointAction.do?method=showTemppointAdd</link>
+	</Message>
+
+	<!--割接管理 -->
+	<Message id="30602">
+		<info>成功验收割接施工！</info>
+		<link>/WebApp/LineCutAcceptAction.do?method=showAllWorkForAcc</link>
+	</Message>
+	<Message id="30602e">
+		<info>验收割接施工失败！</info>
+		<link>/WebApp/LineCutAcceptAction.do?method=showAllWorkForAcc</link>
+	</Message>
+	<Message id="30402">
+		<info>成功添加归档信息！</info>
+		<link>/WebApp/LineCutWorkAction.do?method=waitArShow</link>
+	</Message>
+	<Message id="30402e">
+		<info>添加归档信息出错！</info>
+		<link>/WebApp/LineCutWorkAction.do?method=waitArShow</link>
+	</Message>
+	<Message id="30304">
+		<info>成功修改施工信息！</info>
+		<link>/WebApp/LineCutWorkAction.do?method=doQueryForWorkAfterMod</link>
+	</Message>
+	<Message id="30304e">
+		<info>修改施工信息失败！</info>
+		<link>/WebApp/LineCutWorkAction.do?method=doQueryForWorkAfterMod</link>
+	</Message>
+	<Message id="30302">
+		<info>成功添加施工信息！</info>
+		<link>/WebApp/LineCutWorkAction.do?method=workShow</link>
+	</Message>
+	<Message id="30302e">
+		<info>添加施工信息出错！</info>
+		<link>/WebApp/LineCutWorkAction.do?method=workShow</link>
+	</Message>
+	<Message id="30202">
+		<info>成功审批割接申请！</info>
+		<link>/WebApp/LineCutReAction.do?method=auditShow</link>
+	</Message>
+	<Message id="30202e">
+		<info>审批割接申请出错！</info>
+		<link>/WebApp/LineCutReAction.do?method=auditShow</link>
+	</Message>
+	<Message id="30105">
+		<info>成功删除割接申请！</info>
+		<link>/WebApp/LineCutReAction.do?method=doQueryAfterMod</link>
+	</Message>
+	<Message id="30105e">
+		<info>该申请已经审批,不能删除！</info>
+		<link>/WebApp/LineCutReAction.do?method=doQueryAfterMod</link>
+	</Message>
+	<Message id="30104">
+		<info>成功修改割接申请！</info>
+		<link>/WebApp/LineCutReAction.do?method=doQueryAfterMod</link>
+	</Message>
+	<Message id="30104ee">
+		<info>修改割接申请出错！</info>
+		<link>/WebApp/LineCutReAction.do?method=doQueryAfterMod</link>
+	</Message>
+	<Message id="30102">
+		<info>成功填写割接申请！</info>
+		<link>/WebApp/LineCutReAction.do?method=addShow</link>
+	</Message>
+	<Message id="30102e">
+		<info>提交割接申请出错！</info>
+		<link>/WebApp/LineCutReAction.do?method=addShow</link>
+	</Message>
+	<Message id="30104e">
+		<info>该申请已经审批,不能修改！</info>
+		<link>/WebApp/LineCutReAction.do?method=showAllRe</link>
+	</Message>
+	<Message id="30104d">
+		<info>该申请已经审批,不能删除！</info>
+		<link>/WebApp/LineCutReAction.do?method=showAllRe</link>
+	</Message>
+	<!--ysj add 备件管理 -->
+	<Message id="90408">
+		<info>成功填写送修报废单！</info>
+		<link>/WebApp/ToolToMainAction.do?method=addMainDeleShow</link>
+	</Message>
+	<Message id="90407">
+		<info>成功填写送修入库单！</info>
+		<link>/WebApp/ToolToMainAction.do?method=addMainBackShow</link>
+	</Message>
+	<Message id="90402">
+		<info>成功填写送修单！</info>
+		<link>/WebApp/ToolToMainAction.do?method=addMainShow</link>
+	</Message>
+	<Message id="90305">
+		<info>成功删除报修单！</info>
+		<link>/WebApp/ToolMainAction.do?method=showAllMain</link>
+	</Message>
+	<Message id="90304">
+		<info>成功修改报修单！</info>
+		<link>/WebApp/ToolMainAction.do?method=showAllMain</link>
+	</Message>
+	<Message id="90302">
+		<info>成功填写报修单！</info>
+		<link>/WebApp/ToolMainAction.do?method=addMainShow</link>
+	</Message>
+	<Message id="90301e">
+		<info>对不起,还没有记录！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="90102">
+		<info>成功填写领用单！</info>
+		<link>/WebApp/ToolUseAction.do?method=addUseShow</link>
+	</Message>
+	<Message id="90106">
+		<info>成功返还备件！</info>
+		<link>/WebApp/ToolUseAction.do?method=backQueryExec</link>
+	</Message>
+
+	<!-- fengjj -->
+	<Message id="90802Fail">
+		<info>备件基本信息不能重复！</info>
+		<link>/WebApp/SeparepartBaseInfoAction.do?method=showAddSeparepart</link>
+	</Message>
+	<Message id="90802FailEdit">
+		<info>备件基本信息不能重复！</info>
+		<link>/WebApp/SeparepartBaseInfoAction.do?method=showQuery</link>
+	</Message>
+
+	<Message id="90802">
+		<info>成功添加备件信息！</info>
+		<link>/WebApp/SeparepartBaseInfoAction.do?method=showAddSeparepart</link>
+	</Message>
+	<Message id="90802error">
+		<info>添加备件信息失败！</info>
+		<link>/WebApp/SeparepartBaseInfoAction.do?method=showAddSeparepart</link>
+	</Message>
+	<Message id="90804">
+		<info>成功修改备件信息！</info>
+		<link>/WebApp/SeparepartBaseInfoAction.do?method=showQueryAfterMod</link>
+	</Message>
+	<Message id="90804error">
+		<info>修改备件信息失败！</info>
+		<link>/WebApp/SeparepartBaseInfoAction.do?method=showQueryAfterMod</link>
+	</Message>
+
+	<Message id="90805Fail">
+		<info>删除失败,库存表已经有该备件!</info>
+		<link>/WebApp/SeparepartBaseInfoAction.do?method=showQueryAfterMod</link>
+	</Message>
+
+	<Message id="90805">
+		<info>成功删除备件信息！</info>
+		<link>/WebApp/SeparepartBaseInfoAction.do?method=showQueryAfterMod</link>
+	</Message>
+
+	<Message id="90805error">
+		<info>删除备件信息失败！</info>
+		<link>/WebApp/SeparepartBaseInfoAction.do?method=showQueryAfterMod</link>
+	</Message>
+
+	<Message id="908055e">
+		<info>不能删除该备件信息！</info>
+		<link>/WebApp/SeparepartBaseInfoAction.do?method=showQueryAfterMod</link>
+	</Message>
+
+	<Message id="90502e">
+		<info>错误,请检查备件名称和数量！</info>
+		<link>返回</link>
+	</Message>
+
+	<Message id="909scrappedFail">
+		<info>不能更新备件为报废状态！</info>
+		<link>/WebApp/SparepartStorageAction.do?method=showRestoredQuery</link>
+	</Message>
+
+	<Message id="909scrappedSucc">
+		<info>备件报废成功!</info>
+		<link>/WebApp/SparepartStorageAction.do?method=showRestoredQuery</link>
+	</Message>
+
+	<Message id="90502">
+		<info>成功填写入库单！</info>
+		<link>/WebApp/ToolStockAction.do?method=stockShow</link>
+	</Message>
+	<Message id="90602">
+		<info>成功填写报废单！</info>
+		<link>/WebApp/ToolStockAction.do?method=revokeShow</link>
+	</Message>
+	<Message id="72002">
+		<info>成功添加人员信息！</info>
+		<link>/WebApp/ConPersonAction.do?method=addConPersonShow</link>
+	</Message>
+	<Message id="72004">
+		<info>成功修改人员信息！</info>
+		<link>/WebApp/ConPersonAction.do?method=showConPerson</link>
+	</Message>
+	<Message id="72005">
+		<info>成功删除人员信息！</info>
+		<link>/WebApp/ConPersonAction.do?method=showConPerson</link>
+	</Message>
+	<!-- 材料管理 -->
+
+	<Message id="80602">
+		<info>成功初始化了库存！</info>
+		<link>/WebApp/PartStorageAction.do?method=initStorageShow</link>
+	</Message>
+	<Message id="80306">
+		<info>成功提交了退库单！</info>
+		<link>/WebApp/partManage/partBack.jsp</link>
+	</Message>
+	<Message id="80306e">
+		<info>选择的材料用途不存在，请重新选择！</info>
+		<link>/WebApp/partManage/partBack.jsp</link>
+	</Message>
+	<Message id="80302">
+		<info>成功提交了出库单！</info>
+		<link>/WebApp/PartUseAction.do?method=addUseShow</link>
+	</Message>
+	<Message id="80502">
+		<info>成功提交利旧材料入库单！</info>
+		<link>/WebApp/PartStockAction.do?method=addOldShow</link>
+	</Message>
+	<Message id="80502e">
+		<info>没有填利旧材料数量或者没有选择材料名称！</info>
+		<link>/WebApp/PartStockAction.do?method=addOldShow</link>
+	</Message>
+	<Message id="80402">
+		<info>成功提交入库单！</info>
+		<link>/WebApp/PartStockAction.do?method=doStockShow</link>
+	</Message>
+	<Message id="80202">
+		<info>成功提交审批单！</info>
+		<link>/WebApp/PartRequisitionAction.do?method=doAuditShow</link>
+	</Message>
+	<Message id="802020">
+		<info>成功提交审核单！</info>
+		<link>/WebApp/PartRequisitionAction.do?method=doAuditShow</link>
+	</Message>
+
+	<Message id="partauditerror">
+		<info>对不起,权限不够，不能操作！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="partstockerror">
+		<info>权限不够，不能操作。对不起！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="structerror">
+		<info>文件类型不正确！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="fileerror">
+		<info>没有选择文件！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="80105e">
+		<info>已经审批,不能删除！</info>
+		<link>/WebApp/PartRequisitionAction.do?method=showAllRequisition</link>
+	</Message>
+	<Message id="80105">
+		<info>成功的删除了申请单！</info>
+		<link>/WebApp/PartRequisitionAction.do?method=showAllRequisition</link>
+	</Message>
+	<Message id="80104">
+		<info>成功的更新了申请单！</info>
+		<link>/WebApp/PartRequisitionAction.do?method=showAllRequisition</link>
+	</Message>
+	<Message id="80104e">
+		<info>已经审批,不能修改！</info>
+		<link>/WebApp/PartRequisitionAction.do?method=showAllRequisition</link>
+	</Message>
+	<Message id="80102e">
+		<info>没有填写申请数量或者没有选择材料名称！</info>
+		<link>/WebApp/PartRequisitionAction.do?method=addReShow</link>
+	</Message>
+	<Message id="80102e2">
+		<info>申请材料不能重复选择！</info>
+		<link>/WebApp/PartRequisitionAction.do?method=addReShow</link>
+	</Message>
+	<Message id="80102">
+		<info>成功提交了材料申请单！</info>
+		<link>/WebApp/PartRequisitionAction.do?method=addReShow</link>
+	</Message>
+	<Message id="80705">
+		<info>成功删除维护材料信息！</info>
+		<link>/WebApp/PartBaseInfoAction.do?method=showPartBaseInfo</link>
+	</Message>
+	<Message id="80705e">
+		<info>不能删除该材料信息！</info>
+		<link>/WebApp/PartBaseInfoAction.do?method=showPartBaseInfo</link>
+	</Message>
+	<Message id="80704">
+		<info>成功修改维护材料信息！</info>
+		<link>/WebApp/PartBaseInfoAction.do?method=showPartBaseInfo</link>
+	</Message>
+	<Message id="80702">
+		<info>成功添加维护材料信息！</info>
+		<link>/WebApp/PartBaseInfoAction.do?method=addPartBaseInfoshow</link>
+	</Message>
+	<Message id="S_MT_APPLY_SAVED">
+		<info>材料申请信息已经保存！</info>
+		<link>/WebApp/PartBaseInfoAction.do?method=addPartBaseInfoshow</link>
+	</Message>
+	<Message id="S_MT_APPLY_ADD">
+		<info>材料申请信息已经提交，等待移动公司进行审核！</info>
+		<link>/WebApp/PartBaseInfoAction.do?method=addPartBaseInfoshow</link>
+	</Message>
+	<Message id="S_MT_APPLY_MOD">
+		<info>材料申请修改信息已经提交，等待移动公司进行审核！</info>
+		<link>/WebApp/PartBaseInfoAction.do?method=addPartBaseInfoshow</link>
+	</Message>
+	<Message id="S_MT_APPLY_DEL">
+		<info>材料申请信息已经删除！</info>
+		<link>/WebApp/PartBaseInfoAction.do?method=addPartBaseInfoshow</link>
+	</Message>
+	<Message id="S_MT_APPLY_APPROVE_NO">
+		<info>材料申请信息移动公司审核不通过，等待代维公司进行修改信息！</info>
+		<link>/WebApp/PartBaseInfoAction.do?method=addPartBaseInfoshow</link>
+	</Message>
+	<Message id="S_MT_APPLY_APPROVE_YES">
+		<info>材料申请信息移动公司审核通过，等待代维公司进行入库！</info>
+		<link>/WebApp/PartBaseInfoAction.do?method=addPartBaseInfoshow</link>
+	</Message>
+	<Message id="S_MT_APPLY_APPROVE_TRANSFER">
+		<info>材料申请信息已经转审，等待转审人进行审核！</info>
+		<link>/WebApp/PartBaseInfoAction.do?method=addPartBaseInfoshow</link>
+	</Message>
+	<Message id="S_MT_APPLY_APPROVE_READ">
+		<info>材料申请信息已经完成批阅！</info>
+		<link>/WebApp/PartBaseInfoAction.do?method=addPartBaseInfoshow</link>
+	</Message>
+	<Message id="S_MT_PUT_STORAGE_SAVED">
+		<info>材料入库信息已经保存！</info>
+		<link>/WebApp/PartBaseInfoAction.do?method=addPartBaseInfoshow</link>
+	</Message>
+	<Message id="S_MT_PUT_STORAGE_ADD">
+		<info>材料入库信息已经提交，等待移动公司进行确认！</info>
+		<link>/WebApp/PartBaseInfoAction.do?method=addPartBaseInfoshow</link>
+	</Message>
+	<Message id="S_MT_PUT_STORAGE_MOD">
+		<info>材料入库修改信息已经提交，等待移动公司进行确认！</info>
+		<link>/WebApp/PartBaseInfoAction.do?method=addPartBaseInfoshow</link>
+	</Message>
+	<Message id="S_MT_PUT_STORAGE_DEL">
+		<info>材料入库信息已经删除！</info>
+		<link>/WebApp/PartBaseInfoAction.do?method=addPartBaseInfoshow</link>
+	</Message>
+	<Message id="S_MT_PUT_STORAGE_APPROVE_NO">
+		<info>材料入库信息移动公司确认不通过，等待代维公司进行修改！</info>
+		<link>/WebApp/PartBaseInfoAction.do?method=addPartBaseInfoshow</link>
+	</Message>
+	<Message id="S_MT_PUT_STORAGE_APPROVE_YES">
+		<info>材料入库信息移动公司确认通过，流程结束！</info>
+		<link>/WebApp/PartBaseInfoAction.do?method=addPartBaseInfoshow</link>
+	</Message>
+	<Message id="S_MT_PUT_STORAGE_APPROVE_TRANSFER">
+		<info>材料入库信息已经转审，等待转审人进行确认！</info>
+		<link>/WebApp/PartBaseInfoAction.do?method=addPartBaseInfoshow</link>
+	</Message>
+	<Message id="S_MT_PUT_STORAGE_APPROVE_READ">
+		<info>材料入库信息已经完成批阅！</info>
+		<link>/WebApp/PartBaseInfoAction.do?method=addPartBaseInfoshow</link>
+	</Message>
+	<Message id="error">
+		<info>对不起,该操作没有成功！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="powererror">
+		<info>对不起,你的权限不够！</info>
+		<link>/WebApp/globinfo/powererror.jsp</link>
+	</Message>
+	<!-- 维护材料 -->
+	<Message id="1201">
+		<info>成功创建维护材料信息！</info>
+		<link>/WebApp/EquipManage/addMaintainStuff.jsp</link>
+	</Message>
+	<Message id="1202">
+		<info>成功修改维护材料信息 ！</info>
+		<link>/WebApp/EquipManage/queryMaintainStuff.jsp</link>
+	</Message>
+	<Message id="1203">
+		<info>成功删除该纪录 ！</info>
+		<link>/WebApp/EquipManage/queryMaintainStuff.jsp</link>
+	</Message>
+	<Message id="1204">
+		<info>成功使用维护材料信息！</info>
+		<link>/WebApp/MaintainStuffAction.do?method=queryMaintainStuffList</link>
+	</Message>
+
+	<Message id="0301">
+		<info>成功创建信息！</info>
+		<link>/WebApp/baseinfo/addPatrolOp.jsp</link>
+	</Message>
+	<Message id="0302">
+		<info>成功修改信息！</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="0303">
+		<info>成功删除该纪录 ！</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="0141">
+		<info>成功创建移动终端信息！</info>
+		<link>/WebApp/baseinfo/addTerminal.jsp</link>
+	</Message>
+	<Message id="0142">
+		<info>成功修改移动终端信息！</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="0143">
+		<info>成功初始化移动终端信息！</info>
+		<link>/WebApp/terminalAction.do?method=queryTerminal&amp;produceMan=&amp;terminalModel=&amp;simNumber=</link>
+	</Message>
+	<Message id="0145">
+		<info>成功删除移动终端信息！</info>
+		<link>{0}</link>
+	</Message>
+
+	<Message id="0021">
+		<info>成功创建巡检维护组信息！</info>
+		<link>/WebApp/baseinfo/addPatrolMan.jsp</link>
+	</Message>
+	<Message id="0022">
+		<info>成功修改巡检维护组信息！</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="0023">
+		<info>成功删除巡检维护组信息 ！</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="0024">
+		<info>成功创建巡检人员信息！</info>
+		<link>/WebApp/baseinfo/addPatrolMan_son.jsp</link>
+	</Message>
+	<Message id="0025">
+		<info>成功修改巡检人员信息！</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="0026">
+		<info>成功删除巡检人员信息 ！</info>
+		<link>{0}</link>
+	</Message>
+	<!-- 外力盯防管理 -->
+
+	<Message id="019001">
+		<info>没有外力盯防信息，不能生成报表！</info>
+		<link>/WebApp/watchAction.do?method=showQueryWatchExeSta</link>
+	</Message>
+	<Message id="0191">
+		<info>成功创建外力盯防信息！</info>
+		<link>/WebApp/WatchManage/queryTempWatchPoint.jsp</link>
+	</Message>
+	<Message id="0192">
+		<info>成功修改外力盯防信息 ！</info>
+		<link>/WebApp/WatchManage/queryWatch.jsp</link>
+	</Message>
+	<Message id="0193">
+		<info>更新该外力盯防属性成功！</info>
+		<link>javascript:history.back()</link>
+	</Message>
+	<Message id="0194">
+		<info>填写该外力盯防施工核查报表成功！</info>
+		<link>/WebApp/watchAction.do?method=loadAllDoneWatches</link>
+	</Message>
+	<Message id="0195">
+		<info>填写成功！</info>
+		<link>javascript:self.close()</link>
+	</Message>
+	<Message id="0196">
+		<info>短信中心活动时段成功！</info>
+		<link>/WebApp/SMSTimeAction.do?method=getTime</link>
+	</Message>
+	<Message id="0197">
+		<info>成功删除外力盯防信息！</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="0198">
+		<info>成功忽略该盯防点！</info>
+		<link>/WebApp/watchAction.do?method=queryTempWatch</link>
+	</Message>
+
+
+	<!-- 下发隐患处理任务单 -->
+	<Message id="0213">
+		<info>成功下发该通知单！</info>
+		<link>/WebApp/TroubleManage/queryAccident.jsp</link>
+	</Message>
+	<Message id="02130">
+		<info>成功忽略该障碍！</info>
+		<link>/WebApp/TroubleManage/queryAccident.jsp</link>
+	</Message>
+	<Message id="0214">
+		<info>成功响应该通知单！</info>
+		<link>/WebApp/TroubleManage/queryAccident.jsp</link>
+	</Message>
+	<Message id="0215">
+		<info>成功完成该通知单！</info>
+		<link>/WebApp/TroubleManage/queryTrouble.jsp</link>
+	</Message>
+	<Message id="0216">
+		<info>成功确认该通知单！</info>
+		<link>/WebApp/TroubleManage/queryAccident.jsp</link>
+	</Message>
+	<!-- 下发隐患处理任务单 -->
+	<Message id="02230">
+		<info>成功忽略该隐患！</info>
+		<link>/WebApp/TroubleManage/queryTrouble.jsp?regionid=</link>
+	</Message>
+	<Message id="0223">
+		<info>成功下发该通知单！</info>
+		<link>/WebApp/TroubleManage/queryTrouble.jsp?regionid=</link>
+	</Message>
+	<Message id="0224">
+		<info>成功响应该通知单！</info>
+		<link>/WebApp/TroubleManage/queryTrouble.jsp</link>
+	</Message>
+	<Message id="0225">
+		<info>成功完成该通知单！</info>
+		<link>/WebApp/TroubleManage/queryTrouble.jsp?regionid=</link>
+	</Message>
+	<Message id="0226">
+		<info>成功确认该通知单！</info>
+		<link>/WebApp/TroubleManage/queryTrouble.jsp</link>
+	</Message>
+	<!-- 用户组 -->
+	<Message id="0217">
+		<info>成功增加该用户组！</info>
+		<link>/WebApp/baseinfo/addUsergroup.jsp</link>
+	</Message>
+	<Message id="0218">
+		<info>成功删除该用户组！</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="0219">
+		<info>成功更新该用户组！</info>
+		<link>/WebApp/UsergroupAction.do?method=getUserGroups</link>
+	</Message>
+	<!-- 巡检段 -->
+	<Message id="0041">
+		<info>成功创建巡检段信息！</info>
+		<link>/WebApp/sublineAction.do?method=loadSublineForm</link>
+	</Message>
+	<Message id="0041e">
+		<info>加载巡检段信息出错！</info>
+		<link>/WebApp/sublineAction.do?method=querySubline&amp;subLineName=</link>
+	</Message>
+	<Message id="00410">
+		<info>"{0}" 名称已经定义,请重新命名巡检段名称！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="0042">
+		<info>成功修改该巡检段信息 ！</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="0043">
+		<info>成功删除巡检段信息 ！</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="0043aerror">
+		<info>该线段非空,不能删除！</info>
+		<link>/WebApp/sublineAction.do?method=querySubline&amp;subLineName=</link>
+	</Message>
+	<Message id="0045">
+		<info>成功修改巡检段信息 ！</info>
+	</Message>
+	<Message id="0046">
+		<info>成功更新该巡检段信息 ！</info>
+		<link>javascript:history.back()</link>
+	</Message>
+	<!-- 报警代码管理 -->
+	<Message id="1301">
+		<info>成功创建报警代码信息！</info>
+		<link>/WebApp/AlertreceiverListAction.do?method=addAlertreceiverListForm</link>
+	</Message>
+	<Message id="1302">
+		<info>成功修改报警代码信息 ！</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="1303">
+		<info>成功删除该纪录 ！</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="1304">
+		<info>已存在此代码 ！</info>
+		<link>/WebApp/baseinfo/addAlertreceiverList.jsp</link>
+	</Message>
+	<!-- 装备配置 -->
+
+	<!-- 巡检任务操作 -->
+	<Message id="0901">
+		<info>成功添加任务操作信息！</info>
+		<link>/WebApp/baseinfo/addTaskOperation.jsp</link>
+	</Message>
+	<Message id="0902">
+		<info>成功修改任务操作信息！</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="0903">
+		<info>成功删除任务操作信息！</info>
+		<link>{0}</link>
+	</Message>
+	<!-- 巡检点 -->
+	<Message id="0051">
+		<info>成功创建巡检点信息！</info>
+		<link>/WebApp/baseinfo/addPoint.jsp</link>
+	</Message>
+	<Message id="0052">
+		<info>成功修改{0}巡检点信息 ！</info>
+		<link>/WebApp/baseinfo/queryPoint.jsp</link>
+	</Message>
+	<Message id="0053">
+		<info>成功更新该点属性！</info>
+		<link>javascript:history.back()</link>
+	</Message>
+	<Message id="0056">
+		<info>成功设置外力盯防点!</info>
+		<link>javascript:history.back()</link>
+	</Message>
+	<Message id="0058">
+		<info>成功删除该巡检点信息 ！</info>
+		<link>/WebApp/baseinfo/queryPoint.jsp</link>
+	</Message>
+
+	<Message id="0058e">
+		<info>删除该巡检点信息失败 ！</info>
+		<link>/WebApp/baseinfo/queryPoint.jsp</link>
+	</Message>
+	<!-- 巡检线信息 -->
+	<Message id="0031">
+		<info>成功创建线路信息！</info>
+		<link>/WebApp/baseinfo/addLine.jsp</link>
+	</Message>
+	<Message id="00310">
+		<info>"{0}"已经定义,请重新命名线路名称！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="0032">
+		<info>成功修改{0}线路信息 ！</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="0032aerror">
+		<info>该线路非空,不能删除 ！</info>
+		<link>/WebApp/lineAction.do?method=queryLine&amp;lineName=</link>
+	</Message>
+	<Message id="0033">
+		<info>成功删除该线路信息 ！</info>
+		<link>{0}</link>
+	</Message>
+	<!-- 代维单位 -->
+	<Message id="0011">
+		<info>成功创建单位信息！</info>
+		<link>/WebApp/baseinfo/addContractor.jsp</link>
+	</Message>
+	<Message id="0012">
+		<info>成功修改单位信息 ！</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="0013">
+		<info>成功删除该单位信息！</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="00013haveuser">
+		<info>该单位下属用户非空,不能删除！</info>
+		<link>/WebApp/contractorAction.do?method=queryContractor&amp;contractorName=&amp;linkmanInfo=</link>
+	</Message>
+	<Message id="00013havepatrol">
+		<info>该单位下属巡检人非空,不能删除！</info>
+		<link>/WebApp/contractorAction.do?method=queryContractor&amp;contractorName=&amp;linkmanInfo=</link>
+	</Message>
+	<!-- 用户 -->
+	<Message id="0091">
+		<info>成功创建用户信息！</info>
+		<link>/WebApp/userinfoAction.do?method=addUserInfoForm</link>
+	</Message>
+	<Message id="setuptimeerror">
+		<info>设置显示时间出错！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="setuptime">
+		<info>成功设置显示时间！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="0092">
+		<info>成功修改用户信息 ！</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="0093">
+		<info>成功删除用户信息 ！</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="0094">
+		<info>密码输入出错误, 请您重试！</info>
+		<link>/WebApp/baseinfo/validatePsw.jsp</link>
+	</Message>
+	<Message id="0095">
+		<info>两次密码输入不一致，请重新输入！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="0098">
+		<info>该密码已被使用过,不能重复使用！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="0096">
+		<info>密码修改成功，请牢记密码！</info>
+		<link>/WebApp/baseinfo/validatePsw.jsp</link>
+	</Message>
+	<Message id="0097">
+		<info>密码修改失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<!-- 密码修改 -->
+	<Message id="1081">
+		<info>成功修改密码信息 ！</info>
+		<link>/WebApp/SystemManage/updatePassword.jsp</link>
+	</Message>
+	<Message id="1082">
+		<info>该密码已被使用过,不能重复使用！</info>
+		<link>/WebApp/SystemManage/updatePassword.jsp</link>
+	</Message>
+	<Message id="1083">
+		<info>两次密码输入不一致，请重新输入！</info>
+		<link>/WebApp/SystemManage/updatePassword.jsp</link>
+	</Message>
+	<Message id="1084">
+		<info>原始密码不正确，请重新输入！</info>
+		<link>/WebApp/SystemManage/updatePassword.jsp</link>
+	</Message>
+	<Message id="1085">
+		<info>密码不能为空，请输入密码！</info>
+		<link>/WebApp/SystemManage/updatePassword.jsp</link>
+	</Message>
+	<!-- 区域信息 -->
+	<Message id="0081">
+		<info>成功创建区域信息！</info>
+		<link>/WebApp/baseinfo/addRegion.jsp</link>
+	</Message>
+	<Message id="0082">
+		<info>成功修改区域信息 ！</info>
+		<link>/WebApp/baseinfo/queryregionresult.jsp</link>
+	</Message>
+	<Message id="0083">
+		<info>成功删除该区域信息 ！</info>
+		<link>/WebApp/baseinfo/queryregionresult.jsp</link>
+	</Message>
+
+	<!-- 部门信息 -->
+	<Message id="0001">
+		<info>成功创建部门信息！</info>
+		<link>/WebApp/baseinfo/addDepart.jsp</link>
+	</Message>
+	<Message id="0002">
+		<info>成功修改部门信息 ！</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="0003">
+		<info>成功删除该纪录 ！</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="0003haveuser">
+		<info>部门下属人员非空,不能删除 ！</info>
+		<link>/WebApp/departAction.do?method=queryDepart</link>
+	</Message>
+	<!--路由信息 -->
+	<Message id="0111">
+		<info>成功添加路由信息！</info>
+		<link>/WebApp/baseinfo/addRouteInfo.jsp</link>
+	</Message>
+	<Message id="0111up">
+		<info>成功导入路由信息！</info>
+		<link>/WebApp/baseinfo/addRouteInfo.jsp</link>
+	</Message>
+	<Message id="0222">
+		<info>成功修改路由信息 !</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="0333">
+		<info>成功删除该记录 !</info>
+		<link>{0}</link>
+	</Message>
+	<!-- 迁改（修缮） -->
+	<Message id="50102s">
+		<info>成功提交申请信息！</info>
+		<link>/WebApp/changeapplyaction.do?method=loadAddForm</link>
+	</Message>
+	<Message id="50102e">
+		<info>对不起，您的操作没有成功！</info>
+		<link>/WebApp/changeapplyaction.do?method=loadAddForm</link>
+	</Message>
+	<Message id="50104s">
+		<info>成功修改申请信息！</info>
+		<link>/WebApp/changeapplyaction.do?method=getApplyInfoList</link>
+	</Message>
+	<Message id="50105s">
+		<info>成功删除该记录信息！</info>
+		<link>/WebApp/changeapplyaction.do?method=getApplyInfoList</link>
+	</Message>
+	<Message id="50105e">
+		<info>对不起，您不能删除已通过审定的申请！</info>
+		<link>/WebApp/changeapplyaction.do?method=getApplyInfoList</link>
+	</Message>
+	<Message id="50202s">
+		<info>成功填写勘查结果，并审定！</info>
+		<link>/WebApp/changeapplyaction.do?method=getApplyInfoList&amp;op=survey</link>
+	</Message>
+	<Message id="50202e">
+		<info>对不起，操作失败！</info>
+		<link>/WebApp/changeapplyaction.do?method=getApplyInfoList&amp;op=survey</link>
+	</Message>
+	<Message id="50302s1">
+		<info>成功填写工程转交信息！</info>
+		<link>/WebApp/buildsetoutaction.do?method=listChangeInfo</link>
+	</Message>
+	<Message id="50302s2">
+		<info>成功填写监理设计信息！</info>
+		<link>/WebApp/buildsetoutaction.do?method=listChangeInfo</link>
+	</Message>
+	<Message id="50304s1">
+		<info>成功修改工程转交信息！</info>
+		<link>/WebApp/buildsetoutaction.do?method=loadQueryForm</link>
+	</Message>
+	<Message id="50304s2">
+		<info>成功修改监理设计信息！</info>
+		<link>/WebApp/buildsetoutaction.do?method=loadQueryForm</link>
+	</Message>
+	<Message id="50402s">
+		<info>成功填写施工委托信息！</info>
+		<link>/WebApp/consignaction.do?method=listChangeInfo</link>
+	</Message>
+	<Message id="50404s">
+		<info>成功修改施工委托信息！</info>
+		<link>/WebApp/consignaction.do?method=listConsign</link>
+	</Message>
+	<Message id="50502s">
+		<info>成功填写施工信息！</info>
+		<link>/WebApp/buildaction.do?method=getChangeInfo</link>
+	</Message>
+	<Message id="50504s">
+		<info>成功修改施工信息！</info>
+		<link>/WebApp/buildaction.do?method=getBuildInfo</link>
+	</Message>
+	<Message id="50602s">
+		<info>操作成功！</info>
+		<link>/WebApp/checkaction.do?method=getChangeInfo</link>
+	</Message>
+	<Message id="50604s">
+		<info>操作成功！</info>
+		<link>/WebApp/checkaction.do?method=getChangeInfo</link>
+	</Message>
+	<Message id="50702s">
+		<info>成功归档！</info>
+		<link>/WebApp/pageonholeaction.do?method=getChangeInfoList</link>
+	</Message>
+	<Message id="null">
+		<info>对不起,没能找到您查看的数据！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="50704e">
+		<info>操作失败！</info>
+		<link>/WebApp/pageonholeaction.do?method=showSquare</link>
+	</Message>
+	<Message id="50704">
+		<info>操作成功！</info>
+		<link>/WebApp/pageonholeaction.do?method=showSquare</link>
+	</Message>
+	<!-- end -->
+	<Message id="m72102">
+		<info>成功添加光缆信息！</info>
+		<link>/WebApp/CableSegmentAction.do?method=loadAddForm</link>
+	</Message>
+	<Message id="e72102">
+		<info>添加光缆信息失败！请重新添加。</info>
+		<link>返回</link>
+	</Message>
+	<Message id="m72104">
+		<info>成功修改光缆信息！</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="e72104">
+		<info>修改光缆信息失败！请重新添加。</info>
+		<link>返回</link>
+	</Message>
+	<Message id="m72105">
+		<info>成功删除光缆信息！</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="e72105">
+		<info>删除光缆信息失败！请重新操作。</info>
+		<link>返回</link>
+	</Message>
+	<Message id="72201u">
+		<info>更新成功！</info>
+		<link>/WebApp/TroubleCodeAction.do?method=loadTroubleCode</link>
+	</Message>
+	<Message id="72202u">
+		<info>故障码已存在，更新失败！</info>
+		<link>/WebApp/TroubleCodeAction.do?method=loadTroubleCode</link>
+	</Message>
+	<Message id="72201a">
+		<info>添加成功！</info>
+		<link>/WebApp/TroubleCodeAction.do?method=loadTroubleCode</link>
+	</Message>
+	<Message id="72202a">
+		<info>故障码已存在，添加失败</info>
+		<link>/WebApp/TroubleCodeAction.do?method=loadTroubleCode</link>
+	</Message>
+	<Message id="722send">
+		<info>信息已发送！</info>
+		<link>/WebApp/TroubleCodeAction.do?method=loadTroubleCode</link>
+	</Message>
+	<!-- by steven start -->
+	<Message id="21501">
+		<info>找不到月统计结果，请确保已完成该月统计</info>
+		<link>/WebApp/PlanMonthlyStatAction.do?method=queryPatrolmanMonthlyStat</link>
+	</Message>
+	<Message id="21502">
+		<info>找不到该代维公司月统计结果，请确保已完成该代维公司该月统计</info>
+		<link>/WebApp/PlanMonthlyStatAction.do?method=queryConMonthlyStat</link>
+	</Message>
+	<Message id="21502S1">
+		<info>找不到该代维公司当前年的月统计结果，请确保进行过该代维公司当前年的月统计</info>
+		<link>/WebApp/PlanMonthlyStatAction.do?method=queryConMonthlyStat</link>
+	</Message>
+	<Message id="21503">
+		<info>找不到该移动公司月统计结果，请确保已完成该移动公司该月统计</info>
+		<link>/WebApp/PlanMonthlyStatAction.do?method=queryMobileMonthlyStat</link>
+	</Message>
+	<Message id="21504">
+		<info>找不到该线段月统计结果，请确保已完成该线段该月统计</info>
+		<link>/WebApp/PlanMonthlyStatAction.do?method=querySublineMonthlyStat</link>
+	</Message>
+	<Message id="21505">
+		<info>找不到该线路月统计结果，请确保已完成该线路该月统计</info>
+		<link>/WebApp/PlanMonthlyStatAction.do?method=queryLineMonthlyStat</link>
+	</Message>
+	<Message id="21506">
+		<info>没有找到月巡检计划，请确保已制定月巡检计划</info>
+		<link>返回</link>
+	</Message>
+	<Message id="21506S1">
+		<info>没有找到年巡检计划，请确保已制定年巡检计划</info>
+		<link>返回</link>
+	</Message>
+	<Message id="21801ok">
+		<info>短信发送成功</info>
+		<link>/WebApp/SMNoticePlanStartAction.do?method=showNoticeList</link>
+	</Message>
+	<Message id="21801error">
+		<info>对不起,短信未能发送成功</info>
+		<link>返回</link>
+	</Message>
+	<Message id="21801forbidden">
+		<info>对不起,不支持短信发送功能,请进行相关配置</info>
+		<link>返回</link>
+	</Message>
+
+	<Message id="22001ok">
+		<info>短信发送成功</info>
+		<link>/WebApp/SMNoticePlanEndAction.do?method=showNoticeList</link>
+	</Message>
+	<Message id="22001error">
+		<info>对不起,短信未能发送成功</info>
+		<link>返回</link>
+	</Message>
+	<Message id="22001forbidden">
+		<info>对不起,不支持短信发送功能,请进行相关配置</info>
+		<link>返回</link>
+	</Message>
+	<Message id="120202">
+		<info>对不起,没有所选日期的历史统计(短信)</info>
+		<link>/WebApp/planstat/showHistoryDaysList.jsp</link>
+	</Message>
+	<Message id="120301">
+		<info>对不起,没有所选月份的对比分析结果</info>
+		<link>/WebApp/planstat/queryPmCompAnalysis.jsp</link>
+	</Message>
+	<Message id="120302">
+		<info>对不起,没有所选月份的对比分析结果</info>
+		<link>/WebApp/planstat/queryComCompAnalysis.jsp</link>
+	</Message>
+	<Message id="120401ok">
+		<info>成功提交巡检线段实时查询请求,请在{0}分钟后查询回复结果</info>
+		<link>/WebApp/planstat/showSublineRealTime.jsp</link>
+	</Message>
+	<Message id="120401failure">
+		<info>统计服务器返回结果失败</info>
+		<link>/WebApp/planstat/showSublineRealTime.jsp</link>
+	</Message>
+	<Message id="120402">
+		<info>您选的巡检线段五分钟内已经被提交过,请勿重复提交！</info>
+		<link>/WebApp/planstat/showSublineRealTime.jsp</link>
+	</Message>
+	<Message id="1204invalid">
+		<info>对不起,您没有权限使用此功能!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="120501failure">
+		<info>该点今天尚未被巡检！</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="120501ok">
+		<info>该点已由SIM卡{0}于今天{1}被巡检过！</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="21901">
+		<info>对不起,没有正在执行的计划</info>
+		<link>返回</link>
+	</Message>
+	<Message id="120601">
+		<info>对不起,尚未产生您需要的月工作报表</info>
+		<link>返回</link>
+	</Message>
+	<Message id="724noresult">
+		<info>对不起,结果尚未被统计出来</info>
+		<link>返回</link>
+	</Message>
+	<Message id="120207">
+		<info>找不到该市移动公司月统计结果，请确保已完成月统计</info>
+		<link>/WebApp/MonthlyStatCityMobileAction.do?method=queryMonthlyStat</link>
+	</Message>
+	<Message id="statcommon">
+		<info>统计结果尚未生成！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="save40101attachsuccess">
+		<info>成功保存盯防附件</info>
+		<link>/WebApp/WatchManage/querywatchresult.jsp</link>
+	</Message>
+	<Message id="save40101attachfail">
+		<info>保存盯防附件失败</info>
+		<link>/WebApp/WatchManage/querywatchresult.jsp</link>
+	</Message>
+	<Message id="save40205attachsuccess">
+		<info>成功建立盯防与附件关联关系</info>
+		<link>/WebApp/WatchManage/querywatchresult.jsp</link>
+	</Message>
+	<Message id="save40205attachfail">
+		<info>建立盯防与附件关联关系失败</info>
+		<link>返回</link>
+	</Message>
+	<Message id="save40205noattach">
+		<info>无或未选择附件</info>
+		<link>返回</link>
+	</Message>
+	<Message id="save40205noviewattach">
+		<info>该盯防尚未包含附件</info>
+		<link>/WebApp/WatchManage/querywatchresult.jsp</link>
+	</Message>
+	<Message id="save40101attachnochoice">
+		<info>请选择添加或删除对象后再提交</info>
+		<link>返回</link>
+	</Message>
+
+
+	<Message id="72801ok">
+		<info>成功导出巡检点信息</info>
+		<link>/WebApp/PointOutput.do?method=queryPointOutput</link>
+	</Message>
+	<Message id="72801error">
+		<info>导出巡检点信息失败</info>
+		<link>/WebApp/PointOutput.do?method=queryPointOutput</link>
+	</Message>
+	<!-- by steven end -->
+
+	<!-- 备件管理 杨隽 2008-11-20 -->
+	<Message id="9070201ok">
+		<info>添加备件申请成功</info>
+		<link>/WebApp/SparepartStorageAction.do?method=listSparepartStorageForRe</link>
+	</Message>
+	<Message id="9070201err">
+		<info>添加备件申请失败</info>
+		<link>/WebApp/SparepartStorageAction.do?method=listSparepartStorageForRe</link>
+	</Message>
+	<Message id="9070202ok">
+		<info>修改备件申请成功</info>
+		<link>/WebApp/SparepartApplyAction.do?method=doQueryForApply</link>
+	</Message>
+	<Message id="9070202err">
+		<info>修改备件申请失败</info>
+		<link>/WebApp/SparepartApplyAction.do?method=doQueryForApply</link>
+	</Message>
+	<Message id="9070203ok">
+		<info>删除备件申请成功</info>
+		<link>/WebApp/SparepartApplyAction.do?method=doQueryForApply</link>
+	</Message>
+	<Message id="9070203err">
+		<info>删除备件申请失败</info>
+		<link>/WebApp/SparepartApplyAction.do?method=doQueryForApply</link>
+	</Message>
+	<Message id="9070301ok">
+		<info>审核备件申请成功</info>
+		<link>/WebApp/SparepartApplyAction.do?method=listWaitAuditingApplyForAu</link>
+	</Message>
+	<Message id="9070301err">
+		<info>审核备件申请失败</info>
+		<link>/WebApp/SparepartApplyAction.do?method=listWaitAuditingApplyForAu</link>
+	</Message>
+
+	<Message id="9070101ok">
+		<info>备件入库操作成功</info>
+		<link>/WebApp/SparepartStorageAction.do?method=listSparepartStorageByReportBack</link>
+	</Message>
+	<Message id="9070101err">
+		<info>备件入库操作失败</info>
+		<link>/WebApp/SparepartStorageAction.do?method=saveToStorageForm</link>
+	</Message>
+
+	<Message id="9070101againok">
+		<info>备件重新入库操作成功</info>
+		<link>/WebApp/SparepartStorageAction.do?method=showRestoredQuery</link>
+	</Message>
+	<Message id="9070101againerr">
+		<info>备件重新入库操作失败</info>
+		<link>/WebApp/SparepartStorageAction.do?method=showRestoredQuery</link>
+	</Message>
+
+	<Message id="9070101expFail">
+		<info>导入失败,序列号不能重复</info>
+		<link>/WebApp/SparepartStorageAction.do?method=saveToStorageForm</link>
+	</Message>
+
+	<Message id="9070101expNull">
+		<info>导入失败,excel序列号内容为空</info>
+		<link>/WebApp/SparepartStorageAction.do?method=saveToStorageForm</link>
+	</Message>
+
+	<Message id="9070102ok">
+		<info>备件领用操作成功</info>
+		<link>/WebApp/SparepartStorageAction.do?method=listSparepartStorageForDraw</link>
+	</Message>
+	<Message id="9070102err">
+		<info>备件领用操作失败</info>
+		<link>/WebApp/SparepartStorageAction.do?method=listSparepartStorageForDraw</link>
+	</Message>
+	<Message id="9070103ok">
+		<info>备件归还操作成功</info>
+		<link>/WebApp/SparepartStorageAction.do?method=listSparepartStorageForRe</link>
+	</Message>
+	<Message id="9070103err">
+		<info>备件归还操作失败</info>
+		<link>/WebApp/SparepartStorageAction.do?method=listSparepartStorageForRe</link>
+	</Message>
+	<Message id="9070104ok">
+		<info>备件重新入库操作成功</info>
+		<link>/WebApp/SparepartStorageAction.do?method=listSparepartStorageForAgain</link>
+	</Message>
+	<Message id="9070104err">
+		<info>备件重新入库操作失败</info>
+		<link>/WebApp/SparepartStorageAction.do?method=listSparepartStorageForAgain</link>
+	</Message>
+	<Message id="9070105ok">
+		<info>修改备件库存操作成功</info>
+		<link>/WebApp/SparepartStorageAction.do?method=querySparepartStorageForm</link>
+	</Message>
+	<Message id="9070105err">
+		<info>修改备件库存操作失败</info>
+		<link>javascript:history.go(-1);</link>
+	</Message>
+	<Message id="9070106ok">
+		<info>删除备件库存操作成功</info>
+		<link>/WebApp/SparepartStorageAction.do?method=querySparepartStorageForm</link>
+	</Message>
+	<Message id="9070106err">
+		<info>删除备件库存操作失败</info>
+		<link>javascript:history.go(-1);</link>
+	</Message>
+
+	<!-- 机房巡检 -->
+	<Message id="160101error">
+		<info>指派机房巡检任务失败</info>
+		<link>/WebApp/MobileTaskAction.do?method=showAddTask</link>
+	</Message>
+	<Message id="160101ok">
+		<info>指派机房巡检任务成功</info>
+		<link>/WebApp/MobileTaskAction.do?method=showAddTask</link>
+	</Message>
+
+	<Message id="160102ok">
+		<info>签收任务成功</info>
+		<link>/WebApp/MobileTaskAction.do?method=getTaskForCon</link>
+	</Message>
+
+	<Message id="160102error">
+		<info>签收任务失败</info>
+		<link>/WebApp/MobileTaskAction.do?method=getTaskForCon</link>
+	</Message>
+
+	<Message id="160103ok">
+		<info>添加单个巡检设备回复内容成功</info>
+		<link>/WebApp/MobileTaskAction.do?method=showTaskForRestore</link>
+	</Message>
+
+	<Message id="160103error">
+		<info>添加单个巡检设备回复内容失败</info>
+		<link>/WebApp/MobileTaskAction.do?method=showTaskForRestore</link>
+	</Message>
+	<Message id="160104ok">
+		<info>更新巡检设备成功</info>
+		<link>/WebApp/EquipmentInfoAction.do?method=showQueryEqu</link>
+	</Message>
+	<Message id="160104error">
+		<info>更新巡检设备失败</info>
+		<link>/WebApp/EquipmentInfoAction.do?method=showQueryEqu</link>
+	</Message>
+	<Message id="160104false">
+		<info>巡检设备已存在</info>
+		<link>/WebApp/EquipmentInfoAction.do?method=showQueryEqu</link>
+	</Message>
+	<Message id="160105error">
+		<info>删除巡检设备失败</info>
+		<link>/WebApp/EquipmentInfoAction.do?method=showQueryEqu</link>
+	</Message>
+	<Message id="160105ok">
+		<info>删除巡检设备成功</info>
+		<link>/WebApp/EquipmentInfoAction.do?method=showQueryEqu</link>
+	</Message>
+	<!-- end -->
+	<Message id="214reason">
+		<info>未完成计划的原因保存成功</info>
+		<link>/WebApp/PlanExeResultAction.do?method=showPlanExeDetail</link>
+	</Message>
+
+	<!-- jxf cable manager -->
+	<Message id="73001">
+		<info>光缆段信息添加成功</info>
+		<link>/WebApp/CableAction.do?method=addCableInfo</link>
+	</Message>
+	<Message id="73002">
+		<info>光缆段信息修改成功</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="73003">
+		<info>删除光缆段信息成功</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="73001up">
+		<info>导入光缆段信息成功</info>
+		<link>/WebApp/CableAction.do?method=addCableInfo</link>
+	</Message>
+
+
+	<!-- dhz pipeSegmetn manage -->
+	<Message id="90806">
+		<info>管道段信息添加成功</info>
+		<link>/WebApp/PipeSegmentAction.do?method=addPipeSegmentForm</link>
+	</Message>
+	<Message id="90807">
+		<info>管道段信息修改成功</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="90808">
+		<info>删除管道段信息成功</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="90806up">
+		<info>导入管道段信息成功</info>
+		<link>/WebApp/PipeSegmentAction.do?method=addPipeSegmentForm</link>
+	</Message>
+	<!-- 中继站管理 杨隽 2009-04-10 START -->
+	<Message id="SuccessCode">
+		<info>操作成功!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="FailCode">
+		<info>操作失败!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="NotFindDataError">
+		<info>没有找到查询的数据!</info>
+		<link>返回</link>
+	</Message>
+
+	<Message id="ExistStationError">
+		<info>已经存在同名的中继站!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="NotExistStationError">
+		<info>不存在中继站!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="StationExistPlanError">
+		<info>中继站存在计划!</info>
+		<link>返回</link>
+	</Message>
+
+	<Message id="NotExistPlanStationError">
+		<info>计划中中继站不存在!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="ExistPlanError">
+		<info>已经存在同名的中继站计划!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="NotExistPlanError">
+		<info>不存在中继站计划!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="NotAllowEditPlanError">
+		<info>计划不允许被编辑或者删除!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="NotAllowAuditingPlanError">
+		<info>计划不允许被审核!</info>
+		<link>返回</link>
+	</Message>
+
+	<Message id="NotAllowPatrolPlanError">
+		<info>计划不允许被填写信息!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="IsFinishPlanError">
+		<info>计划已经完成!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="NotExistPlanTypeError">
+		<info>计划类型下没有对应的填写信息项目!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="NotExistPlanStationError">
+		<info>不存在中继站计划中的中继站!</info>
+		<link>返回</link>
+	</Message>
+
+	<!-- 中继站管理 杨隽 2009-04-10 END -->
+	<Message id="crepeat">
+		<info>材料信息名称重复!</info>
+		<link>/WebApp/materialInfoAction.do?method=addMaterialInfoForm</link>
+	</Message>
+	<!-- 修缮 项目、类别 090922 byfjj -->
+	<Message id="511add">
+		<info>增加修缮项成功!</info>
+		<link>/WebApp/remedyItemAction.do?method=addRemedyItemForm</link>
+	</Message>
+
+	<Message id="511addE">
+		<info>增加修缮项失败!</info>
+		<link>/WebApp/remedyItemAction.do?method=addRemedyItemForm</link>
+	</Message>
+
+	<Message id="511repeat">
+		<info>同一区域下的修缮项目名称重复!</info>
+		<link>/WebApp/remedyItemAction.do?method=addRemedyItemForm</link>
+	</Message>
+
+	<Message id="511editRepeat">
+		<info>同一区域下的修缮项目名称重复!</info>
+		<link>{0}</link>
+	</Message>
+
+
+	<Message id="511edit">
+		<info>修改修缮项成功!</info>
+		<link>{0}</link>
+	</Message>
+
+	<Message id="511editE">
+		<info>修改修缮项失败!</info>
+		<link>{0}</link>
+	</Message>
+
+	<Message id="511deleN">
+		<info>申请中的修缮项不能被删除!</info>
+		<link>{0}</link>
+	</Message>
+
+	<Message id="511dele">
+		<info>删除修缮项成功!</info>
+		<link>{0}</link>
+	</Message>
+
+	<Message id="511deleE">
+		<info>删除修缮项失败!</info>
+		<link>{0}</link>
+	</Message>
+
+
+	<Message id="512add">
+		<info>增加修缮类别成功!</info>
+		<link>/WebApp/remedyTypeAction.do?method=addRemedyTypeForm</link>
+	</Message>
+
+	<Message id="512addall">
+		<info>增加修缮项和修缮类别成功!</info>
+		<link>/WebApp/remedyTypeAction.do?method=addRemedyTypeForm</link>
+	</Message>
+
+	<Message id="512addE">
+		<info>增加修缮类别失败!</info>
+		<link>/WebApp/remedyTypeAction.do?method=addRemedyTypeForm</link>
+	</Message>
+
+	<Message id="512repeat">
+		<info>同一修缮项下的修缮类别名称重复!</info>
+		<link>/WebApp/remedyTypeAction.do?method=addRemedyTypeForm</link>
+	</Message>
+
+	<Message id="512editRepeat">
+		<info>同一修缮项下的修缮类别名称重复!</info>
+		<link>{0}</link>
+	</Message>
+
+	<Message id="512edit">
+		<info>修改修缮类别成功!</info>
+		<link>{0}</link>
+	</Message>
+
+	<Message id="512editE">
+		<info>修改修缮类别失败!</info>
+		<link>{0}</link>
+	</Message>
+
+	<Message id="512dele">
+		<info>删除修缮类别成功!</info>
+		<link>{0}</link>
+	</Message>
+
+	<Message id="512deleE">
+		<info>删除修缮类别失败!</info>
+		<link>{0}</link>
+	</Message>
+
+	<!-- end 修缮 项目、类别 090923 byfjj -->
+	<!-- 修缮管理 杨隽 2009-09-24 START -->
+	<Message id="SuccessCode">
+		<info>操作成功，请审核!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="FailCode">
+		<info>操作失败!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="NotFindDataError">
+		<info>没有找到查询的数据!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="NotExistMtUsedError">
+		<info>不存在上月的材料盘点信息，不能进行修缮申请!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="ExistSameApply">
+		<info>存在相同的修缮申请!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="NotExistItem">
+		<info>不存在修缮申请中的定额项!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="NotExistMaterial">
+		<info>不存在修缮申请中的修缮材料!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="NotEnoughStorage">
+		<info>修缮申请中的修缮材料库存不足!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="NotEditedApply">
+		<info>修缮申请不可以进行编辑!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="NotDeletedApply">
+		<info>修缮申请不可以进行删除!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="NotApprovedApply">
+		<info>修缮申请不可以进行审批!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="NotCheckedApply">
+		<info>修缮申请不可以进行验收!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="NotSquaredApply">
+		<info>修缮申请不可以进行结算!</info>
+		<link>返回</link>
+	</Message>
+	<!-- 修缮管理 杨隽 2009-09-24 END -->
+
+	<!-- 材料管理部分Start -->
+
+	<!-- jxf 添加申请材料成功 -->
+	<Message id="80101">
+		<info>申请材料保存成功，等待线维中心审核</info>
+		<link>/WebApp/LinePatrolManagerAction.do?method=addLinePatrolRe</link>
+	</Message>
+	<Message id="801del">
+		<info>刪除申请材料成功</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="801mod">
+		<info>修改申请材料成功，等待线维中心审核</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="815add">
+		<info>审批材料申请单通过成功，流程结束</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="815add1">
+		<info>审批材料申请单不通过成功，等待代维单位修改申请材料</info>
+		<link>{0}</link>
+	</Message>
+
+
+	<!--材料存放名称信息 -->
+	<Message id="ad111">
+		<info>成功添加材料存放地点信息！</info>
+		<link>/WebApp/MTAddressAction.do?method=addAddress_Form</link>
+	</Message>
+	<Message id="ad222">
+		<info>成功修改材料存放地点信息 !</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="ad333">
+		<info>成功删除该记录 !</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="ad4444">
+		<info>该存放地点已存在，添加操作失败！</info>
+		<link>/WebApp/MTAddressAction.do?method=addAddress_Form</link>
+	</Message>
+	<Message id="ad5555">
+		<info>该存放地点已存在，修改操作失败！</info>
+		<link>{0}</link>
+	</Message>
+	<!--材料名称信息 -->
+
+	<!-- 材料 调拨 byfjj -->
+	<Message id="810add">
+		<info>材料调拨成功!</info>
+		<link>/WebApp/materialAllotAction.do?method=addMaterialAllotForm</link>
+	</Message>
+
+	<Message id="810addE">
+		<info>材料调拨失败!</info>
+		<link>/WebApp/materialAllotAction.do?method=addMaterialAllotForm</link>
+	</Message>
+	<!-- 材料调拨 end byfjj -->
+
+	<!-- 材料信息 -->
+	<Message id="c111">
+		<info>成功添加材料信息！</info>
+		<link>/WebApp/materialInfoAction.do?method=addMaterialInfoForm</link>
+	</Message>
+
+	<Message id="editRepeat">
+		<info>材料信息重复!</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="c222">
+		<info>成功修改材料信息 !</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="c333">
+		<info>成功删除该记录 !</info>
+		<link>{0}</link>
+	</Message>
+
+
+	<Message id="809add">
+		<info>增加材料规格成功!</info>
+		<link>/WebApp/materialModelAction.do?method=addMaterialModelForm</link>
+	</Message>
+
+	<Message id="809addE">
+		<info>增加材料规格失败!</info>
+		<link>/WebApp/materialModelAction.do?method=addMaterialModelForm</link>
+	</Message>
+
+	<Message id="809repeat">
+		<info>同一类型下的材料规格名称重复!</info>
+		<link>/WebApp/materialModelAction.do?method=addMaterialModelForm</link>
+	</Message>
+
+	<Message id="809editRepeat">
+		<info>同一类型下的材料规格名称重复!</info>
+		<link>{0}</link>
+	</Message>
+
+
+	<Message id="809edit">
+		<info>修改材料规格成功!</info>
+		<link>{0}</link>
+	</Message>
+
+	<Message id="809editE">
+		<info>修改材料规格失败!</info>
+		<link>{0}</link>
+	</Message>
+
+
+	<Message id="809dele">
+		<info>删除材料规格成功!</info>
+		<link>{0}</link>
+	</Message>
+
+	<Message id="809deleE">
+		<info>删除材料规格失败!</info>
+		<link>{0}</link>
+	</Message>
+
+	<!-- 材料 类型与规格 end byfjj -->
+
+	<!-- 材料 类型与规格 090924 byfjj -->
+	<Message id="808add">
+		<info>增加材料类型成功!</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="808addE">
+		<info>增加材料类型失败!</info>
+		<link>/WebApp/materialTypeAction.do?method=addMaterialTypeForm</link>
+	</Message>
+
+	<Message id="808repeat">
+		<info>同一区域下的材料类型名称重复!</info>
+		<link>/WebApp/materialTypeAction.do?method=addMaterialTypeForm</link>
+	</Message>
+
+	<Message id="808editRepeat">
+		<info>同一区域下的材料类型名称重复!</info>
+		<link>{0}</link>
+	</Message>
+
+
+	<Message id="808edit">
+		<info>修改材料类型成功!</info>
+		<link>{0}</link>
+	</Message>
+
+	<Message id="808editE">
+		<info>修改材料类型失败!</info>
+		<link>{0}</link>
+	</Message>
+
+
+	<Message id="808dele">
+		<info>删除材料类型成功!</info>
+		<link>{0}</link>
+	</Message>
+
+	<Message id="808deleE">
+		<info>删除材料类型失败!</info>
+		<link>{0}</link>
+	</Message>
+
+
+	<!-- 在添加材料类型时添加材料规格 -->
+	<Message id="8089add">
+		<info>增加材料规格成功!</info>
+		<link>/WebApp/materialTypeAction.do?method=addMaterialModelForm</link>
+	</Message>
+
+	<Message id="8089addE">
+		<info>增加材料规格失败!</info>
+		<link>/WebApp/materialTypeAction.do?method=addMaterialModelForm</link>
+	</Message>
+
+	<Message id="8089addOver">
+		<info>增加材料规格成功!</info>
+		<link>/WebApp/materialTypeAction.do?method=addMaterialTypeForm</link>
+	</Message>
+
+	<Message id="8089repeat">
+		<info>同一类型下的材料规格名称重复!</info>
+		<link>{0}</link>
+	</Message>
+
+	<!-- end -->
+
+
+	<!-- 材料申请 start kww -->
+	<Message id="mtusedError">
+		<info>材料盘点申请失败!</info>
+		<link>/WebApp/mtUsedAction.do?method=goMtUsedApplyForm</link>
+	</Message>
+
+	<Message id="existMtUsedError">
+		<info>已经存在该月的材料盘点申请!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="mtusedSuccess">
+		<info>材料盘点申请成功，等待线维中心审核!</info>
+		<link>/WebApp/mtUsedAction.do?method=goMtUsedApplyForm</link>
+	</Message>
+
+	<Message id="mtusedEditError">
+		<info>材料盘点申请编辑失败!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="mtusedEditSuccess">
+		<info>材料盘点申请编辑成功，等待线维中心审核!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="nullmtusedError">
+		<info>不存在该材料盘点申请单，请检查!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="mtusedDelError">
+		<info>材料盘点申请删除失败!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="mtusedDelSuccess">
+		<info>材料盘点申请删除成功!</info>
+		<link>返回</link>
+	</Message>
+
+	<Message id="mtApproveError">
+		<info>材料盘点审核失败!</info>
+		<link>/WebApp/mtUsedAction.do?method=displayMtUsedApplyForm</link>
+	</Message>
+	<Message id="mtApproveSuccess">
+		<info>材料盘点审核成功!</info>
+		<link>/WebApp/mtUsedAction.do?method=displayMtUsedApplyForm</link>
+	</Message>
+
+	<Message id="mtMobileApproveError">
+		<info>材料盘点审核失败!</info>
+		<link>/WebApp/mtUsedAssessAction.do?method=listMtUsedAppoverForm</link>
+	</Message>
+	<Message id="mtMobileApproveSuccess">
+		<info>材料盘点审核通过成功，流程结束!</info>
+		<link>/WebApp/mtUsedAssessAction.do?method=listMtUsedAppoverForm</link>
+	</Message>
+	<Message id="mtMobileApproveSuccess1">
+		<info>材料盘点审核不通过成功，等待代维单位修改材料盘点!</info>
+		<link>/WebApp/mtUsedAssessAction.do?method=listMtUsedAppoverForm</link>
+	</Message>
+
+	<!-- 材料管理部分end -->
+
+
+	<Message id="remedyreadSuccess">
+		<info>操作成功。</info>
+		<link>/WebApp/project/remedy_apply.do?method=toDoWork</link>
+	</Message>
+
+</SystemMsgs>

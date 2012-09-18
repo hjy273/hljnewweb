@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="dispatchtask" xmlns="http://jbpm.org/4.0/jpdl">
+   <start g="260,16,48,48" name="start">
+      <transition g="-49,-9" name="dispatch" to="sign_in_task"/>
+   </start>
+   <end g="259,593,48,48" name="end"/>
+   <task candidate-users="#{assignee}" g="237,97,92,52" name="sign_in_task">
+      <transition g="-46,-4" name="sign_in" to="sign_in_decide"/>
+      <transition g="193,211:-31,-18" name="refuse" to="refuse_confirm_task"/>
+   </task>
+   <decision expr="#{transition}" g="258,186,48,48" name="sign_in_decide">
+      <transition g="-36,-13" name="reply" to="reply_task"/>
+      <transition g="-44,-16" name="tranfer_dispatch" to="tranfer_sign_in_task"/>
+   </decision>
+   <task candidate-users="#{assignee}" g="236,279,92,52" name="reply_task">
+      <transition g="-36,-10" name="check" to="check_task"/>
+   </task>
+   <task candidate-users="#{assignee}" g="236,391,92,52" name="check_task">
+      <transition g="-42,-8" name="passed" to="check_decide"/>
+      <transition g="333,358:6,-6" name="not_passed" to="reply_task"/>
+   </task>
+   <decision expr="#{transition}" g="258,494,48,48" name="check_decide">
+      <transition g="333,470:2,-10" name="transfer" to="check_task"/>
+      <transition g="-25,-13" name="end" to="end"/>
+   </decision>
+   <task candidate-users="#{assignee}" g="407,185,136,52" name="tranfer_sign_in_task">
+      <transition g="7,-10" name="reject" to="sign_in_task"/>
+      <transition g="8,2" name="reply" to="reply_task"/>
+   </task>
+   <task candidate-users="#{assignee}" g="23,185,126,52" name="refuse_confirm_task">
+      <transition g="179,122:-48,-15" name="not_passed" to="sign_in_task"/>
+      <transition g="-41,-17" name="end" to="end"/>
+   </task>
+</process>

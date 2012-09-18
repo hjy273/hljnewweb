@@ -1,0 +1,20 @@
+package com.cabletech.linepatrol.trouble.dao;
+
+import org.springframework.stereotype.Repository;
+
+import com.cabletech.ctf.dao.HibernateDao;
+import com.cabletech.linepatrol.trouble.module.TroubleCableInfo;
+
+@Repository
+public class TroubleCableInfoDAO extends HibernateDao<TroubleCableInfo, String> {
+	
+	/**
+	 * ¸ù¾Ý·´À¡µ¥±àºÅÉ¾³ý¹ÊÕÏÖÐ¼Ì¶Î
+	 * @param replyid
+	 */
+	public void deleteList(String replyid){
+		String sql = "delete from lp_trouble_cable_info cable where cable.trouble_reply_id='"+replyid+"'";
+		this.getJdbcTemplate().execute(sql);
+	}
+	
+}

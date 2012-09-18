@@ -1,0 +1,36 @@
+[PropertyInfo]
+beginDate,String,false,false, , ,true,<default>
+checkresult,String,false,false,checkresult,checkresult,true,<default>
+contractorid,String,false,false,contractorid,contractorid,true,<default>
+dangerlevel,String,false,false,dangerlevel,dangerlevel,true,<default>
+dealstatus,String,false,false,dealstatus,dealstatus,true,<default>
+endDate,String,false,false, , ,true,<default>
+endpointid,String,false,false,endpointid,endpointid,true,<default>
+endwatchinfo,String,false,false,endwatchinfo,endwatchinfo,true,<default>
+error,String,false,false, , ,true,<default>
+gpscoordinate,String,false,false,gpscoordinate,gpscoordinate,true,<default>
+ifcheckdone,String,false,false, , ,true,<default>
+ifcheckintime,String,false,false,ifcheckintime,ifcheckintime,true,<default>
+innerregion,String,false,false,innerregion,innerregion,true,<default>
+involvedlinenumber,String,false,false,involvedlinenumber,involvedlinenumber,true,<default>
+involvedsegmentlist,String,false,false,involvedsegmentlist,involvedsegmentlist,true,<default>
+lid,String,false,false, , ,true,<default>
+orderlyBeginTime,String,false,false, , ,true,<default>
+orderlyCyc,String,false,false, , ,true,<default>
+orderlyEndTime,String,false,false, , ,true,<default>
+patrolTime,String,false,false, , ,true,<default>
+placeID,String,false,false, , ,true,<default>
+placeName,String,false,false, , ,true,<default>
+placetype,String,false,false,placetype,placetype,true,<default>
+principal,String,false,false, , ,true,<default>
+regionID,String,false,false, , ,true,<default>
+startpointid,String,false,false,startpointid,startpointid,true,<default>
+terminalID,String,false,false, , ,true,<default>
+watchplace,String,false,false,watchplace,watchplace,true,<default>
+watchreason,String,false,false,watchreason,watchreason,true,<default>
+watchwidth,String,false,false,watchwidth,watchwidth,true,<default>
+[IconNames]
+
+
+
+

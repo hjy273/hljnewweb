@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.linepatrol.appraise.module.AppraiseConfirmResult"  table="lp_appraise_confirm_result">
+        <id name="id" type="string" unsaved-value="null" >
+            <column name="ID" sql-type="varchar2(12)" not-null="true"/>  
+            <generator class="com.cabletech.commons.hb.StrSequenceGenerator">
+               <param name="sequence">SEQ_LP_APPRAISE_CON_RESULT_ID</param>
+               <param name="length">12</param>
+            </generator>        
+        </id>
+        <property name="resultId" column="result_id"/>
+        <property name="contractorId" column="contractor_id"/>
+        <property name="confirmResult" column="confirm_result"/>
+        <property name="result" column="result"/>
+        <property name="confirmDate" column="confirm_date" type="java.util.Date"/>
+        <property name="confirmer" column="confirmer" />
+    </class>
+</hibernate-mapping>

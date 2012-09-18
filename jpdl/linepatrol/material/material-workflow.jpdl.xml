@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="material" xmlns="http://jbpm.org/4.0/jpdl">
+   <start g="221,-4,48,48" name="start">
+      <transition g="-41,-8" name="apply" to="apply_task"/>
+   </start>
+   <task candidate-users="#{assignee}" g="198,80,92,52" name="apply_task">
+      <transition g="222,160:-61,-8" name="approve" to="apply_approve_task"/>
+   </task>
+   <task candidate-users="#{assignee}" g="184,192,122,52" name="apply_approve_task">
+      <transition g="272,162:12,-10" name="not_passed" to="apply_task"/>
+      <transition g="-49,-7" name="passed" to="apply_approve_decide"/>
+   </task>
+   <task candidate-users="#{assignee}" g="176,364,138,52" name="put_storage_task">
+      <transition g="214,437:-51,-7" name="approve" to="put_storage_confirm_task"/>
+   </task>
+   <task candidate-users="#{assignee}" g="149,463,191,52" name="put_storage_confirm_task">
+      <transition g="281,438:17,-7" name="not_passed" to="put_storage_task"/>
+      <transition g="-62,-2" name="passed" to="put_storage_approve_decide"/>
+   </task>
+   <end g="221,648,48,48" name="end"/>
+   <decision expr="#{transition}" g="221,280,48,48" name="apply_approve_decide">
+      <transition g="278,265:14,-13" name="transfer" to="apply_approve_task"/>
+      <transition g="-70,-13" name="put_storage" to="put_storage_task"/>
+   </decision>
+   <decision expr="#{transition}" g="220,555,48,48" name="put_storage_approve_decide">
+      <transition g="-41,-17" name="end" to="end"/>
+      <transition g="274,538:10,-6" name="transfer" to="put_storage_confirm_task"/>
+   </decision>
+</process>

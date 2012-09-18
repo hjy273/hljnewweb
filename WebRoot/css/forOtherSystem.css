@@ -1,0 +1,227 @@
+body {
+	margin:0px;
+	padding-top:5px;
+	padding-left:0px;
+	padding-right:0px;
+	padding-bottom:5px;
+	font-size:12px;
+	color:#000000;
+	background-color: #FFFFFF;
+	scrollbar-face-color:#7ca5e0; 
+	scrollbar-highlight-color:#FFFFFF; 
+	scrollbar-shadow-color:#FFFFFF; 
+	scrollbar-3dlight-color:#FFFFFF; 
+	scrollbar-arrow-color:#FFFFFF; 
+	scrollbar-track-color:#FFFFFF; 
+	scrollbar-darkshadow-color:#FFFFFF; 
+	scrollbar-base-color:#FFFFFF;
+}
+
+table {
+	border: 1px solid #666;
+	font-size:12px;
+	line-height:140%;
+	width: 100%;
+	border-left:0px #2C437E solid;
+	border-right:0px #2C437E solid;
+	border-top:2px #7ca5e0 solid;
+	border-bottom:2px #7ca5e0 solid; 
+	
+}
+th{
+	height:24px;
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr='#FFFFFF', endColorStr='#CBCEE0', gradientType='0');
+	text-align:left;
+	vertical-align:middle;
+	color:#000000;
+	border-left:#DFDDCE solid 0px;
+	border-right:#DFDDCE solid 0px;
+	border-top:#DFDDCE solid 0px;
+	border-bottom:#FF9900 solid 1px;
+	background-color:#FFFFFF;
+}
+tbody tr{
+	event:expression(
+		onmouseover = function()
+		{
+			this.style.backgroundColor='#F8FFDF'
+		},
+		onmouseout = function()
+		{
+			this.style.backgroundColor = ''
+		}
+	)
+}
+
+th.sorted {
+   height:23px;background-image:url("../images/bg_th_main.gif");text-align:center;vertical-align:center;border:#9A9A9A solid;border-width:0 0 1 0; border-right:#EAE9E4 solid 1px;
+}
+th a, th a:visited {
+  color: black;
+}
+th a:hover {
+  text-decoration: underline;
+  color: black;
+}
+th.sorted a, th.sortable a {
+	background-position: right;
+	display: block;
+	width: 100%;
+}
+th.sortable a {
+	background-image: url(../img/arrow_off.png);
+}
+th.order1 a {
+	background-image: url(../img/arrow_down.png);
+}
+th.order2 a {
+	background-image: url(../img/arrow_up.png);
+}
+tbody tr.odd {
+	background:#FFFFFF;
+
+}
+tbody tr.even {
+	background:#F5F5F5;
+	
+}
+
+ul#showsource {
+	float: right;
+	background-color: #eee;
+	border: 1px dotted #999;
+	padding: 2px 4px 2px 4px;
+	margin: 5px;
+	width:100px;
+	list-style-type: none;
+}
+
+
+/* test styles */
+table.its thead tr {
+  background-color: #69c;
+}
+table.its tr.even {
+  background-color: #def;
+}
+
+table.mars thead tr {
+  background-color: #9c9;
+}
+table.mars tr.even {
+  background-color: #ccb;
+}
+table.mars tr.odd {
+  background-color: #eec;
+}
+
+
+table.simple thead tr {
+  background-color: #eee;
+}
+table.simple tr.even {
+  background-color: #fff;
+}
+table.simple {
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+}
+table.simple td,table.simple th{
+	border: 1px solid #ccc;
+}
+
+table.nocol tbody td,table.nocol tbody th{
+	border-left: none;
+	border-right: none;
+}
+
+
+
+
+table.report td, table.report th{
+	font:         menu;
+}
+table.report th{
+	background:   buttonface;
+	border-width: 1px;
+	border-style: solid;
+	border-color: threedhighlight threedshadow threedshadow threedhighlight;
+	cursor:       hand;
+}
+table.report idcol {
+	background: buttonface;
+}
+
+table.report tr.even{
+	background-color: #399;
+}
+table.report tbody {
+	height: 100px;
+	overflow: auto;
+}
+
+table.report {
+	height: 120px;
+	overflow: auto;
+}
+
+table.report tbody tr{
+	height: 10px;
+}
+
+table.mark td.tableCellError {
+	background-color: #d00;
+	color: #fff;
+}
+
+table.sublist {
+	margin: 0 0 0 0;
+	width: 100%;
+}
+table.sublist td, table.sublist th {
+	width: 50%;
+}
+
+div.exportlinks {
+	background-color: #eee;
+	border: 1px dotted #999;
+	padding: 2px 4px 2px 4px;
+	margin: -10px 0 10px 0;
+	width: 79%;
+}
+
+span.export {
+	padding: 0 4px 1px 20px;
+	display:inline; display:inline-block;
+	cursor: pointer;
+}
+
+span.excel {
+	background-image: url(../img/ico_file_excel.png);
+}
+span.csv {
+	background-image: url(../img/ico_file_csv.png);
+}
+span.xml {
+	background-image: url(../img/ico_file_xml.png);
+}
+
+span.pagebanner {
+	background-color: #eee;
+	padding: 2px 4px 2px 4px;
+	/*width: 25%;*/
+	margin-top: 4px;
+	display:block;
+	border-bottom: none;
+	/*text-align: left;*/
+}
+
+span.pagelinks {
+	background-color: #eee;
+	padding: 2px 4px 2px 4px;
+	/*width: 70%;*/
+	display:block;
+	border-top: none;
+	margin-bottom: -1px;
+	/*text-align: left;*/
+}

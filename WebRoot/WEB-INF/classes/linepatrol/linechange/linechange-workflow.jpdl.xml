@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="linechange" xmlns="http://jbpm.org/4.0/jpdl">
+   <start g="285,-8,48,48" name="start">
+      <transition g="-41,-9" name="apply" to="apply_task"/>
+   </start>
+   <end g="287,992,48,48" name="end"/>
+   <task candidate-users="#{assignee}" g="262,71,92,52" name="apply_task">
+      <transition g="264,145:-83,-6" name="apply_approve" to="apply_approve_task"/>
+   </task>
+   <task candidate-users="#{assignee}" g="262,344,92,52" name="work_task">
+      <transition g="268,417:-74,-9" name="work_approve" to="work_approve_task"/>
+   </task>
+   <task candidate-users="#{assignee}" g="264,620,92,52" name="check_task">
+      <transition g="270,701:-79,-9" name="check_approve" to="check_approve_task"/>
+   </task>
+   <task candidate-users="#{assignee}" g="264,897,92,52" name="evaluate_task">
+      <transition g="-25,-7" name="end" to="end"/>
+   </task>
+   <task candidate-users="#{assignee}" g="262,165,92,52" name="apply_approve_task">
+      <transition g="350,144:3,-1" name="not_passed" to="apply_task"/>
+      <transition g="275,244:-42,-11" name="passed" to="apply_approve_deicde"/>
+   </task>
+   <task candidate-users="#{assignee}" g="263,438,92,52" name="work_approve_task">
+      <transition g="349,417:10,-7" name="not_passed" to="work_task"/>
+      <transition g="278,516:-43,-8" name="passed" to="work_approver_decide"/>
+   </task>
+   <task candidate-users="#{assignee}" g="265,725,92,52" name="check_approve_task">
+      <transition g="275,804:-38,-9" name="passed" to="check_approver_decide"/>
+      <transition g="355,701:4,-6" name="not_passed" to="check_task"/>
+   </task>
+   <decision expr="#{transition}" g="284,255,48,48" name="apply_approve_deicde">
+      <transition g="341,244:4,-10" name="transfer" to="apply_approve_task"/>
+      <transition g="-29,-12" name="work" to="work_task"/>
+   </decision>
+   <decision expr="#{transition}" g="285,528,48,48" name="work_approver_decide">
+      <transition g="340,516:6,-6" name="transfer" to="work_approve_task"/>
+      <transition g="-36,-11" name="check" to="check_task"/>
+      <transition g="109,736:-24,-7" name="end" to="evaluate_task"/>
+   </decision>
+   <decision expr="#{transition}" g="286,811,48,48" name="check_approver_decide">
+      <transition g="348,804:1,-10" name="transfer" to="check_approve_task"/>
+      <transition g="-52,-15" name="evaluate" to="evaluate_task"/>
+   </decision>
+</process>

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<!-- 修缮 -->
+		<form-bean name="projectRemedyItemBean"
+			type="com.cabletech.linepatrol.project.beans.RemedyItemBean"></form-bean>
+		<form-bean name="projectRemedyTypeBean"
+			type="com.cabletech.linepatrol.project.beans.RemedyTypeBean"></form-bean>
+		<form-bean name="projectCountyInfoBean"
+			type="com.cabletech.linepatrol.project.beans.CountyInfoBean"></form-bean>
+		<form-bean name="projectRemedyApplyBean"
+			type="com.cabletech.linepatrol.project.beans.RemedyApplyBean">
+		</form-bean>
+		<form-bean name="projectRemedyApproveBean"
+			type="com.cabletech.linepatrol.project.beans.RemedyApproveBean">
+		</form-bean>
+		<form-bean name="remedyExamBean"
+			type="com.cabletech.linepatrol.project.beans.RemedyExamBean" />
+	</form-beans>
+	<action-mappings>
+		<action name="projectRemedyItemBean" parameter="method"
+			path="/project/remedy_item" scope="request"
+			type="com.cabletech.linepatrol.project.action.RemedyItemAction">
+			<forward name="addItemForm" path="/linepatrol/project/remedy_item_add.jsp" />
+			<forward name="addItemTypeForm"
+				path="/project/remedy_type.do?method=addRemedyTypeFormByOneItem" />
+			<forward name="queryItemForm" path="/linepatrol/project/remedy_item_query.jsp" />
+			<forward name="listItems" path="/linepatrol/project/remedy_item_list.jsp" />
+			<forward name="editRemedyItemForm" path="/linepatrol/project/remedy_item_edit.jsp" />
+			<forward name="viewRemedyItem" path="/linepatrol/project/remedy_item_view.jsp" />
+			<forward name="listTypesByItemID" path="/linepatrol/project/remedy_item_typelist.jsp" />
+		</action>
+		<action name="projectRemedyTypeBean" parameter="method"
+			path="/project/remedy_type" scope="request"
+			type="com.cabletech.linepatrol.project.action.RemedyTypeAction">
+			<forward name="addTypeForm" path="/linepatrol/project/remedy_type_add.jsp" />
+			<forward name="addTypeFormByOneItem"
+				path="/linepatrol/project/remedy_type_by_one_item_add.jsp" />
+			<forward name="queryTypeForm" path="/linepatrol/project/remedy_type_query.jsp" />
+			<forward name="listTypes" path="/linepatrol/project/remedy_type_list.jsp" />
+			<forward name="editRemedyTypeForm" path="/linepatrol/project/remedy_type_edit.jsp" />
+			<forward name="viewRemedyTypeForm" path="/linepatrol/project/remedy_type_view.jsp" />
+		</action>
+		<action name="projectCountyInfoBean" parameter="method"
+			path="/project/county_info" scope="request"
+			type="com.cabletech.linepatrol.project.action.CountyInfoAction">
+			<forward name="querycountyresult" path="/linepatrol/project/querycountyresult.jsp" />
+			<forward name="updateCounty" path="/linepatrol/project/editCounty.jsp" />
+		</action>
+		<!-- 修缮申请流程Action -->
+		<action name="projectRemedyApplyBean" path="/project/remedy_apply"
+			parameter="method" scope="request"
+			type="com.cabletech.linepatrol.project.action.RemedyApplyAction">
+			<forward name="insert_remedy_apply" path="/linepatrol/project/remedy_apply_insert.jsp" />
+			<forward name="update_remedy_apply" path="/linepatrol/project/remedy_apply_update.jsp" />
+			<forward name="view_remedy_apply" path="/linepatrol/project/remedy_apply_view.jsp" />
+			<forward name="list_remedy_apply" path="/linepatrol/project/remedy_apply_query.jsp" />
+			<forward name="list_wait_handle_remedy_apply"
+				path="/linepatrol/project/remedy_apply_wait_handle_list.jsp" />
+			<forward name="query_remedy_apply" path="/linepatrol/project/remedy_apply_query.jsp" />
+			<forward name="query_remedy_state" path="/linepatrol/project/query_remedy_state.jsp" />
+			<forward name="view_remedy_process" path="/linepatrol/project/view_remedy_process.jsp" />
+			<forward name="cancel_remedy_apply" path="/linepatrol/project/remedy_apply_cancel.jsp" />
+			<forward name="toDoWork" path="/linepatrol/project/toDoWork.jsp" />
+			<forward name="finishedWork" path="/linepatrol/project/finishedWork.jsp" />
+		</action>
+		<action name="projectRemedyApproveBean" path="/project/remedy_apply_approve"
+			parameter="method" scope="request"
+			type="com.cabletech.linepatrol.project.action.RemedyApproveAction">
+			<forward name="approve_remedy_apply" path="/linepatrol/project/remedy_apply_approve.jsp" />
+			<forward name="transapprove_remedy_apply"
+				path="/linepatrol/project/remedy_transapply_approve.jsp" />
+		</action>
+		
+		<action name="remedyExamBean" path="/remedyExamAction" parameter="method" scope="request"
+			type="com.cabletech.linepatrol.project.action.RemedyExamAction">
+			<forward name="examList" path="/linepatrol/project/remedy_exam_list.jsp"/>
+			<forward name="remedyExamForm" path="/linepatrol/project/remedy_exam_form.jsp"/>
+		</action>
+	</action-mappings>
+</struts-config>
+

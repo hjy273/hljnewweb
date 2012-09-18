@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<!--zhaobi add start -->
+		<!-- 巡检计划信息 -->
+		<form-bean name="PatrolinfoBean" type="com.cabletech.wplan.beans.PatrolinfoBean">
+		</form-bean>
+		<!-- 巡检分析信息 -->
+		<form-bean name="PatrolanalysisBean" type="com.cabletech.wplan.beans.PatrolanalysisBean" >
+		</form-bean>
+		<!-- zhaobi add end -->
+	</form-beans>
+	<global-forwards>
+		<forward name="sucessMsg" path="/globinfo/sucessinfo.jsp" />
+		<forward name="glcdError" path="/globinfo/glcdError.jsp" />
+		<forward name="errorMsg" path="/globinfo/errorinfo.jsp" />
+		<forward name="powererror" path="/globinfo/powererror.jsp" />
+		<forward name="giserror" path="/realtime/errorinfo.jsp" />
+		<forward name="editinfo" path="/globinfo/info.jsp" />
+		<forward name="nodelinfo" path="/globinfo/noDelInfo.jsp" />
+	</global-forwards>
+
+	<action-mappings>
+		<!--巡检计划查询信息 -->
+		<action path="/TowerPatrolinfo" parameter="method" scope="request" name="PatrolinfoBean"
+			type="com.cabletech.wplan.action.PatrolinfoAction">
+			<forward name="addplaninfo" path="/plan/addpatrolplaninfo.jsp" />
+			<forward name="queryplaninfo" path="/plan/querypatrolplaninfo.jsp" />
+			<forward name="showplaninfo" path="/plan/showpatrolplaninfo.jsp" />
+			<forward name="showscheduleinfodesktop" path="/plan/showscheduleinfodesktop.jsp" />
+			<forward name="showonepatrolplaninfo" path="/plan/showonepatrolplaninfo.jsp" />
+			<forward name="editplaninfo" path="/plan/editpatrolplaninfo.jsp" />
+			<forward name="auditingplaninfo" path="/plan/auditingpatrolplaninfo.jsp" />
+			<forward name="waitplaninfo" path="/plan/waitauditingpatrolplaninfo.jsp" />
+			<forward name="queryscheduleinfo" path="/plan/querypatrolschedule.jsp" />
+			<forward name="showscheduleinfo" path="/plan/showpatrolschedule.jsp" />
+			<forward name="showpatrolenddetail" path="/plan/showpatrolenddetail.jsp" />
+			<forward name="showpatrolitemdetail" path="/plan/showpatrolitemdetail.jsp" />
+			<forward name="showlosepatroldetail" path="/plan/showlosepatroldetail.jsp" />
+			<forward name="stationdetails" path="/plan/stationdetails.jsp" />
+		</action>
+			<!--巡检计划查询信息 -->
+		<action path="/Patrolanalysis" parameter="method" scope="request" name="PatrolanalysisBean"
+			type="com.cabletech.wplan.action.PatrolanalysisAction">
+			<forward name="querymonthcounty" path="/plan/queryMonthCountyAnalysis.jsp" />
+			<forward name="queryquartercounty" path="/plan/queryQuarterCountyAnalysis.jsp" />
+			<forward name="queryyearcounty" path="/plan/queryYearCountyAnalysis.jsp" />
+			<forward name="showmonthcounty" path="/plan/showMonthCountyResult.jsp" />
+			<forward name="queryMonthContractorShow" path="/plan/queryMonthContractorAnalysis.jsp" />
+			<forward name="queryYearContractorShow" path="/plan/queryYearContractorAnalysis.jsp" />
+			<forward name="queryQuarterContractorShow" path="/plan/queryQuarterContractorAnalysis.jsp" />
+			<forward name="queryMonthCityShow" path="/plan/queryMonthCityAnalysis.jsp" />
+			<forward name="queryYearCityShow" path="/plan/queryYearCityAnalysis.jsp" />
+			<forward name="queryQuarterCityShow" path="/plan/queryQuarterCityAnalysis.jsp" />
+			<forward name="showContractorResult" path="/plan/showContractorResult.jsp" />
+			<forward name="showCityResult" path="/plan/showCityResult.jsp" />
+		</action>
+	</action-mappings>
+</struts-config>

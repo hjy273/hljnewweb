@@ -1,0 +1,95 @@
+<script type="text/javascript" src="/WebApp/js/jquery-1.3.2.min.js"></script>
+<script language="JavaScript" src="/WebApp/js/prototype.js"></script>
+<script language="JavaScript" src="/WebApp/js/WdatePicker/WdatePicker.js"></script>
+<link type="text/css" rel="stylesheet" href="/WebApp/js/WdatePicker/skin/WdatePicker.css">
+<link href="/WebApp/css/style.css" rel="stylesheet" type="text/css">
+<script type='text/javascript' src='/WebApp/js/extjs/adapter/ext/ext-base.js'></script>
+<script type='text/javascript' src='/WebApp/js/extjs/ext-all.js'></script>
+<link rel='stylesheet' type='text/css' href='/WebApp/js/extjs/resources/css/ext-all.css' />
+<script language="JavaScript" src="/WebApp/linepatrol/quest/js/quest.js"></script>
+<HTML>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+<head>
+	<title>Test</title>
+</head>
+<BODY>
+#set ($colCount=4+$table.manufactorList.size())
+
+<form name="addFeedback" id="addFeedback" method="post" action="/WebApp/questAction.do?method=addFeedbackIssue" >
+<br/>
+<input type="hidden" id="issueId" value="$issueId" name="issueId"/>
+<input type="hidden" id="comIds" value="$comIds" name="comIds"/>
+<input type="hidden" id="itemIds" value="$itemIds" name="itemIds"/>
+
+<table border="1"  align="center" cellpadding="1" cellspacing="0" class="tabout" width="100%">
+	<tr class="trcolor"  height="30">
+	   #set ($curSpanCount = $colCount - 2)
+	   <td colspan="2" align="center"><b>$issueType后评估指标</b></td><td colspan="$curSpanCount" align="center"><b>$issueName - $issueType</b></td>
+	</tr>
+	<tr class="trcolor">
+		<td align="center"><b>类别</b></td>
+		<td align="center"><b>分类</b></td>
+		<td align="center"><b>指标细项</b></td>
+		#foreach($manuf in $table.manufactorList)
+			<td align="center"><b>$manuf.object</b></td>
+		#end
+		<td align="center"><b>备注</b></td>
+	</tr>
+	#foreach($item in $table.itemList)
+		<tr  class="trcolor">
+			#if ( ${item.parentParent} )
+				<td rowspan="${item.parentParent.itemCount}" align="center"><b>${item.parentParent.name}</b></td>
+			#end		
+			#if ( $item.parent )
+				<td rowspan="${item.parent.itemCount}" align="center">${item.parent.name}</td>
+			#end
+			<td>${item.name}</td>		
+		    #foreach($manuf in $table.manufactorList)
+			    #set ($comItemId = ${manuf.id}+""+${item.key})
+			    
+				<td onclick=showRule('${manuf.id}','${item.key}') align="center">
+				     ##遍历issueResultMap
+				     #foreach($member in $issueResultMap.entrySet())
+						 #if ( ${member.key}==${comItemId} )
+						 ##设置存入数据库中的值
+						 ##${member.value.trueValue}
+						 #set ($vTrueValue = ${member.value.trueValue})
+						 ##设置页面显示的值
+						 #set ($vShowValue = ${member.value.showValue})
+					 #end
+		             #end 
+					 #if ( $vShowValue&&$vShowValue!="")
+						<div id="d${comItemId}">$vShowValue</div>
+					 #end
+					 #if (! $vShowValue||$vShowValue=="")
+						<div id="d${comItemId}"><a style="cursor:pointer;color:blue;">请填写</a></div>
+					 #end
+				</td>
+				#if ( $vShowValue&&$vShowValue!="")
+					<input type="hidden" id="${manuf.id}${item.key}" name="${manuf.id}${item.key}"  value="$vTrueValue"/>
+				#end
+				#if (! $vShowValue||$vShowValue=="")
+					<input type="hidden" id="${manuf.id}${item.key}" name="${manuf.id}${item.key}"  value=""/>
+				#end
+				
+				##将数据库中的值和显示的值置为空
+				#set ($vTrueValue = "")
+		        #set ($vShowValue = "")
+		    #end
+		    #if(${item.remark})		
+				<td> ${item.remark} </td>
+			#else
+				<td>&nbsp;</td>
+			#end
+		</tr>
+	#end
+</table>
+		<div align="center" style="height:40px">
+			<br/>
+			<input type="hidden" id="saveflag" name="saveflag" value="3"/>
+			<button class="button" onclick="checkForm(3)">提交</button> &nbsp;&nbsp;
+			<button class="button" onclick="checkForm(2)">暂存</button>
+		</div>
+</form>
+</BODY>
+</HTML>

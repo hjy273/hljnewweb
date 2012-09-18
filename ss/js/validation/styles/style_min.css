@@ -1,0 +1,34 @@
+body {
+	color: #333;
+	padding: 0 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+}
+input.validation-failed, textarea.validation-failed {
+	border: 1px solid #FF3300;
+	color : #FF3300;
+}
+
+/* 出错时显示信息使用的默认样式1 */
+.validation-advice {
+	margin: 2px 0;
+	padding: 2px;
+	color : #FF3300;
+	font-weight: normal;
+}
+
+.custom-advice1 {
+	margin: 2px 0;
+	padding: 2px;
+	background-color: #DFF3FB;
+	color : #FF3300;
+	font-weight: normal;
+}
+
+.custom-advice2 {
+	margin: 2px 0;
+	padding: 2px;
+	background-color: #C8AA00;
+	color : #FFF;
+	font-weight: normal;
+}

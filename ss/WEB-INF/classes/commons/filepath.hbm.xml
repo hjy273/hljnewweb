@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.commons.upload.module.UploadFileInfo"  table="FILEPATHINFO">
+        <id name="fileId" type="string" unsaved-value="null" >
+            <column name="fileid" sql-type="char(15)" not-null="true"/>
+            <generator class="com.cabletech.commons.hb.StrSequenceGenerator">
+            	<param name="sequence">SEQ_FILEPATHINFO_ID</param>
+               	<param name="length">15</param>
+            </generator>
+        </id>
+        <property name="savePath" column="savepath"/>
+        <property name="fileType" column="fileType"/>
+        <property name="fileSize"/>
+        <property name="originalName"/>
+        <property name="description" column="description"/>
+        <property name="catlog" column="catlog"/>
+        
+    </class>
+</hibernate-mapping>

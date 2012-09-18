@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.linepatrol.acceptance.model.Apply"  table="LP_ACCEPTANCE_APPLY">
+        <id name="id" type="string" unsaved-value="null" >
+            <column name="ID" sql-type="varchar(12)" not-null="true"/>  
+            <generator class="com.cabletech.commons.hb.StrSequenceGenerator">
+               <param name="sequence">SEQ_LP_ACCEPTANCE_APPLY_ID</param>
+               <param name="length">12</param>
+            </generator>        
+        </id>
+        <property name="assign" column="ASSIGN"/>
+        <property name="code" column="CODE"/>
+        <property name="name" column="NAME"/>
+        <property name="applicant" column="APPLICANT"/>
+        <property name="applyDate" column="APPLY_DATE"/>
+        <property name="resourceType" column="RESOURCE_TYPE"/>
+        <property name="processInstanceId" column="PROCESS_INSTANCE_ID"/>
+        <property name="processState" column="PROCESS_STATE"/>
+        <property name="remark" column="REMARK"/>
+        <property column="CANCEL_USER_ID" generated="never" lazy="false"
+			name="cancelUserId" />
+		<property column="CANCEL_TIME" generated="never" lazy="false"
+			name="cancelTime" />
+		<property column="CANCEL_REASON" generated="never" lazy="false"
+			name="cancelReason" />
+        <set name="cables" cascade="all" inverse="true" lazy="false">
+		    <key column="APPLY_ID"/>
+		    <one-to-many class="com.cabletech.linepatrol.acceptance.model.ApplyCable"/>
+		</set>
+        <set name="pipes" cascade="all" inverse="true" lazy="false">
+		    <key column="APPLY_ID"/>
+		    <one-to-many class="com.cabletech.linepatrol.acceptance.model.ApplyPipe"/>
+		</set>
+    </class>
+</hibernate-mapping>

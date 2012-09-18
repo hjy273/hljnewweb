@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+
+		<!-- 系统管理 -->
+		<form-bean name="MenuBean" type="com.cabletech.menu.beans.MenuBean"/>
+		
+		<form-bean name="BusinesslogBean" type="com.cabletech.sysmanage.beans.BusinesslogBean" />
+		<!-- 旧公告管理模块 屏蔽 2011-11-25 杨隽 -->
+		<!-- 
+		<form-bean name="NoticeBean" type="com.cabletech.sysmanage.beans.NoticeBean" />
+		 -->
+		<form-bean name="NoticeBean" type="com.cabletech.notice.beans.NoticeBean" />
+		<form-bean name="SMSLogBean" type="com.cabletech.sysmanage.beans.SMSLogBean" />
+		<form-bean name="PointOutputBean" type="com.cabletech.sysmanage.beans.PointOutputBean"/>
+		<form-bean name="SMSCenterTime" type="com.cabletech.sysmanage.beans.SMSCenterTime" />
+		
+		<form-bean name="loginBean" type="com.cabletech.sysmanage.beans.UserInfoBean" />
+		<form-bean name="UsergroupBean" type="com.cabletech.sysmanage.beans.UsergroupBean" />
+		<form-bean name="userInfoBean" type="com.cabletech.sysmanage.beans.UserInfoBean" />
+		<form-bean name="departBean" type="com.cabletech.baseinfo.beans.DepartBean" />
+		
+		<form-bean name="regionBean" type="com.cabletech.baseinfo.beans.RegionBean" />
+
+		<form-bean name="PatrolOpBean" type="com.cabletech.baseinfo.beans.PatrolOpBean" />
+		<form-bean name="tpBean" type="com.cabletech.baseinfo.beans.PointBean" />
+		<form-bean name="tsBean" type="com.cabletech.baseinfo.beans.SublineBean" />
+		<form-bean name="pmBean" type="com.cabletech.baseinfo.beans.PatrolManBean" />
+
+		<form-bean name="TaskOperationBean" type="com.cabletech.baseinfo.beans.TaskOperationBean" />
+		<form-bean name="AlertreceiverListBean" type="com.cabletech.baseinfo.beans.AlertreceiverListBean" />
+		<form-bean name="cablesegmentBean" type="com.cabletech.baseinfo.beans.CableSegmentBean" />
+		<form-bean name="TroubleCodeBean" type="com.cabletech.baseinfo.beans.TroubleCodeBean" />
+		<form-bean name="TroubleTypeBean" type="com.cabletech.baseinfo.beans.TroubleTypeBean" />
+		
+		<form-bean name="UseTerminalBean" type="com.cabletech.baseinfo.beans.UseTerminalBean" />
+		<form-bean name="SMSBean" type="com.cabletech.baseinfo.beans.SMSBean" />
+		
+		<!-- 
+		<form-bean name="RsCellTempBean"
+			type="com.cabletech.resource.model.RsCellTemp">
+		</form-bean>
+		 -->
+		</form-beans>
+	<global-forwards>
+		<forward name="sucessMsg" path="/globinfo/sucessinfo.jsp" />
+		<forward name="errorMsg" path="/globinfo/errorinfo.jsp" />
+		<forward name="powererror" path="/globinfo/powererror.jsp" />
+		<forward name="giserror" path="/realtime/errorinfo.jsp" />
+	</global-forwards>
+	<action-mappings>
+	<!-- 菜单配置管理 -->
+		<action name="MenuBean" parameter="method" path="/MenuManageAction" scope="request" type="com.cabletech.menu.web.MenuManageAction">
+	    	<forward name="addMenu" path="/baseinfo/menu/addMenu.jsp" />
+	    	<forward name="getMenu" path="/baseinfo/menu/getMenu.jsp" />
+	    	<forward name="getFirstMenu" path="/baseinfo/menu/getFirstMenu.jsp" />
+	    	<forward name="viewFirstMenu" path="/baseinfo/menu/viewFirstMenu.jsp" />
+	    	<forward name="editFirstMenu" path="/baseinfo/menu/editFirstMenu.jsp" />
+	    	<forward name="getSecondMenu" path="/baseinfo/menu/getSecondMenu.jsp" />
+	    	<forward name="viewSecondMenu" path="/baseinfo/menu/viewSecondMenu.jsp" />
+	    	<forward name="editSecondMenu" path="/baseinfo/menu/editSecondMenu.jsp" />
+	    	<forward name="getThirdMenu" path="/baseinfo/menu/getThirdMenu.jsp" />
+	    	<forward name="viewThirdMenu" path="/baseinfo/menu/viewThirdMenu.jsp" />
+	    	<forward name="editThridMenu" path="/baseinfo/menu/editThirdMenu.jsp" />
+    	</action>
+		<!-- 系统管理 -->
+
+		<!-- 辽宁单点登录 SD用户 AD用户 -->
+		<action path="/ssoLogin" parameter="method" scope="request" type="com.cabletech.lnsso.action.LoginSSOAction">
+			<forward name="loginformward" path="/frames/index_frame.htm" />
+			<forward name="errorformward" path="/login/loginerror.jsp" />
+		</action>
+		<!-- 辽宁单点登录  -->
+
+
+		<action path="/moduleLogin" parameter="method" scope="request" type="com.cabletech.sysmanage.action.ModuleLoginAction">
+			<forward name="loginformward" path="/frames/module/index.jsp" />
+			<forward name="errorformward" path="/login/loginerror.jsp" />
+		</action>
+		<action path="/DesktopAction" parameter="method" scope="request" type="com.cabletech.baseinfo.action.DesktopAction">
+			<forward name="loadinfo" path="/frames/index/mainpage.jsp"></forward>
+			<forward name="conloadinfo" path="/frames/index/indexcontractor.jsp"></forward>
+			<forward name="resloadinfo" path="/frames/index/indexresouse.jsp"></forward>
+		</action>
+		<!--  -->
+		<action name="userInfoBean" parameter="method" path="/SSOLogin" scope="request" type="com.cabletech.sysmanage.action.SSOLoginAction">
+			<forward name="loginformward" path="/frames/index/index.jsp" />
+			<forward name="errorformward" path="/login/loginerror.jsp" />
+			<forward name="nolicense" path="/login/nolicense.jsp" />
+			<forward name="stateError" path="/login/stateError.jsp" />
+			<forward name="relogin" path="/login/relogin.jsp" />
+			<forward name="updatePassword" path="/SystemManage/updatePassword.jsp" />
+		</action>
+		
+		<action name="SMSCenterTime" parameter="method" path="/SMSTimeAction" scope="request" type="com.cabletech.sysmanage.action.SMSTimeAction">
+			<forward name="getSMSBean" path="/SystemManage/updateSMSTime.jsp" />
+		</action>
+		<action name="userInfoBean" parameter="method" path="/login" scope="request" type="com.cabletech.sysmanage.action.LoginAction">
+			<forward name="loginformward" path="/frames/index/index.jsp" />
+			<forward name="errorformward" path="/login/loginerror.jsp" />
+			<forward name="nolicense" path="/login/nolicense.jsp" />
+			<forward name="stateError" path="/login/stateError.jsp" />
+			<forward name="relogin" path="/login/relogin.jsp" />
+			<forward name="mainweb" path="/" />
+			<forward name="updatePassword" path="/SystemManage/updatePassword.jsp" />
+			<forward name="superLoginShow" path="/manager/main.jsp" />
+		</action>
+
+		<action name="userInfoBean" parameter="method" path="/onlineuseraction" scope="request" type="com.cabletech.sysmanage.action.OnLineUserAction">
+			<forward name="onLineUsersPage" path="/SystemManage/queryOnLineUsersResult.jsp" />
+			<forward name="showqueryuser" path="/SystemManage/queryUser.jsp" />
+			<forward name="queryuserresult" path="/SystemManage/queryUserResult.jsp" />
+		</action>
+		<action name="BusinesslogBean" parameter="method" path="/BusinesslogAction" scope="request" type="com.cabletech.sysmanage.action.BusinesslogAction">
+			<forward name="querybusinesslogsult" path="/SystemManage/querybusinesslogsult.jsp" />
+			<forward name="showqueryuserlog" path="/SystemManage/querySysLog.jsp" />
+		</action>
+		<!-- 旧公告管理模块 屏蔽 2011-11-25 杨隽 -->
+		<!-- 
+		<action name="NoticeBean" parameter="method" path="/NoticeAction" scope="request" type="com.cabletech.sysmanage.action.NoticeAction">
+			<forward name="addform" path="/SystemManage/addnotice.jsp"></forward>
+			<forward name="querynotice" path="/SystemManage/querynotice.jsp"></forward>
+			<forward name="editform" path="/SystemManage/editnotie.jsp"></forward>
+			<forward name="shownotice" path="/SystemManage/shownotice.jsp"></forward>
+			<forward name="allnoticelist" path="/SystemManage/allnoticelist.jsp"></forward>
+			<forward name="queryform" path="/SystemManage/queryform.jsp"></forward>
+		</action>
+		 -->
+		<action name="NoticeBean" parameter="method" path="/NoticeAction"
+			scope="request" type="com.cabletech.notice.action.NoticeAction">
+			<forward name="addform" path="/notice/add_notice.jsp">
+			</forward>
+			<forward name="querynotice" path="/notice/query_notice_list.jsp">
+			</forward>
+			<forward name="queryallissuenotice" path="/notice/query_all_issue_notice.jsp">
+			</forward>
+			<forward name="querynoticemeet" path="/notice/query_notice_meet.jsp">
+			</forward>
+			<forward name="editform" path="/notice/edit_notice.jsp">
+			</forward>
+			<forward name="shownotice" path="/notice/show_notice.jsp">
+			</forward>
+			<forward name="allnoticelist" path="/notice/all_notice_list.jsp">
+			</forward>
+			<forward name="queryform" path="/notice/query_notice_form.jsp">
+			</forward>
+		</action>
+		
+		
+		<action name="SMSLogBean" parameter="method" path="/smsLogAction" scope="request" type="com.cabletech.sysmanage.action.SMSLogAction">
+			<forward name="querysmssendlog" path="/SystemManage/querysmssendlogresult.jsp" />
+			<forward name="querysmsrecivelog" path="/SystemManage/querysmsrecivelogresult.jsp" />
+			<forward name="smssendlogform" path="/SystemManage/querySmsSendLog.jsp" />
+			<forward name="smsreceivelogform" path="/SystemManage/querySmsReciveLog.jsp" />
+		</action>
+		<action name="userInfoBean" parameter="method" path="/userinfoAction" scope="request" type="com.cabletech.sysmanage.action.UserInfoAction">
+			<forward name="queryuserinforesult" path="/SystemManage/queryuserinforesult.jsp" />
+			<forward name="updateUserinfo" path="/SystemManage/editUserInfo.jsp" />
+			<forward name="addUserInnerMsg" path="/baseinfo/addUserInnerMsg.jsp" />
+			<forward name="addUserInfo" path="/SystemManage/addUserInfo.jsp" />
+			<forward name="resetpsw" path="/SystemManage/resetpsw.jsp" />
+			<forward name="queryuserinfoform" path="/SystemManage/queryUserInfo.jsp" />
+		</action>
+		<action name="UsergroupBean" parameter="method" path="/UsergroupAction" scope="request" type="com.cabletech.sysmanage.action.UsergroupAction">
+			<forward name="queryUsergroupResult" path="/SystemManage/queryusergroupresult.jsp" />
+			<forward name="toEditUsergroup" path="/SystemManage/editUsergroup.jsp" />
+		</action>
+
+		<action name="PointOutputBean" parameter="method" path="/PointOutputAction" scope="request" type="com.cabletech.sysmanage.action.PointOutputAction">
+			<forward name="queryPointOutput" path="/SystemManage/queryPointOutput.jsp" />
+		</action>
+
+		<!-- 资料管理 -->
+		<!--资源重新分配 -->
+		
+		<!--设备使用 -->
+		<action path="/UseTerminalAction" name="UseTerminalBean" parameter="method" scope="request" type="com.cabletech.baseinfo.action.UseTerminalAction">
+			<forward name="UseTerminalInfo" path="/baseinfo/userTerminal.jsp"></forward>
+			<forward name="UseTerminalList" path="/baseinfo/userTerminallist.jsp"></forward>
+		</action>
+		<action name="departBean" parameter="method" path="/departAction" scope="request" type="com.cabletech.baseinfo.action.DepartAction">
+			<forward name="addDepart" path="/baseinfo/addDepart.jsp"/>
+			<forward name="querydepartresult" path="/baseinfo/querydepartresult.jsp" />
+			<forward name="updateDepart" path="/baseinfo/editDepart.jsp" />
+			<forward name="showadvanceddepart" path="/baseinfo/queryDepart.jsp" />
+		</action>
+
+		<action name="regionBean" parameter="method" path="/regionAction" scope="request" type="com.cabletech.baseinfo.action.RegionAction">
+			<forward name="queryregionresult" path="/baseinfo/queryregionresult.jsp" />
+			<forward name="updateRegion" path="/baseinfo/editRegion.jsp" />
+			<forward name="getCurrentRegion4Gis" path="/baseinfo/editRegion4Gis.jsp" />
+		</action>
+	
+		<action name="PatrolOpBean" parameter="method" path="/PatrolOpAction" scope="request" type="com.cabletech.baseinfo.action.PatrolOpAction">
+			<forward name="queryPatrolOpresult" path="/baseinfo/queryPatrolOpresult.jsp" />
+			<forward name="editPatrolOpresult" path="/baseinfo/editPatrolOp.jsp" />
+			<forward name="commonerror" path="/baseinfo/commonError.jsp" />
+		</action>
+		<action name="TaskOperationBean" parameter="method" path="/TaskOperationAction" scope="request" type="com.cabletech.baseinfo.action.TaskOperationAction">
+			<forward name="queryTaskOperation" path="/baseinfo/queryTaskOperationResult.jsp" />
+			<forward name="updateTaskOperation" path="/baseinfo/editTaskOperation.jsp" />
+		</action>
+		<action name="AccidentBean" parameter="method" path="/AlertInfoAction" scope="request" type="com.cabletech.baseinfo.action.AlertInfoAction">
+			<forward name="unDoneAccidentListpage" path="/baseinfo/undoneAccidentList.jsp" />
+			<forward name="queryAlertInfoResult" path="/baseinfo/querryalertinforesult.jsp" />
+			<forward name="updateAlertInfo" path="/baseinfo/editAlertInfo.jsp" />
+		</action>
+		<action name="AlertreceiverListBean" parameter="method" path="/AlertreceiverListAction" scope="request" type="com.cabletech.baseinfo.action.AlertreceiverListAction">
+			<forward name="queryAlertreceiverList" path="/baseinfo/queryAlertreceiverListResult.jsp" />
+			<forward name="updateAlertreceiverList" path="/baseinfo/editAlertreceiverList.jsp" />
+			<forward name="addAlertreceiverListForm" path="/baseinfo/addAlertreceiverList.jsp" />
+			<forward name="queryAlertreceiverListForm" path="/baseinfo/queryAlertreceiverList.jsp" />
+		</action>
+		<action name="SMSBean" parameter="method" path="/smsAction" scope="request" type="com.cabletech.baseinfo.action.SMSAction">
+			<forward name="initDevice" path="/realtime/sendMsgResult.jsp" />
+			<forward name="sendHomingSMS" path="/realtime/sendMsgResult.jsp" />
+			<forward name="sendCommandSMS" path="/realtime/sendMsgResult.jsp" />
+			<forward name="commonerror" path="/baseinfo/commonError.jsp" />
+			<forward name="showReSMS" path="/realtime/reCommandMsg.jsp" />
+		</action>
+
+		<action name="cablesegmentBean" parameter="method" path="/CableSegmentAction" scope="request" type="com.cabletech.baseinfo.action.CableSegmentAction">
+			<forward name="querycablesegmentresult" path="/baseinfo/querycablesegmentresult.jsp" />
+			<forward name="loadaddform" path="/baseinfo/addcablesegment.jsp" />
+			<forward name="loadeditform" path="/baseinfo/editcablesegment.jsp" />
+			<forward name="loadqueryform" path="/baseinfo/querycablesegment.jsp" />
+		</action>
+
+
+		<action name="TroubleCodeBean" parameter="method" path="/TroubleCodeAction" scope="request" type="com.cabletech.baseinfo.action.TroubleCodeAction">
+			<forward name="loadTroubleCode" path="/baseinfo/troublecodemgr.jsp" />
+			<forward name="showTroubleCode" path="/baseinfo/showtroublecode.jsp" />
+			<forward name="showadd" path="/baseinfo/addCT_roublecode.jsp" />
+			<forward name="showedit" path="/baseinfo/editCT_roublecode.jsp" />
+			<forward name="showTroubleType" path="/baseinfo/showTroubleType.jsp" />
+			<forward name="showaddType" path="/baseinfo/addCT_roubleType.jsp" />
+			<forward name="showeditType" path="/baseinfo/editCT_roubleType.jsp" />
+			<forward name="showSend_TroubleCode" path="/baseinfo/showSend_TroubleCode.jsp" />
+		</action>
+		
+		<!-- 光缆导入数据校验 -->
+		<!-- 
+		<action name="RsCellTempBean" path="/CellImport"
+			parameter="method" scope="request"
+			type="com.cabletech.resource.action.CellImportAction" attribute="RsCellTempBean">
+			<forward name="import_cell_info"
+				path="/resource/import_cell_info.jsp">
+			</forward>
+			<forward name="import_cell_result"
+				path="/resource/import_cell_result.jsp">
+			</forward>
+		</action>
+		 -->
+
+		<!-- 公共资源及其他 -->
+		<action path="/downloadAction" scope="request" type="com.cabletech.uploadfile.action.DownloadFileAction" />
+
+	</action-mappings>
+</struts-config>

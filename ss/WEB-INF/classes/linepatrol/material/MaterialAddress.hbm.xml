@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.linepatrol.material.domain.MaterialAddress"  table="LP_mt_addr">
+        <id name="id" type="integer" unsaved-value="null" >
+            <column name="id" sql-type="Integer" not-null="true"/>  
+            <generator class="assigned"/>          
+        </id>
+        <property name="address"/>
+        <property name="contractorid"/>
+		<property name="remark"/>
+		<property name="state"></property>
+    </class>
+</hibernate-mapping>

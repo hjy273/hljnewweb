@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.linepatrol.hiddanger.model.HiddangerTreat"  table="LP_HIDDANGER_TREAT">
+        <id name="id" type="string" unsaved-value="null" >
+            <column name="ID" sql-type="varchar(12)" not-null="true"/>  
+            <generator class="com.cabletech.commons.hb.StrSequenceGenerator">
+               <param name="sequence">SEQ_LP_HIDDANGER_TREAT_ID</param>
+               <param name="length">12</param>
+            </generator>        
+        </id>
+        <property name="hiddangerId" column="HIDDANGER_ID"/>
+        <property name="address" column="ADDRESS"/>
+        <property name="distanceToCable" column="DISTANCE_TO_CABLE"/>
+        <property name="watchPrincipal" column="WATCH_PRINCIPAL"/>
+        <property name="watchPrincipalPhone" column="WATCH_PRINCIPAL_PHONE"/>
+        <property name="impressLength" column="IMPRESS_LENGTH"/>
+        <property name="watchActualizeMan" column="WATCH_ACTUALIZE_MAN"/>
+        <property name="watchActualizeManPhone" column="WATCH_ACTUALIZE_MAN_PHONE"/>
+        <property name="otherImpressCable" column="OTHER_IMPRESS_CABLE"/>
+        <property name="watchReason" column="WATCH_REASON"/>
+        <property name="watchMeasure" column="WATCH_MEASURE"/>
+        <property name="treatremark" column="REMARK"/>
+        <property name="hiddangerRemoveTime" column="HIDDANGER_REMOVE_TIME"/>
+        <property name="watchReliefTime" column="WATCH_RELIEF_TIME"/>
+        <property name="watchReliefReason" column="WATCH_RELIEF_REASON"/>
+        <property name="authorId" column="AUTHOR_ID"/>
+        <property name="writingTIme" column="WRITING_TIME"/>
+    </class>
+</hibernate-mapping>

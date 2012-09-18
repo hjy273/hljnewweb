@@ -1,0 +1,110 @@
+@charset "utf-8";
+/* CSS Document */
+
+html,body{ margin:0 auto; padding:0px; height:100%; font-size:12px;}
+
+html {
+  scrollbar-face-color:#EDF4F7; 
+  scrollbar-highlight-color:#ECFDFF;
+  scrollbar-3dlight-color:#ECFDFF;
+  scrollbar-darkshadow-color:#20576F;
+  scrollbar-Shadow-color:#B2CDD2;
+  scrollbar-arrow-color:#6FA4BE;
+  scrollbar-track-color:#EEF4F7;
+}
+
+
+.navPoint { COLOR: white; CURSOR: hand; FONT-FAMILY: Webdings; FONT-SIZE: 9pt;} 
+
+
+/*左边栏目样式 Home*/
+
+.commontr_left{ width:180px; height:100%; background-color:#FFFFFF; border-right:1px #CCCCCC solid; }
+.left_titlebg{ background-image:url(../images/left_bg.gif); width:100%; height:49px; }
+.left_content{ 100%; background-color:#FFFFFF; margin-top:8%; margin-bottom:8%; height:85%; font-size:12px;}
+
+/*左边栏目样式 End*/
+
+/*三级菜单样式 Home*/
+
+.nav{ overflow:hidden;padding:0px 10px;margin:0px;}
+.td_ul{ height:28px; }
+.nav li a{ color:#375371; text-decoration:none; padding-top:0px; display:block; height:49px;text-align:center; margin-left:2px; width:200px; list-style:none; }
+.nav li a:active{ background-position:0px 0px; list-style:none; height:30px;}
+.nav li a:hover { font-size: 12px; }
+.nav li a:visited { font-size: 12px;}
+.td_{ background-image: url('../images/right_03.gif'); background-repeat: repeat-x; background-color: #E6F2FF; }
+.td_ li{ text-align:center;  padding-top:0px; float:left;  color:#000000; width:107px; height:30px; cursor:pointer; color:#2E610B; list-style:none; }
+.normaltad{ background-image:url('../images/_2.gif'); background-repeat: no-repeat; color:#1F3A87; }
+.hovertad{ background-image: url('../images/_2.gif'); background-repeat: no-repeat; color:#1F3A87; }
+
+/*三级菜单样式 End*/
+
+
+
+/*标题内容样式 Home*/
+
+.title_bg{ background-image:url(../images/right_03.gif); height:49px; width:100%;  line-height:49px; font-size:12px; color:#003399; margin-bottom:5px; }
+.left_glbg{ background-image:url(../images/gncd.gif); height:49px; width:100%; background-repeat:repeat-x; }
+.left_glbg table{ font-size:14px; font-weight:bold; color:#08283D;}
+.title_01{ background-image:url(../images/right_04.gif); height:26px; width:100%; padding-left:1%; line-height:26px; font-size:12px; color:#6B90AC; margin-bottom:5px;}/*底部背景样式*/
+.title_01 table td{line-height:26px; height:26px;}
+.commontr_conter{  height:100%; background-color:#FFFFFF; width:100%; margin-left:2px }
+
+/*标题内容样式 End*/
+
+
+/*详细结果页面样式 Home*/
+
+.Details{  font-size:12px; width:90%; margin:auto;}
+.Details,table Details th{ border:none; border-collapse:collapse;}
+.Details th{ font-size:12px; font-weight:bold; border:1px; border-color:#D5D4D4; border-style:solid; border-collapse:collapse; color:#083867; background-color:#99CC00; line-height:24px; height:24px; text-align:center; padding-left:10px; background-image:url(../images/main_18.gif);}
+.Details td{ font-size:12px; border:1px; border-style:solid; border-color:#D5D4D4; border-collapse:collapse; height:22px; padding-left:10px; line-height:22px; width:50%;}
+.Details_left{ text-align:right; padding-right:10px;}
+
+/*详细结果页面样式 End*/
+
+/*列表页面样式 Home*/
+.list{  font-size:12px; width:99%; margin:auto;}
+.list,table list th{ border:none; border-collapse:collapse;}
+.list th{ font-size:12px; font-weight:bold; border:1px; border-color:#D5D4D4; border-style:solid; border-collapse:collapse; color:#083867; background-color:#99CC00; line-height:24px; height:24px; text-align:left; padding-left:10px; background-image:url(../images/main_18.gif);}
+.list td{ font-size:12px; border:1px; border-style:solid; border-color:#D5D4D4; border-collapse:collapse; height:22px; padding-left:10px; padding-right:10px; line-height:22px; }
+
+/*列表页面样式 End*/
+
+/*填写资料样式 Home*/
+.content{  font-size:12px; width:99%; margin:auto; font-size:12px; border:0px; border-style:solid; border-color:#D5D4D4; border-collapse:collapse; height:22px; padding-left:10px; padding-right:10px; line-height:22px;  }
+.content th{ font-size:12px; font-weight:bold; border:1px; border-color:#D5D4D4; border-style:solid; border-collapse:collapse; color:#083867; background-color:#99CC00; line-height:24px; height:24px; text-align:center; padding-left:10px; background-image:url(../images/main_18.gif);}
+.content td table{ border:0px; height:30px; line-height:30px; width:80%; margin-left:10%; margin-right:10%; margin-top:10px; margin-bottom:10px; font-size:12px;}
+
+/*填写资料样式 End*/
+
+
+/*表单样式 Home*/
+.txt_common{ border:1px #CCCCCC solid; height:18px; width:100px; background-color:#FFFFFF; color:#003366; padding-left:5px; padding-right:5px; font-weight:normal;}
+.txt_width1{ border:1px #CCCCCC solid; height:18px; width:150px; background-color:#FFFFFF; color:#003366; padding-left:5px; padding-right:5px; font-weight:normal;}
+.txt_width2{ border:1px #CCCCCC solid; height:18px; width:150px; background-color:#FFFFFF; color:#003366; padding-left:5px; padding-right:5px; font-weight:normal;}
+.select_common{ border:1px #CCCCCC solid; height:18px; width:150px; background-color:#FFFFFF; color:#003366; padding-left:5px; padding-right:5px; }
+.textarea_common{ border:1px #CCCCCC solid; height:120px; width:250px; background-color:#FFFFFF; color:#003366; padding-left:5px; padding-right:5px; }
+.but_common{ width:62px; height:21px; line-height:21px; background-image:url(../images/sub_bg.gif); font-size:12px; font-weight:normal; border:0px; }
+.but_Back{ width:62px; height:21px; line-height:21px; background-image:url(../images/syb.gif); border:0px;}
+.but_next{ width:62px; height:21px; line-height:21px; background-image:url(../images/xyb.gif); border:0px; }
+.checkbox_common{}
+
+
+.checkbox{ border:none; background-color:#E7E7E7;} 
+.file{ border:1px #CCCCCC solid; font:normal 12px Tahoma;height:18px}
+.button{ BORDER-RIGHT: #002D96 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #002D96 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 12px; FILTER:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#FFFFFF, EndColorStr=#9DBCEA); BORDER-LEFT: #002D96 1px solid; CURSOR: hand; COLOR: black; PADDING-TOP: 2px; BORDER-BOTTOM: #002D96 1px solid}
+
+
+
+.box{border:1px   solid   #C0C0C0;width:182px;height:19px;clip:rect(0px,181px,18px,0px);overflow:hidden;}   
+.box2{border:1px   solid   #F4F4F4;width:180px;height:17px;clip:rect(0px,179px,0px,0px);overflow:hidden;}   
+select{position:relative;left:-2px;top:-2px;font-size:12px;width:183px;line-height:14px;border:0px;color:#3D3D3D;}   
+
+
+
+
+
+/*表单样式 End*/
+

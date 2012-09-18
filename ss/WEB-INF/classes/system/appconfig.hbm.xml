@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.sysmanage.domainobjects.AppConfig"  table="APPCONFIG">
+        <id name="id" type="string" unsaved-value="null" >
+            <column name="id" sql-type="char(15)" not-null="true"/>
+        </id>
+        <property name="label"/>
+        <property name="key"/>
+        <property name="value"/>
+        <property name="remark"/>
+    </class>
+</hibernate-mapping>

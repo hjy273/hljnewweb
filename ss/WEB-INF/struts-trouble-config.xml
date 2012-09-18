@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="troubleInfoBean" type="com.cabletech.linepatrol.trouble.beans.TroubleInfoBean"></form-bean>
+		<form-bean name="troubleReplyBean" type="com.cabletech.linepatrol.trouble.beans.TroubleReplyBean"></form-bean>
+		<form-bean name="approverInfoBean" type="com.cabletech.linepatrol.trouble.beans.TroubleApproverInfoBean"></form-bean>
+		<form-bean name="approveBean" type="com.cabletech.linepatrol.trouble.beans.TroubleApproveBean"></form-bean>
+		<form-bean name="troubleQueryStatBean" type="com.cabletech.linepatrol.trouble.beans.TroubleQueryStatBean"></form-bean>
+		<form-bean name="troubleNormGuideBean" type="com.cabletech.linepatrol.trouble.beans.TroubleNormGuideBean"></form-bean>
+		<form-bean name="troubleExamBean" type="com.cabletech.linepatrol.trouble.beans.TroubleExamBean"></form-bean>
+		<form-bean name="TroubleYearQuotaBean" type="com.cabletech.linepatrol.trouble.beans.TroubleYearQuotaBean"></form-bean>
+	</form-beans>
+	
+	<global-forwards>
+		<forward name="sucessMsg" path="/globinfo/sucessinfo.jsp" />
+		<forward name="errorMsg" path="/globinfo/errorinfo.jsp" />
+		<forward name="powererror" path="/globinfo/powererror.jsp" />
+		<forward name="giserror" path="/realtime/errorinfo.jsp" />
+	</global-forwards>
+	
+	<action-mappings>	
+	    <!-- 故障派单 -->
+        <action name="troubleInfoBean" path="/troubleInfoAction" parameter="method" scope="request" type="com.cabletech.linepatrol.trouble.action.TroubleInfoAction">
+           <forward name="addTroubleForm" path="/linepatrol/trouble/trouble_info_add_form.jsp"></forward>
+           <forward name="viewTroubleForm" path="/linepatrol/trouble/trouble_info_view.jsp"></forward>
+           <forward name="tempSaveTroubles" path="/linepatrol/trouble/tempsave_trouble_list.jsp"></forward>
+           <forward name="troubleCancelForm" path="/linepatrol/trouble/trouble_cancel.jsp" />
+            <forward name="editTempSaveTroubleForm" path="/linepatrol/trouble/tempsave_trouble_edit_form.jsp"></forward>
+        </action>
+          <!-- 故障反馈 -->
+         <action name="troubleReplyBean" path="/troubleReplyAction" parameter="method" scope="request" type="com.cabletech.linepatrol.trouble.action.TroubleReplyAction">
+           <forward name="listWaitReply" path="/linepatrol/trouble/trouble_reply_wait_list.jsp"></forward>
+           <forward name="addReplyForm" path="/linepatrol/trouble/trouble_reply_add_form.jsp"></forward>
+           <forward name="editReplyForm" path="/linepatrol/trouble/trouble_reply_add_edit_form.jsp"></forward>
+           <forward name="viewTroubleForm" path="/linepatrol/trouble/trouble_info_view.jsp"></forward>
+           <forward name="view_trouble_process" path="/linepatrol/trouble/view_trouble_process.jsp"></forward>
+           <forward name="query_trouble_state" path="/linepatrol/trouble/query_trouble_state.jsp"></forward>
+           <forward name="viewReply" path="/linepatrol/trouble/trouble_reply_approve_view_reply.jsp"></forward>
+           <forward name="editDispatch" path="/linepatrol/trouble/trouble_info_edit_form.jsp"></forward>
+            <forward name="view_trouble_process_history" path="/linepatrol/trouble/view_trouble_process_history.jsp"></forward>
+           <forward name="finishHandelTroubles" path="/linepatrol/trouble/trouble_finish_handled_list.jsp"></forward>
+        </action>
+         <!-- 故障反馈审核 -->
+         <action name="approveBean" path="/replyApproveAction" parameter="method" scope="request" type="com.cabletech.linepatrol.trouble.action.TroubleReplyApproveAction">
+           <forward name="addApproveForm" path="/linepatrol/trouble/trouble_reply_approve_form.jsp"></forward>
+           <forward name="addApproveReplyForm" path="/linepatrol/trouble/trouble_reply_approve_one_form.jsp"></forward>
+           <forward name="transferApproveForm" path="/linepatrol/trouble/trouble_reply_approve_tranfer_form.jsp"></forward>
+           
+           <forward name="dispatchApproveForm" path="/linepatrol/trouble/trouble_info_approve_form.jsp"></forward>
+        </action>
+        
+        <!-- 考核评估 -->
+         <action name="troubleExamBean" path="/troubleExamAction" parameter="method" scope="request" type="com.cabletech.linepatrol.trouble.action.TroubleExamAction">
+           <forward name="examLists" path="/linepatrol/trouble/trouble_exam_wait_list.jsp"></forward>
+           <forward name="examForm" path="/linepatrol/trouble/trouble_exam_form.jsp"></forward>
+           <forward name="examReplyForm" path="/linepatrol/trouble/trouble_exam_reply_one_form.jsp"></forward>
+        </action>
+        
+        <!-- 查询统计 -->
+         <action name="troubleQueryStatBean" path="/troubleQueryStatAction" parameter="method" scope="request" type="com.cabletech.linepatrol.trouble.action.TroubleQueryStatAction">
+           <forward name="queryTroubleForm" path="/linepatrol/trouble/trouble_query_form.jsp"></forward>
+           <forward name="listTroubles" path="/linepatrol/trouble/trouble_query_form.jsp"></forward>
+           <forward name="viewTroubleInfoList" path="/linepatrol/trouble/trouble_query_view_list.jsp"></forward>
+           <forward name="viewTroubleInfoOne" path="/linepatrol/trouble/trouble_query_view_one_reply.jsp"></forward>
+           
+           
+           <forward name="statTroubleForm" path="/linepatrol/trouble/trouble_stat_form.jsp"></forward>
+           <forward name="statTroubles" path="/linepatrol/trouble/trouble_stat_form.jsp"></forward>
+           
+           
+           <forward name="generalTrouble" path="/linepatrol/trouble/trouble_query_general_list.jsp"></forward>
+           <forward name="greatTrouble" path="/linepatrol/trouble/trouble_query_great_list.jsp"></forward>
+           <forward name="cityTrouble" path="/linepatrol/trouble/trouble_query_city_list.jsp"></forward>
+           <forward name="outSkirtTrouble" path="/linepatrol/trouble/trouble_query_outskirt_list.jsp"></forward>
+        </action>
+        
+            <!-- 故障指标 -->
+         <action name="troubleNormGuideBean" path="/troubleQuotaAction" parameter="method" scope="request" type="com.cabletech.linepatrol.trouble.action.TroubleQuotaAction">
+           <forward name="setQuotaForm" path="/linepatrol/trouble/quota_form.jsp"></forward>
+           <forward name="editQuotaForm" path="/linepatrol/trouble/quota_edit_form.jsp"></forward>
+           <forward name="createTroubleQuotaForm" path="/linepatrol/trouble/quota_create_form.jsp"></forward>
+           <forward name="yearTroubleQuotaForm" path="/linepatrol/trouble/quota_year_form.jsp"></forward>
+
+           <forward name="queryTroubleQuotaMonthForm" path="/linepatrol/trouble/query_trouble_quota_month_form.jsp"></forward>
+           <forward name="queryTroubleQuotaYearForm" path="/linepatrol/trouble/query_trouble_quota_year_form.jsp"></forward>
+           <forward name="listTroubleQuotaMonth" path="/linepatrol/trouble/list_trouble_quota_month.jsp"></forward>
+           <forward name="listTroubleQuotaYear" path="/linepatrol/trouble/list_trouble_quota_year.jsp"></forward>
+		   <forward name="showTroubleQuotaInfo" path="/linepatrol/trouble/show_trouble_quota_info.jsp"></forward>
+        </action>
+        <action path="/customTroubleQuotaActon" parameter="method" scope="request" name="TroubleYearQuotaBean" type="com.cabletech.linepatrol.trouble.action.TroubleQuotaAction">
+        	<forward name="showyearquotalist" path="/linepatrol/trouble/list_custom_trouble_quota_year.jsp"></forward>
+        	<forward name="customYearQuotaForm"  path="/linepatrol/trouble/add_custom_trouble_quota_year.jsp"></forward>
+        </action>
+        
+	</action-mappings>
+	
+	
+</struts-config>
+

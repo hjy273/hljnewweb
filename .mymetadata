@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="hljnewweb"
+  id="myeclipse.1346726270209"
+  context-root="/hljnewweb"
+  j2ee-spec="6.0"
+  archive="hljnewweb.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

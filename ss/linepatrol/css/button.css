@@ -1,0 +1,23 @@
+.button_not_click {
+background-image: url(../images/button_bg.jpg);
+border:1px solid #7F9EA0;
+padding-top:5px;
+font-size:12px;
+color:#00598E;
+}
+
+.button_not_hits {
+background-image: url(../images/button1_bg.jpg);
+border:1px solid #C2BCB1;
+padding-top:5px;
+font-size:12px;
+color:#B1B1B1;
+}
+
+.button_clicked {
+background-image: url(../images/button_bg.jpg);
+border:1px solid #7F9EA0;
+padding-top:5px;
+font-size:12px;
+color:#FF0000;
+}

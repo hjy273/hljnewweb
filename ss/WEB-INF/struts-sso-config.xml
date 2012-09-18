@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="loginBean" type="com.cabletech.baseinfo.beans.UserInfoBean" />
+	</form-beans>
+
+	<global-forwards>
+		<forward name="sucessMsg" path="/globinfo/sucessinfo.jsp" />
+		<forward name="errorMsg" path="/globinfo/errorinfo.jsp" />
+		<forward name="powererror" path="/globinfo/powererror.jsp" />
+		<forward name="giserror" path="/realtime/errorinfo.jsp" />
+	</global-forwards>
+	<action-mappings>
+		<action parameter="method" path="/sso/index" scope="request"
+			name="loginBean" type="com.cabletech.sso.frame.IndexAuth">
+			<forward name="index" path="/frames/bj/frame/main.jsp" />
+			<forward name="patrolIndex" path="/frames/bj/frame/my_work.jsp" />
+			<forward name="errorformward" path="/frames/bj/loginerror.jsp" />
+		</action>
+	</action-mappings>
+</struts-config>
+
+

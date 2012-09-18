@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.watchinfo.domainobjects.Watchexe"  table="watchexecute">
+        <id name="id" type="string" unsaved-value="null" >
+            <column name="Id" sql-type="char(32)" not-null="true"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="executorid"/>
+        <property name="simid"/>
+        <property name="executetime"/>
+        <property name="gpsCoordinate"/>
+        <property name="content"/>
+        <property name="type"/>
+        <property name="pid"/>
+		<property name="lid"/>
+    </class>
+</hibernate-mapping>
+

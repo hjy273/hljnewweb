@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="demoUploadFile" type="com.cabletech.demo.UploadFileBean"></form-bean>
+		<form-bean name="approverInfoBean" type="com.cabletech.baseinfo.beans.UserInfoBean" />
+	</form-beans>
+
+	<global-forwards>
+		<forward name="sucessMsg" path="/globinfo/sucessinfo.jsp" />
+		<forward name="errorMsg" path="/globinfo/errorinfo.jsp" />
+		<forward name="powererror" path="/globinfo/powererror.jsp" />
+		<forward name="giserror" path="/realtime/errorinfo.jsp" />
+	</global-forwards>
+	<action-mappings>
+		<action parameter="method" path="/download" scope="request"
+			type="com.cabletech.commons.upload.action.DownloadAction">
+		</action>
+		<action name="demoUploadFile" parameter="method" path="/uploaddemo"
+			scope="request" type="com.cabletech.demo.UploadDemoAction">
+
+		</action>
+		<action parameter="method" path="/load_approvers" scope="request"
+			name="approverInfoBean" type="com.cabletech.linepatrol.commons.action.LoadApproverAction">
+			<forward name="load_approvers" path="/linepatrol/commons/load_approvers.jsp" />
+		</action>
+		<action parameter="method" path="/load_hide_dangers" scope="request"
+			name="approverInfoBean" type="com.cabletech.linepatrol.commons.action.LoadHideDangerAction">
+			<forward name="load_hide_dangers" path="/linepatrol/commons/load_hide_dangers.jsp" />
+		</action>
+		<action parameter="method" path="/load_contractors" scope="request"
+			name="approverInfoBean" type="com.cabletech.linepatrol.commons.action.LoadContractorAction">
+			<forward name="load_contractors" path="/linepatrol/commons/load_contractors.jsp" />
+		</action>
+		<action parameter="method" path="/load_processors" scope="request"
+			name="approverInfoBean" type="com.cabletech.linepatrol.commons.action.LoadProcessorAction">
+			<forward name="load_processors" path="/linepatrol/commons/load_processors.jsp" />
+		</action>
+		<action path="/sendsm" parameter="method" scope="request"
+			type="com.cabletech.commons.sm.SendSMAction">
+		</action>
+		<action path="/process_history" parameter="method" scope="request"
+			type="com.cabletech.commons.process.action.ProcessHistoryAction">
+			<forward name="process_history_list" path="/linepatrol/commons/process_history_list.jsp" />
+		</action>
+
+		<action path="/loadTestManAction" parameter="method" scope="request"
+			type="com.cabletech.linepatrol.commons.action.LoadTestManAction">
+			<forward name="contractorUsers" path="/linepatrol/commons/testMans.jsp" />
+		</action>
+
+		<!-- PDA转向页面START -->
+		<action parameter="method" path="/wap/load_processors" scope="request"
+			name="approverInfoBean" type="com.cabletech.linepatrol.commons.action.LoadProcessorAction">
+			<forward name="load_wap_depart" path="/wap/common/load_wap_depart.jsp" />
+			<forward name="load_wap_user" path="/wap/common/load_wap_user.jsp" />
+		</action>
+		<action parameter="method" path="/wap/load_approvers" scope="request"
+			name="approverInfoBean" type="com.cabletech.linepatrol.commons.action.LoadApproverAction">
+			<forward name="load_wap_approvers" path="/wap/common/load_wap_approvers.jsp" />
+		</action>
+		<!-- PDA转向页面END -->
+
+	</action-mappings>
+</struts-config>
+
+

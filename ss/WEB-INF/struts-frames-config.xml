@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="loginBean" type="com.cabletech.baseinfo.beans.UserInfoBean" />
+	</form-beans>
+
+	<global-forwards>
+		<forward name="sucessMsg" path="/globinfo/sucessinfo.jsp" />
+		<forward name="errorMsg" path="/globinfo/errorinfo.jsp" />
+		<forward name="powererror" path="/globinfo/powererror.jsp" />
+		<forward name="giserror" path="/realtime/errorinfo.jsp" />
+	</global-forwards>
+	<action-mappings>
+		<action parameter="method" path="/frames/login" scope="request"
+			name="loginBean" type="com.cabletech.bj.action.LoginAction">
+			<forward name="loginformward" path="/frames/bj/frame/index.html" />
+			<forward name="errorformward" path="/frames/bj/loginerror.jsp" />
+			<forward name="nolicense" path="/frames/bj/nolicense.jsp" />
+			<forward name="stateError" path="/frames/bj/stateError.jsp" />
+			<forward name="relogin" path="/frames/bj/relogin.jsp" />
+			<forward name="login_form" path="/frames/bj/login.jsp" />
+		</action>
+		<action name="loginBean" parameter="method" path="/frames/notice"
+			scope="request" type="com.cabletech.bj.action.NoticeAction">
+			<forward name="show_all_notice_list" path="/frames/bj/frame/show_all_notice_list.jsp">
+			</forward>
+			<forward name="show_new_notice_list" path="/frames/bj/frame/notice.jsp">
+			</forward>
+		</action>
+		<action name="loginBean" parameter="method" path="/frames/wait_process_work"
+			scope="request" type="com.cabletech.bj.action.LoginAction">
+			<forward name="show_wait_process_work_num" path="/frames/bj/frame/wait_process_work.jsp">
+			</forward>
+		</action>
+		<action name="loginBean" parameter="method" path="/addressListAction"
+			scope="request" type="com.cabletech.bj.action.AddressListAction">
+			<forward name="showAddressList" path="/frames/bj/frame/addresssList.jsp"></forward>
+		</action>
+		<action name="loginBean" parameter="method" path="/frames/notice"
+			scope="request" type="com.cabletech.bj.action.NoticeAction">
+			<forward name="show_meet_calendar" path="/frames/bj/frame/show_meet_calendar.jsp"></forward>
+		</action>
+		<action name="loginBean" parameter="method" path="/onLineAction"
+			scope="request" type="com.cabletech.bj.action.OnLineAction">
+		</action>
+	</action-mappings>
+</struts-config>
+
+

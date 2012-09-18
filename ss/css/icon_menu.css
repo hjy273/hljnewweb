@@ -1,0 +1,12 @@
+
+.Button {
+	BORDER-RIGHT: buttonface 0px solid; BORDER-TOP: buttonface 0px solid; FONT-WEIGHT: normal; VERTICAL-ALIGN: middle; BORDER-LEFT: buttonface 0px solid; CURSOR: hand;  BORDER-BOTTOM: buttonface 0px solid; 
+}
+.ButtonHover {
+	BORDER-RIGHT: buttonface 0px solid; BORDER-TOP: buttonface 0px solid;  FONT-WEIGHT: normal;  VERTICAL-ALIGN: middle; BORDER-LEFT: buttonface 0px solid; CURSOR: hand;  BORDER-BOTTOM: buttonface 0px solid; WHITE-SPACE: nowrap;
+}
+
+
+.ButtonActive {
+	BORDER-TOP-WIDTH: 1px; PADDING-RIGHT: 0px; PADDING-LEFT: 2px; BORDER-LEFT-WIDTH: 1px; BORDER-LEFT-COLOR: black; BACKGROUND-IMAGE: url(images/cbback.gif); BORDER-BOTTOM-WIDTH: 1px; BORDER-BOTTOM-COLOR: buttonhighlight; PADDING-BOTTOM: 0px; BORDER-TOP-COLOR: black; PADDING-TOP: 2px; BORDER-RIGHT-WIDTH: 1px; BORDER-RIGHT-COLOR: buttonhighlight
+}

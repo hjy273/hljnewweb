@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.linepatrol.appraise.module.AppraiseRule"  table="lp_appraise_rule">
+        <id name="id" type="string" unsaved-value="null" >
+            <column name="ID" sql-type="varchar2(10)" not-null="true"/>  
+            <generator class="com.cabletech.commons.hb.StrSequenceGenerator">
+               <param name="sequence">SEQ_LP_APPRAISE_RULE_ID</param>
+               <param name="length">10</param>
+            </generator>        
+        </id>
+        <property name="ruleDescription" column="rule_description"/>
+        <property name="weight" column="weight" type="int"/>
+        <property name="gradeDescription" column="grade_description"/>
+		<many-to-one name="appraiseContent" lazy="false"
+	        class="com.cabletech.linepatrol.appraise.module.AppraiseContent" 
+	        cascade="none" outer-join="auto" update="true" 
+			insert="true" access="property" column="content_id" not-null="true"/>
+    </class>
+</hibernate-mapping>

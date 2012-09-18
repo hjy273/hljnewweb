@@ -1,0 +1,58 @@
+--坐标转化
+CREATE OR REPLACE FUNCTION STR_TO_GEO_POINT(gps varchar2) RETURN varchar2 IS 
+  x number(17,14); 
+  y number(16,14); 
+begin   
+   x := to_number(substr(gps,9,3))+(to_number(substr(gps,12,6))/600000); 
+   y := to_number(substr(gps,1,2))+(to_number(substr(gps,3,6))/600000);   
+   RETURN x||','||y; 
+       
+END STR_TO_GEO_POINT; 
+
+--查询在线人员
+select STR_TO_GEO_POINT(o.COORDINATE), o.COORDINATE,o.SIMID,p.PATROLNAME from onlineman o,patrolmaninfo p,terminalinfo t,region r where o.SIMID = t.SIMNUMBER and p.PATROLID = t.OWNERID and r.REGIONID = p.REGIONID and
+r.REGIONNAME like '沈阳%'
+
+--隐患查询
+select a.keyid,STR_TO_GEO_POINT(a.GPSCOORDINATE) xy,a.PATROLID,a.SIMID,a.SENDTIME,a.OPERATIONCODE,GET_TROUBLE_TYPE(substr(a.OPERATIONCODE,1,3)),GET_TROUBLE_NAME(substr(a.OPERATIONCODE,4,3)),substr(a.OPERATIONCODE,4,3),p.POINTNAME,l.LINENAME from accident a, pointinfo p,lineinfo l where p.POINTID = a.PID and l.LINEID = a.lid 
+and xxx=0 order by SENDTIME desc
+
+
+--隐患名称
+CREATE OR REPLACE FUNCTION GET_TROUBLE_NAME(trocode varchar2) RETURN varchar2 IS 
+  code varchar2(40);
+ 
+  type cur_type is ref cursor;
+  myCur cur_type;
+  v_Column1Value varchar2(30);
+begin   
+    Open myCur for  'select troublename from TROUBLECODE where troublecode='||trocode;
+    Loop
+    Fetch myCur Into v_Column1Value;
+    Exit When myCur%notfound;
+    	code := v_Column1Value;
+  	End Loop;
+  	Close myCur;
+   RETURN code;     
+END GET_TROUBLE_NAME;
+
+--隐患类型
+CREATE OR REPLACE FUNCTION GET_TROUBLE_TYPE(codetype varchar2) RETURN varchar2 IS 
+  ctype varchar2(40);
+  type cur_type is ref cursor;
+  myCur cur_type;
+  v_Column1Value varchar2(40);
+begin   
+    Open myCur for  'select typename from TROUBLETYPE where code='||codetype;
+	Loop
+    Fetch myCur Into v_Column1Value;
+    Exit When myCur%notfound;
+    	ctype:= v_Column1Value;
+  	End Loop;
+  	Close myCur;
+   RETURN ctype;
+       
+END GET_TROUBLE_TYPE; 
+
+Unable to find required classes (javax.activation.DataHandler and javax.mail.internet.MimeMultipart). Attachment support is disabled.
+

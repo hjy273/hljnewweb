@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="safeguardTaskBean" type="com.cabletech.linepatrol.safeguard.beans.SafeguardTaskBean" />
+		<form-bean name="safeguardPlanBean" type="com.cabletech.linepatrol.safeguard.beans.SafeguardPlanBean" />
+		<form-bean name="safeguardSummaryBean" type="com.cabletech.linepatrol.safeguard.beans.SafeguardSummaryBean" />
+		<form-bean name="specialEndPlanBean" type="com.cabletech.linepatrol.safeguard.beans.SpecialEndPlanBean" />
+		<form-bean name="safeguardExamBean" type="com.cabletech.linepatrol.safeguard.beans.SafeguardExamBean" />
+	</form-beans>
+	
+	<global-forwards>
+	</global-forwards>
+	
+	<action-mappings>
+		<action parameter="method" path="/safeguardTaskAction" scope="request" name="safeguardTaskBean"
+			type="com.cabletech.linepatrol.safeguard.action.SafeguardTaskAction">
+			<forward name="addSafeguardTask" path="/linepatrol/safeguard/safeguard_task_add.jsp"/>
+			<forward name="viewSafeguardTask" path="/linepatrol/safeguard/safeguard_task_view.jsp"/>
+			<forward name="agentList" path="/linepatrol/safeguard/safeguard_task_agentList.jsp"/>
+			<forward name="safeguard_cancel" path="/linepatrol/safeguard/safeguard_cancel.jsp"/>
+			<forward name="view_safe_guard_process" path="/linepatrol/safeguard/view_safe_guard_process.jsp"/>
+			<forward name="query_safe_guard_state" path="/linepatrol/safeguard/query_safe_guard_state.jsp"/>
+			<forward name="queryFinishHandledSafeguardList" path="/linepatrol/safeguard/safeguard_task_history_agentList.jsp"/>
+			<forward name="perfectSafeguardTask" path="/linepatrol/safeguard/safeguard_task_perfect.jsp"/>
+			<forward name="safeguardPerfectList" path="/linepatrol/safeguard/safeguard_task_perfectlist.jsp"/>
+		</action>
+		<action parameter="method" path="/safeguardPlanAction" scope="request" name="safeguardPlanBean"
+			type="com.cabletech.linepatrol.safeguard.action.SafeguardPlanAction">
+			<forward name="addSafeguardPlan" path="/linepatrol/safeguard/safeguard_plan_add.jsp"/>
+			<forward name="addSafeguardPlan2" path="/linepatrol/safeguard/safeguard_plan_add2.jsp"/>
+			<forward name="viewSafeguardPlan" path="/linepatrol/safeguard/safeguard_plan_view.jsp"/>
+			<forward name="viewSafeguardPlanTerminate" path="/linepatrol/safeguard/safeguard_plan_terminate_view.jsp"/>
+			<forward name="approveSafeguardPlan" path="/linepatrol/safeguard/safeguard_plan_approve.jsp"/>
+			<forward name="editSafeguardPlan" path="/linepatrol/safeguard/safeguard_plan_edit.jsp"/>
+			<forward name="editSafeguardPlan2" path="/linepatrol/safeguard/safeguard_plan_edit2.jsp"/>
+		</action>
+		<action parameter="method" path="/safeguardSummaryAction" scope="request" name="safeguardSummaryBean"
+			type="com.cabletech.linepatrol.safeguard.action.SafeguardSummaryAction">
+			<forward name="addSafeguardSummary" path="/linepatrol/safeguard/safeguard_summary_add.jsp"/>
+			<forward name="viewSafeguardSummary" path="/linepatrol/safeguard/safeguard_summary_view.jsp"/>
+			<forward name="approveSafeguardSummary" path="/linepatrol/safeguard/safeguard_summary_approve.jsp"/>
+			<forward name="editSafeguardSummary" path="/linepatrol/safeguard/safeguard_summary_edit.jsp"/>
+		</action>
+		<action parameter="method" path="/safeguardQueryStatAction" scope="request" name="safeguardTaskBean"
+			type="com.cabletech.linepatrol.safeguard.action.SafeguardQueryStatAction">
+			<forward name="safeguardQuery" path="/linepatrol/safeguard/safeguard_querystat_query.jsp"/>
+			<forward name="safeguardQueryList" path="/linepatrol/safeguard/safeguard_querystat_query.jsp"/>
+			<forward name="safeguardStatList" path="/linepatrol/safeguard/safeguard_querystat_query.jsp"/>
+			<forward name="viewSafeguard" path="/linepatrol/safeguard/safeguard_querystat_view.jsp"/>
+		</action>
+		<action parameter="method" path="/safeguardExamAction" scope="request" name="safeguardExamBean"
+			type="com.cabletech.linepatrol.safeguard.action.SafeguardExamAction">
+			<forward name="examSafeguard" path="/linepatrol/safeguard/safeguard_exam_mark.jsp"/>
+		</action>
+		<action parameter="method" path="/specialEndPlanAction" scope="request" name="specialEndPlanBean"
+			type="com.cabletech.linepatrol.safeguard.action.SpecialEndPlanAction">
+			<forward name="addSpecialEndPlan" path="/linepatrol/safeguard/safeguard_plan_terminate_add.jsp"/>
+			<forward name="viewSpecialEndPlan" path="/linepatrol/safeguard/safeguard_plan_terminate_viewend.jsp"/>
+			<forward name="approveSpecialEndPlan" path="/linepatrol/safeguard/safeguard_plan_terminate_approve.jsp"/>
+			<forward name="agentEndPlanList" path="/linepatrol/safeguard/safeguard_plan_terminate_agentList.jsp"/>
+			<forward name="specialEndPlanList" path="/linepatrol/safeguard/safeguard_plan_terminate_list.jsp"/>
+			
+			<forward name="approveSpecialPlan" path="/linepatrol/safeguard/safeguard_special_plan_approve.jsp"/>
+			<forward name="readSpecialPlan" path="/linepatrol/safeguard/safeguard_special_plan_read.jsp"/>
+		</action>
+	</action-mappings>
+</struts-config>
+

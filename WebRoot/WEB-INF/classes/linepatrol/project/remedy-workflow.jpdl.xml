@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="project" xmlns="http://jbpm.org/4.0/jpdl">
+   <start g="308,0,48,48" name="start">
+      <transition g="-36,-12" name="start" to="remedy_apply_task"/>
+   </start>
+   <end g="315,458,48,48" name="end"/>
+   <task candidate-users="#{assignee}" g="266,85,130,52" name="remedy_apply_task">
+      <transition g="304,160:-48,-9" name="approve" to="remedy_approve_task"/>
+   </task>
+   <task candidate-users="#{assignee}" g="259,186,145,52" name="remedy_approve_task">
+      <transition g="356,160:7,-8" name="not_passed" to="remedy_apply_task"/>
+      <transition g="302,273:-44,-9" name="passed" to="is_transfer_decide"/>
+   </task>
+   <decision expr="#{transition}" g="309,283,48,48" name="is_transfer_decide">
+      <transition g="-56,-12" name="evaluate" to="evaluate_task"/>
+      <transition g="362,273:7,-7" name="transfer" to="remedy_approve_task"/>
+   </decision>
+   <task candidate-users="#{assignee}" g="283,367,110,52" name="evaluate_task">
+      <transition g="-26,-10" name="end" to="end"/>
+   </task>
+</process>

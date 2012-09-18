@@ -1,0 +1,86 @@
+
+<%@include file="/common/header.jsp"%>
+<%@taglib uri="/WEB-INF/struts-logic.tld" prefix="logic"%>
+<%@taglib uri="/WEB-INF/struts-bean.tld" prefix="bean"%>
+<%@taglib uri="http://displaytag.sourceforge.net/" prefix="display"%>
+<%@page import="com.cabletech.linechange.beans.*"%>
+<html>
+<script language="javascript">
+function toShowOneAudit(idValue,typeValue){
+    	var url = "/WebApp/LineChangeShowAllApplyAction.do?method=showAllInfo&id=" + idValue+"&st="+typeValue;
+        self.location=url;
+    }
+</script>
+<head>
+<title>query</title>
+</head>
+<body>
+  <!--查询页面-->
+<logic:equal value="0" name="type">
+  <apptag:checkpower thirdmould="50601" ishead="1">
+    <jsp:forward page="/globinfo/powererror.jsp"/>
+  </apptag:checkpower>
+  <template:titile value="迁改查询"/>
+  <html:form action="/LineChangeQueryAction.do?method=ConQuery">
+    <template:formTable namewidth="100" contentwidth="450">
+      <template:formTr name="项目名称">
+        <html:text property="itemname" styleClass="inputtext" style="width:200;"/>
+      </template:formTr>
+      <template:formTr name="迁改性质">
+        <html:text property="prop" styleClass="inputtext" style="width:200;"/>
+      </template:formTr>
+      <template:formTr name="迁改单位">
+        <html:text property="unit" styleClass="inputtext" style="width:200;"/>
+      </template:formTr>
+      <template:formTr name="开始时间">
+        <html:text property="starttime" readonly="true" styleClass="inputtext" style="width:200;"/>
+        <apptag:date property="starttime"/>
+      </template:formTr>
+      <template:formTr name="结束时间">
+        <html:text property="endtime" readonly="true" styleClass="inputtext" style="width:200;"/>
+        <apptag:date property="endtime"/>
+      </template:formTr>
+      <template:formSubmit>
+        <td>
+          <html:submit styleClass="button">查询</html:submit>
+        </td>
+        <td>
+          <html:reset styleClass="button">取消</html:reset>
+        </td>
+      </template:formSubmit>
+    </template:formTable>
+  </html:form>
+</logic:equal>
+  <!--查询结果页面-->
+<logic:notPresent name="type">
+
+  <link rel="stylesheet" href="/WebApp/css/screen.css" type="text/css" media="screen, print"/>
+  <template:titile value="线路迁改申请单一览表"/>
+
+  <display:table name="sessionScope.queryresult" id="currentRowObject" pagesize="18" align="center">
+    <display:column property="id" sortable="true" title="申请单编号" maxLength="10" align="center"/>
+    <display:column property="name" sortable="true" title="项目名称" maxLength="10"/>
+    <display:column property="dept" sortable="true" title="迁改单位" maxLength="30" align="center"/>
+    <display:column property="prop" sortable="true" title="迁改性质" maxLength="8" align="center"/>
+    <display:column property="place" sortable="true" title="迁改位置" maxLength="20" align="center"/>
+    <display:column property="budget" sortable="true" title="预算(万元)" maxLength="15"  align="center"/>
+    <display:column property="square" sortable="true" title="结算(万元)" maxLength="15" align="center"/>
+    <display:column property="time" sortable="true" title="申请时间" maxLength="15" align="center"/>
+    <display:column media="html" title="操作">
+    <%
+      BasicDynaBean objectb1 = (BasicDynaBean) pageContext.findAttribute("currentRowObject");
+      String id = (String) objectb1.get("id");
+      String st ="0";
+      float budget = Float.parseFloat(objectb1.get("budget").toString());
+      if(budget <= 10){
+        st="0";
+      }else{
+        st="1";
+      }
+    %>
+      <a href="javascript:toShowOneAudit('<%=id%>','<%=st%>')">查看详细</a>
+    </display:column>
+  </display:table>
+</logic:notPresent>
+</body>
+</html>

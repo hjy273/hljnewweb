@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.baseinfo.domainobjects.Terminal"  table="terminalinfo">
+        <id name="terminalID" type="string" unsaved-value="null" >
+            <column name="TerminalID" sql-type="char(32)" not-null="true"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="deviceID"/>
+        <property name="terminalType"/>
+        <property name="produceMan"/>
+        <property name="terminalModel"/>
+        <property name="machineSerial"/>
+        <property name="simNumber"/>
+        <property name="simType"/>
+        <property name="ownerID"/>
+        <property name="regionID"/>
+        <property name="state"/>
+        <property name="contractorID"/>
+        <property name="password"/>
+        <property name="holder"/>
+
+    </class>
+</hibernate-mapping>
+

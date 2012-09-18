@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.baseinfo.domainobjects.PatrolMan"  table="Patrolmaninfo">
+        <id name="patrolID" type="string" unsaved-value="null" >
+            <column name="PatrolID" sql-type="char(32)" not-null="true"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="patrolName"/>
+		<property name="sex"/>
+		<property name="birthday"/>
+		<property name="culture"/>
+		<property name="isMarriage"/>
+		<property name="age"/>
+		<property name="phone"/>
+		<property name="mobile"/>
+		<property name="postalcode"/>
+		<property name="identityCard"/>
+		<property name="familyAddress"/>
+		<property name="workRecord"/>
+	
+        <property name="parentID"/>
+        <property name="jobInfo"/>
+        <property name="jobState"/>
+        <property name="state"/>
+		<property name="regionID"/>
+        <property name="remark"/>
+    </class>
+</hibernate-mapping>
+

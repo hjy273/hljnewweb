@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.planstat.domainobjects.PlanStatPatrolStat"  table="planstat_patrolstat">
+        <id name="id" type="string" unsaved-value="null" >
+            <column name="id" sql-type="char(32)" not-null="true"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="planid" column="planid" type="string"/>
+        <property name="ppid" column="ppid" type="string"/>
+    </class>
+</hibernate-mapping>

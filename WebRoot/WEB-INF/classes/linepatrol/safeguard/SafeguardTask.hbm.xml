@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.cabletech.linepatrol.safeguard.module.SafeguardTask"
+		table="LP_SAFEGUARD_TASK">
+		<id name="id" type="string" unsaved-value="null">
+			<column name="id" sql-type="VARCHAR(12)" not-null="true" />
+			<generator class="com.cabletech.commons.hb.StrSequenceGenerator">
+				<param name="sequence">SEQ_LP_SAFEGUARD_TASK_ID</param>
+				<param name="length">12</param>
+			</generator>
+		</id>
+		<property name="safeguardCode" column="safeguard_code" />
+		<property name="safeguardName" column="safeguard_Name" />
+		<property name="startDate" column="start_date" />
+		<property name="endDate" column="end_date" />
+		<property name="level" column="safeguard_level" />
+		<property name="region" column="region" />
+		<property name="requirement" column="requirement" />
+		<property name="remark" column="remark" />
+		<property name="sendDate" column="send_date" />
+		<property name="sender" column="sender" />
+		<property name="regionId" column="Region_id" />
+		<property name="deadline" column="deadline" />
+		<property name="saveFlag" column="save_flag" />
+		<property column="CANCEL_USER_ID" generated="never" lazy="false"
+			name="cancelUserId" />
+		<property column="CANCEL_TIME" generated="never" lazy="false"
+			name="cancelTime" />
+		<property column="CANCEL_REASON" generated="never" lazy="false"
+			name="cancelReason" />
+		<property column="SAFEGUARD_STATE" generated="never" lazy="false"
+			name="safeguardState" />
+	</class>
+</hibernate-mapping>

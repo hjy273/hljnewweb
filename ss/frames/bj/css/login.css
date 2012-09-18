@@ -1,0 +1,25 @@
+@charset "utf-8";
+/* CSS Document */
+
+html,body{ margin:0 auto; padding:0px; height:100%;font-size:12px;  background-color:#ACC9E5;}
+.form{ height:0px;}
+.ge{ height:15px;}
+.logo_yd{ width:225px; height:52px; margin-left:25px;margin-top:15px; background-image:url(../images/logo_yd.png);  background-repeat:no-repeat;}
+.logo_dx{ width:225px; height:52px; margin-left:25px;margin-top:15px; background-image:url(../images/logo_dx.png);  background-repeat:no-repeat;}
+.box{width:550px; padding-top:2px;  }
+.System_Name{ width:280px; float:right; text-align:left;   line-height:24px; font-size:26px; color:#CCCC99;   font-weight:bold; font-family:"黑体"; }
+.Sub_system_name{ width:250px; float:left; text-align:right; padding-top:8px;face:楷体_GB2312; text-indent: 1px; line-height:12px; font-size:12px; color:#CCCCCC;  font-weight:bold; }
+
+.login_bg{ width:100%; height:100%; background-image:url(../images/login_bg.jpg); position:absolute; top:opx; background-repeat:repeat-x; background-color:#ACC9E5;}
+.login_content{ width:727px; height:428px; margin:auto; background-color:#006666; margin-top:8%; background-image:url(../images/content_bg.jpg);}
+
+.login{ width:490px;  height:22px; float:right; margin-left:5px; margin-top:20px; }
+.login_left{ width:350px; height:22px; float:left;}
+.login_right{ width:140px; height:22px; float:right; padding-top:1px; text-align:left;}
+.copyright{ width:100%; margin:0px auto; text-align:center;   font-size:12px; color:#000000;  bottom:20px;position:absolute; }
+.login_input{ border:1px #1A5E9F solid; width:96px; height:16px; background:url(../images/input_bg.jpg); background-repeat:repeat-x;}
+.login_button{border:1px #1A5E9F solid;width:46px; height:20px; background:url(../images/sub_bg.gif); background-repeat:repeat-x;}
+.login_msg{ width:450px; height:22px;font-size:12px; float:right;color:red;}
+
+.down{ width:100%; height:24px; background-color:#016C96;font-size:font-size:12px; color:#FFFFFF; position:absolute; bottom:0px;}
+

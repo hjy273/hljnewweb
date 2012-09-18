@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="acceptance" xmlns="http://jbpm.org/4.0/jpdl">
+   <start g="302,5,48,48" name="start1">
+      <transition g="-65,-7" name="todecision" to="exclusive1"/>
+   </start>
+   <decision expr="#{transition}" g="303,75,48,48" name="exclusive1">
+      <transition g="-18,-14" name="no" to="allotTasks"/>
+      <transition g="330,473:3,-160" name="yes" to="approve"/>
+   </decision>
+   <task candidate-users="#{assignee}" g="178,131,92,52" name="allotTasks">
+      <transition g="-69,-5" name="todecision" to="exclusive4"/>
+   </task>
+   <task candidate-users="#{assignee}" g="178,282,92,52" name="claimTask">
+      <transition g="-28,-10" name="todecision" to="exclusive3"/>
+   </task>
+   <decision expr="#{transition}" g="200,372,48,48" name="exclusive3">
+      <transition g="141,396;139,305:-18,-5" name="no" to="claimTask"/>
+      <transition g="-61,-10" name="toapprove" to="approve"/>
+   </decision>
+   <decision expr="#{transition}" g="200,208,48,48" name="exclusive4">
+      <transition g="-44,-8" name="choose" to="claimTask"/>
+      <transition g="81,231;83,551:-23,-16" name="specify" to="record"/>
+   </decision>
+   <task candidate-users="#{assignee}" g="179,447,92,52" name="approve">
+      <transition g="-56,0" name="torecord" to="record"/>
+   </task>
+   <state g="280,525,92,52" name="record">
+      <transition g="-41,-17" name="toend" to="end"/>
+   </state>
+   <end g="305,616,48,48" name="end"/>
+</process>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+	    <!-- 修缮 -->
+		<form-bean name="remedyItemBean" type="com.cabletech.linepatrol.remedy.beans.RemedyItemBean"></form-bean>
+		<form-bean name="remedyTypeBean" type="com.cabletech.linepatrol.remedy.beans.RemedyTypeBean"></form-bean>
+		<form-bean name="remedyApplyBean" type="com.cabletech.linepatrol.remedy.beans.RemedyApplyBean"></form-bean>
+		
+		
+	</form-beans>
+	
+	<action-mappings>	
+		<!--分布统计fjj  -->
+		<action name="materialTypeBean" parameter="method" path="/remedyDistriStatAction" scope="request" 
+		type="com.cabletech.linepatrol.remedy.action.RemedyDistriStatAction">
+			<forward name="queryDistriReportForm" path="/linepatrol/remedy/remedy_stat_distri_query.jsp" />
+			<forward name="distriReportList" path="/linepatrol/remedy/remedy_stat_distri_view.jsp" />
+		</action>
+		<action path="/remedyReportAction" parameter="method" scope="request"
+				type="com.cabletech.linepatrol.remedy.action.RemedyReportAction">
+			<forward name="checkReportInfo" path="/linepatrol/remedy/remedy_stat_checkreport.jsp" />
+			<forward name="showCheckReport" path="/linepatrol/remedy/remedy_stat_checkreport_view.jsp" />
+		</action>
+	</action-mappings>
+	
+</struts-config>
+

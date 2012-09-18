@@ -1,0 +1,83 @@
+<!--JSP初始化设置-->
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+<meta http-equiv="pragma" content="no-cache">
+<title>移动传输线路巡检管理系统</title>
+<link href="../css/style.css" rel="stylesheet" type="text/css">
+
+<script language="javascript">
+<!--
+function doInTer(){
+
+	if(iframemain.resultFlag == null || iframemain.resultFlag.value == "0"){
+		//alert("请首先检索出需要初始化的设备！");
+		iframemain.location = "queryTerminal.jsp";
+
+	}else{
+		
+		//iframemain.location = "/bspweb/terminalAction.do?method=initTerminal";
+		setServerId();
+	}
+}
+
+function setServerId(){
+	
+	var desPage = "setServerForSMG.jsp";
+
+	msgWin = window.open(desPage,'extraPop','width=400,height=196');
+	msgWin.focus();
+
+}
+
+function initTerminal(){
+
+	if(confirm("确认该次检索出的所有设备？")){
+
+		var desPage = "/bspweb/terminalAction.do?method=initTerminal&serverid=" + msgWin.serverid.value;
+		//alert(desPage);
+		iframemain.location = desPage;
+		
+		try{
+			msgWin.close();
+		}catch(e){}
+
+	}
+
+}
+
+//-->
+</script>
+
+</head>
+
+<body>
+<table class=borderon id=control cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <tbody>
+    <tr>
+      <td>
+        <table border="0" cellspacing="0" cellpadding="0">
+          <tr align="center">
+            <td width=150 class="lbutton"  style="cursor:hand"><a href="addTerminal.jsp" target="iframemain">增加移动终端</a></td>
+            <td width=150 class="lbutton"  style="cursor:hand"> <a href="queryTerminal.jsp" target="iframemain">查询移动终端</a> </td>
+            <td width=150 class="lbutton"  style="cursor:hand"> <a href="queryTerminal.jsp" target="iframemain">修改移动终端</a> </td>
+<!-- 		<td id="intTdErr" width=150 class="lbutton"  style="cursor:hand;display:" onclick="doInTer()"> <a href="#">初始化设备</a></td>
+ -->          </tr>
+      </table></td>
+    </tr>
+   <tr>
+    <td height="2" background="../images/bg_line.gif"><img src="../images/1px.gif" width="1" height="1"></td>
+  </tr>
+  </tbody>
+</table>
+<table width="100%" height="100%" border=0 cellPadding=0 cellSpacing=0 class=borderon id=control>
+  <tr>
+    <td>
+      <div id=iframexxx >
+        <IFRAME name=iframemain
+            marginWidth=0 marginHeight=0 src="queryTerminal.jsp" frameBorder=0 width="100%" scrolling=YES height="95%"></IFRAME>
+    </div></td>
+  </tr>
+</table>
+</body>
+</html>

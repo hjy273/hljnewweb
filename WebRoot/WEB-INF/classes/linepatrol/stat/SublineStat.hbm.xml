@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.cabletech.linepatrol.specialplan.module.SublineStat"  table="LP_SPEC_SUBLINE_STAT">
+        <id name="id" type="string" unsaved-value="null" >
+            <column name="ID" sql-type="varchar(12)" not-null="true"/>  
+            <generator class="com.cabletech.commons.hb.StrSequenceGenerator">
+               <param name="sequence">SEQ_LP_SPEC_SUBLINE_STAT_ID</param>
+               <param name="length">12</param>
+            </generator>
+        </id>
+        <property name="specPlanId" column="SPEC_PLAN_ID"/>
+        <property name="sublineId" column="SUBLINE_ID"/>
+        <property name="sublineLevel" column="SUBLINE_LEVEL"/>
+        <property name="patrolGroupId" column="PATROL_GROUP_ID"/>
+        <property name="factDate" column="FACT_DATE"/>
+        <property name="createDate" column="CREATE_DATE"/>
+        <property name="planPointhNumber" column="PLAN_POINT_NUMBER"/>
+        <property name="planPointhTimes" column="PLAN_POINT_TIMES"/>
+        <property name="factPointhNumber" column="FACT_POINT_NUMBER"/>
+        <property name="factPointhTimes" column="FACT_POINT_TIMES"/>
+        <property name="patrolRadio" column="PATROL_RATIO"/>
+        <property name="planPatrolMileage" column="PLAN_PATROL_MILEAGE"/>
+        <property name="factPatrolMileage" column="FACT_PATROL_MILEAGE"/>
+    </class>
+</hibernate-mapping>

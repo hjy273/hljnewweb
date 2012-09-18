@@ -1,0 +1,321 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<script type="text/javascript" src="/WebApp/js/jquery-1.3.2.min.js"></script>
+<script language="JavaScript" src="/WebApp/js/prototype.js"></script>
+<script language="JavaScript" src="/WebApp/js/WdatePicker/WdatePicker.js"></script>
+<link type="text/css" rel="stylesheet" href="/WebApp/js/WdatePicker/skin/WdatePicker.css">
+<link href="/WebApp/css/style.css" rel="stylesheet" type="text/css">
+<script type='text/javascript' src='/WebApp/js/extjs/adapter/ext/ext-base.js'></script>
+<script type='text/javascript' src='/WebApp/js/extjs/ext-all.js'></script>
+<link rel='stylesheet' type='text/css' href='/WebApp/js/extjs/resources/css/ext-all.css' />
+<script language="JavaScript" src="/WebApp/linepatrol/quest/js/quest.js"></script>
+<HTML>
+<head>
+	<title>Test</title>
+	<script type="text/javascript" language="javascript">
+		onchangeValue = function(Weight,result_id){
+		if(/^(([0-9]+\\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\\.[0-9]+)|([0-9]*[1-9][0-9]*))$/.test(result_id.value)){
+			var result = eval(result_id.value);
+			if(result>Weight){
+				result_id.value=Weight;
+				}
+			}else{
+				alert("请输入数字！");
+				result_id.value=Weight;
+			}
+		};
+		function save(){
+			window.location.href="/WebApp/appraise${typeName}Action.do?method=saveAppraiseRuleResult";
+		}
+		function his(id){
+			var url = "/WebApp/appraise${typeName}Action.do?method=viewVerifyHistory&resultId="+id;
+			showWin(url);
+		}
+		var win;
+		function showWin(url){
+			win = new Ext.Window({
+				layout : 'fit',
+				width:600,
+				height:300,
+				resizable:true,
+				closeAction : 'close',
+				modal:true,
+				autoScroll:true,
+				autoLoad:{url:url, scripts:true},
+				plain: true
+			});
+			win.show(Ext.getBody());
+		}
+		function closeProcessWin(){
+			win.close();
+		}
+		viewExamBase=function(ruleId){
+		
+		var actionUrl="/WebApp/appraise${typeName}Action.do?method=viewExamBase&ruleId="+ruleId;
+		viewExamBaseWin = new Ext.Window({
+			layout : 'fit',
+			width:650,height:300, 
+			resizable:true,
+			closeAction : 'close', 
+			modal:false,
+			autoScroll:true,
+			autoLoad:{url: actionUrl,scripts:true}, 
+			plain: false,
+			title:"评分依据" 
+		});
+		viewExamBaseWin.show(Ext.getBody());
+	};
+	closeviewExamBaseWin=function(){
+		viewExamBaseWin.close();
+	};
+	function view(module,id){
+		if(module=='trouble'){
+			window.open("/WebApp/troubleQueryStatAction.do?method=viewTrouble&troubleid="+id,"","toolbar=no,menubar=no,scrollbars=yes,resizable=yes,location=no,status=no");
+		}
+		if(module=='acceptance'){
+			window.open("/WebApp/acceptanceQueryAction.do?method=view&id="+id,"","toolbar=no, menubar=no, scrollbars=yes, resizable=yes, location=no, status=no");
+		}
+		if(module=='hiddanger'){
+			window.open("/WebApp/hiddangerQueryAction.do?method=view&id=" + id,"","toolbar=no, menubar=no, scrollbars=yes, resizable=yes, location=no, status=no");
+		}
+		if(module=='maintenance'){
+			window.open("/WebApp/testPlanAction.do?method=viewPaln&planId="+id,"","toolbar=no, menubar=no, scrollbars=yes, resizable=yes, location=no, status=no");
+		}
+		if(module=='lineCut'){
+			window.open("/WebApp/cutQueryStatAction.do?method=viewQueryCut&cutId="+id,"","toolbar=no, menubar=no, scrollbars=yes, resizable=yes, location=no, status=no");
+		}
+		if(module=='dispatchtask'){
+			window.open("/WebApp/dispatchtask/dispatch_task.do?method=viewDispatchTask&dispatch_id="+id+"&rnd="+Math.random(),"","toolbar=no, menubar=no, scrollbars=yes, resizable=yes, location=no, status=no");
+		}
+		if(module=='project'){
+			window.open("/WebApp/project/remedy_apply.do?method=view&&apply_id="+ id,"","toolbar=no, menubar=no, scrollbars=yes, resizable=yes, location=no, status=no");
+		}
+		if(module=='overhaul'){
+			window.open("/WebApp/overHaulAction.do?method=view&id="+id,"","toolbar=no, menubar=no, scrollbars=yes, resizable=yes, location=no, status=no");
+		}
+	}
+	function viewRemark(remark){
+	var actionUrl="/WebApp/linepatrol/appraise/viewRemark.jsp?remark="+remark;
+	viewRemarkWin = new Ext.Window({
+		layout : 'fit',
+		width:450,height:200, 
+		resizable:true,
+		closeAction : 'close', 
+		modal:false,
+		autoScroll:true,
+		autoLoad:{url: actionUrl,scripts:true}, 
+		plain: false,
+		title:"查看备注" 
+	});
+	viewRemarkWin.show(Ext.getBody());
+}
+function closeViewRemark(){
+	viewRemarkWin.close();
+}
+	</script>
+</head>
+<BODY>
+<br/>
+#if($flag!="import"&&$flag!="edit"&&$flag!="submit")
+<div style='width:5%;float: right;'>
+	<a href="/WebApp/appraise${typeName}Action.do?method=exportTable&resultId=${resultId}">导出</a>
+</div>
+#end
+<br/>
+<div class='title2' style='font-size:14px; font-weight:600;bottom:1' align='center'>
+	${title}
+</div>
+<br/>
+	#if($typeName=='Month'&&($flag=='import'||$flag=="edit"))
+	<h3>参考指标：</h3>
+		<table width="100%">
+			<tr align="center">
+				<td>
+					考核单位：${contractorName}
+				</td>
+				<td>
+					统计月份：${statDate}
+				</td>
+			</tr>
+		</table>
+		
+	
+		<table border="1" align="center" style="width:90%;" class="tabout">
+			<tr align="center" class="trcolor">
+				<td class="tdulright">
+					巡检组
+				</td>
+				<td class="tdulright">
+					巡检率
+				</td>
+				<td class="tdulright">
+					漏检率
+				</td>
+				<td class="tdulright">
+					计划数
+				</td>
+			</tr>
+			#foreach($monthlyStat in $monthlyStats)
+			<tr align="center" class="trcolor">
+				<td class="tdulright">
+					${monthlyStat.get('executorid')}
+				</td>
+				<td class="tdulright">
+					${monthlyStat.get('patrolp')}%
+				</td>
+				<td class="tdulright">
+					${monthlyStat.get('factp')}%
+				</td>
+				<td class="tdulright">
+					${monthlyStat.get('planNumber')}
+				</td>
+			</tr>
+			#end
+			#foreach($monthStatAll in $monthStatAlls)
+				<tr align="center" class="trcolor">
+				<td class="tdulright">
+					合计
+				</td>
+				<td class="tdulright">
+					${monthStatAll.get("patrolP")}%
+				</td>
+				<td class="tdulright">
+					${monthStatAll.get("lossP")}%
+				</td>
+				<td class="tdulright">
+					${monthStatAll.get("planNum")}
+				</td>
+			</tr>
+			#end
+		</table>
+		<br />
+	#end	 	
+		
+<table width="100%">
+			<tr align="center">
+				<td>
+					被考核单位：${contractorName}
+				</td>
+				#if($contractNO)
+					<td>
+					标包号：${contractNO}
+				</td>
+				#end
+				<td>
+					考核日期：${appraiseMonth}
+				</td>
+				<td>
+					考核人：${userInfo.userName}
+				</td>
+			</tr>
+		</table>
+<form action="/WebApp/appraise${typeName}Action.do?method=getRules" method="post">
+	<input type="hidden" id="year" name="year" value="${year}">
+<table border="0"  align="center" cellpadding="3" cellspacing="0" class="tabout" width="100%">
+	<tr class="trcolor">
+		<td width="15%" class="tdulright"><b>考核项目</b></td>
+		<td width="25%" class="tdulright"><b>考核内容</b></td>
+		<td width="25%" class="tdulright"><b>评分细则</b></td>
+		<td width="4%" class="tdulright"><b>权重</b></td>
+		<td width="4%" class="tdulright"><b>得分</b></td>
+		<td width="6%" class="tdulright"><b>考核依据</b></td>
+		<td width="21%" class="tdulright"><b>评分说明
+			#if($flag=="view"||$flag=="submit"||$flag=="verify")
+				（查看详情请双击）
+			#end
+		</b></td>
+	</tr>
+	#foreach($item in $table.appraiseItems)
+		<tr  class="trcolor">
+			<td rowspan="${item.getItemSize()}" class="tdulright"  >${item.itemName}（${item.weight}分）</td>
+			#set ($contentIndex = 1)
+		#foreach($content in $item.appraiseContents)
+			#if($contentIndex!=1)
+				<tr  class="trcolor">
+			#end
+			<td rowspan="${content.appraiseRules.size()}" class="tdulright"  >${content.contentDescription}（${content.weight}分）</td>
+			#set ($ruleIndex = 1)
+			#foreach($rule in $content.appraiseRules)
+				#if($ruleIndex!=1)
+					<tr  class="trcolor">
+				#end
+				#set($dailyNum=0)
+				#set($dailyNum=$appraiseDailyNumByRule.get($rule.id))
+				#set($avgMarkDeduction=($rule.weight))
+				#if($avgMarkDeductions)
+					#set($avgMarkDeduction=$avgMarkDeductions.get($rule.id))
+				#end
+				<td class="tdulright">${rule.ruleDescription}</td>	
+				<td class="tdulright">${rule.weight}</td>
+				#if($flag=="import")
+				<td class="tdulright"><input type="hidden" id="rules" name="rules" value="${rule.id}" size="4"></input><input type="text" id="results" name="results" styleClass="inputtext validate-number" onblur="onchangeValue('${rule.weight}',this)" value="$avgMarkDeduction" size="2"></input></td>
+				<td class="tdulright"><a href="javascript:viewExamBase('${rule.id}')">查看($dailyNum)</a></td>
+				<td class="tdulright"><input type="text" id="remarks" name="remarks" value=" " styleClass="inputtext"></input></td>
+				#end
+				#if($flag=="view"||$flag=="submit"||$flag=="verify")
+				<td class="tdulright">${appraiseRuleResults.get(${rule.id}).result}</input></td>
+				<td class="tdulright"><a href="javascript:viewExamBase('${rule.id}')">查看($dailyNum)</a></td>
+				<td width="21%" class="tdulright"><div STYLE="width:200px;overflow:hidden;text-overflow:ellipsis" ondblclick="viewRemark('${appraiseRuleResults.get(${rule.id}).remark}');">${appraiseRuleResults.get(${rule.id}).remark}</div></td>
+				#end
+				#if($flag=="edit")
+				<td class="tdulright"><input type="hidden" id="rules" name="rules" value="${rule.id}" size="4"></input><input type="text" id="results" name="results" styleClass="inputtext validate-number" onblur="onchangeValue('${rule.weight}',this)" value="${appraiseRuleResults.get(${rule.id}).result}" size="2"></input></td>
+				<td class="tdulright"><a href="javascript:viewExamBase('${rule.id}')">查看($dailyNum)</a></td>
+				<td class="tdulright"><input type="text" id="remarks" name="remarks" value="${appraiseRuleResults.get(${rule.id}).remark}" styleClass="inputtext"></input></td>
+				#end
+				#set ($ruleIndex = $ruleIndex+1)
+			#end
+			#set ($contentIndex = $contentIndex+1)
+		#end
+		</tr>
+	#end
+	#if($flag!="import"&&$flag!="edit")
+		<tr  class="trcolor">
+			<td style="vertical-align:middle; text-align:center;" colspan="3">合计</td>
+			<td class="tdulright">$table.getAllWeight().get("itemWeight")</td>
+			<td class="tdulright"> $appraiseRuleResults.get("result")</td>
+			<td class="tdulright"></td>
+			<td class="tdulright"></td>
+		</tr>
+	#end
+</table>
+		<div align="center">
+		#if($flag=="import")
+			<input type="submit" class="button" value="输出" />&nbsp;&nbsp;
+			<input type="button" class="button" onclick="history.back()" value="返回"/> 
+		#end
+		#if($flag=="edit")
+			<input type="button" class="button" value="确认历史" onclick="his('${resultId}')" />&nbsp;&nbsp;
+			<input type="submit" class="button" value="修改" />&nbsp;&nbsp;
+			<input type="button" class="button" onclick="history.back()" value="返回"/> 
+		#end
+		#if($flag=="submit")
+			<input type="button" class="button" onclick="javascript:save();" value="确定"/>
+			&nbsp;&nbsp;
+			<input type="button" class="button" onclick="history.back()" value="返回"/> 
+		#end
+		#if($flag=="view")
+			<input type="button" class="button" value="确认历史" onclick="his('${resultId}')" />&nbsp;&nbsp;
+			<input type="button" class="button" onclick="history.back()" value="返回"/> 
+		#end
+		</div>
+		</form>
+#if($flag=="verify")	
+<br/>	
+	<form action="/WebApp/appraise${typeName}Action.do?method=verifyAppraise"  method="post">
+		<input type="hidden" name="id" id="id" value="${resultId}"/>
+		&nbsp;&nbsp;&nbsp;&nbsp;有无异议：
+		<div>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="confirmResult" value="2" checked="checked">无异议</input>
+			<input type="radio" name="confirmResult" value="3">有异议</input>
+		</div>
+		&nbsp;&nbsp;&nbsp;&nbsp;问题反馈备注：<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea rows="6" cols="120" name="mark"></textarea>
+		<br/>
+		<br/>		
+		<div align="center">
+			<input type="submit" class="button" value="确定"/>&nbsp;&nbsp;
+			<input type="button" class="button" onclick="history.back()" value="返回"/>
+		</div>
+	</form>
+#end
+</BODY>
+</HTML>

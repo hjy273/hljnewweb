@@ -1,0 +1,1874 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<!-- 报告上传 -->
+		<form-bean name="ReportBean" type="com.cabletech.report.beans.Report">
+		</form-bean>
+		<!-- 资料管理系统 -->
+		<form-bean name="DatumSystem" type="com.cabletech.datum.bean.DatumSystem">
+		</form-bean>
+		<form-bean name="DatumCriterion" type="com.cabletech.datum.bean.DatumCriterion">
+		</form-bean>
+		<form-bean name="DatumExperience" type="com.cabletech.datum.bean.DatumExperience">
+		</form-bean>
+		<!-- zhuomianshezhi -->
+		<form-bean name="NoticeBean" type="com.cabletech.sysmanage.beans.TabMenuBean">
+		</form-bean>
+		<!-- 公告 -->
+		<form-bean name="NoticeBean" type="com.cabletech.sysmanage.beans.NoticeBean">
+		</form-bean>
+		<!-- 修缮的区县管理 -->
+		<form-bean name="countyinfoBean"
+			type="com.cabletech.linepatrol.remedy.beans.CountyInfoBean" />
+
+		<form-bean name="tempWatchBean"
+			type="com.cabletech.watchinfo.beans.TempWatchBean" />
+		<form-bean name="changeinfo"
+			type="com.cabletech.linechange.bean.ChangeInfoBean" />
+		<form-bean name="changesurvey"
+			type="com.cabletech.linechange.bean.ChangeSurveyBean" />
+		<form-bean name="changebuild"
+			type="com.cabletech.linechange.bean.ChangeBuildBean" />
+		<form-bean name="changecheck"
+			type="com.cabletech.linechange.bean.ChangeCheckBean" />
+		<form-bean name="departBean" type="com.cabletech.baseinfo.beans.DepartBean" />
+		<form-bean name="contractorBean"
+			type="com.cabletech.baseinfo.beans.ContractorBean" />
+		<form-bean name="patrolBean" type="com.cabletech.baseinfo.beans.PatrolManBean" />
+		<form-bean name="patrolSonBean"
+			type="com.cabletech.baseinfo.beans.PatrolManSonBean" />
+		<form-bean name="lineBean" type="com.cabletech.baseinfo.beans.LineBean" />
+		<form-bean name="sublineBean" type="com.cabletech.baseinfo.beans.SublineBean" />
+		<form-bean name="pointBean" type="com.cabletech.baseinfo.beans.PointBean" />
+		<form-bean name="terminalBean" type="com.cabletech.baseinfo.beans.TerminalBean" />
+		<form-bean name="regionBean" type="com.cabletech.baseinfo.beans.RegionBean" />
+		<form-bean name="userInfoBean" type="com.cabletech.baseinfo.beans.UserInfoBean" />
+		<form-bean name="PatrolOpBean" type="com.cabletech.baseinfo.beans.PatrolOpBean" />
+		<form-bean name="tpBean" type="com.cabletech.baseinfo.beans.PointBean" />
+		<form-bean name="tsBean" type="com.cabletech.baseinfo.beans.SublineBean" />
+		<form-bean name="pmBean" type="com.cabletech.baseinfo.beans.PatrolManBean" />
+		<form-bean name="msginfoBean" type="com.cabletech.lineinfo.beans.MsginfoBean" />
+		<form-bean name="taskBean" type="com.cabletech.planinfo.beans.TaskBean" />
+		<form-bean name="planBean" type="com.cabletech.planinfo.beans.PlanBean" />
+		<form-bean name="YearMonthPlanBean"
+			type="com.cabletech.planinfo.beans.YearMonthPlanBean" />
+		<!-- subtaskBean应经不再实用了 -->
+		<form-bean name="subtaskBean" type="com.cabletech.planinfo.beans.SubtaskBean" />
+		<form-bean name="SmsSendLogBean"
+			type="com.cabletech.lineinfo.beans.SmsSendLogBean" />
+		<form-bean name="queryConditionForm"
+			type="com.cabletech.statistics.beans.QueryConditionBean" />
+		<form-bean name="watchBean" type="com.cabletech.watchinfo.beans.WatchBean" />
+		<form-bean name="watchExeQuery"
+			type="com.cabletech.watchinfo.beans.WatchQueryBean" />
+		<form-bean name="watchStaBean" type="com.cabletech.watchinfo.beans.WatchStaBean" />
+		<form-bean name="loginBean" type="com.cabletech.baseinfo.beans.UserInfoBean" />
+		<form-bean name="AccidentBean"
+			type="com.cabletech.troublemanage.beans.AccidentBean" />
+		<form-bean name="queryAcciBean"
+			type="com.cabletech.troublemanage.beans.QueryAcciBean" />
+		<form-bean name="queryTroubleBean"
+			type="com.cabletech.troublemanage.beans.QueryTroubleBean" />
+		<form-bean name="ApproveRateBean"
+			type="com.cabletech.statistics.beans.ApproveRateBean" />
+		<form-bean name="UsergroupBean" type="com.cabletech.baseinfo.beans.UsergroupBean" />
+		<form-bean name="BusinesslogBean"
+			type="com.cabletech.sysmanage.beans.BusinesslogBean" />
+		<form-bean name="TaskOperationBean"
+			type="com.cabletech.baseinfo.beans.TaskOperationBean" />
+		<form-bean name="AlertreceiverListBean"
+			type="com.cabletech.baseinfo.beans.AlertreceiverListBean" />
+		<form-bean name="GISCrossPointBean"
+			type="com.cabletech.lineinfo.beans.GISCrossPointBean" />
+		<form-bean name="SMSBean" type="com.cabletech.baseinfo.beans.SMSBean" />
+		<form-bean name="SMSLogBean" type="com.cabletech.sysmanage.beans.SMSLogBean" />
+		<form-bean name="GisAccidentBean"
+			type="com.cabletech.lineinfo.beans.GisAccidentBean" />
+		<form-bean name="Planexecutebean"
+			type="com.cabletech.lineinfo.beans.Planexecutebean" />
+		<form-bean name="SubWatchBean" type="com.cabletech.watchinfo.beans.SubWatchBean" />
+		<form-bean name="SMSCenterTime"
+			type="com.cabletech.sysmanage.beans.SMSCenterTime" />
+		<form-bean name="PartBaseInfo"
+			type="com.cabletech.partmanage.beans.Part_baseInfoBean" />
+		<form-bean name="PartRequisition"
+			type="com.cabletech.partmanage.beans.Part_requisitionBean" />
+		<form-bean name="ToolsInfo"
+			type="com.cabletech.toolsmanage.beans.ToolsInfoBean" />
+		<form-bean name="LineCutBean" type="com.cabletech.linecut.beans.LineCutBean" />
+		<form-bean name="FileLoad" type="com.cabletech.demo.UpFileForm" />
+		<form-bean name="conPersonBean"
+			type="com.cabletech.sysmanage.beans.ConPersonBean" />
+		<form-bean name="cablesegmentBean"
+			type="com.cabletech.baseinfo.beans.CableSegmentBean" />
+		<form-bean name="SendTaskBean" type="com.cabletech.sendtask.beans.SendTaskBean" />
+		<form-bean name="SortBean" type="com.cabletech.manager.beans.SortBean" />
+		<form-bean name="TroubleCodeBean"
+			type="com.cabletech.baseinfo.beans.TroubleCodeBean" />
+		<form-bean name="TroubleTypeBean"
+			type="com.cabletech.baseinfo.beans.TroubleTypeBean" />
+
+		<form-bean name="stencilBean"
+			type="com.cabletech.planinfo.beans.StencilTaskBean" />
+		<form-bean name="stencilTaskBean"
+			type="com.cabletech.planinfo.beans.StencilSubTaskBean" />
+
+		<form-bean name="batchBean" type="com.cabletech.planinfo.beans.BatchBean">
+		</form-bean>
+		<!-- 修缮查询统计 -->
+
+		<form-bean name="statRemedyBean"
+			type="com.cabletech.linepatrol.remedy.beans.StatRemedyBean">
+		</form-bean>
+
+
+		<form-bean name="PlanExeResultBean"
+			type="com.cabletech.planstat.beans.PlanExeResultBean" />
+		<form-bean name="PlanStatBean" type="com.cabletech.planstat.beans.PlanStatBean" />
+		<form-bean name="PlanPatrolStatBean"
+			type="com.cabletech.planstat.beans.PlanPatrolStatBean" />
+		<form-bean name="PlanStatPatrolStatBean"
+			type="com.cabletech.planstat.beans.PlanStatPatrolStatBean" />
+		<form-bean name="PatrolStatConditionBean"
+			type="com.cabletech.planstat.beans.PatrolStatConditionBean" />
+		<form-bean name="RealTimeConditionBean"
+			type="com.cabletech.planstat.beans.RealTimeConditionBean" />
+		<form-bean name="CompAnalysisBean"
+			type="com.cabletech.planstat.beans.CompAnalysisBean" />
+		<form-bean name="MonthlyReportBean"
+			type="com.cabletech.planstat.beans.MonthlyReportBean" />
+		<form-bean name="LogPathBean" type="com.cabletech.planstat.beans.LogPathBean" />
+		<form-bean name="WorkInfoHistoryConBean"
+			type="com.cabletech.analysis.beans.HistoryWorkInfoConditionBean" />
+		<form-bean name="MonthlyStatCityMobileConBean"
+			type="com.cabletech.planstat.beans.MonthlyStatCityMobileConBean" />
+
+		<form-bean name="ResourceAssignBean"
+			type="com.cabletech.baseinfo.beans.ResourceAssignBean">
+		</form-bean>
+		<!-- 设备使用 -->
+		<form-bean name="UseTerminalBean"
+			type="com.cabletech.baseinfo.beans.UseTerminalBean" />
+		<!-- 盯防图片上传 -->
+		<form-bean name="WatchPicConBean"
+			type="com.cabletech.watchinfo.beans.WatchPicConBean">
+		</form-bean>
+		<!-- Added By YLY -->
+		<form-bean name="UploadFromLocalBean"
+			type="com.cabletech.watchinfo.beans.UploadFromLocalBean">
+		</form-bean>
+		<form-bean name="UploadFromMMSBean"
+			type="com.cabletech.watchinfo.beans.UploadFromMMSBean">
+		</form-bean>
+
+		<!-- 备件管理使用 杨隽 2008-11-20 -->
+		<form-bean name="SparepartApplyBean"
+			type="com.cabletech.sparepartmanage.beans.SparepartApplyBean" />
+		<form-bean name="SparepartAuditingBean"
+			type="com.cabletech.sparepartmanage.beans.SparepartAuditingBean" />
+		<form-bean name="SparepartStorageBean"
+			type="com.cabletech.sparepartmanage.beans.SparepartStorageBean" />
+
+		<form-bean name="SparepartBaseInfoBean"
+			type="com.cabletech.sparepartmanage.beans.SparepartBaseInfoBean">
+		</form-bean>
+
+		<!-- 中继站管理使用 杨隽 2009-04-09 START-->
+		<form-bean name="RepeaterStationBean"
+			type="com.cabletech.station.beans.RepeaterStationBean">
+		</form-bean>
+		<form-bean name="RepeaterStationPlanBean"
+			type="com.cabletech.station.beans.RepeaterStationPlanBean">
+		</form-bean>
+		<form-bean name="FlowWorkInfoBean"
+			type="com.cabletech.station.beans.FlowWorkInfoBean">
+		</form-bean>
+		<form-bean name="PlanPatrolResultBean"
+			type="com.cabletech.station.beans.PlanPatrolResultBean">
+		</form-bean>
+		<!-- 中继站管理使用 杨隽 2009-04-09 END -->
+
+
+
+
+		<!-- 机房巡检2008-12-22 -->
+		<form-bean name="MobileTaskBean" type="com.cabletech.machine.beans.MobileTaskBean">
+		</form-bean>
+		<form-bean name="PollingContentBean"
+			type="com.cabletech.machine.beans.PollingContentBean">
+		</form-bean>
+		<form-bean name="PollingTaskBean"
+			type="com.cabletech.machine.beans.PollingTaskBean">
+		</form-bean>
+		<form-bean name="PollingConMicroBean"
+			type="com.cabletech.machine.beans.PollingConMicroBean">
+		</form-bean>
+		<form-bean name="PollingConFsoBean"
+			type="com.cabletech.machine.beans.PollingConFsoBean">
+		</form-bean>
+		<form-bean name="EquipmentInfoBean"
+			type="com.cabletech.machine.beans.EquipmentInfoBean">
+		</form-bean>
+		<form-bean name="PollingConFiberBean"
+			type="com.cabletech.machine.beans.PollingConFiberBean">
+		</form-bean>
+
+		<!-- 巡检点导出 -->
+		<form-bean name="PointOutputBean"
+			type="com.cabletech.sysmanage.beans.PointOutputBean">
+		</form-bean>
+		<form-bean name="copybean" type="com.cabletech.planinfo.bean.CopyBean">
+		</form-bean>
+		<!-- 集团客户资料 -->
+		<form-bean name="customerBean"
+			type="com.cabletech.groupcustomer.bean.GroupCustomerBean">
+		</form-bean>
+		<!-- 盯防短信日志查询 -->
+		<form-bean name="WatchMsgBean" type="com.cabletech.watchinfo.beans.WatchMsgBean">
+		</form-bean>
+		<!-- 临时点导入 090620 by chen -->
+		<form-bean name="temppointBean"
+			type="com.cabletech.temppoint.beans.TemppointBean">
+		</form-bean>
+		<!-- 路由信息表 by cheng -->
+		<form-bean name="routeinfoBean" type="com.cabletech.fsmanager.bean.RouteInfoBean">
+		</form-bean>
+
+		<!-- 光缆段资料管理 by jixf date:09-08-17 -->
+		<form-bean name="cableBean" type="com.cabletech.fsmanager.bean.CableBean"></form-bean>
+
+		<!-- 资料申请管理管理 by jixf date:09-09-27 -->
+		<form-bean name="linePatrolManagerBean"
+			type="com.cabletech.partmanage.beans.LinePatrolManagerBean"></form-bean>
+
+
+		<!-- 管道段管理 -->
+		<form-bean name="pipeSegmentBean"
+			type="com.cabletech.pipemanage.bean.PipeSegmentBean"></form-bean>
+		<!-- 修缮 -->
+		<form-bean name="remedyItemBean"
+			type="com.cabletech.linepatrol.remedy.beans.RemedyItemBean"></form-bean>
+		<form-bean name="remedyTypeBean"
+			type="com.cabletech.linepatrol.remedy.beans.RemedyTypeBean"></form-bean>
+		<form-bean name="remedyApplyBean"
+			type="com.cabletech.linepatrol.remedy.beans.RemedyApplyBean"></form-bean>
+
+
+		<!-- 材料申请 -->
+		<form-bean name="mtUsedBean"
+			type="com.cabletech.linepatrol.material.beans.MtUsedBean"></form-bean>
+		<form-bean name="mtUsedAssessBean"
+			type="com.cabletech.linepatrol.material.beans.MtUsedAssessBean"></form-bean>
+
+		<!-- 代维单位合同管理模块Bean -->
+		<form-bean name="contractBean"
+			type="com.cabletech.baseinfo.beans.ContractBean" />
+	</form-beans>
+	<global-forwards>
+		<forward name="sucessMsg" path="/globinfo/sucessinfo.jsp" />
+		<forward name="errorMsg" path="/globinfo/errorinfo.jsp" />
+		<forward name="powererror" path="/globinfo/powererror.jsp" />
+		<forward name="giserror" path="/realtime/errorinfo.jsp" />
+	</global-forwards>
+	<action-mappings>
+		<action path="/copyplanAction" parameter="method" scope="request"
+			type="com.cabletech.planinfo.action.CopyPlanAction">
+
+		</action>
+		<!-- 辽宁单点登录 SD用户 AD用户 -->
+		<action path="/ssoLogin" parameter="method" scope="request"
+			type="com.cabletech.lnsso.action.LoginSSOAction">
+			<forward name="loginformward" path="/frames/index_frame.htm" />
+			<forward name="errorformward" path="/login/loginerror.jsp" />
+		</action>
+
+		<!-- 辽宁单点登录  -->
+		<action path="/ExecuteLogAction" parameter="method" scope="request"
+			type="com.cabletech.planinfo.action.ExecuteLogAction">
+			<forward name="ExecuteLogResult" path="/planManage/executelog.jsp">
+			</forward>
+		</action>
+		<!-- 综合管理平台使用 -->
+		<action path="/RealTimeNoteInfoAction" parameter="method"
+			scope="request" type="com.cabletech.exterior.action.RealTimeNoteAction">
+			<forward name="noteinfo" path="/exterior/realtimechartnotes.jsp">
+			</forward>
+		</action>
+		<action path="/RealTimeOnlineNumAction" parameter="method"
+			scope="request" type="com.cabletech.exterior.action.RealTimeOnlineNumAction">
+			<forward name="onlinenum" path="/exterior/realtime.jsp"></forward>
+		</action>
+		<action path="/AreaContrastAction" parameter="method" scope="request"
+			type="com.cabletech.exterior.action.AreaContrastAction">
+			<forward name="areaContrast" path="/exterior/areacontrast.jsp">
+			</forward>
+		</action>
+		<action path="/MonthlyContrastAction" parameter="method" scope="request"
+			type="com.cabletech.exterior.action.MonthlyContrastAction">
+			<forward name="monthContrast" path="/exterior/monthcontrast.jsp">
+			</forward>
+		</action>
+		<action path="/SSOLoginAction" parameter="method" scope="request"
+			type="com.cabletech.exterior.action.SSOLoginAction">
+			<forward name="loginformward" path="/frames/index_frame.htm" />
+			<forward name="errorformward" path="/login/loginerror.jsp" />
+		</action>
+		<action path="/HistoryOnlineNumAction" parameter="method"
+			scope="request" type="com.cabletech.exterior.action.HistoryOnlineNumAction">
+			<forward name="showHistoryCurve" path="/exterior/showHistoryCurve.jsp">
+			</forward>
+			<forward name="showHistoryCurveChart" path="/exterior/showHistoryCurveChart.jsp">
+			</forward>
+		</action>
+		<action path="/HistoryNoteAction" parameter="method" scope="request"
+			type="com.cabletech.exterior.action.HistoryNoteAction">
+			<forward name="showHistoryNote" path="/exterior/showHistoryNote.jsp">
+			</forward>
+			<forward name="showHistoryNoteChart" path="/exterior/commonHistorySMGraphicForOthers.jsp">
+			</forward>
+		</action>
+		<!--资源重新分配 -->
+		<action name="ResourceAssignBean" path="/ResourceAssignAction"
+			parameter="method" scope="request"
+			type="com.cabletech.baseinfo.action.ResourceAssignAction">
+			<forward name="sublineNext2" path="/baseinfo/assignsubline2.jsp">
+			</forward>
+			<forward name="sublineNext3" path="/baseinfo/assignsubline3.jsp">
+			</forward>
+
+			<forward name="terminalNext2" path="/baseinfo/assignterminal2.jsp">
+			</forward>
+			<forward name="terminalNext3" path="/baseinfo/assignterminal3.jsp">
+			</forward>
+		</action>
+		<!-- 省移动月统计 -->
+		<action name="PatrolStatConditionBean" path="/ProvinceStatAction"
+			parameter="method" scope="request"
+			type="com.cabletech.analysis.action.PlanMonthlyStatForWholeAction">
+			<forward name="provinceStatframe" path="/analysis/provstatframe.jsp">
+			</forward>
+			<forward name="executeplan" path="/analysis/provexecuteplan.jsp">
+			</forward>
+			<forward name="contraststat" path="/analysis/provcontraststat.jsp">
+			</forward>
+			<forward name="sublinestat" path="/analysis/provsublinestat.jsp">
+			</forward>
+		</action>
+		<!--设备使用 -->
+		<action path="/UseTerminalAction" name="UseTerminalBean"
+			parameter="method" scope="request"
+			type="com.cabletech.baseinfo.action.UseTerminalAction">
+			<forward name="UseTerminalInfo" path="/baseinfo/userTerminal.jsp">
+			</forward>
+			<forward name="UseTerminalList" path="/baseinfo/userTerminallist.jsp">
+			</forward>
+		</action>
+		<!-- 巡检过程实时分析 -->
+		<action path="/RealTimeOnlineAction" parameter="method" scope="request"
+			type="com.cabletech.analysis.action.RealTimeOnlineAction">
+			<forward name="RealTimeForm" path="/analysis/realtimeform.jsp">
+			</forward>
+			<forward name="RealTime" path="/analysis/onlinenumpic.jsp">
+			</forward>
+		</action>
+		<action path="/RealTimeNoteAction" parameter="method" scope="request"
+			type="com.cabletech.analysis.action.RealTimeNoteAction">
+			<forward name="ChartNoteInfo" path="/analysis/realtimechartnote.jsp">
+			</forward>
+			<forward name="ChartNotePic" path="/analysis/notechartpic.jsp">
+			</forward>
+			<forward name="NoteInfo" path="/analysis/realtimenote.jsp">
+			</forward>
+			<forward name="DisplayNote" path="/analysis/realtimenote.jsp">
+			</forward>
+		</action>
+		<!-- 报告管理 -->
+		<action path="/ReportAction" name="ReportBean" parameter="method"
+			scope="request" type="com.cabletech.report.action.ReportAction">
+			<forward name="queryreport" path="/report/queryresult.jsp">
+			</forward>
+			<forward name="edit" path="/report/editreport.jsp"></forward>
+			<forward name="read" path="/report/lookreport.jsp"></forward>
+			<forward name="auditing" path="/report/auditingreport.jsp">
+			</forward>
+		</action>
+		<!-- 知识管理系统 -->
+		<action path="/DatumSystemAction" name="DatumSystem" parameter="method"
+			scope="request" type="com.cabletech.datum.action.DatumSystemAction">
+			<forward name="queryresult" path="/datum/queryresult.jsp"></forward>
+			<forward name="edit" path="/datum/editsystemfile.jsp"></forward>
+			<forward name="look" path="/datum/looksystemfile.jsp"></forward>
+		</action>
+		<action path="/DatumCriterionAction" name="DatumCriterion"
+			parameter="method" scope="request"
+			type="com.cabletech.datum.action.DatumCriterionAction">
+			<forward name="queryresult" path="/datum/queryresult.jsp"></forward>
+			<forward name="edit" path="/datum/editcriterionfile.jsp"></forward>
+			<forward name="look" path="/datum/lookcriterionfile.jsp"></forward>
+		</action>
+		<action path="/DatumExperienceAction" name="DatumExperience"
+			parameter="method" scope="request"
+			type="com.cabletech.datum.action.DatumExperienceAction">
+			<forward name="queryresult" path="/datum/queryresult.jsp"></forward>
+			<forward name="edit" path="/datum/editexperiencefile.jsp"></forward>
+			<forward name="look" path="/datum/lookexperiencefile.jsp"></forward>
+		</action>
+		<!-- 知识管理 -->
+		<action name="ToolsInfo" parameter="method" path="/ToolBaseAction"
+			scope="request" type="com.cabletech.toolsmanage.action.ToolBaseAction">
+			<forward name="success" path="/toolsmanage/toolsBaseInfo.jsp" />
+		</action>
+		<action name="ToolsInfo" parameter="method" path="/ToolStockAction"
+			scope="request" type="com.cabletech.toolsmanage.action.ToolStockAction">
+			<forward name="success" path="/toolsmanage/toolstock.jsp" />
+		</action>
+		<action name="ToolsInfo" parameter="method" path="/ToolUseAction"
+			scope="request" type="com.cabletech.toolsmanage.action.ToolUseAction">
+			<forward name="success" path="/toolsmanage/tooluse.jsp" />
+		</action>
+		<action name="ToolsInfo" parameter="method" path="/ToolMainAction"
+			scope="request" type="com.cabletech.toolsmanage.action.ToolMainAction">
+			<forward name="success" path="/toolsmanage/toolMain.jsp" />
+		</action>
+		<action name="ToolsInfo" parameter="method" path="/ToolToMainAction"
+			scope="request" type="com.cabletech.toolsmanage.action.ToolToMainAction">
+			<forward name="success" path="/toolsmanage/toolToMain.jsp" />
+		</action>
+		<action name="ToolsInfo" parameter="method" path="/ToolStorageAction"
+			scope="request" type="com.cabletech.toolsmanage.action.ToolStorageAction">
+			<forward name="success" path="/toolsmanage/toolStorage.jsp" />
+		</action>
+		<action name="PartRequisition" parameter="method" path="/PartStorageAction"
+			scope="request" type="com.cabletech.partmanage.action.PartStorageAction">
+			<forward name="success" path="/partManage/partStorage.jsp" />
+			<forward name="queryallstorage" path="/partManage/queryallstorage.jsp" />
+		</action>
+		<action name="PartRequisition" parameter="method" path="/PartUseAction"
+			scope="request" type="com.cabletech.partmanage.action.PartUseAction">
+			<forward name="success" path="/partManage/partUse.jsp" />
+			<forward name="queryalluse" path="/partManage/queryalluse.jsp" />
+			<forward name="changeuse" path="/partManage/changeuse.jsp" />
+			<forward name="showchangeuse" path="/partManage/showchangeuse.jsp" />
+		</action>
+		<action name="PartRequisition" parameter="method" path="/PartStockAction"
+			scope="request" type="com.cabletech.partmanage.action.PartStockAction">
+			<forward name="success" path="/partManage/partStock.jsp" />
+			<forward name="queryallstock" path="/partManage/queryallstock.jsp" />
+			<forward name="queryalloldstock" path="/partManage/queryalloldstock.jsp" />
+		</action>
+		<action name="PartRequisition" parameter="method"
+			path="/PartRequisitionAction" scope="request"
+			type="com.cabletech.partmanage.action.PartRequisitionAction">
+			<forward name="success" path="/partManage/partRequisition.jsp" />
+			<forward name="queryallrequisition" path="/partManage/queryallrequisition.jsp" />
+			<forward name="queryallaudit" path="/partManage/queryallaudit.jsp" />
+		</action>
+		<action name="PartBaseInfo" parameter="method" path="/PartBaseInfoAction"
+			scope="request" type="com.cabletech.partmanage.action.PartBaseInfoAction">
+			<forward name="success" path="/partManage/partBaseInfo.jsp" />
+			<forward name="queryallpartinfo" path="/partManage/queryallpartinfo.jsp" />
+		</action>
+
+		<action name="conPersonBean" parameter="method" path="/ConPersonAction" scope="request" type="com.cabletech.sysmanage.action.ConPersonAction">
+			<forward name="addconperson" path="/SystemManage/addconperson.jsp" />
+			<forward name="showconperson" path="/SystemManage/showconperson.jsp" />
+			<forward name="showoneconperson" path="/SystemManage/showoneconperson.jsp" />
+			<forward name="queryconperson" path="/SystemManage/queryconperson.jsp" />
+			<forward name="editconperson" path="/SystemManage/editconperson.jsp" />
+			<forward name="showconpersonforsearch" path="/SystemManage/showconpersonforsearch.jsp"></forward>
+		</action>
+		<action name="FileLoad" parameter="method" path="/UpFileAction"
+			scope="request" type="com.cabletech.demo.UpFileAction">
+			<forward name="success" path="/demo/upload.jsp" />
+		</action>
+		<action name="LineCutBean" parameter="method" path="/LineCutReAction"
+			scope="request" type="com.cabletech.linecut.action.LineCutReAction">
+			<forward name="success" path="/linecut/lineCutRe.jsp" />
+			<forward name="lineLevel" path="/linecut/lineSel.jsp"></forward>
+			<forward name="showStatQuery" path="/linecut/showStatQuery.jsp">
+			</forward>
+			<forward name="typeForCount" path="/linecut/typeForCount.jsp">
+			</forward>
+			<forward name="levelForCount" path="/linecut/levelForCount.jsp">
+			</forward>
+			<forward name="levelForTime" path="/linecut/levelForTime.jsp">
+			</forward>
+			<forward name="typeForTime" path="/linecut/typeForTime.jsp">
+			</forward>
+
+			<forward name="lineCutSearch" path="/linecut/lineCutSearch.jsp">
+			</forward>
+			<forward name="lineCutQueryList" path="/linecut/lineCutQueryList.jsp" />
+			<forward name="lineCutDetail" path="/linecut/lineCutDetail.jsp" />
+		</action>
+		<action name="LineCutBean" parameter="method" path="/LineCutWorkAction"
+			scope="request" type="com.cabletech.linecut.action.LineCutWorkAction">
+			<forward name="success" path="/linecut/lineCutWork.jsp" />
+		</action>
+		<action name="changeinfo" parameter="method" path="/changeapplyaction"
+			scope="request" type="com.cabletech.linechange.action.ChangeApplyAction">
+			<forward name="loadAddForm" path="/linechange/addapply.jsp" />
+			<forward name="editForm" path="/linechange/editapply.jsp" />
+			<forward name="lookForm" path="/linechange/lookapply.jsp" />
+			<forward name="loadQueryForm" path="/linechange/queryapply.jsp" />
+			<forward name="loadApplyList" path="/linechange/listapply.jsp" />
+			<forward name="listApplyForSurvey" path="/linechange/listapply4survey.jsp" />
+		</action>
+		<action name="changesurvey" parameter="method" path="/changesurveyaction"
+			scope="request" type="com.cabletech.linechange.action.ChangeSurveyAction">
+			<forward name="loadAddForm" path="/linechange/addsurvey.jsp" />
+			<forward name="editForm" path="/linechange/editsurvey.jsp" />
+			<forward name="lookForm" path="/linechange/looksurvey.jsp" />
+			<forward name="loadQueryForm" path="/linechange/querysurvey.jsp" />
+			<forward name="loadSurveyList" path="/linechange/listsurvey.jsp" />
+			<forward name="survey_history_list" path="/linechange/survey_history_list.jsp" />
+		</action>
+		<action name="changeinfo" parameter="method" path="/buildsetoutaction"
+			scope="request" type="com.cabletech.linechange.action.BuildSetoutAction">
+			<forward name="loadAddForm" path="/linechange/buildsetout.jsp" />
+			<forward name="listChangeInfo" path="/linechange/listchangeinfo.jsp" />
+			<forward name="lookForm" path="/linechange/lookbuildsetout.jsp" />
+			<forward name="loadQueryForm" path="/linechange/querybuildsetout.jsp" />
+			<forward name="loadbuildsetoutList" path="/linechange/listbuildsetout.jsp" />
+		</action>
+		<action name="changeinfo" parameter="method" path="/consignaction"
+			scope="request" type="com.cabletech.linechange.action.ConsignAction">
+			<forward name="loadAddForm" path="/linechange/consign.jsp" />
+			<forward name="listChangeInfo" path="/linechange/listchange4consign.jsp" />
+			<forward name="lookForm" path="/linechange/lookconsign.jsp" />
+			<forward name="loadQueryForm" path="/linechange/queryconsign.jsp" />
+			<forward name="loadConsignList" path="/linechange/listconsign.jsp" />
+		</action>
+		<action name="changebuild" parameter="method" path="/buildaction"
+			scope="request" type="com.cabletech.linechange.action.BuildAction">
+			<forward name="loadAddForm" path="/linechange/addbuild.jsp" />
+			<forward name="loadEditForm" path="/linechange/editbuild.jsp" />
+			<forward name="listChange" path="/linechange/listchange4build.jsp" />
+			<forward name="loadLookForm" path="/linechange/lookbuild.jsp" />
+			<forward name="loadQueryForm" path="/linechange/querybuild.jsp" />
+			<forward name="loadBuildList" path="/linechange/listbuild.jsp" />
+		</action>
+		<action name="changecheck" parameter="method" path="/checkaction"
+			scope="request" type="com.cabletech.linechange.action.CheckAction">
+			<forward name="loadAddForm" path="/linechange/addcheck.jsp" />
+			<forward name="editForm" path="/linechange/editcheck.jsp" />
+			<forward name="loadLookForm" path="/linechange/lookcheck.jsp" />
+			<forward name="listChange" path="/linechange/listchange4check.jsp" />
+			<forward name="loadQueryForm" path="/linechange/querycheck.jsp" />
+			<forward name="loadCheckList" path="/linechange/listcheck.jsp" />
+			<forward name="check_history_list" path="/linechange/check_history_list.jsp" />
+		</action>
+		<action name="changeinfo" parameter="method" path="/pageonholeaction"
+			scope="request" type="com.cabletech.linechange.action.PageonholeAction">
+			<forward name="loadAddForm" path="/linechange/pageonhole.jsp" />
+			<forward name="loadChangeInfo" path="/linechange/listchange4pageonhole.jsp" />
+			<forward name="lookForm" path="/linechange/lookpageonhole.jsp" />
+			<forward name="loadQueryForm" path="/linechange/querypageonhole.jsp" />
+			<forward name="loadPageonholeInfo" path="/linechange/listpageonhole.jsp" />
+			<forward name="showSquare" path="/linechange/showSquare.jsp" />
+			<forward name="showOneSquare" path="/linechange/showOneSquare.jsp" />
+		</action>
+		<action name="changeinfo" parameter="method" path="/stataction"
+			scope="request" type="com.cabletech.linechange.action.StatAction">
+			<forward name="loadstaqueryform" path="/linechange/querysta.jsp" />
+			<forward name="loadstatlist" path="/linechange/statresult.jsp" />
+		</action>
+		<action parameter="method" path="/getaction" scope="request"
+			type="com.cabletech.linechange.action.StatAction">
+			<forward name="loadstatlist" path="/linechange/getonechange.jsp" />
+		</action>
+
+		<!-- 修缮查询统计（新） -->
+
+		<action name="statRemedyBean" path="/statRemedyAction"
+			parameter="method" scope="request"
+			type="com.cabletech.linepatrol.remedy.action.RemedyStatAction">
+			<forward name="statQuery" path="/linepatrol/remedy/statQuery.jsp" />
+			<forward name="statRemedyList" path="/linepatrol/remedy/statRmedyList.jsp" />
+		</action>
+
+		<action name="LineCutBean" parameter="method" path="/LineCutAcceptAction"
+			scope="request" type="com.cabletech.linecut.action.LineCutAcceptAction">
+			<forward name="success" path="/linecut/lineCutAcc.jsp" />
+		</action>
+		<action path="/downloadAction" scope="request"
+			type="com.cabletech.uploadfile.action.DownloadFileAction" />
+			<!--  
+		<action parameter="method" path="/initdisplayAction" scope="request"
+			type="com.cabletech.baseinfo.action.InitDisplayForLogin">
+			<forward name="listaccident" path="/frames/listAccidentForLogin.jsp" />
+			<forward name="listonlinemen" path="/frames/listOnLineMenForLogin.jsp" />
+			<forward name="listwatchinfo" path="/frames/listWatchInfoForLogin.jsp" />
+			<forward name="listlinecutinfo" path="/frames/listLineCutInfoForLogin.jsp" />
+		</action>
+		-->
+		<action name="info" parameter="method" path="/info" scope="request"
+			type="com.cabletech.lineinfo.action.GISAction">
+			<forward name="success" path="/realtime/successinfo.jsp" />
+			<forward name="error" path="/realtime/errorinfo.jsp" />
+		</action>
+		<action name="pmBean" parameter="method" path="/pmAction"
+			scope="request" type="com.cabletech.lineinfo.action.GISAction">
+			<forward name="success" path="/realtime/successinfo.jsp" />
+			<forward name="error" path="/realtime/errorinfo.jsp" />
+			<forward name="updatepm" path="/realtime/editPatrolMan.jsp" />
+		</action>
+		<action name="tsBean" parameter="method" path="/tsAction"
+			scope="request" type="com.cabletech.lineinfo.action.GISAction">
+			<forward name="error" path="/realtime/errorinfo.jsp" />
+			<forward name="updatesl" path="/realtime/editSubline.jsp" />
+		</action>
+		<action name="tpBean" parameter="method" path="/tpAction"
+			scope="request" type="com.cabletech.lineinfo.action.GISAction">
+			<forward name="inserttp" path="/realtime/addPoint.jsp" />
+			<forward name="error" path="/realtime/errorinfo.jsp" />
+			<forward name="updatetp" path="/realtime/editPoint.jsp" />
+		</action>
+		<action name="departBean" parameter="method" path="/departAction"
+			scope="request" type="com.cabletech.baseinfo.action.DepartAction">
+			<forward name="querydepartresult" path="/baseinfo/querydepartresult.jsp" />
+			<forward name="updateDepart" path="/baseinfo/editDepart.jsp" />
+			<forward name="showadvanceddepart" path="/baseinfo/queryDepart.jsp" />
+		</action>
+		<!-- 路由信息管理 -->
+		<action name="routeinfoBean" parameter="method" path="/RouteInfoAction"
+			scope="request" type="com.cabletech.fsmanager.action.RouteInfoAction">
+			<forward name="updateRouteInfo" path="/baseinfo/editRouteInfo.jsp" />
+			<forward name="queryrouteresult" path="/baseinfo/queryRouteInforesult.jsp" />
+		</action>
+		<action name="contractorBean" parameter="method" path="/contractorAction"
+			scope="request" type="com.cabletech.baseinfo.action.ContractorAction">
+			<forward name="querycontractorresult" path="/baseinfo/querycontractorresult.jsp" />
+			<forward name="updateContractor" path="/baseinfo/editContractor.jsp" />
+		</action>
+		<action name="lineBean" parameter="method" path="/lineAction"
+			scope="request" type="com.cabletech.baseinfo.action.LineAction">
+			<forward name="querylineresult" path="/baseinfo/querylineresult.jsp" />
+			<forward name="updateLine" path="/baseinfo/editLine.jsp" />
+			<forward name="showaddline" path="/baseinfo/addLine.jsp" />
+			<forward name="showadvancedline" path="/baseinfo/queryLine.jsp" />
+		</action>
+		<action name="patrolBean" parameter="method" path="/patrolAction"
+			scope="request" type="com.cabletech.baseinfo.action.PatrolManAction">
+			<forward name="querypatrolmanresult" path="/baseinfo/querypatrolmanresult.jsp" />
+			<forward name="querypatrolmanresult_login" path="/baseinfo/querypatrolmanresult_login.jsp" />
+			<forward name="updatePatrol" path="/baseinfo/editPatrolMan.jsp" />
+			<forward name="showadvancedpatrolman" path="/baseinfo/queryPatrolMan.jsp" />
+		</action>
+		<action name="patrolSonBean" parameter="method" path="/patrolSonAction"
+			scope="request" type="com.cabletech.baseinfo.action.PatrolManSonAction">
+			<forward name="querypatrolmanSonresult" path="/baseinfo/querypatrolmanresult_son.jsp" />
+			<forward name="updatePatrolSon" path="/baseinfo/editPatrolMan_son.jsp" />
+			<forward name="showpatrolmanson" path="/baseinfo/queryPatrolMan_son.jsp" />
+			<forward name="showpatrolmansonajax" path="/baseinfo/queryPatrolMan_son_ajax.jsp" />
+		</action>
+		<action name="pointBean" parameter="method" path="/pointAction"
+			scope="request" type="com.cabletech.baseinfo.action.PointAction">
+			<forward name="querypointresult" path="/baseinfo/querypointresult.jsp" />
+			<forward name="updatePoint" path="/baseinfo/editPoint.jsp" />
+			<forward name="commonerror" path="/baseinfo/commonError.jsp" />
+			<forward name="loadPointForGIS" path="/baseinfo/editPointForGis.jsp" />
+			<forward name="loadPoint4Watch" path="/WatchManage/getPoints4Watch.jsp" />
+			<forward name="addPointForGis" path="/baseinfo/commonSuccess.jsp" />
+			<forward name="updatePointForGIS" path="/baseinfo/commonSuccess.jsp" />
+			<forward name="deletePoint4GIS" path="/baseinfo/delTemPointSuccess.jsp" />
+		</action>
+		<action name="regionBean" parameter="method" path="/regionAction"
+			scope="request" type="com.cabletech.baseinfo.action.RegionAction">
+			<forward name="queryregionresult" path="/baseinfo/queryregionresult.jsp" />
+			<forward name="updateRegion" path="/baseinfo/editRegion.jsp" />
+			<forward name="getCurrentRegion4Gis" path="/baseinfo/editRegion4Gis.jsp" />
+		</action>
+		<action name="sublineBean" parameter="method" path="/sublineAction"
+			scope="request" type="com.cabletech.baseinfo.action.SublineAction">
+			<forward name="querysublineresult" path="/baseinfo/querysublineresult.jsp" />
+			<forward name="loadSubline4Gis" path="/baseinfo/editSublineForGis.jsp" />
+			<forward name="updateSubline" path="/baseinfo/editSubline.jsp" />
+			<forward name="loadSubLineForm" path="/baseinfo/addSubline.jsp" />
+			<forward name="loadQuerySubLineForm" path="/baseinfo/querySubline.jsp" />
+			<forward name="loadQuerySubLineFormAjax" path="/baseinfo/querySublineAjax.jsp" />
+		</action>
+		<action name="terminalBean" parameter="method" path="/terminalAction"
+			scope="request" type="com.cabletech.baseinfo.action.TerminalAction">
+			<forward name="queryterminalresult" path="/baseinfo/queryterminalresult.jsp" />
+			<forward name="updateTerminal" path="/baseinfo/editTerminal.jsp" />
+			<forward name="commonerror" path="/baseinfo/commonError.jsp" />
+			<forward name="showPhoneBook" path="/baseinfo/showPhoneBook.jsp" />
+			<forward name="showVoltage" path="/baseinfo/showVoltage.jsp" />
+			<forward name="terminalvoltage" path="/baseinfo/terminalvoltage.jsp" />
+		</action>
+		<action name="userInfoBean" parameter="method" path="/userinfoAction"
+			scope="request" type="com.cabletech.baseinfo.action.UserInfoAction">
+			<forward name="queryuserinforesult" path="/baseinfo/queryuserinforesult.jsp" />
+			<forward name="updateUserinfo" path="/baseinfo/editUserInfo.jsp" />
+			<forward name="addUserInnerMsg" path="/baseinfo/addUserInnerMsg.jsp" />
+			<forward name="addUserInfo" path="/baseinfo/addUserInfo.jsp" />
+			<forward name="updatepsw" path="/baseinfo/updatepsw.jsp" />
+			<forward name="queryuserinfoform" path="/baseinfo/queryUserInfo.jsp" />
+		</action>
+		<action name="PatrolOpBean" parameter="method" path="/PatrolOpAction"
+			scope="request" type="com.cabletech.baseinfo.action.PatrolOpAction">
+			<forward name="queryPatrolOpresult" path="/baseinfo/queryPatrolOpresult.jsp" />
+			<forward name="editPatrolOpresult" path="/baseinfo/editPatrolOp.jsp" />
+			<forward name="commonerror" path="/baseinfo/commonError.jsp" />
+		</action>
+		<action name="YearMonthPlanBean" parameter="method"
+			path="/YearMonthPlanAction" scope="request"
+			type="com.cabletech.planinfo.action.YearMonthPlanAction">
+			<forward name="addYearMonthTask" path="/planManage/addYearMonthTask.jsp"
+				redirect="true" />
+			<forward name="updateYearPlan" path="/planManage/editYearPlan.jsp" />
+			<forward name="ymplanError" path="/planManage/error.jsp" />
+			<forward name="preSetMPResult" path="/planManage/getPreSetTask.jsp" />
+			<forward name="queryYearPlanResult" path="/planManage/queryYearPlanResult.jsp" />
+			<forward name="queryMonthPlanResult" path="/planManage/queryMonthPlanResult.jsp" />
+			<forward name="getUnapprovedYMPlanResult" path="/planManage/queryUnapprovedYMPlanResult.jsp" />
+			<forward name="updateYearPlan" path="/planManage/editYearPlan.jsp" />
+			<forward name="updateMonthPlan" path="/planManage/editMonthPlan.jsp" />
+			<forward name="ymplanform" path="/planManage/ymplanform.jsp" />
+			<forward name="approveYMPlan" path="/planManage/ApproveYMPlan.jsp" />
+			<forward name="searchYearPlan" path="/planManage/searchYearPlan.jsp" />
+			<forward name="searchMonthPlan" path="/planManage/searchMonthPlan.jsp" />
+		</action>
+		<action name="taskBean" parameter="method" path="/TaskAction"
+			scope="request" type="com.cabletech.planinfo.action.TaskAction">
+
+			<forward name="addYearMonthTask" path="/planManage/addYearMonthTask.jsp"
+				redirect="true" />
+			<forward name="addYearResult" path="/planManage/showYearPlan.jsp"
+				redirect="true" />
+			<forward name="addMonthResult" path="/planManage/showMonthPlan.jsp"
+				redirect="true" />
+			<forward name="editYearMonthTask" path="/planManage/editYearMonthTask.jsp" />
+			<forward name="editYearResult" path="/planManage/editYearPlan.jsp" />
+			<forward name="editMonthResult" path="/planManage/editMonthPlan.jsp" />
+			<forward name="addPlanResult" path="/planManage/showplan.jsp" />
+			<forward name="editPlanResult" path="/planManage/editplan.jsp" />
+			<forward name="addPlanTask" path="/planManage/addplantask.jsp" />
+			<forward name="editPlanTask" path="/planManage/editplantask.jsp" />
+
+			<forward name="addYearMonthTask" path="/planManage/addYearMonthTask.jsp"
+				redirect="true">
+			</forward>
+			<forward name="addYearResult" path="/planManage/showYearPlan.jsp"
+				redirect="true" />
+			<forward name="addMonthResult" path="/planManage/showMonthPlan.jsp"
+				redirect="true" />
+			<forward name="editYearMonthTask" path="/planManage/editYearMonthTask.jsp">
+			</forward>
+			<forward name="editYearResult" path="/planManage/editYearPlan.jsp">
+			</forward>
+			<forward name="editMonthResult" path="/planManage/editMonthPlan.jsp">
+			</forward>
+
+			<forward name="addPlanResult" path="/planManage/showplan.jsp">
+			</forward>
+			<forward name="editPlanResult" path="/planManage/editplan.jsp">
+			</forward>
+			<forward name="addPlanTask" path="/planManage/addplantask.jsp">
+			</forward>
+			<forward name="editPlanTask" path="/planManage/editplantask.jsp">
+			</forward>
+
+
+
+			<forward name="addTaskResult" path="/planManage/autoShutdown.jsp" />
+			<forward name="addYearMonthTaskResult" path="/planManage/addTaskAutoclose.jsp" />
+			<forward name="updateautoclose" path="/planManage/updateTaskAutoclose.jsp" />
+			<forward name="YMTaskProperty" path="/planManage/editYearMonthTask.jsp" />
+			<forward name="YMTaskProperty4Approve" path="/planManage/YearMonthTaskPro4Approve.jsp" />
+			<forward name="weekTaskProperty" path="/planManage/editWeekTask.jsp" />
+			<forward name="autoclose" path="/common/autoClose.htm" />
+			<forward name="subtasklist" path="/planManage/subtasklist.jsp" />
+		</action>
+		<action name="planBean" parameter="method" path="/PlanAction"
+			scope="request" type="com.cabletech.planinfo.action.PlanAction">
+			<forward name="addPlanForm" path="/planManage/addplan.jsp" />
+			<forward name="addPlanTask" path="/planManage/addplantask.jsp" />
+			<forward name="loadPlanTask" path="/planManage/loadplantask.jsp" />
+			<forward name="editPlanResult" path="/planManage/editplan.jsp" />
+			<forward name="updatePlan" path="/planManage/editWeekPlan.jsp" />
+			<forward name="queryPlanResult" path="/planManage/queryWeekPlanResult.jsp" />
+			<forward name="preSetWPResult" path="/planManage/getPreSetWeekTask.jsp" />
+			<forward name="preSetWPResultWithoutExBtn" path="/planManage/getPreSetTask.jsp" />
+			<forward name="weekplanform" path="/planManage/weekplanform.jsp" />
+			<forward name="planError" path="/planManage/error.jsp" />
+			<forward name="queryCustomPlanResult" path="/planManage/queryCustomWeekPlanResult.jsp" />
+			<forward name="updateCustomPlan" path="/planManage/editCustomWeekPlan.jsp" />
+			<forward name="customweekplanform" path="/planManage/customweekplanform.jsp" />
+			<forward name="addweekplanshow" path="/planManage/addWeekPlan.jsp" />
+			<forward name="addNewCustomPlanShow" path="/planManage/addNewCustomPlan.jsp" />
+			<forward name="searchWeekplanshow" path="/planManage/searchWeekPlan.jsp" />
+			<forward name="searchCustomPlanShow" path="/planManage/searchCustomWeekPlan.jsp" />
+		</action>
+		<action name="pmBean" parameter="method" path="/GisPmAction"
+			scope="request" type="com.cabletech.lineinfo.action.GisPatrolmanAction">
+			<forward name="gisPatrolManInfo" path="/realtime/patrolManSms.jsp" />
+			<forward name="toSMS" path="/realtime/sms.jsp" />
+		</action>
+		<action name="pmBean" parameter="method" path="/GisPointAction"
+			scope="request" type="com.cabletech.lineinfo.action.GisPointAction">
+			<forward name="tempPointPage" path="/realtime/tempPoint2Point.jsp" />
+			<forward name="commonSuccess" path="/baseinfo/commonSuccess.jsp" />
+			<forward name="commonerror" path="/baseinfo/commonError.jsp" />
+			<forward name="toEditePoint" path="/baseinfo/editPointForGisWatch.jsp" />
+		</action>
+		<action name="pointBean" parameter="method" path="/GisWatchAction"
+			scope="request" type="com.cabletech.lineinfo.action.GisPointAction">
+			<forward name="addWatchSuc" path="/baseinfo/commonSuccess.jsp" />
+			<forward name="commonSuccess" path="/baseinfo/commonSuccess.jsp" />
+			<forward name="haveSameWatch" path="/baseinfo/commonError.jsp" />
+		</action>
+		<action name="SmsSendLogBean" parameter="method" path="/SendGisPmAction"
+			scope="request" type="com.cabletech.lineinfo.action.SendSmsAction">
+			<forward name="smsSendResult" path="/common/autoClose.htm" />
+		</action>
+		<action name="SMSCenterTime" parameter="method" path="/SMSTimeAction"
+			scope="request" type="com.cabletech.sysmanage.action.SMSTimeAction">
+			<forward name="getSMSBean" path="/SystemManage/updateSMSTime.jsp" />
+		</action>
+		<action name="userInfoBean" parameter="method" path="/InitDataAction"
+			scope="request" type="com.cabletech.baseinfo.action.InitDataAction">
+			<forward name="loginformward" path="/frames/index_frame.htm" />
+			<forward name="commonerror" path="/baseinfo/commonError.jsp" />
+		</action>
+		<action name="queryConditionForm" parameter="method" path="/StatisticAction"
+			scope="request" type="com.cabletech.statistics.action.StatisticAction">
+			<forward name="DisplayPatrolDetail" path="/SearchStatistic/QueryPatrolDetailResult.jsp" />
+			<forward name="DisplayPatrolRate" path="/SearchStatistic/patrolRateForm.jsp" />
+			<forward name="DisplayLossDetail" path="/SearchStatistic/QueryLossDetailResult.jsp" />
+			<forward name="getPlanForm" path="/SearchStatistic/planform.jsp" />
+			<forward name="DisplayContractorPlanForm" path="/SearchStatistic/MonthPlanform.jsp" />
+			<forward name="showSearchPatrolDetail" path="/SearchStatistic/QueryPatrolDetail.jsp" />
+			<forward name="showSearchPatrolloss" path="/SearchStatistic/QueryLossDetail.jsp" />
+			<forward name="showSearchPatrolRate" path="/SearchStatistic/QueryPatrolRate.jsp" />
+			<forward name="showNewQueryPlanForm" path="/SearchStatistic/QueryPlanForm.jsp" />
+			<forward name="showSearchApproveRate" path="/SearchStatistic/QueryApproveRate.jsp" />
+		</action>
+		<action name="AccidentBean" parameter="method" path="/accidentAction"
+			scope="request" type="com.cabletech.troublemanage.action.AccidentAction">
+			<forward name="allAccidentListpage" path="/TroubleManage/allAccidentListpage.jsp" />
+			<forward name="loadAllDoingTrouble" path="/TroubleManage/allTroubleDoingListpage.jsp" />
+			<forward name="allTroubleListpage" path="/TroubleManage/allTroubleListpage.jsp" />
+			<forward name="unDoneAccidentListpage" path="/TroubleManage/undoneAccidentList.jsp" />
+			<forward name="unDoneTroubleListpage" path="/TroubleManage/undoneTroubleList.jsp" />
+			<forward name="sendWorkForm" path="/TroubleManage/sendWorkForm.jsp" />
+			<forward name="acceptWorkForm" path="/TroubleManage/acceptWorkForm.jsp" />
+			<forward name="completeWorkForm" path="/TroubleManage/completeWorkForm.jsp" />
+			<forward name="sendTroubleForm" path="/TroubleManage/sendTroubleForm.jsp" />
+			<forward name="acceptTroubleForm" path="/TroubleManage/acceptTroubleForm.jsp" />
+			<forward name="completeTroubleForm" path="/TroubleManage/completeTroubleForm.jsp" />
+			<forward name="viewWorkForm" path="/TroubleManage/viewWorkForm.jsp" />
+			<forward name="viewTroubleForm" path="/TroubleManage/viewTroubleForm.jsp" />
+		</action>
+		<action name="queryAcciBean" parameter="method" path="/accidentQueryAction"
+			scope="request" type="com.cabletech.troublemanage.action.AccidentAction">
+			<forward name="queryAcciResult" path="/TroubleManage/queryAccidentResult.jsp" />
+		</action>
+		<action name="queryTroubleBean" parameter="method" path="/troubleQueryAction"
+			scope="request" type="com.cabletech.troublemanage.action.AccidentAction">
+			<forward name="queryTroubleResult" path="/TroubleManage/queryTroubleResult.jsp" />
+		</action>
+		<action name="ApproveRateBean" parameter="method" path="/ApproveRateAction"
+			scope="request" type="com.cabletech.statistics.action.ApproveRateAction">
+			<forward name="queryApproveRate" path="/SearchStatistic/QueryApproveRateResult.jsp" />
+		</action>
+		<action name="UsergroupBean" parameter="method" path="/UsergroupAction"
+			scope="request" type="com.cabletech.baseinfo.action.UsergroupAction">
+			<forward name="queryUsergroupResult" path="/baseinfo/queryusergroupresult.jsp" />
+			<forward name="getUsers2Edit" path="/baseinfo/getUsers2Edit.jsp" />
+			<forward name="getMoudle2Edit" path="/baseinfo/getMoudle2Edit.jsp" />
+			<forward name="toEditUsergroup" path="/baseinfo/editUsergroup.jsp" />
+			<forward name="loadEditFrom" path="/baseinfo/editUsergroupPurview.jsp" />
+			<forward name="toEditPurview" path="/baseinfo/editUsergroupPurview.jsp" />
+			<forward name="addUsergroup" path="/baseinfo/addUsergroup.jsp"></forward>
+			<forward name="editUsergroup" path="/baseinfo/editUsergroup.jsp"></forward>
+		</action>
+		<action name="TaskOperationBean" parameter="method"
+			path="/TaskOperationAction" scope="request"
+			type="com.cabletech.baseinfo.action.TaskOperationAction">
+			<forward name="queryTaskOperation" path="/baseinfo/queryTaskOperationResult.jsp" />
+			<forward name="updateTaskOperation" path="/baseinfo/editTaskOperation.jsp" />
+		</action>
+		<action name="AccidentBean" parameter="method" path="/AlertInfoAction"
+			scope="request" type="com.cabletech.baseinfo.action.AlertInfoAction">
+			<forward name="unDoneAccidentListpage" path="/baseinfo/undoneAccidentList.jsp" />
+			<forward name="queryAlertInfoResult" path="/baseinfo/querryalertinforesult.jsp" />
+			<forward name="updateAlertInfo" path="/baseinfo/editAlertInfo.jsp" />
+		</action>
+		<action name="AlertreceiverListBean" parameter="method"
+			path="/AlertreceiverListAction" scope="request"
+			type="com.cabletech.baseinfo.action.AlertreceiverListAction">
+			<forward name="queryAlertreceiverList" path="/baseinfo/queryAlertreceiverListResult.jsp" />
+			<forward name="updateAlertreceiverList" path="/baseinfo/editAlertreceiverList.jsp" />
+			<forward name="addAlertreceiverListForm" path="/baseinfo/addAlertreceiverList.jsp" />
+			<forward name="queryAlertreceiverListForm" path="/baseinfo/queryAlertreceiverList.jsp" />
+		</action>
+		<action path="/export2Excel"
+			type="com.cabletech.statistics.action.Export2ExcelAction">
+			<forward name="DisplayLossDetail" path="/SearchStatistic/QueryLossDetailResult.jsp" />
+		</action>
+		<action path="/exportLoss" type="com.cabletech.statistics.action.ExportLossAction">
+			<forward name="DisplayLossDetail2" path="/SearchStatistic/QueryLossDetailResult.jsp" />
+		</action>
+		<action name="watchBean" parameter="method" path="/watchAction"
+			scope="request" type="com.cabletech.watchinfo.action.WatchAction">
+			<forward name="querywatchresult" path="/WatchManage/querywatchresult.jsp" />
+			<forward name="updateWatch" path="/WatchManage/editWatch.jsp" />
+			<forward name="updateWatch4GISSuccess" path="/WatchManage/addWatchSuccess.jsp" />
+			<forward name="querywatchreport" path="/WatchManage/querywatchreport.jsp" />
+			<forward name="commonerror" path="/baseinfo/commonError.jsp" />
+			<forward name="addWatchForGis" path="/WatchManage/addWatchSuccess.jsp" />
+			<forward name="watchform" path="/WatchManage/watchform.jsp" />
+			<forward name="tempWatchPage" path="/realtime/tempWatch2Watch.jsp" />
+			<forward name="toAddWatch4GisDirectly" path="/WatchManage/addWatch.jsp" />
+			<forward name="deleteTempPoint4GIS" path="/WatchManage/delWatchSuccess.jsp" />
+			<forward name="allDoneWatchesRestult" path="/WatchManage/queryAllDoneWatchesRestult.jsp" />
+			<forward name="toStepOne" path="/WatchManage/toStepOne.jsp" />
+			<forward name="toStepTwo" path="/WatchManage/toStepTwo.jsp" />
+			<forward name="toEditSubWatch" path="/WatchManage/editSubWatch.jsp" />
+			<forward name="querytempwatchresult" path="/WatchManage/queryTempWatchResult.jsp" />
+			<forward name="gettempwatch" path="/WatchManage/addWatch.jsp" />
+			<forward name="showquerywatch" path="/WatchManage/queryWatch.jsp" />
+			<forward name="showquerywatchexe" path="/WatchManage/queryWatchexe.jsp" />
+			<forward name="showquerywatchexesta" path="/WatchManage/queryWatchexeSta.jsp" />
+		</action>
+
+		<!-- 盯防附件相关的 START-->
+		<action name="WatchPicConBean" parameter="method" path="/WatchPicAction"
+			scope="request" type="com.cabletech.watchinfo.action.WatchPicAction">
+			<forward name="queryUploadWatchPic" path="/WatchManage/queryUploadWatchPic.jsp" />
+			<forward name="showPicsForWatchID" path="/WatchManage/showPicsForWatchID.jsp" />
+			<forward name="queryLinkPic" path="/WatchManage/queryLinkPic.jsp" />
+			<forward name="viewLinkPic" path="/WatchManage/viewLinkPic.jsp" />
+			<forward name="viewLinkPicEx" path="/WatchManage/listWatchAttachById.jsp" />
+		</action>
+		<!-- 盯防附件相关的 END-->
+
+		<!-- 盯防附件相关的 START-->
+		<action path="/DeleteWatchAttachAction" scope="request"
+			type="com.cabletech.watchinfo.action.DeleteWatchAttachAction">
+			<forward name="viewLinkPicEx" path="/WatchPicAction.do?method=viewLinkPicEx" />
+		</action>
+
+		<action name="UploadFromLocalBean" path="/UploadFromLocalAction"
+			scope="request" type="com.cabletech.watchinfo.action.UploadFromLocalAction">
+			<forward name="viewLinkPicEx" path="/WatchPicAction.do?method=viewLinkPicEx" />
+		</action>
+
+		<action name="UploadFromMMSBean" path="/UploadFromMMSAction"
+			scope="request" type="com.cabletech.watchinfo.action.UploadFromMMSAction">
+			<forward name="viewLinkPicEx" path="/WatchPicAction.do?method=viewLinkPicEx" />
+		</action>
+
+		<action path="/ListMmsPicAction" scope="request"
+			type="com.cabletech.watchinfo.action.ListMmsPicAction">
+			<forward name="showPage" path="/WatchManage/uploadWatchAttachFromMMS.jsp" />
+		</action>
+
+		<!-- 盯防附件相关的 START-->
+
+
+		<action name="SubWatchBean" parameter="method" path="/subWatchAction"
+			scope="request" type="com.cabletech.watchinfo.action.WatchAction">
+			<forward name="toEditSubWatch" path="/WatchManage/editSubWatch.jsp" />
+		</action>
+		<action name="watchExeQuery" parameter="method"
+			path="/WatchExecuteQueryAction" scope="request"
+			type="com.cabletech.watchinfo.action.WatchExecuteQueryAction">
+			<forward name="querywatchexeresult" path="/WatchManage/querywatchexeresult.jsp" />
+			<forward name="querywatchexeresult_login" path="/WatchManage/querywatchexeresult_login.jsp" />
+			<forward name="querytempwatchresult" path="/WatchManage/queryTempWatchResult.jsp" />
+			<forward name="queryalltempwatchresult" path="/WatchManage/queryTempWatchResult.jsp" />
+		</action>
+		<action name="watchStaBean" parameter="method" path="/WatchExeStaAction"
+			scope="request" type="com.cabletech.watchinfo.action.WatchExecuteQueryAction">
+			<forward name="watchStaResult" path="/WatchManage/queryWatchexeStaResult.jsp" />
+			<forward name="watchStaPointResult" path="/WatchManage/queryWatchpointStaResult.jsp" />
+		</action>
+		<action name="userInfoBean" parameter="method" path="/login"
+			scope="request" type="com.cabletech.sysmanage.action.LoginAction">
+			<forward name="loginformward" path="/frames/index_frame.htm" />
+			<forward name="errorformward" path="/login/loginerror.jsp" />
+			<forward name="nolicense" path="/login/nolicense.jsp" />
+			<forward name="stateError" path="/login/stateError.jsp" />
+			<forward name="relogin" path="/login/relogin.jsp" />
+			<forward name="updatePassword" path="/SystemManage/updatePassword.jsp" />
+			<forward name="mainweb" path="/frames/mainweb.jsp" />
+			<forward name="superLoginShow" path="/manager/main.jsp" />
+		</action>
+		<action name="userInfoBean" parameter="method" path="/SSOLogin"
+			scope="request" type="com.cabletech.sysmanage.action.SSOLoginAction">
+			<forward name="loginformward" path="/frames/index_frame.htm" />
+			<forward name="errorformward" path="/login/loginerror.jsp" />
+			<forward name="nolicense" path="/login/nolicense.jsp" />
+			<forward name="stateError" path="/login/stateError.jsp" />
+			<forward name="relogin" path="/login/relogin.jsp" />
+			<forward name="updatePassword" path="/SystemManage/updatePassword.jsp" />
+		</action>
+		<action name="userInfoBean" parameter="method" path="/onlineuseraction"
+			scope="request" type="com.cabletech.sysmanage.action.OnLineUserAction">
+			<forward name="onLineUsersPage" path="/SystemManage/queryOnLineUsersResult.jsp" />
+			<forward name="showqueryuser" path="/SystemManage/queryUser.jsp" />
+			<forward name="queryuserresult" path="/SystemManage/queryUserResult.jsp" />
+		</action>
+		<action name="BusinesslogBean" parameter="method" path="/BusinesslogAction"
+			scope="request" type="com.cabletech.sysmanage.action.BusinesslogAction">
+			<forward name="querybusinesslogsult" path="/SystemManage/querybusinesslogsult.jsp" />
+			<forward name="showqueryuserlog" path="/SystemManage/querySysLog.jsp" />
+		</action>
+		<action name="GISCrossPointBean" parameter="method"
+			path="/GISCrossPointAction" scope="request"
+			type="com.cabletech.lineinfo.action.GISCrossPointAction">
+			<forward name="commonSuc" path="/baseinfo/setCrossPointSuccess.jsp" />
+			<forward name="toEditGISCrossPoint" path="/realtime/editGISCrossPoint.jsp" />
+		</action>
+		<action name="SMSBean" parameter="method" path="/smsAction"
+			scope="request" type="com.cabletech.baseinfo.action.SMSAction">
+			<forward name="initDevice" path="/realtime/sendMsgResult.jsp" />
+			<forward name="sendHomingSMS" path="/realtime/sendMsgResult.jsp" />
+			<forward name="sendCommandSMS" path="/realtime/sendMsgResult.jsp" />
+			<forward name="commonerror" path="/baseinfo/commonError.jsp" />
+			<forward name="showReSMS" path="/realtime/reCommandMsg.jsp" />
+		</action>
+		<action name="SMSLogBean" parameter="method" path="/smsLogAction"
+			scope="request" type="com.cabletech.sysmanage.action.SMSLogAction">
+			<forward name="querysmssendlog" path="/SystemManage/querysmssendlogresult.jsp" />
+			<forward name="querysmsrecivelog" path="/SystemManage/querysmsrecivelogresult.jsp" />
+			<forward name="smssendlogform" path="/SystemManage/querySmsSendLog.jsp" />
+			<forward name="smsreceivelogform" path="/SystemManage/querySmsReciveLog.jsp" />
+		</action>
+		<action name="GisAccidentBean" parameter="method" path="/GisAccidentAction"
+			scope="request" type="com.cabletech.lineinfo.action.GisPointAction">
+			<forward name="getGisAccidentInfo" path="/realtime/GisAccidentInfo.jsp" />
+		</action>
+		<action name="Planexecutebean" parameter="method" path="/PlanExeAction"
+			scope="request" type="com.cabletech.lineinfo.action.GisPointAction">
+			<forward name="planexeuteinfopage" path="/realtime/GisPlanexecuteInfo.jsp" />
+		</action>
+		<action name="cablesegmentBean" parameter="method" path="/CableSegmentAction"
+			scope="request" type="com.cabletech.baseinfo.action.CableSegmentAction">
+			<forward name="querycablesegmentresult" path="/baseinfo/querycablesegmentresult.jsp" />
+			<forward name="loadaddform" path="/baseinfo/addcablesegment.jsp" />
+			<forward name="loadeditform" path="/baseinfo/editcablesegment.jsp" />
+			<forward name="loadqueryform" path="/baseinfo/querycablesegment.jsp" />
+		</action>
+		<!-- 管道段 -->
+		<action name="pipeSegmentBean" parameter="method" path="/PipeSegmentAction"
+			scope="request" type="com.cabletech.pipemanage.action.PipeSegmentAction">
+			<forward name="pipeSegmentList" path="/pipeManage/pipeSegmentList.jsp" />
+			<forward name="addPipeSegmentForm" path="/pipeManage/addPipeSegment.jsp" />
+			<forward name="editPipeSegmentForm" path="/pipeManage/editPipeSegment.jsp" />
+			<forward name="queryPipeSegmentForm" path="/pipeManage/queryPipeSegmentForm.jsp" />
+		</action>
+		<action name="SendTaskBean" parameter="method" path="/SendTaskAction"
+			scope="request" type="com.cabletech.sendtask.action.SendTaskAction">
+			<forward name="success" path="/sendTaskManage/sendtask.jsp" />
+			<forward name="querytotal" path="/sendTaskManage/queryTotal.jsp" />
+		</action>
+		<action name="SendTaskBean" parameter="method" path="/EndorseAction"
+			scope="request" type="com.cabletech.sendtask.action.EndorseAction">
+			<forward name="success" path="/sendTaskManage/endorseTask.jsp" />
+		</action>
+		<action name="SendTaskBean" parameter="method" path="/ReplyAction"
+			scope="request" type="com.cabletech.sendtask.action.ReplyAction">
+			<forward name="success" path="/sendTaskManage/replyTask.jsp" />
+		</action>
+		<action name="SendTaskBean" parameter="method" path="/ValidateAction"
+			scope="request" type="com.cabletech.sendtask.action.ValidateAction">
+			<forward name="success" path="/sendTaskManage/validateTask.jsp" />
+		</action>
+		<action name="SortBean" parameter="method" path="/SortAction"
+			scope="request" type="com.cabletech.manager.action.SortAction">
+			<forward name="success" path="/manager/sortUser.jsp" />
+		</action>
+		<action name="TroubleCodeBean" parameter="method" path="/TroubleCodeAction"
+			scope="request" type="com.cabletech.baseinfo.action.TroubleCodeAction">
+			<forward name="loadTroubleCode" path="/baseinfo/troublecodemgr.jsp" />
+			<forward name="showTroubleCode" path="/baseinfo/showtroublecode.jsp" />
+			<forward name="showadd" path="/baseinfo/addCT_roublecode.jsp" />
+			<forward name="showedit" path="/baseinfo/editCT_roublecode.jsp" />
+			<forward name="showTroubleType" path="/baseinfo/showTroubleType.jsp" />
+			<forward name="showaddType" path="/baseinfo/addCT_roubleType.jsp" />
+			<forward name="showeditType" path="/baseinfo/editCT_roubleType.jsp" />
+			<forward name="showSend_TroubleCode" path="/baseinfo/showSend_TroubleCode.jsp" />
+		</action>
+		<action name="stencilBean" parameter="method" path="/StencilAction"
+			scope="request" type="com.cabletech.planinfo.action.StencilAction">
+			<forward name="addStencilForm" path="/planManage/addStencil.jsp" />
+			<forward name="addstencilTask" path="/planManage/addStencilTask.jsp" />
+			<forward name="editStencilResult" path="/planManage/editStencil.jsp" />
+			<forward name="queryStencilResult" path="/planManage/queryStencilResult.jsp" />
+			<forward name="searchStencil" path="/planManage/searchStencil.jsp" />
+		</action>
+		<action name="stencilTaskBean" parameter="method" path="/StencilTaskAction"
+			scope="request" type="com.cabletech.planinfo.action.StencilTaskAction">
+			<forward name="addstencilTask" path="/planManage/addStencilTask.jsp" />
+			<forward name="editStencilResult" path="/planManage/editStencil.jsp" />
+			<forward name="addStencilResult" path="/planManage/showStencil.jsp" />
+			<forward name="editstencilTask" path="/planManage/editStencilTask.jsp" />
+		</action>
+
+
+
+		<action name="stencilTaskBean" path="/StencilTaskAction"
+			parameter="method" scope="request"
+			type="com.cabletech.planinfo.action.StencilTaskAction">
+			<forward name="addstencilTask" path="/planManage/addStencilTask.jsp">
+			</forward>
+			<forward name="editStencilResult" path="/planManage/editStencil.jsp">
+			</forward>
+			<forward name="addStencilResult" path="/planManage/showStencil.jsp">
+			</forward>
+			<forward name="editstencilTask" path="/planManage/editStencilTask.jsp">
+			</forward>
+		</action>
+
+		<action name="batchBean" path="/batchPlan" parameter="method"
+			scope="request" type="com.cabletech.planinfo.action.BatchPlanAction">
+			<forward name="selectPatrol" path="/planManage/selectpatrol.jsp">
+			</forward>
+			<forward name="queryBatch" path="/planManage/querypatrolresult.jsp">
+			</forward>
+			<forward name="searchBatch" path="/planManage/searchpatrol.jsp">
+			</forward>
+		</action>
+
+		<!-- 巡检分析书签 -->
+		<action name="PlanExeResultBean" parameter="method"
+			path="/PlanExeResultAction" scope="request"
+			type="com.cabletech.planstat.action.PlanExeResultAction">
+			<forward name="queryPlanExeResult" path="/planstat/queryPlanExeResult.jsp" />
+			<forward name="showPlanExeResult" path="/planstat/showPlanExeResult.jsp" />
+			<forward name="showPlanExeDetail" path="/planstat/showPlanExeDetail.jsp" />
+			<forward name="showWorkdayText" path="/planstat/showWorkdayText.jsp" />
+		</action>
+		<!-- 巡检分析书签 -->
+		<action name="PatrolStatConditionBean" parameter="method"
+			path="/PlanMonthlyStatAction" scope="request"
+			type="com.cabletech.planstat.action.PlanMonthlyStatAction">
+			<forward name="showExceuteResult" path="/planstat/showExceuteResult.jsp">
+			</forward>
+			<forward name="showPlanExecuteResult" path="/planstat/showPlanExecuteResult.jsp">
+			</forward>
+			<forward name="showPlanSublineExecuteResult" path="/planstat/showPlanSublineExecuteResult.jsp">
+			</forward>
+			<forward name="showNonPassSubline" path="/planstat/showNonPassSubline.jsp">
+			</forward>
+			<forward name="showNonPlanSubline" path="/planstat/showNonPlanSubline.jsp">
+			</forward>
+
+			<forward name="showSubLinePatrol" path="/planstat/showPassSubLine.jsp">
+			</forward>
+			<forward name="showPatrolMan" path="/planstat/showPatrolMan.jsp">
+			</forward>
+			<forward name="showMonthPlan" path="/planManage/ymplanform.jsp">
+			</forward>
+			<forward name="showChartAnalyse" path="/planstat/showChartAnalyse.jsp">
+			</forward>
+
+			<forward name="queryPatrolMonthlyStat" path="/planstat/queryPatrolMonthlyStat.jsp" />
+			<forward name="showPatrolMonthlyStat" path="/planstat/showPatrolMonthlyStat.jsp" />
+			<forward name="queryConMonthlyStat" path="/planstat/queryConMonthlyStat.jsp" />
+			<forward name="showConMonthlyStat" path="/planstat/showConMonthlyStat.jsp" />
+			<forward name="queryMobileMonthlyStat" path="/planstat/queryMobileMonthlyStat.jsp" />
+			<forward name="showMobileMonthlyStat" path="/planstat/showMobileMonthlyStat.jsp" />
+			<forward name="querySublineMonthlyStat" path="/planstat/querySublineMonthlyStatAjax.jsp" />
+			<forward name="showSublineMonthlyStat" path="/planstat/showSublineMonthlyStat.jsp" />
+			<forward name="queryLineMonthlyStat" path="/planstat/queryLineMonthlyStat.jsp" />
+			<forward name="showLineMonthlyStat" path="/planstat/showLineMonthlyStat.jsp" />
+			<forward name="showMonthlyWorkDaysInfo" path="/planstat/showWorkDaysInfo.jsp" />
+			<forward name="showPerCardPerDay" path="/planstat/showPerCardPerDay.jsp" />
+			<forward name="showPmMonthlySublineInfo" path="/planstat/showPmMonthlySublineInfo.jsp" />
+			<forward name="queryMonthlyStatPmComp" path="/planstat/queryMonthlyStatPmComp.jsp" />
+			<forward name="show_contractor_month_laying_method_exeucte_result" path="/planstat/show_contractor_month_laying_method_exeucte_result.jsp" />
+		</action>
+		<!-- 巡检分析书签 -->
+		<action name="PatrolStatConditionBean" parameter="method"
+			path="/PlanProgressAction" scope="request"
+			type="com.cabletech.planstat.action.PlanProgressAction">
+			<forward name="showPlanProgress" path="/planstat/showplanprogress.jsp" />
+			<forward name="showPlanProgressText" path="/planstat/showplanprogresstext.jsp" />
+			<forward name="showSublineForProgressPlan" path="/planstat/showSublineForProgressPlan.jsp" />
+		</action>
+		<action name="RealTimeConditionBean" parameter="method"
+			path="/RealTimeAction" scope="request"
+			type="com.cabletech.planstat.action.RealTimeAction">
+			<forward name="queryRealTime" path="/planstat/queryRealTime.jsp" />
+			<forward name="showRealTime" path="/planstat/showRealTime.jsp" />
+			<forward name="showRealTimePerCard" path="/planstat/showRealTimePerCard.jsp" />
+			<forward name="queryHistory" path="/planstat/queryHistory.jsp" />
+			<forward name="showHistoryDaysList" path="/planstat/showHistoryDaysList.jsp" />
+			<forward name="showHistoryPerDay" path="/planstat/showHistoryPerDay.jsp" />
+			<forward name="showHistoryPerCard" path="/planstat/showHistoryPerCard.jsp" />
+			<forward name="queryConHistory" path="/planstat/queryConHistory.jsp" />
+			<forward name="showConHistory" path="/planstat/showConHistory.jsp" />
+			<forward name="showConHistoryText" path="/planstat/showConHistoryText.jsp" />
+			<forward name="showConHistoryPerCon" path="/planstat/showConHistoryPerCon.jsp" />
+			<forward name="queryRegionHistory" path="/planstat/queryRegionHistory.jsp" />
+			<forward name="showRegionHistory" path="/planstat/showRegionHistory.jsp" />
+			<forward name="showRegionHistoryText" path="/planstat/showRegionHistoryText.jsp" />
+			<forward name="showRegionHistoryPerReg" path="/planstat/showRegionHistoryPerReg.jsp" />
+
+		</action>
+		<action parameter="method" path="/SMNoticePlanStartAction"
+			scope="request" type="com.cabletech.planstat.action.SMNoticePlanStartAction">
+			<forward name="showreceiverlist" path="/planstat/showreceiverlist.jsp" />
+		</action>
+		<action parameter="method" path="/SMNoticePlanEndAction" scope="request"
+			type="com.cabletech.planstat.action.SMNoticePlanEndAction">
+			<forward name="smreceiverlistforplanend" path="/planstat/smreceiverlistforplanend.jsp" />
+		</action>
+
+		<action name="CompAnalysisBean" parameter="method" path="/CompAnalysisAction"
+			scope="request" type="com.cabletech.planstat.action.CompAnalysisAction">
+			<forward name="queryPmCompAnalysis" path="/planstat/queryPmCompAnalysis.jsp" />
+			<forward name="showpmCompAnalysis" path="/planstat/showpmCompAnalysis.jsp" />
+			<forward name="queryComCompAnalysis" path="/planstat/queryComCompAnalysis.jsp" />
+			<forward name="showComCompAnalysis" path="/planstat/showComCompAnalysis.jsp" />
+		</action>
+
+		<action name="MonthlyReportBean" parameter="method"
+			path="/MonthlyReportAction" scope="request"
+			type="com.cabletech.planstat.action.MonthlyReportAction">
+			<forward name="queryPatrolmanMonthlyReport" path="/planstat/queryPatrolmanMonthlyReport.jsp" />
+			<forward name="queryConMonthlyReport" path="/planstat/queryConMonthlyReport.jsp" />
+			<forward name="queryMobileMonthlyReport" path="/planstat/queryMobileMonthlyReport.jsp" />
+			<forward name="queryPMobileMonthlyReport" path="/planstat/queryPMobileMonthlyReport.jsp" />
+			<forward name="showPatrolmanMonthlyReport" path="/planstat/showPatrolmanMonthlyReport.jsp" />
+			<forward name="showConMonthlyReport" path="/planstat/showConMonthlyReport.jsp" />
+			<forward name="showMobileMonthlyReport" path="/planstat/showMobileMonthlyReport.jsp" />
+			<forward name="showPMobileMonthlyReport" path="/planstat/showPMobileMonthlyReport.jsp" />
+		</action>
+
+		<action parameter="method" path="/SublineRealTimeAction" scope="request"
+			type="com.cabletech.planstat.action.SublineRealTimeAction">
+			<forward name="inputSublineForRequest" path="/planstat/inputSublineForRequest.jsp" />
+			<forward name="inputSublineForRequestAjax" path="/planstat/inputSublineForRequestAjax.jsp" />
+			<forward name="showsublinerealtime" path="/planstat/showSublineRealTime.jsp" />
+			<forward name="showRequestSublineInfo" path="/planstat/showRequestSublineInfo.jsp" />
+			<forward name="showResponsePerSubline" path="/planstat/showResponsePerSubline.jsp" />
+			<forward name="showResponseSublineUnpatrol" path="/planstat/showResponseSublineUnpatrol.jsp" />
+			<forward name="showResponseSublineToday" path="/planstat/showResponseSublineToday.jsp" />
+		</action>
+		<action parameter="method" path="/PointConfirmAction" scope="request"
+			type="com.cabletech.planstat.action.PointConfirmAction">
+			<forward name="inputSublineForPointConfirm" path="/planstat/inputSublineForPointConfirm.jsp" />
+			<forward name="showSublineForPointConfirm" path="/planstat/showSublineForPointConfirm.jsp" />
+			<forward name="showRealTimePointInfo" path="/planstat/showRealTimePointInfo.jsp" />
+		</action>
+		<action parameter="method" path="/MyAutoCompleteAction" scope="request"
+			type="com.cabletech.commons.base.MyAutoCompleteAction" />
+		<action parameter="method" path="/CommonTagAction" scope="request"
+			type="com.cabletech.commons.web.CommonTagAction" />
+		<action name="NoticeBean" parameter="method" path="/NoticeAction"
+			scope="request" type="com.cabletech.sysmanage.action.NoticeAction">
+			<forward name="addform" path="/SystemManage/addnotice.jsp">
+			</forward>
+			<forward name="querynotice" path="/SystemManage/querynotice.jsp">
+			</forward>
+			<forward name="queryallissuenotice" path="/SystemManage/queryallissuenotice.jsp">
+			</forward>
+			<forward name="querynoticemeet" path="/SystemManage/querynoticemeet.jsp">
+			</forward>
+			<forward name="editform" path="/SystemManage/editnotie.jsp">
+			</forward>
+			<forward name="shownotice" path="/SystemManage/shownotice.jsp">
+			</forward>
+			<forward name="allnoticelist" path="/SystemManage/allnoticelist.jsp">
+			</forward>
+			<forward name="queryform" path="/SystemManage/queryform.jsp">
+			</forward>
+		</action>
+		<action name="LogPathBean" parameter="method" path="/LogPathAction"
+			scope="request" type="com.cabletech.planstat.action.LogPathAction">
+			<forward name="queryVisitorsTraffic" path="/planstat/queryVisitorsTraffic.jsp" />
+			<forward name="showVisitorsTraffic" path="/planstat/showVisitorsTraffic.jsp" />
+			<forward name="showSubTraffic" path="/planstat/showSubTraffic.jsp" />
+		</action>
+
+		<action parameter="method" path="/planExportAction" scope="request"
+			type="com.cabletech.excel.action.PlanExportAction" />
+
+		<action name="TabMenuBean" parameter="method" path="/SetupDesktopAction"
+			scope="request" type="com.cabletech.sysmanage.action.SetupDesktopAction">
+		</action>
+		<action name="WorkInfoHistoryConBean" parameter="method"
+			path="/WorkInfoHistoryAction" scope="request"
+			type="com.cabletech.analysis.action.WorkInfoHistoryAction">
+			<forward name="queryWorkInfoHistory" path="/analysis/queryWorkInfoHistory.jsp" />
+			<forward name="showWorkInfoHistory" path="/analysis/showWorkInfoHistory.jsp" />
+			<forward name="showHistorySMText" path="/analysis/showHistorySMText.jsp" />
+			<forward name="showHistorySMInfoText" path="/analysis/showHistorySMInfoText.jsp" />
+			<forward name="showWorkInfoGivenDay" path="/analysis/showWorkInfoGivenDay.jsp" />
+			<forward name="showHistorySMTextGivenDay" path="/analysis/showHistorySMTextGivenDay.jsp" />
+			<forward name="commonHistoryCurve" path="/analysis/commonHistoryCurve.jsp" />
+			<forward name="showHistorySMGraphic" path="/analysis/showHistorySMGraphic.jsp" />
+			<forward name="commonHistorySMGraphic" path="/analysis/commonHistorySMGraphic.jsp" />
+			<forward name="showOnlineInfo" path="/analysis/showOnlineInfo.jsp" />
+			<forward name="showHistorySMDetail" path="/analysis/showHistorySMDetail.jsp" />
+		</action>
+		<!-- 巡检分析书签 -->
+		<action name="MonthlyStatCityMobileConBean" parameter="method"
+			path="/MonthlyStatCityMobileAction" scope="request"
+			type="com.cabletech.planstat.action.MonthlyStatCityMobileAction">
+			<forward name="queryMonthlyStatCityMobile" path="/planstat/queryMonthlyStatCityMobile.jsp" />
+			<forward name="showMonthlyStatCityMobile" path="/planstat/showMonthlyStatCityMobile.jsp" />
+			<forward name="showGeneralInfoMonthlyStatCM" path="/planstat/showGeneralInfoMonthlyStatCM.jsp" />
+			<forward name="showConExeMonthlyStatCM" path="/planstat/showConExeMonthlyStatCM.jsp" />
+			<forward name="showPlanExeMonthlyStatCM" path="/planstat/showPlanExeMonthlyStatCM.jsp" />
+			<forward name="showVCompMonthlyStatCM" path="/planstat/showVCompMonthlyStatCM.jsp" />
+			<forward name="showSublineCompMonthlyStatCM" path="/planstat/showSublineCompMonthlyStatCM.jsp" />
+			<forward name="show_city_mobile_month_laying_method_exeucte_result" path="/planstat/show_city_mobile_month_laying_method_exeucte_result.jsp" />
+		</action>
+		<action parameter="method" path="/WatchExeAnalysisAction"
+			scope="request" type="com.cabletech.exterior.action.WatchExeAnalysisAction">
+			<forward name="showWatchExeStaResult" path="/exterior/showWatchExeStaResult.jsp" />
+		</action>
+		<action parameter="method" path="/LeakSublineAction" scope="request"
+			type="com.cabletech.analysis.action.LeakSublineAction">
+			<forward name="showLeakSublineList412" path="/analysis/showLeakSublineList412.jsp" />
+			<forward name="showLeakSublineList422" path="/analysis/showLeakSublineList422.jsp" />
+			<forward name="showLeakSublineDetail412" path="/analysis/showLeakSublineDetail412.jsp" />
+			<forward name="showLeakSublineDetail422" path="/analysis/showLeakSublineDetail422.jsp" />
+		</action>
+		<action name="PointOutputBean" parameter="method" path="/PointOutputAction"
+			scope="request" type="com.cabletech.sysmanage.action.PointOutputAction">
+			<forward name="queryPointOutput" path="/SystemManage/queryPointOutput.jsp" />
+		</action>
+
+		<!-- 巡检分析书签 -->
+		<!-- 巡检分析 杨隽 2010-4-14 START -->
+		<action name="MonthlyStatCityMobileConBean" parameter="method"
+			path="/city_mobile_year_stat" scope="request"
+			type="com.cabletech.planstat.action.CityMobileYearStatAction">
+			<forward name="query_city_mobile_year_stat_form" path="/planstat/query_city_mobile_year_stat_form.jsp" />
+			<forward name="show_city_mobile_year_stat_result" path="/planstat/show_city_mobile_year_stat_result.jsp" />
+			<forward name="show_city_mobile_year_general_info" path="/planstat/show_city_mobile_year_general_info.jsp" />
+			<forward name="show_city_mobile_year_execute_result_info" path="/planstat/show_city_mobile_year_execute_result_info.jsp" />
+			<forward name="show_city_mobile_year_line_level_execute_result_info" path="/planstat/show_city_mobile_year_line_level_execute_result_info.jsp" />
+			<forward name="show_city_mobile_year_laying_method_exeucte_result" path="/planstat/show_city_mobile_year_laying_method_exeucte_result.jsp" />
+		</action>
+		<action name="PatrolStatConditionBean" parameter="method"
+			path="/contractor_year_stat" scope="request"
+			type="com.cabletech.planstat.action.ContractorYearStatAction">
+			<forward name="query_contractor_year_stat_form" path="/planstat/query_contractor_year_stat_form.jsp" />
+			<forward name="show_contractor_year_stat_result" path="/planstat/show_contractor_year_stat_result.jsp" />
+			<forward name="show_contractor_year_general_info" path="/planstat/show_contractor_year_general_info.jsp" />
+			<forward name="show_contractor_year_execute_result_info" path="/planstat/show_contractor_year_execute_result_info.jsp" />
+			<forward name="show_contractor_year_line_level_execute_result_info" path="/planstat/show_contractor_year_line_level_execute_result_info.jsp" />
+			<forward name="show_contractor_year_laying_method_exeucte_result" path="/planstat/show_contractor_year_laying_method_exeucte_result.jsp" />
+		</action>
+		<action name="MonthlyStatCityMobileConBean" parameter="method"
+			path="/whole_net_stat" scope="request"
+			type="com.cabletech.planstat.action.WholeNetStatAction">
+			<forward name="query_whole_net_month_stat_form" path="/planstat/query_whole_net_month_stat_form.jsp" />
+			<forward name="query_whole_net_year_stat_form" path="/planstat/query_whole_net_year_stat_form.jsp" />
+			<forward name="show_whole_net_month_stat_result" path="/planstat/show_whole_net_month_stat_result.jsp" />
+			<forward name="show_whole_net_year_stat_result" path="/planstat/show_whole_net_year_stat_result.jsp" />
+			<forward name="show_whole_net_month_general_info" path="/planstat/show_whole_net_month_general_info.jsp" />
+			<forward name="show_whole_net_month_execute_result_info" path="/planstat/show_whole_net_month_execute_result_info.jsp" />
+			<forward name="show_whole_net_year_general_info" path="/planstat/show_whole_net_year_general_info.jsp" />
+			<forward name="show_whole_net_year_line_type_execute_result_info" path="/planstat/show_whole_net_year_line_type_execute_result_info.jsp" />
+			<forward name="show_whole_net_month_laying_method_exeucte_result" path="/planstat/show_whole_net_month_laying_method_exeucte_result.jsp" />
+			<forward name="show_whole_net_year_laying_method_exeucte_result" path="/planstat/show_whole_net_year_laying_method_exeucte_result.jsp" />
+		</action>
+		<!-- 巡检分析 杨隽 2010-4-14 END -->
+		
+		<!-- 备件管理 杨隽 2008-11-20 -->
+		<action name="SparepartApplyBean" parameter="method"
+			path="/SparepartApplyAction" scope="request"
+			type="com.cabletech.sparepartmanage.action.SparepartApplyAction">
+			<forward name="addApplyForm" path="/sparepartmanage/apply_add_form.jsp" />
+			<forward name="editApplyForm" path="/sparepartmanage/apply_edit_form.jsp" />
+			<forward name="queryApplyForm" path="/sparepartmanage/apply_query_form.jsp" />
+			<forward name="listApply" path="/sparepartmanage/apply_list.jsp" />
+			<forward name="viewOneApply" path="/sparepartmanage/view_one_apply.jsp" />
+			<forward name="audit_query_result" path="/sparepartmanage/audit_query_result.jsp">
+			</forward>
+			<forward name="viewOneApplyInfo" path="/sparepartmanage/view_one_applyinfo.jsp">
+			</forward>
+			<forward name="showQueryForApply" path="/sparepartmanage/apply_query_form.jsp">
+			</forward>
+			<forward name="apply_query_list" path="/sparepartmanage/apply_query_list.jsp">
+			</forward>
+			<forward name="viewOneApplyInfoForAppply" path="/sparepartmanage/view_oneApply.jsp">
+			</forward>
+		</action>
+		<action name="SparepartAuditingBean" parameter="method"
+			path="/SparepartAuditingAction" scope="request"
+			type="com.cabletech.sparepartmanage.action.SparepartAuditingAction">
+			<forward name="auditingApplyForm" path="/sparepartmanage/auditing_apply_form.jsp" />
+			<forward name="listAuditingApplyHistory" path="/sparepartmanage/auditing_history_list.jsp" />
+		</action>
+		<action name="SparepartStorageBean" parameter="method"
+			path="/SparepartStorageAction" scope="request"
+			type="com.cabletech.sparepartmanage.action.SparepartStorageAction">
+			<forward name="saveToStorageForm" path="/sparepartmanage/storage_saved_form.jsp" />
+			<forward name="updateSaveToStorageForm"
+				path="/sparepartmanage/storage_update_saved_form.jsp" />
+			<forward name="takeOutFromStorageForm" path="/sparepartmanage/storage_taken_out_form.jsp" />
+			<forward name="giveBackToStorageForm" path="/sparepartmanage/storage_given_back_form.jsp" />
+			<forward name="restoreToStorageForm" path="/sparepartmanage/storage_restored_form.jsp" />
+			<forward name="querySparepartStorageForm" path="/sparepartmanage/storage_query_form.jsp" />
+			<forward name="listSparepartStorage" path="/sparepartmanage/storage_list.jsp" />
+			<forward name="viewSavedStorage" path="/sparepartmanage/view_one_storage.jsp" />
+			<forward name="listSparepartStorageForDraw" path="/sparepartmanage/storage_listForDraw.jsp">
+			</forward>
+			<forward name="listSparepartStorageForRe" path="/sparepartmanage/storage_listForRe.jsp">
+			</forward>
+			<forward name="listForRestore" path="/sparepartmanage/storage_listForRestore.jsp">
+			</forward>
+			<forward name="querySparepartStorageFormForAu" path="/sparepartmanage/audit_query.jsp">
+			</forward>
+			<forward name="listSparepartStorageForOne" path="/sparepartmanage/sparePartOneAllList.jsp">
+			</forward>
+			<forward name="showRestoredQuery"
+				path="/sparepartmanage/storage_query_restored_form.jsp">
+			</forward>
+			<forward name="doQueryForRestored" path="/sparepartmanage/restored_list.jsp">
+			</forward>
+			<forward name="showOneRestoreInfo" path="/sparepartmanage/showOneRestoreInfo.jsp">
+			</forward>
+		</action>
+
+		<!-- 备件管理 -->
+		<action name="SparepartBaseInfoBean" parameter="method"
+			path="/SeparepartBaseInfoAction" scope="request"
+			type="com.cabletech.sparepartmanage.action.SeparepartBaseInfoAction">
+			<forward name="showAddSparepart" path="/sparepartmanage/addSparePart.jsp" />
+			<forward name="showQuery" path="/sparepartmanage/querySparepart.jsp">
+			</forward>
+			<forward name="showQueryRes" path="/sparepartmanage/queryResult.jsp">
+			</forward>
+			<forward name="showOneInfo" path="/sparepartmanage/showOneAllInfo.jsp">
+			</forward>
+			<forward name="showEdit" path="/sparepartmanage/showEdit.jsp">
+			</forward>
+		</action>
+
+		<!-- 中继站管理 杨隽 2009-04-09 START -->
+		<action name="RepeaterStationBean" parameter="method" path="/station_info"
+			scope="request" type="com.cabletech.station.action.RepeaterStationAction">
+			<forward name="addRepeaterStationForm" path="/station/add_repeater_station_form.jsp" />
+			<forward name="modRepeaterStationForm" path="/station/mod_repeater_station_form.jsp" />
+			<forward name="queryRepeaterStationForm" path="/station/query_repeater_station_form.jsp" />
+			<forward name="listRepeaterStation" path="/station/list_repeater_station.jsp" />
+			<forward name="viewRepeaterStation" path="/station/view_repeater_station.jsp" />
+			<forward name="loadStationByRegion" path="/station/load_station_by_region.jsp" />
+			<forward name="loadStationSelectByRegion" path="/station/load_station_select_by_region.jsp" />
+		</action>
+		<action name="RepeaterStationPlanBean" parameter="method"
+			path="/station_plan" scope="request"
+			type="com.cabletech.station.action.RepeaterStationPlanAction">
+			<forward name="addRepeaterStationPlanForm" path="/station/add_repeater_station_plan_form.jsp" />
+			<forward name="modRepeaterStationPlanForm" path="/station/mod_repeater_station_plan_form.jsp" />
+			<forward name="copyRepeaterStationPlanForm" path="/station/copy_repeater_station_plan_form.jsp" />
+			<forward name="auditingRepeaterStationPlanForm"
+				path="/station/auditing_repeater_station_plan_form.jsp" />
+			<forward name="queryRepeaterStationPlanForm" path="/station/query_repeater_station_plan_form.jsp" />
+			<forward name="listRepeaterStationPlan" path="/station/list_repeater_station_plan.jsp" />
+			<forward name="listWaitAuditingPlan" path="/station/list_wait_auditing_plan.jsp" />
+			<forward name="listNotFinishedPlan" path="/station/list_not_finished_plan.jsp" />
+			<forward name="viewRepeaterStationPlan" path="/station/view_repeater_station_plan.jsp" />
+			<forward name="viewRepeaterStationPlanAllInfo"
+				path="/station/view_repeater_station_plan_all_info.jsp" />
+		</action>
+		<!--
+			<action name="FlowWorkInfoBean" parameter="method"
+			path="flow_work_info" scope="request"
+			type="com.cabletech.station.action.FlowWorkInfoAction"> <forward
+			name="listFlowWorkInfo" path="/station/list_flow_work_info.jsp" />
+			</action>
+		-->
+		<action name="PlanPatrolResultBean" parameter="method"
+			path="/plan_patrol_result" scope="request"
+			type="com.cabletech.station.action.PlanPatrolResultAction">
+			<forward name="writeStationPatrolResultForm" path="/station/write_station_patrol_result_form.jsp" />
+			<forward name="queryPlanPatrolResultForm" path="/station/query_plan_patrol_result_form.jsp" />
+			<forward name="listPlan" path="/station/list_plan.jsp" />
+			<forward name="viewPlanPatrolResult" path="/station/view_plan_patrol_result.jsp" />
+			<forward name="viewRepeaterStationPlanWaitWrite"
+				path="/station/view_repeater_station_plan_wait_write.jsp" />
+		</action>
+		<!-- 中继站管理 杨隽 2009-04-09 END -->
+
+		<!-- 机房巡检2008-12-22 haozi -->
+		<action path="/MobileTaskAction" name="MobileTaskBean" scope="request"
+			parameter="method" type="com.cabletech.machine.action.MobileTaskAction">
+			<forward name="addTaskStepOne" path="/machine/addTaskStepOne.jsp">
+			</forward>
+			<forward name="addTaskStepTwo" path="/machine/addTaskStepTwo.jsp">
+			</forward>
+			<forward name="showQueryForTask" path="/machine/showQueryForTask.jsp">
+			</forward>
+			<forward name="showQueryList" path="/machine/showQueryList.jsp">
+			</forward>
+			<forward name="getTaskForCon" path="/machine/showTaskListForSign.jsp">
+			</forward>
+			<forward name="showTaskQueryForCon" path="/machine/showTaskQueryForCon.jsp">
+			</forward>
+			<forward name="showTaskListForRestore" path="/machine/showTaskListForRestore.jsp">
+			</forward>
+			<forward name="showQueryForRestore" path="/machine/showQueryForRestore.jsp">
+			</forward>
+			<forward name="showTaskListForCheck" path="/machine/showTaskListForCheck.jsp">
+			</forward>
+			<forward name="showQueryForCheck" path="/machine/showQueryForCheck.jsp">
+			</forward>
+			<forward name="showQueryListForCheck" path="/machine/showQueryListForCheck.jsp">
+			</forward>
+		</action>
+		<!--  -->
+		<action name="countyinfoBean" parameter="method" path="/countyinfoAction"
+			scope="request" type="com.cabletech.linepatrol.remedy.action.CountyInfoAction">
+			<forward name="querycountyresult" path="/linepatrol/remedy/querycountyresult.jsp" />
+			<forward name="updateCounty" path="/linepatrol/remedy/editCounty.jsp" />
+		</action>
+
+		<action path="/PollingContentAction" name="PollingContentBean"
+			scope="request" parameter="method"
+			type="com.cabletech.machine.action.PollingContentAction">
+			<forward name="showContentForCoreAndSDH" path="/machine/showContentForCoreAndSDH.jsp">
+			</forward>
+			<forward name="showContentForMicro" path="/machine/showContentForMicro.jsp">
+			</forward>
+			<forward name="showContentForSDH" path="/machine/showContentForSDH.jsp">
+			</forward>
+			<forward name="addContentForCoreAndSDH" path="/machine/addContentForCoreAndSDH.jsp">
+			</forward>
+			<forward name="addCheckForCoreAndSDH" path="/machine/addCheckForCoreAndSDH.jsp">
+			</forward>
+			<forward name="addContentForSDH" path="/machine/addContentForSDH.jsp">
+			</forward>
+			<forward name="showOneAllInfoForCoreAndADH" path="/machine/showOneAllInfoForCoreAndADH.jsp">
+			</forward>
+		</action>
+
+		<action path="/PollingConMicroAction" name="PollingConMicroBean"
+			scope="request" parameter="method"
+			type="com.cabletech.machine.action.PollingConMicroAction">
+			<forward name="addContentForMicro" path="/machine/addContentForMicro.jsp">
+			</forward>
+			<forward name="showOneInfo" path="/machine/showContentForMicro.jsp">
+			</forward>
+			<forward name="addCheckForMicro" path="/machine/addCheckForMicro.jsp">
+			</forward>
+			<forward name="showOneAllInfoForMicro" path="/machine/showOneAllInfoForMicro.jsp">
+			</forward>
+		</action>
+
+		<action path="/PollingConFsoAction" name="PollingConFsoBean"
+			scope="request" parameter="method"
+			type="com.cabletech.machine.action.PollingConFsoAction">
+			<forward name="addContentForFSO" path="/machine/addContentForFSO.jsp">
+			</forward>
+			<forward name="showOneInfo" path="/machine/showContentForFso.jsp">
+			</forward>
+			<forward name="addCheckForFso" path="/machine/addCheckForFso.jsp">
+			</forward>
+			<forward name="showOneAllInfoForFso" path="/machine/showOneAllInfoForFso.jsp">
+			</forward>
+		</action>
+
+		<action path="/PollingConFiberAction" name="PollingConFiberBean"
+			scope="request" parameter="method"
+			type="com.cabletech.machine.action.PollingConFiberAction">
+			<forward name="addContentForFiber" path="/machine/addContentForFiber.jsp">
+			</forward>
+			<forward name="showOneInfo" path="/machine/showContentForFiber.jsp">
+			</forward>
+			<forward name="addCheckForFiber" path="/machine/addCheckForFiber.jsp">
+			</forward>
+			<forward name="showContentForFiber" path="/machine/showContentForFiber.jsp">
+			</forward>
+			<forward name="showOneAllInfoForFiber" path="/machine/showOneAllInfoForFiber.jsp">
+			</forward>
+		</action>
+
+		<action path="/PollingTaskAction" name="PollingTaskBean" scope="request"
+			parameter="method" type="com.cabletech.machine.action.PollingTaskAction">
+			<forward name="showOneListForCoreAndSDH" path="/machine/showOneListForCoreAndSDH.jsp">
+			</forward>
+			<forward name="showOneListForMicro" path="/machine/showOneListForMicro.jsp">
+			</forward>
+			<forward name="showOneListForFSO" path="/machine/showOneListForFSO.jsp">
+			</forward>
+			<forward name="showOneListForFiber" path="/machine/showOneListForFiber.jsp">
+			</forward>
+			<forward name="showOneToSignForCoreAndSDH" path="/machine/showOneToSignForCoreAndSDH.jsp">
+			</forward>
+			<forward name="showOneToSignForMicro" path="/machine/showOneToSignForMicro.jsp">
+			</forward>
+			<forward name="showOneToSignForFSO" path="/machine/showOneToSignForFSO.jsp">
+			</forward>
+			<forward name="showOneToSignForFiber" path="/machine/showOneToSignForFiber.jsp">
+			</forward>
+			<forward name="showOneToRestoreForCoreAndSDH" path="/machine/showOneToRestoreForCoreAndSDH.jsp">
+			</forward>
+			<forward name="showOneToRestoreForMicro" path="/machine/showOneToRestoreForMicro.jsp">
+			</forward>
+			<forward name="showOneToRestoreForFiber" path="/machine/showOneToRestoreForFiber.jsp">
+			</forward>
+			<forward name="showOneToRestoreForFSO" path="/machine/showOneToRestoreForFSO.jsp">
+			</forward>
+			<forward name="showOneToCheckForCoreAndSDH" path="/machine/showOneToCheckForCoreAndSDH.jsp">
+			</forward>
+			<forward name="showOneToCheckForFiber" path="/machine/showOneToCheckForFiber.jsp">
+			</forward>
+			<forward name="showOneToCheckForMicro" path="/machine/showOneToCheckForMicro.jsp">
+			</forward>
+			<forward name="showOneToCheckForFSO" path="/machine/showOneToCheckForFso.jsp">
+			</forward>
+			<forward name="showCoreAndSDHListForCheck" path="/machine/showCoreAndSDHListForCheck.jsp">
+			</forward>
+			<forward name="showMicroListForCheck" path="/machine/showMicroListForCheck.jsp">
+			</forward>
+			<forward name="showFsoListForCheck" path="/machine/showFsoListForCheck.jsp">
+			</forward>
+			<forward name="showFiberListForCheck" path="/machine/showFiberListForCheck.jsp">
+			</forward>
+		</action>
+
+		<action path="/EquipmentInfoAction" name="EquipmentInfoBean"
+			scope="request" parameter="method"
+			type="com.cabletech.machine.action.EquipmentInfoAction">
+			<forward name="showAddEqu" path="/machine/showAddEquipment.jsp">
+			</forward>
+			<forward name="showQueryForEqu" path="/machine/showQueryEquipment.jsp">
+			</forward>
+			<forward name="showQueryEqu" path="/machine/showQueryListForEquipment.jsp">
+			</forward>
+			<forward name="showOneToEquipment" path="/machine/showOneToEquipment.jsp">
+			</forward>
+		</action>
+
+		<!-- 备件管理  基本信息 by fengjj 2009-4-9 -->
+		<action name="SparepartBaseInfoBean" parameter="method"
+			path="/SeparepartBaseInfoAction" scope="request"
+			type="com.cabletech.sparepartmanage.action.SeparepartBaseInfoAction">
+			<forward name="showAddSparepart" path="/sparepartmanageByF/addSparePart.jsp" />
+			<forward name="showQuery" path="/sparepartmanageByF/querySparepart.jsp">
+			</forward>
+			<forward name="showQueryRes" path="/sparepartmanageByF/queryResult.jsp">
+			</forward>
+			<forward name="showOneInfo" path="/sparepartmanageByF/showOneInfo.jsp">
+			</forward>
+			<forward name="showEdit" path="/sparepartmanageByF/showEdit.jsp">
+			</forward>
+		</action>
+
+		<!-- 备件库存管理 by fengjj -->
+		<action name="SparepartStorageBean" parameter="method"
+			path="/SparepartStorageAction" scope="request"
+			type="com.cabletech.sparepartmanage.action.SparepartStorageAction">
+			<forward name="saveToStorageForm" path="/sparepartmanageByF/storageSavedForm.jsp" />
+			<forward name="updateSaveToStorageForm"
+				path="/sparepartmanageByF/storageUpdateSavedForm.jsp" />
+			<forward name="takeOutFromStorageForm" path="/sparepartmanageByF/storageTakenOutForm.jsp" />
+			<forward name="giveBackToStorageForm" path="/sparepartmanageByF/storageGivenBackForm.jsp" />
+			<forward name="restoreToStorageForm" path="/sparepartmanageByF/storage_restored_form.jsp" />
+			<forward name="querySparepartStorageForm" path="/sparepartmanageByF/storageQueryForm.jsp" />
+			<forward name="listSparepartStorage" path="/sparepartmanageByF/storageList.jsp" />
+			<forward name="viewSavedStorage" path="/sparepartmanageByF/viewOneStorage.jsp" />
+			<forward name="listSparepartStorageForDraw" path="/sparepartmanageByF/storageListForDraw.jsp">
+			</forward>
+			<forward name="listSparepartStorageForRe" path="/sparepartmanageByF/storageListForRe.jsp">
+			</forward>
+			<forward name="listForRestore"
+				path="/sparepartmanageByF/storage_listForRestore.jsp">
+			</forward>
+			<forward name="querySparepartStorageFormForAu" path="/sparepartmanageByF/auditQuery.jsp">
+			</forward>
+			<forward name="listSparepartStorageForOne" path="/sparepartmanageByF/sparePartOneAllList.jsp">
+			</forward>
+			<forward name="showAgainRestoredQueryPage"
+				path="/sparepartmanageByF/storageAgainRestoredQueryForm.jsp">
+			</forward>
+			<forward name="againRestoredList" path="/sparepartmanageByF/restoredAgainList.jsp">
+			</forward>
+			<forward name="showOneRestoreInfo" path="/sparepartmanageByF/showOneRestoreInfo.jsp">
+			</forward>
+			<forward name="againToStorageForm" path="/sparepartmanageByF/storageAgain.jsp">
+			</forward>
+			<forward name="storageRepairInfo" path="/sparepartmanageByF/storageRepairInfo.jsp">
+			</forward>
+		</action>
+		<!-- 备件申请 by fengjj 09-4-14 -->
+		<action name="SparepartApplyBean" parameter="method"
+			path="/SparepartApplyAction" scope="request"
+			type="com.cabletech.sparepartmanage.action.SparepartApplyAction">
+			<forward name="addApplyForm" path="/sparepartmanageByF/applyAddForm.jsp" />
+			<forward name="editApplyForm" path="/sparepartmanageByF/applyEditForm.jsp" />
+			<forward name="queryApplyForm" path="/sparepartmanage/apply_query_form.jsp" />
+			<forward name="listApply" path="/sparepartmanageByF/applyList.jsp" />
+			<forward name="viewOneApply" path="/sparepartmanage/view_one_apply.jsp" />
+			<forward name="audit_query_result" path="/sparepartmanageByF/auditQueryResult.jsp">
+			</forward>
+			<forward name="viewOneApplyInfo" path="/sparepartmanage/view_one_applyinfo.jsp">
+			</forward>
+			<forward name="showQueryForApply" path="/sparepartmanageByF/applyQueryForm.jsp">
+			</forward>
+			<forward name="applyQueryList" path="/sparepartmanageByF/applyQueryList.jsp">
+			</forward>
+			<forward name="viewOneApplyInfoForAppply" path="/sparepartmanageByF/applyViewOne.jsp">
+			</forward>
+		</action>
+		<!-- 备件审核 -->
+		<action name="SparepartAuditingBean" parameter="method"
+			path="/SparepartAuditingAction" scope="request"
+			type="com.cabletech.sparepartmanage.action.SparepartAuditingAction">
+			<forward name="auditingApplyForm" path="/sparepartmanageByF/auditingApplyForm.jsp" />
+			<forward name="listAuditingApplyHistory" path="/sparepartmanage/auditing_history_list.jsp" />
+		</action>
+
+
+		<!-- 光缆段资料管理 by jixf date:09-08-17 -->
+		<action name="cableBean" path="/CableAction" parameter="method"
+			scope="request" type="com.cabletech.fsmanager.action.CableAction">
+			<forward name="addCableInfo" path="/fsmanager/addCable.jsp"></forward>
+			<forward name="queryCableInfo" path="/fsmanager/queryCable.jsp"></forward>
+			<forward name="cableResult" path="/fsmanager/cableResultList.jsp"></forward>
+			<forward name="loadCable" path="/fsmanager/loadCable.jsp"></forward>
+		</action>
+
+
+		<!-- 资料申请管理 by jixf date:09-09-27 -->
+		<action name="linePatrolManagerBean" path="/LinePatrolManagerAction"
+			parameter="method" scope="request"
+			type="com.cabletech.partmanage.action.LinePatrolManagerAction">
+			<forward name="addLinePatrolRe" path="/linepatrol/material/addLinePatrolRe.jsp"></forward>
+			<forward name="queryLinePatrolRe" path="/linepatrol/material/queryLinePatrolRe.jsp"></forward>
+			<forward name="queryLinePatrolInfo" path="/linepatrol/material/LinePatrolReList.jsp"></forward>
+			<forward name="viewLinePatrolByID" path="/linepatrol/material/viewLinePatrolRe.jsp"></forward>
+			<forward name="editLinePatrol" path="/linepatrol/material/editLinePatrolRe.jsp"></forward>
+			<forward name="linePatorAssess3List" path="/linepatrol/material/linePatorAssess3List.jsp"></forward>
+			<forward name="checkLinePatrolByCon" path="/linepatrol/material/checkLinePatrolByCon.jsp"></forward>
+			<forward name="queryParolManager" path="/linepatrol/material/queryParolManager.jsp"></forward>
+			<forward name="lookLinePatrolByCon" path="/linepatrol/material/lookLinePatrolByCon.jsp"></forward>
+		</action>
+
+		<!-- 集团客户资料管理 -->
+		<action name="customerBean" parameter="method" path="/GroupCustomerAction"
+			scope="request" type="com.cabletech.groupcustomer.action.GroupCustomerAction">
+			<forward name="success" path="/groupcustomer/groupcustomer.jsp" />
+		</action>
+		<!-- 集团客户资料分析 -->
+		<action name="customerBean" parameter="method"
+			path="/GroupCustomerParserAction" scope="request"
+			type="com.cabletech.groupcustomer.action.GroupCustomerParserAction">
+			<forward name="success" path="/groupcustomer/groupCustomerParser.jsp" />
+		</action>
+		<!-- 当前的巡检和漏检分析 2009-03-06 name="queryConditionForm" -->
+		<action parameter="method" path="/StatisticsCurrentPlanAction"
+			scope="request" type="com.cabletech.statistics.action.StatisticsCurrentPatrolAction">
+			<forward name="statisticscurrentpatrol" path="/SearchStatistic/StatisticsCurrentPlan.jsp" />
+		</action>
+		<!-- 盯防短信日志查询 -->
+		<action name="WatchMsgBean" parameter="method" path="/WatchMsgAction"
+			scope="request" type="com.cabletech.watchinfo.action.WatchMsgAction">
+			<forward name="querymsgpage" path="/WatchManage/queryMsgWatch.jsp" />
+			<forward name="showquerymsgresultpage" path="/WatchManage/queryMsgWatchResult.jsp" />
+		</action>
+
+
+		<!-- 临时点导入 -->
+		<action name="temppointBean" parameter="method" path="/TemppointAction"
+			scope="request" type="com.cabletech.temppoint.acton.TemppointAction">
+			<forward name="success" path="/temppoint/addtemppoint.jsp" />
+		</action>
+
+		<!--修缮项管理   -->
+		<action name="remedyItemBean" parameter="method" path="/remedyItemAction"
+			scope="request" type="com.cabletech.linepatrol.remedy.action.RemedyItemAction">
+			<forward name="addItemForm" path="/linepatrol/remedy/remedy_item_add.jsp" />
+			<forward name="addItemTypeForm"
+				path="/remedyTypeAction.do?method=addRemedyTypeFormByOneItem" />
+			<forward name="queryItemForm" path="/linepatrol/remedy/remedy_item_query.jsp" />
+			<forward name="listItems" path="/linepatrol/remedy/remedy_item_list.jsp" />
+			<forward name="editRemedyItemForm" path="/linepatrol/remedy/remedy_item_edit.jsp" />
+			<forward name="viewRemedyItem" path="/linepatrol/remedy/remedy_item_view.jsp" />
+			<forward name="listTypesByItemID" path="/linepatrol/remedy/remedy_item_typelist.jsp" />
+		</action>
+		<action name="remedyTypeBean" parameter="method" path="/remedyTypeAction"
+			scope="request" type="com.cabletech.linepatrol.remedy.action.RemedyTypeAction">
+			<forward name="addTypeForm" path="/linepatrol/remedy/remedy_type_add.jsp" />
+			<forward name="addTypeFormByOneItem"
+				path="/linepatrol/remedy/remedy_type_by_one_item_add.jsp" />
+			<forward name="queryTypeForm" path="/linepatrol/remedy/remedy_type_query.jsp" />
+			<forward name="listTypes" path="/linepatrol/remedy/remedy_type_list.jsp" />
+			<forward name="editRemedyTypeForm" path="/linepatrol/remedy/remedy_type_edit.jsp" />
+			<forward name="viewRemedyTypeForm" path="/linepatrol/remedy/remedy_type_view.jsp" />
+		</action>
+
+		<!-- 材料月统计 -->
+		<action name="remedyApplyBean" parameter="method" path="/MonthStateAction"
+			scope="request" type="com.cabletech.partmanage.action.MonthStateAction">
+			<forward name="monthstatform" path="/partManage/MonthStatQuery.jsp" />
+			<forward name="monthstatlist" path="/partManage/MonthStatList.jsp" />
+		</action>
+		<!-- 材料存放地点 by cqp -->
+		<action name="MagerialAddrBean" parameter="method" path="/MTAddressAction"
+			scope="request" type="com.cabletech.partmanage.action.MaterialAddressAction">
+			<forward name="addAddrForm" path="/partManage/MaterialAddress_add.jsp" />
+			<forward name="queryAddrForm" path="/partManage/MaterialAddress_query.jsp" />
+			<forward name="queryAjaxMAterial" path="/partManage/MaterialInfo_Ajax_TypeList.jsp" />
+		</action>
+		<action name="MagerialInfoBean" parameter="method" path="/MTInfoAction"
+			scope="request" type="com.cabletech.partmanage.action.MaterialInfoAction">
+			<forward name="queryAjaxMAterial" path="/partManage/MaterialInfo_Ajax_TypeList.jsp" />
+		</action>
+
+		<!-- 材料申请  -->
+		<action name="mtUsedBean" parameter="method" path="/mtUsedAction"
+			scope="request" type="com.cabletech.linepatrol.material.action.MtUsedAction">
+			<forward name="goMtUsedApplyForm" path="/linepatrol/material/material_used_apply.jsp" />
+			<forward name="detailMtUsedApplyForm"
+				path="/linepatrol/material/material_used_apply_detail_material.jsp" />
+			<forward name="detailMtUsedApplyEditedForm"
+				path="/linepatrol/material/material_used_apply_edited_detail_material.jsp" />
+			<forward name="goMtUsedApplyEditForm"
+				path="/linepatrol/material/material_used_apply_edit.jsp" />
+			<forward name="goMtUsedApplydisForm"
+				path="/linepatrol/material/material_used_apply_dis.jsp" />
+			<forward name="displayMtUsedApplyForm"
+				path="/linepatrol/material/material_approve_list.jsp" />
+			<forward name="listMtUsedApplyForm" path="/linepatrol/material/material_apply_list.jsp" />
+			<forward name="getMtUsedApplyForm"
+				path="/linepatrol/material/material_used_approve.jsp" />
+			<!--
+				<forward name="getMtUsedApplyForm1"
+				path="/linepatrol/material/material_used_approve_agin.jsp" />
+			-->
+			<forward name="mobileMtUsedQuery"
+				path="/linepatrol/material/material_mobile_query.jsp" />
+			<forward name="finishMtUsed" path="/linepatrol/material/material_finish_list.jsp" />
+		</action>
+
+		<action name="mtUsedAssessBean" parameter="method" path="/mtUsedAssessAction"
+			scope="request" type="com.cabletech.linepatrol.material.action.MtUsedAssessAction">
+			<forward name="goMtUsedAppoverForm"
+				path="/linepatrol/material/material_mobile_approve.jsp" />
+			<forward name="listMtUsedApplyForm" path="/linepatrol/material/material_mobile_list.jsp" />
+			<forward name="goMtUsedEditForm"
+				path="/linepatrol/material/material_used_approve_agin.jsp" />
+			<forward name="finishMtUsed" path="/linepatrol/material/material_finish_list.jsp" />
+			<forward name="displayFinishMtUsed"
+				path="/linepatrol/material/material_finish_display.jsp" />
+		</action>
+
+		<!-- 代维单位签约合同模块start -->
+		<action name="contractBean" parameter="method" path="/contractAction"
+			scope="request" type="com.cabletech.baseinfo.action.ContractAction">
+			<forward name="addContract" path="/baseinfo/addContract.jsp" />
+			<forward name="editContract" path="/baseinfo/editContract.jsp" />
+			<forward name="viewContract" path="/baseinfo/viewContract.jsp" />
+		</action>
+		<!-- 代维单位签约合同模块end -->
+	</action-mappings>
+	<message-resources parameter="com.cabletech.commons.web.ApplicationResources" />
+	<message-resources parameter="MessageResources" />
+
+</struts-config>
+

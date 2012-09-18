@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.sparepartmanage.beans.SparepartSavePositionBean"  table="spare_part_save_position">
+        <id name="id" type="string" unsaved-value="null" >
+            <column name="id" sql-type="char(20)" not-null="true"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="deptid" column="deptid"></property>
+        <property name="name" column="name"></property>
+        <property name="deptType" column="depttype"></property>
+    </class>
+</hibernate-mapping>

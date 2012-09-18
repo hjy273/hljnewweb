@@ -1,0 +1,96 @@
+BODY {background-color:809CD6;FONT-FAMILY: "宋体"; FONT-SIZE: 9pt; FONT-STYLE: normal;TEXT-DECORATION: none;
+	BACKGROUND-IMAGE: url(../images/ai/subpage_bg1.jpg)}
+TD {FONT-FAMILY: "宋体"; FONT-SIZE: 9pt; FONT-STYLE: normal; TEXT-DECORATION: none}
+TEXTAREA {FONT-FAMILY: "宋体"; FONT-SIZE: 9pt; FONT-STYLE: normal; TEXT-DECORATION: none}
+INPUT {FONT-FAMILY: "宋体"; FONT-SIZE: 9pt; FONT-STYLE: normal; TEXT-DECORATION: none;}
+SELECT {FONT-FAMILY: "宋体"; FONT-SIZE: 9pt; FONT-STYLE: normal; LIST-STYLE: none; TEXT-DECORATION: none;}
+
+A {	COLOR: #000000; TEXT-DECORATION: none}
+a:hover {  font-family: "宋体";  color: #CC0000; font-size: 12px}
+a:link {  font-family: "宋体"; font-size: 12px; color: #0066FF; text-decoration: none}
+a:visited {  font-family: "宋体"; font-size: 12px; color: #0066FF; text-decoration: none; line-height: 18px}
+
+hr { border:solid 1;  
+		background-color:#CCCCCC; 
+ 		border-color:gray #ffffff #ffffff gray ;
+}
+
+.chkbox {FONT-FAMILY: "宋体"; FONT-SIZE: 9pt; FONT-STYLE: normal; TEXT-DECORATION: none;height: 15px}
+.free {width:48}
+.select {width: 110px}
+.select1 {width: 120px}
+.select2 {width: 132px}
+.select3 {width: 158px}
+.select4 {width: 252px}
+.select5 {width: 190px}
+.select6 {width: 95px}
+.select7 {width: 240px}
+.select8 {width: 220px}
+.text1 {width: 309px}
+.text2 {width: 99px}
+.button1 {width: 190px}
+.browser {width: 21px;height: 20px}
+.browser {height: 20px}
+.calendar {height: 20px}
+.textarea1 {width: 157px}
+.H16 {height: 20px}
+
+.btn {  font-family: "Arial", "Helvetica", "sans-serif"; font-size: 9px; height: 20px; width: 20px}
+.lbtn { font-family: "Arial", "Helvetica", "sans-serif"; font-size: 9px; height: 20px; width: 40px}
+
+.timeput {width: 86px}
+
+.disabledMenuItem {FILTER: chroma(color=#010101) dropshadow(color=ButtonHighlight, offx=1, offy=1); color: graytext; font-family: sans-serif; font-size:9pt; width:145; height=17;padding-left:20;padding-top:3;}
+.menuItem {font-family: sans-serif; font-size:9pt; width:145; height=17;padding-left:5;padding-top:3;color:white;filter: black();}
+
+.highlightItem { font-family: sans-serif; font-size: 9pt; width: 145;height=17; padding-left: 5;padding-top:3;background-Color: highlight; color: white; }
+.clickableDiv { padding: 4; width: 500; background-Color: blue; color: white; border: 10px double blue; }
+.blankItem {font-family: sans-serif; font-size:7px; width:145; height:7;background-Color: menu;color:black; }
+
+
+.MouseDown{
+	 background-color: ButtonFace;
+	 border-color: "#000000";
+	 BORDER-LEFT: graytext 1px solid;
+	 BORDER-TOP: graytext 1px solid;
+	 BORDER-RIGHT: graytext 1px solid;
+	 BORDER-BOTTOM: ButtonHighlight 0px solid;
+}
+.MouseUp{
+	 background-color: ButtonFace;
+
+	 BORDER-LEFT: ButtonHighlight 1px solid;
+	 BORDER-TOP: graytext  0px solid ;
+	 BORDER-RIGHT: black  1px solid;
+	 BORDER-BOTTOM: ButtonShadow  1px solid 
+}
+.flat{
+	  border-color: white;
+	 BORDER-LEFT: white 0px solid;
+	 BORDER-TOP: white  0px solid ;
+	 BORDER-RIGHT: white  0px solid;
+	 BORDER-BOTTOM: white  0px solid 
+}
+.flat1{
+	  border-color: gray;
+	 BORDER-LEFT: gray 0px solid;
+	 BORDER-TOP: black  1px solid ;
+	 BORDER-RIGHT: gray  0px solid;
+	 BORDER-BOTTOM: gray  0px solid 
+}
+
+A:link {
+	FONT-WEIGHT: normal; FONT-SIZE: 9pt; COLOR: #333333; TEXT-DECORATION: none
+}
+A:visited {
+	FONT-WEIGHT: normal; FONT-SIZE: 9pt; COLOR: #333333; TEXT-DECORATION: none
+}
+A:active {
+	FONT-WEIGHT: normal; FONT-SIZE: 9pt; COLOR: #ff0000; TEXT-DECORATION: none
+}
+A:hover {
+	FONT-WEIGHT: normal; FONT-SIZE: 9pt; COLOR: #0000ff; TEXT-DECORATION: underline
+}
+.button1 {
+	BORDER-RIGHT: 1px ridge; BORDER-TOP: #ffffff 1px ridge; BORDER-LEFT: #ffffff 1px ridge; BORDER-BOTTOM: 1px ridge; BACKGROUND-COLOR: rgb(235,207,2)
+}

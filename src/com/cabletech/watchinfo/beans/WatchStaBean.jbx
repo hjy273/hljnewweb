@@ -1,0 +1,16 @@
+[PropertyInfo]
+begindate,String,false,false,begindate,begindate,true,<default>
+contractorid,String,false,false,contractorid,contractorid,true,<default>
+datetype,String,false,false,datetype,datetype,true,<default>
+enddate,String,false,false,enddate,enddate,true,<default>
+executorid,String,false,false,executorid,executorid,true,<default>
+month,String,false,false,month,month,true,<default>
+statype,String,false,false,statype,statype,true,<default>
+watchid,String,false,false,watchid,watchid,true,<default>
+year,String,false,false,year,year,true,<default>
+regionid,String,false,false,regionid,regionid,true,<default>
+[IconNames]
+
+
+
+

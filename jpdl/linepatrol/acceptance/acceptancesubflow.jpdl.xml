@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="acceptancesubflow" xmlns="http://jbpm.org/4.0/jpdl">
+   <start g="302,35,48,48" name="start1">
+      <transition g="-59,-8" name="torecord" to="record"/>
+   </start>
+   <task candidate-users="#{assignee}" g="282,109,92,52" name="record">
+      <transition g="278,182:-65,-6" name="toapprove" to="approve"/>
+   </task>
+   <task candidate-users="#{assignee}" g="284,205,92,52" name="approve">
+      <transition g="-45,-6" name="toexam" to="exam"/>
+      <transition name="torecord" to="record" g="375,183:7,-8"/>
+   </task>
+   <task candidate-users="#{assignee}" g="285,299,92,52" name="exam">
+      <transition g="-41,-6" name="toend" to="end"/>
+   </task>
+   <end g="309,398,48,48" name="end"/>
+</process>

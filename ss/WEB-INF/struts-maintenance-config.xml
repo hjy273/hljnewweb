@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="testPlanBean" type="com.cabletech.linepatrol.maintenance.beans.TestPlanBean"></form-bean>
+		<form-bean name="testApproveBean" type="com.cabletech.linepatrol.maintenance.beans.TestPlanApproveBean"></form-bean>
+		<form-bean name="cableDataBean" type="com.cabletech.linepatrol.maintenance.beans.TestCableDataBean"></form-bean>
+		<form-bean name="stationDataBean" type="com.cabletech.linepatrol.maintenance.beans.TestStationDataBean"></form-bean>
+		<form-bean name="testPlanQueryBean" type="com.cabletech.linepatrol.maintenance.beans.TestPlanQueryStatBean"></form-bean>
+		<form-bean name="testYearPlanBean" type="com.cabletech.linepatrol.maintenance.beans.TestYearPlanBean"></form-bean>
+		<form-bean name="testExamBean" type="com.cabletech.linepatrol.maintenance.beans.TestExamBean"></form-bean>
+	</form-beans>
+	
+	<global-forwards>
+		<forward name="sucessMsg" path="/globinfo/sucessinfo.jsp" />
+		<forward name="errorMsg" path="/globinfo/errorinfo.jsp" />
+		<forward name="powererror" path="/globinfo/powererror.jsp" />
+		<forward name="giserror" path="/realtime/errorinfo.jsp" />
+	</global-forwards>
+	
+	<action-mappings>	
+	    <!-- 增加测试计划 -->
+        <action name="testPlanBean" path="/testPlanAction" parameter="method" scope="request" type="com.cabletech.linepatrol.maintenance.action.TestPlanAction">
+           <forward name="addTestPlanForm" path="/linepatrol/maintenance/testplan_add_form.jsp"></forward>
+           <forward name="addCableListForm" path="/linepatrol/maintenance/testplan_cable_add_list_form.jsp"></forward>
+           <forward name="addCableForm" path="/linepatrol/maintenance/testplan_cable_add_form.jsp"></forward>
+           <forward name="editCableForm" path="/linepatrol/maintenance/testplan_cable_edit_form.jsp"></forward>
+           <forward name="addStationListForm" path="/linepatrol/maintenance/testplan_station_add_list_form.jsp"></forward>
+           <forward name="addStationForm" path="/linepatrol/maintenance/testplan_station_add_form.jsp"></forward>
+           <forward name="editStationForm" path="/linepatrol/maintenance/testplan_station_edit_form.jsp"></forward>
+           <forward name="waitWorklist" path="/linepatrol/maintenance/testplan_wait_work_list.jsp"></forward>
+           <forward name="view_test_plan_process" path="/linepatrol/maintenance/view_test_plan_process.jsp"></forward>
+           <forward name="query_test_plan_state" path="/linepatrol/maintenance/query_test_plan_state.jsp"></forward>
+           <forward name="editTestPlanForm" path="/linepatrol/maintenance/testplan_edit_form.jsp"></forward>
+           <forward name="viewPalnCableDetail" path="/linepatrol/maintenance/testplan_cable_detail_form.jsp"></forward>
+           <forward name="viewPalnStationDetail" path="/linepatrol/maintenance/testplan_station_detail_form.jsp"></forward>
+           <forward name="test_plan_cancel" path="/linepatrol/maintenance/test_plan_cancel.jsp" />
+           <forward name="viewplan" path="/linepatrol/maintenance/view_plan.jsp"></forward>
+           <forward name="finishHandelPlans" path="/linepatrol/maintenance/testplan_finished_work_list.jsp"></forward>
+        </action>
+         
+         <!-- 审核 -->
+         <action name="testApproveBean" path="/testApproveAction" parameter="method" scope="request" type="com.cabletech.linepatrol.maintenance.action.TestPlanApproveAction">
+             <forward name="approveTestPlanForm" path="/linepatrol/maintenance/testplan_approve_form.jsp"></forward>
+             <forward name="approveCableDataForm" path="/linepatrol/maintenance/entering_data_approve_cable_form.jsp"></forward>
+			 <forward name="approveStationDataForm" path="/linepatrol/maintenance/entering_data_approve_station_form.jsp"></forward>   
+			 <forward name="viewCableData" path="/linepatrol/maintenance/entering_data_cable_view_form.jsp"></forward>   
+			 <forward name="viewStationData" path="/linepatrol/maintenance/entering_data_station_view_form.jsp"></forward>
+        </action>
+        
+         <!-- 中继段录入数据 -->
+         <action name="cableDataBean" path="/enteringCableDataAction" parameter="method" scope="request" type="com.cabletech.linepatrol.maintenance.action.EnteringCableDataAction">
+	           <forward name="enteringCableDateListForm" path="/linepatrol/maintenance/entering_data_cable_list.jsp"></forward>
+	           <forward name="enteringCableForm" path="/linepatrol/maintenance/entering_data_cable_form.jsp"></forward>
+	           <forward name="addChipDataForm" path="/linepatrol/maintenance/entering_data_cable_chip_form.jsp"></forward>
+	           <forward name="addProblemForm" path="/linepatrol/maintenance/entering_data_cable_problem_form.jsp"></forward>
+	           
+	           <forward name="editEnteringCableForm" path="/linepatrol/maintenance/entering_data_cable_edit_form.jsp"></forward>
+	           
+	           <forward name="editChipForm" path="/linepatrol/maintenance/entering_data_cable_chip_edit_form.jsp"></forward>
+	           <forward name="editProblemForm" path="/linepatrol/maintenance/entering_data_cable_problem_edit_form.jsp"></forward>
+	           
+	           <forward name="analyseDataForm" path="/linepatrol/maintenance/entering_data_cable_analyse_form.jsp"></forward>
+	           <forward name="editAnalyseDataForm" path="/linepatrol/maintenance/entering_data_cable_analyse_edit_form.jsp"></forward>
+	           <forward name="viewAnalyseDataForm" path="/linepatrol/maintenance/entering_data_cable_analyse_view_form.jsp"></forward>
+        </action>
+        
+         <!--基站录入数据 -->
+         <action name="stationDataBean" path="/enteringStationDataAction" parameter="method" scope="request" type="com.cabletech.linepatrol.maintenance.action.EnteringStationDataAction">
+	           <forward name="enteringStationDateListForm" path="/linepatrol/maintenance/entering_data_station_list.jsp"></forward>
+               <forward name="enteringStationForm" path="/linepatrol/maintenance/entering_data_station_form.jsp"></forward>
+               <forward name="enteringStationEditForm" path="/linepatrol/maintenance/entering_data_station_edit_form.jsp"></forward>
+        </action>
+        
+        <!-- 考核评估 -->
+         <action name="testExamBean" path="/testPlanExamAction" parameter="method" scope="request" type="com.cabletech.linepatrol.maintenance.action.TestPlanExamAction">
+              <forward name="examForm" path="/linepatrol/maintenance/testplan_wait_exam_list.jsp"></forward>
+              <forward name="examOneForm" path="/linepatrol/maintenance/testplan_exam_form.jsp"></forward>
+        </action>
+        
+        <!-- 查询统计 -->
+        <action name="testPlanQueryBean" path="/testPlanQueryStatAction" parameter="method" scope="request" type="com.cabletech.linepatrol.maintenance.action.TestPlanQueryStatAction">
+              <forward name="queryTestPlan" path="/linepatrol/maintenance/testplan_query_form.jsp"></forward>
+              <forward name="statTestPlan" path="/linepatrol/maintenance/testplan_query_stat_form.jsp"></forward>
+              <forward name="testPlans" path="/linepatrol/maintenance/testplan_query_form.jsp"></forward>
+              <forward name="statTestPlans" path="/linepatrol/maintenance/testplan_query_stat_form.jsp"></forward>
+              <forward name="queryCableForm" path="/linepatrol/maintenance/testplan_query_cable_form.jsp"></forward>
+               <forward name="cableLists" path="/linepatrol/maintenance/testplan_query_cable_list.jsp"></forward>
+        </action>
+        
+        <!-- 问题光缆 -->
+        <action name="testPlanBean" path="/problemCableAction" parameter="method" scope="request" type="com.cabletech.linepatrol.maintenance.action.ProblemCableAction">
+              <forward name="problemCables" path="/linepatrol/maintenance/problem_cable_list.jsp"></forward>
+              <forward name="handleProblemForm" path="/linepatrol/maintenance/problem_cable_handle.jsp"></forward>
+              <forward name="finishedProblemCables" path="/linepatrol/maintenance/problem_cable_list_finished.jsp"></forward>
+              <forward name="viewProblemForm" path="/linepatrol/maintenance/problem_cable_view.jsp"></forward>
+        </action>
+        
+         <!-- 年计划 -->
+        <action name="testYearPlanBean" path="/testYearPlanAction" parameter="method" scope="request" type="com.cabletech.linepatrol.maintenance.action.TestYearPlanAction">
+              <forward name="addYearPlanForm" path="/linepatrol/maintenance/yearplan_add_form.jsp"></forward>
+              <forward name="editYearPlanForm" path="/linepatrol/maintenance/yearplan_edit_form.jsp"></forward>
+              <forward name="addYearPlanTaskForm" path="/linepatrol/maintenance/yearplan_task_add_form.jsp"></forward>
+              <forward name="editYearTaskForm" path="/linepatrol/maintenance/yearplan_task_edit_form.jsp"></forward>
+              <forward name="viewYearTaskForm" path="/linepatrol/maintenance/yearplan_view_form.jsp"></forward>
+              <forward name="viewChangeCables" path="/linepatrol/maintenance/yearplan_view_changeCables_form.jsp"></forward>
+              <forward name="approverPlanForm" path="/linepatrol/maintenance/yearplan_approver_form.jsp"></forward>
+              <forward name="waitHandelYearPlans" path="/linepatrol/maintenance/yearplan_list.jsp"></forward>
+              <forward name="queryYearPlanForm" path="/linepatrol/maintenance/yearplan_query_form.jsp"></forward>
+              <forward name="yearPlans" path="/linepatrol/maintenance/yearplan_query_form.jsp"></forward>
+        </action>
+	</action-mappings>
+	
+	
+</struts-config>
+

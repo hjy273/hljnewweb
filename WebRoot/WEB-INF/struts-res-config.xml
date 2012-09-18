@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="lineBean" type="com.cabletech.baseinfo.beans.LineBean" />
+		<form-bean name="sublineBean" type="com.cabletech.baseinfo.beans.SublineBean" />
+		<form-bean name="pointBean" type="com.cabletech.baseinfo.beans.PointBean" />
+		
+		<form-bean name="ResourceAssignBean" type="com.cabletech.baseinfo.beans.ResourceAssignBean"/>
+	</form-beans>
+	<global-forwards>
+		<forward name="sucessMsg" path="/globinfo/sucessinfo.jsp" />
+		<forward name="errorMsg" path="/globinfo/errorinfo.jsp" />
+		<forward name="powererror" path="/globinfo/powererror.jsp" />
+		<forward name="giserror" path="/realtime/errorinfo.jsp" />
+	</global-forwards>
+	<action-mappings>
+		<action name="ResourceAssignBean" path="/ResourceAssignAction" parameter="method" scope="request" type="com.cabletech.baseinfo.action.ResourceAssignAction">
+			<forward name="sublineNext2" path="/baseinfo/assignsubline2.jsp"></forward>
+			<forward name="sublineNext3" path="/baseinfo/assignsubline3.jsp"></forward>
+
+			<forward name="terminalNext2" path="/baseinfo/assignterminal2.jsp"></forward>
+			<forward name="terminalNext3" path="/baseinfo/assignterminal3.jsp"></forward>
+		</action>
+		<action name="lineBean" parameter="method" path="/lineAction" scope="request" type="com.cabletech.baseinfo.action.LineAction">
+			<forward name="querylineresult" path="/baseinfo/querylineresult.jsp" />
+			<forward name="updateLine" path="/baseinfo/editLine.jsp" />
+			<forward name="showaddline" path="/baseinfo/addLine.jsp" />
+			<forward name="showadvancedline" path="/baseinfo/queryLine.jsp" />
+		</action>
+		<action name="pointBean" parameter="method" path="/pointAction" scope="request" type="com.cabletech.baseinfo.action.PointAction">
+			<forward name="querypointresult" path="/baseinfo/querypointresult.jsp" />
+			<forward name="updatePoint" path="/baseinfo/editPoint.jsp" />
+			<forward name="commonerror" path="/baseinfo/commonError.jsp" />
+			<forward name="loadPointForGIS" path="/baseinfo/editPointForGis.jsp" />
+			<forward name="loadPoint4Watch" path="/WatchManage/getPoints4Watch.jsp" />
+			<forward name="addPointForGis" path="/baseinfo/commonSuccess.jsp" />
+			<forward name="updatePointForGIS" path="/baseinfo/commonSuccess.jsp" />
+			<forward name="deletePoint4GIS" path="/baseinfo/delTemPointSuccess.jsp" />
+		</action>
+		<action name="sublineBean" parameter="method" path="/sublineAction" scope="request" type="com.cabletech.baseinfo.action.SublineAction">
+			<forward name="querysublineresult" path="/baseinfo/querysublineresult.jsp" />
+			<forward name="loadSubline4Gis" path="/baseinfo/editSublineForGis.jsp" />
+			<forward name="updateSubline" path="/baseinfo/editSubline.jsp" />
+			<forward name="loadSubLineForm" path="/baseinfo/addSubline.jsp" />
+			<forward name="loadQuerySubLineForm" path="/baseinfo/querySubline.jsp" />
+			<forward name="loadQuerySubLineFormAjax" path="/baseinfo/querySublineAjax.jsp" />
+		</action>
+	</action-mappings>
+</struts-config>
+		

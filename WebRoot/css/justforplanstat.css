@@ -1,0 +1,8 @@
+body{margin-bottom: 0px;margin-left:0px;margin-right:0px;}
+
+.ooih {width: 100%;border-color:#82CAEA; background-color:#F1F8FD;}
+.ooih td { border-width: 1px; padding: 0 10; border-style: none none solid solid; border-color:#82CAEA; line-height:24px;} <!--bottom-->
+.ooihj { color:#F00; background-color: #E4E5EE; border-style: none; border-color: transparent; cursor: hand}
+.ooihs { color: #21617E; background-color: #ADD8E6; border-style: none; border-color: #fff #fff transparent; cursor: hand}
+.ooiother { border-width: 1px; border-style: solid solid none solid; border-color: transparent; background-color: transparent;}
+.obody{width: 100%;}

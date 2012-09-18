@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.cabletech.linepatrol.resource.model.PipeAddone" table="PIPE_ADDONE" lazy="false">
+		<id name="id" type="java.lang.String">
+			<generator class="com.cabletech.commons.hb.StrSequenceGenerator">
+				<param name="sequence">SEQ_PIPE_ADDONE_ID</param>
+				<param name="length">12</param>
+			</generator>
+		</id>
+		<property name="pipId" column="PIP_ID" />
+		<property name="directSmallNumber" column="DIRECT_SMALL_NUMBER" />
+		<property name="directMiddleNumber" column="DIRECT_MIDDLE_NUMBER" />
+		<property name="directLargeNumber" column="DIRECT_LARGE_NUMBER" />
+		<property name="threeSmallNumber" column="THREE_SMALL_NUMBER" />
+		<property name="threeMiddleNumber" column="THREE_MIDDLE_NUMBER" />
+		<property name="threeLargeNumber" column="THREE_LARGE_NUMBER" />
+		<property name="fourSmallNumber" column="FOUR_SMALL_NUMBER" />
+		<property name="fourMiddleNumber" column="FOUR_MIDDLE_NUMBER" />
+		<property name="fourLargelNumber" column="FOUR_LARGEL_NUMBER" />
+		<property name="forntSmallNumber" column="FORNT_SMALL_NUMBER" />
+		<property name="forntMiddleNumber" column="FORNT_MIDDLE_NUMBER" />
+		<property name="forntLargeNumber" column="FORNT_LARGE_NUMBER" />
+		<property name="otherSmallNumber" column="OTHER_SMALL_NUMBER" />
+		<property name="otherMiddleNumber" column="OTHER_MIDDLE_NUMBER" />
+		<property name="otherLargeNumber" column="OTHER_LARGE_NUMBER" />
+		<property name="smallLength0" column="SMALL_LENGTH_0" />
+		<property name="smallLength1" column="SMALL_LENGTH_1" />
+		<property name="middleLength0" column="MIDDLE_LENGTH_0" />
+		<property name="middleLength1" column="MIDDLE_LENGTH_1" />
+		<property name="largeLength0" column="LARGE_LENGTH_0" />
+		<property name="largeLength1" column="LARGE_LENGTH_1" />
+		<property name="otherLength0" column="OTHER_LENGTH_0" />
+		<property name="otherLength1" column="OTHER_LENGTH_1" />
+		<property name="steelHoleNumber" column="STEEL_HOLE_NUMBER" />
+		<property name="steelLength" column="STEEL_LENGTH" />
+		<property name="plasticHoleNumber" column="PLASTIC_HOLE_NUMBER" />
+		<property name="plasticLength" column="PLASTIC_LENGTH" />
+		<property name="cementHoleNumber" column="CEMENT_HOLE_NUMBER" />
+		<property name="cementLength" column="CEMENT_LENGTH" />
+		<property name="otherHoleNumber" column="OTHER_HOLE_NUMBER" />
+		<property name="otherLength" column="OTHER_LENGTH" />
+	</class>
+</hibernate-mapping>

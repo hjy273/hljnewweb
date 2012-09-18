@@ -1,0 +1,28 @@
+[PropertyInfo]
+alertamount,String,false,false,alertamount,alertamount,true,<default>
+beginDate,String,false,false, , ,true,<default>
+endDate,String,false,false, , ,true,<default>
+endpointid,String,false,false, , ,true,<default>
+error,String,false,false, , ,true,<default>
+exerate,String,false,false,exerate,exerate,true,<default>
+infodid,String,false,false,infodid,infodid,true,<default>
+infoneed,String,false,false,infoneed,infoneed,true,<default>
+lid,String,false,false, , ,true,<default>
+orderlyBeginTime,String,false,false, , ,true,<default>
+orderlyCyc,String,false,false, , ,true,<default>
+orderlyEndTime,String,false,false, , ,true,<default>
+patrolTime,String,false,false, , ,true,<default>
+placeID,String,false,false, , ,true,<default>
+placeName,String,false,false, , ,true,<default>
+principal,String,false,false, , ,true,<default>
+regionID,String,false,false, , ,true,<default>
+startpointid,String,false,false, , ,true,<default>
+terminalID,String,false,false, , ,true,<default>
+watchwidth,String,false,false, , ,true,<default>
+workratenumber,String,false,false,workratenumber,workratenumber,true,<default>
+undoratenumber,String,false,false,undoratenumber,undoratenumber,true,<default>
+[IconNames]
+
+
+
+

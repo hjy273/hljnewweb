@@ -1,0 +1,16 @@
+[PropertyInfo]
+content,String,false,false, , ,true,<default>
+executetime,String,false,false, , ,true,<default>
+executorid,String,false,false, , ,true,<default>
+gpsCoordinate,String,false,false, , ,true,<default>
+id,String,false,false, , ,true,<default>
+lid,String,false,false, , ,true,<default>
+pid,String,false,false, , ,true,<default>
+simid,String,false,false, , ,true,<default>
+type,String,false,false, , ,true,<default>
+queryby,String,false,false,queryby,queryby,true,<default>
+[IconNames]
+
+
+
+

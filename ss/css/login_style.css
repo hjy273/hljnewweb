@@ -1,0 +1,26 @@
+BODY {
+  PADDING-LEFT: 0px;PADDING-BOTTOM: 0px; MARGIN: 0px;PADDING-TOP: 0px;font-size:9pt;
+  background-color: #FFFFFF;
+  	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+    scrollbar-arrow-color:#FFFFFF;
+	scrollbar-base-color:#6D8693;
+	scrollbar-shadow-color:#F3F3F3;
+	scrollbar-face-color:#2A58A6;
+	scrollbar-highlight-color:#F3F3F3;
+	scrollbar-dark-shadow-color:white;
+	scrollbar-3d-light-color:#9BAAC1;
+	background-image: url(../images/bg_login01.gif);
+}
+div{font-size:9pt;
+}
+table{font-size: 9pt; line-height: 140%}
+a:link{color:#2764B5;text-decoration:none}
+a:visited{color:#2764B5;text-decoration:none}
+a:active{color:#2764B5;text-decoration:underline}
+a:hover{color:#FF9900;text-decoration:none}
+.inputtext{border-top:#323230 solid 1px;border-left:#323230 solid 1px;border-bottom:#FAFEFA solid 1px;border-right:#FAFEFA solid 1px;background:#C6D6E2;height:18px;font-size:12px;}
+.textarea{border-top:#323230 solid 1px;border-left:#323230 solid 1px;border-bottom:#FAFEFA solid 1px;border-right:#FAFEFA solid 1px;;overflow:auto;width:80%;background-color:#C6D6E2;line-height:140%;}
+

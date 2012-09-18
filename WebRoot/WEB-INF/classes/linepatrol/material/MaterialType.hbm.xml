@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.linepatrol.material.domain.MaterialType"  table="LP_mt_type">
+        <id name="tid" type="integer" unsaved-value="null" >
+            <column name="id" sql-type="Integer" not-null="true"/>  
+            <generator class="sequence">
+            	<param name="sequence">SEQ_LP_MT_TYPE_ID</param>
+            </generator>         
+        </id>
+        <property name="typeName" column="typename"/>
+        <property name="state"/>
+		<property name="regionID" column="regionid"/>
+		<property name="remark"></property>
+    </class>
+</hibernate-mapping>

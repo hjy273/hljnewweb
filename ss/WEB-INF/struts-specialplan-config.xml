@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="demoUploadFile" type="com.cabletech.demo.UploadFileBean"/>
+		<form-bean name="approverInfoBean" type="com.cabletech.baseinfo.beans.UserInfoBean" />
+	</form-beans>
+
+	<global-forwards>
+		<forward name="sucessMsg" path="/globinfo/sucessinfo.jsp" />
+		<forward name="errorMsg" path="/globinfo/errorinfo.jsp" />
+		<forward name="powererror" path="/globinfo/powererror.jsp" />
+	</global-forwards>
+	<action-mappings>
+		<action parameter="method" path="/specialplan" scope="request"
+			type="com.cabletech.linepatrol.specialplan.action.SpecialPlanAction">
+			<forward name="specialPlanForm" path="/linepatrol/specialplan/sp_add_planform.jsp"/>
+			<forward name="editForm" path="/linepatrol/specialplan/sp_edit_form.jsp"/>
+			<forward name="circuitTaskForm" path="/linepatrol/specialplan/sp_circuittask_form.jsp"/>
+			<forward name="watchTaskForm" path="/linepatrol/specialplan/sp_watchtask_form.jsp"/>
+			<forward name="viewPlanForm" path="/linepatrol/specialplan/sp_view_planform.jsp"/>
+			<forward name="editPlanForm" path="/linepatrol/specialplan/sp_edit_planform.jsp"/>
+			<forward name="close" path="/linepatrol/safeguard/safeguard_plan_close.jsp"/>
+			<forward name="delete" path="/linepatrol/safeguard/safeguard_plan_close.jsp"/>
+		</action>
+		
+		<action parameter="method" path="/specialplanstat" scope="request"
+			type="com.cabletech.linepatrol.specialplan.action.SpecialPlanStatAction">
+			<forward name="viewStat" path="/linepatrol/specialplan/stat/viewStat.jsp" />
+			<forward name="viewAreaStat" path="/linepatrol/specialplan/stat/viewAreaStat.jsp" />
+			<forward name="viewSublineStat" path="/linepatrol/specialplan/stat/viewSublineStat.jsp" />
+			<forward name="viewPatrolDetail" path="/linepatrol/specialplan/stat/viewPatrolDetail.jsp" />
+			<forward name="viewLeakDetail" path="/linepatrol/specialplan/stat/viewLeakDetail.jsp" />
+			<forward name="viewValidWatch" path="/linepatrol/specialplan/stat/viewValidWatch.jsp" />
+			<forward name="viewInvalidWatch" path="/linepatrol/specialplan/stat/viewInvalidWatch.jsp" />
+			<forward name="viewPlansStat" path="/linepatrol/specialplan/stat/viewPlansStat.jsp" />
+			<forward name="viewPlanListStat" path="/linepatrol/specialplan/stat/viewPlanListStat.jsp" />
+		</action>
+	</action-mappings>
+</struts-config>
+
+

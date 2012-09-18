@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="DispatchTaskBean"
+			type="com.cabletech.linepatrol.dispatchtask.beans.DispatchTaskBean" />
+		<form-bean name="SignInTaskBean"
+			type="com.cabletech.linepatrol.dispatchtask.beans.SignInTaskBean" />
+		<form-bean name="ReplyTaskBean"
+			type="com.cabletech.linepatrol.dispatchtask.beans.ReplyTaskBean" />
+		<form-bean name="CheckTaskBean"
+			type="com.cabletech.linepatrol.dispatchtask.beans.CheckTaskBean" />
+		<form-bean name="DispatchExamBean"
+			type="com.cabletech.linepatrol.dispatchtask.beans.DispatchExamBean" />
+	</form-beans>
+
+	<global-forwards>
+		<forward name="sucessMsg" path="/globinfo/sucessinfo.jsp" />
+		<forward name="errorMsg" path="/globinfo/errorinfo.jsp" />
+		<forward name="sucessWapMsg" path="/wap/sucessinfo.jsp" />
+		<forward name="errorWapMsg" path="/wap/errorinfo.jsp" />
+		<forward name="powererror" path="/globinfo/powererror.jsp" />
+		<forward name="giserror" path="/realtime/errorinfo.jsp" />
+	</global-forwards>
+	<action-mappings>
+		<action name="DispatchTaskBean" parameter="method"
+			path="/dispatchtask/dispatch_task" scope="request"
+			type="com.cabletech.linepatrol.dispatchtask.action.DispatchTaskAction">
+			<forward name="dispatch_task_add"
+				path="/linepatrol/dispatchtask/dispatch_task_add.jsp" />
+			<forward name="dispatch_task_mod"
+				path="/linepatrol/dispatchtask/dispatch_task_mod.jsp" />
+			<forward name="dispatch_task_cancel"
+				path="/linepatrol/dispatchtask/dispatch_task_cancel.jsp" />
+			<forward name="dispatch_task_list"
+				path="/linepatrol/dispatchtask/dispatch_task_list.jsp" />
+			<forward name="dispatch_task_wait_handle_list"
+				path="/linepatrol/dispatchtask/dispatch_task_wait_handle_list.jsp" />
+			<forward name="dispatch_task_finish_handled_list"
+				path="/linepatrol/dispatchtask/dispatch_task_finish_handled_list.jsp" />
+			<forward name="dispatch_task_view"
+				path="/linepatrol/dispatchtask/dispatch_task_view.jsp" />
+			<forward name="dispatch_task_query"
+				path="/linepatrol/dispatchtask/dispatch_task_query.jsp" />
+			<forward name="query_dispatch_task_state"
+				path="/linepatrol/dispatchtask/query_dispatch_task_state.jsp" />
+			<forward name="view_dispatch_task_process"
+				path="/linepatrol/dispatchtask/view_dispatch_task_process.jsp" />
+			<forward name="view_dispatch_task_history_process"
+				path="/linepatrol/dispatchtask/view_dispatch_task_history_process.jsp" />
+			<forward name="view_process_history"
+				path="/linepatrol/dispatchtask/view_process_history.jsp" />
+		</action>
+		<action name="SignInTaskBean" parameter="method"
+			path="/dispatchtask/sign_in_task" scope="request"
+			type="com.cabletech.linepatrol.dispatchtask.action.SignInTaskAction">
+			<forward name="sign_in_task" path="/linepatrol/dispatchtask/sign_in_task.jsp" />
+			<forward name="transfer_dispatch_task"
+				path="/linepatrol/dispatchtask/transfer_dispatch_task.jsp" />
+			<forward name="sign_in_task_list"
+				path="/linepatrol/dispatchtask/sign_in_task_list.jsp" />
+			<forward name="sign_in_task_view"
+				path="/linepatrol/dispatchtask/sign_in_task_view.jsp" />
+			<forward name="refuse_confirm_task_dispatch"
+				path="/linepatrol/dispatchtask/refuse_confirm_task_dispatch.jsp" />
+			<forward name="refuse_confirm_task"
+				path="/linepatrol/dispatchtask/refuse_confirm_task.jsp" />
+			<forward name="refuse_confirm_task_list"
+				path="/linepatrol/dispatchtask/refuse_confirm_task_list.jsp" />
+			<forward name="refuse_confirm_task_view"
+				path="/linepatrol/dispatchtask/refuse_confirm_task_view.jsp" />
+		</action>
+		<action name="ReplyTaskBean" parameter="method"
+			path="/dispatchtask/reply_task" scope="request"
+			type="com.cabletech.linepatrol.dispatchtask.action.ReplyTaskAction">
+			<forward name="reply_task" path="/linepatrol/dispatchtask/reply_task.jsp" />
+			<forward name="reply_task_mod" path="/linepatrol/dispatchtask/reply_task_mod.jsp" />
+			<forward name="reply_task_list" path="/linepatrol/dispatchtask/reply_task_list.jsp" />
+			<forward name="reply_task_view" path="/linepatrol/dispatchtask/reply_task_view.jsp" />
+		</action>
+		<action name="CheckTaskBean" parameter="method"
+			path="/dispatchtask/check_task" scope="request"
+			type="com.cabletech.linepatrol.dispatchtask.action.CheckTaskAction">
+			<forward name="check_task_dispatch"
+				path="/linepatrol/dispatchtask/check_task_dispatch.jsp" />
+			<forward name="check_task" path="/linepatrol/dispatchtask/check_task.jsp" />
+			<forward name="check_task_read" path="/linepatrol/dispatchtask/check_task_read.jsp" />
+			<forward name="check_task_transfer" path="/linepatrol/dispatchtask/check_task_transfer.jsp" />
+			<forward name="check_task_list" path="/linepatrol/dispatchtask/check_task_list.jsp" />
+			<forward name="check_task_view" path="/linepatrol/dispatchtask/check_task_view.jsp" />
+		</action>
+		<action name="DispatchTaskBean" parameter="method"
+			path="/dispatchtask/query_dispatch_task" scope="request"
+			type="com.cabletech.linepatrol.dispatchtask.action.QueryDispatchTaskAction">
+			<forward name="query_dispatch_task_total"
+				path="/linepatrol/dispatchtask/query_dispatch_task_total.jsp" />
+			<forward name="query_dispatch_task_total_list"
+				path="/linepatrol/dispatchtask/query_dispatch_task_total.jsp" />
+			<forward name="query_person_dispatch_task_total"
+				path="/linepatrol/dispatchtask/query_person_dispatch_task_total.jsp" />
+			<forward name="query_person_dispatch_task_total_num_list"
+				path="/linepatrol/dispatchtask/query_person_dispatch_task_total.jsp" />
+			<forward name="query_person_dispatch_task_total_list"
+				path="/linepatrol/dispatchtask/query_person_dispatch_task_total_list.jsp" />
+			<forward name="query_depart_dispatch_task_total"
+				path="/linepatrol/dispatchtask/query_depart_dispatch_task_total.jsp" />
+			<forward name="query_depart_dispatch_task_total_list"
+				path="/linepatrol/dispatchtask/query_depart_dispatch_task_total.jsp" />
+		</action>
+		<action name="DispatchTaskBean" parameter="method"
+			path="/wap/dispatchtask/dispatch_task" scope="request"
+			type="com.cabletech.linepatrol.dispatchtask.action.DispatchTaskAction">
+			<!-- PDA转向页面 START -->
+			<forward name="dispatch_task_wap_add"
+				path="/wap/dispatchtask/dispatch_task_wap_add.jsp" />
+			<forward name="dispatch_task_wait_handle_wap_list"
+				path="/wap/dispatchtask/dispatch_task_wait_handle_wap_list.jsp" />
+			<!-- PDA转向页面 END -->
+		</action>
+		<action name="SignInTaskBean" parameter="method"
+			path="/wap/dispatchtask/sign_in_task" scope="request"
+			type="com.cabletech.linepatrol.dispatchtask.action.SignInTaskAction">
+			<!-- PDA转向页面 START -->
+			<forward name="sign_in_wap_task" path="/wap/dispatchtask/sign_in_wap_task.jsp" />
+			<forward name="transfer_dispatch_wap_task"
+				path="/wap/dispatchtask/transfer_dispatch_wap_task.jsp" />
+			<forward name="refuse_confirm_task_wap_dispatch"
+				path="/wap/dispatchtask/refuse_confirm_task_wap_dispatch.jsp" />
+			<forward name="refuse_confirm_wap_task"
+				path="/wap/dispatchtask/refuse_confirm_wap_task.jsp" />
+			<!-- PDA转向页面 END -->
+		</action>
+		<action name="ReplyTaskBean" parameter="method"
+			path="/wap/dispatchtask/reply_task" scope="request"
+			type="com.cabletech.linepatrol.dispatchtask.action.ReplyTaskAction">
+			<!-- PDA转向页面 START -->
+			<forward name="reply_wap_task" path="/wap/dispatchtask/reply_wap_task.jsp" />
+			<forward name="reply_task_wap_mod" path="/wap/dispatchtask/reply_task_wap_mod.jsp" />
+			<!-- PDA转向页面 END -->
+		</action>
+		<action name="CheckTaskBean" parameter="method"
+			path="/wap/dispatchtask/check_task" scope="request"
+			type="com.cabletech.linepatrol.dispatchtask.action.CheckTaskAction">
+			<!-- PDA转向页面 START -->
+			<forward name="check_task_wap_dispatch"
+				path="/wap/dispatchtask/check_task_wap_dispatch.jsp" />
+			<forward name="check_wap_task" path="/wap/dispatchtask/check_wap_task.jsp" />
+			<forward name="check_task_wap_read" path="/wap/dispatchtask/check_task_wap_read.jsp" />
+			<forward name="check_task_wap_transfer" path="/wap/dispatchtask/check_task_wap_transfer.jsp" />
+			<!-- PDA转向页面 END -->
+		</action>
+		<!-- 任务派单考核 -->
+		<action name="DispatchExamBean" parameter="method"
+			path="/dispatchExamAction" scope="request"
+			type="com.cabletech.linepatrol.dispatchtask.action.DispatchExamAction">
+			<forward name="examList"
+				path="/linepatrol/dispatchtask/dispatch_exam_unexam.jsp" />
+			<forward name="examDispatchForm"
+				path="/linepatrol/dispatchtask/dispatch_exam_form.jsp" />
+		</action>
+	</action-mappings>
+</struts-config>
+
+

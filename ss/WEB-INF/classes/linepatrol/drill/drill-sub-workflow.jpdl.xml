@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="drill-sub-workflow" xmlns="http://jbpm.org/4.0/jpdl">
+   <start g="208,2,48,48" name="start">
+      <transition g="-38,-9" name="start" to="change_drill_proj_task"/>
+   </start>
+   <task candidate-users="#{assignee}" g="148,88,165,52" name="change_drill_proj_task">
+      <transition g="188,159:-43,-7" name="change" to="approve_change_drill_proj_task"/>
+   </task>
+   <task candidate-users="#{assignee}" g="119,178,223,52" name="approve_change_drill_proj_task">
+      <transition g="-46,0" name="passed" to="drill_change_decide"/>
+      <transition g="275,157:8,-4" name="not_passed" to="change_drill_proj_task"/>
+   </task>
+   <decision g="208,271,48,48" name="drill_change_decide" expr="#{transition}">
+      <transition g="-26,-7" name="end" to="end"/>
+      <transition g="266,256:6,-7" name="transfer" to="approve_change_drill_proj_task"/>
+   </decision>
+   <end g="209,362,48,48" name="end"/>
+</process>

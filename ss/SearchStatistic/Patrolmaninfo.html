@@ -1,0 +1,117 @@
+
+
+<head>
+
+
+
+
+<link rel="stylesheet" href="../common/window.css" type="text/css">
+</head>
+
+<body text="#000000">
+
+<table width="95%" border="0" cellspacing="3" cellpadding="3" align="center" class="dbutton">
+  <tr>
+    <td class="titlefont" align="center">巡检员巡检明细查询</td>
+  </tr>
+</table>
+
+<form name="departBean" method="Post" action="/WebApp/addDepartAction.do">
+  <table width="95%" border="0" cellspacing="0" cellpadding="0" align="center">
+    <TR>
+       <td class="pbutton" width="100" align="right">巡检员编码</td>
+       <td class="pbutton">
+        <input type="text" name="deptID" maxlength="45" size="20" value="">
+      </TD>
+     </TR>	
+    <TR>
+       <td class="pbutton" width="100" align="right">巡检员名称</td>
+       <td class="pbutton">
+           <input type="text" name="deptName" maxlength="45" size="20" value="">
+      </TD>
+     </TR>
+   
+    <tr>
+       <td class="pbutton" width="100" align="right">所属部门</td>
+       <td class="pbutton">
+        <input type="text" name="parentID" maxlength="45" size="20" value="">
+        
+      </TD>
+    </tr>
+   
+      <TR>
+       <td class="pbutton" width="100" align="right">起始时间</td>
+       <td class="pbutton">
+        <input type="text" name="parentID1" maxlength="45" size="20" value="">
+        
+      </TD>
+     </TR>
+   
+      <TR>
+       <td class="pbutton" width="100" align="right">终止时间</td>
+       <td class="pbutton">
+        <input type="text" name="parentID2" maxlength="45" size="20" value="">
+        
+      </TD>
+     </TR>
+    </TABLE>
+
+    <table  border="0" cellspacing="0" cellpadding="3" align="center">
+     <tr>
+      <td valign="top">
+            <input type="submit" name="action" tabindex="16" value="查询">
+		       </td>
+                 <td >
+                  <input type="submit" name="action" tabindex="17" value="取消">
+                 </td>
+              <td width="20">&nbsp; </td>
+                      </tr>
+         </table>
+</form>
+<script type="text/javascript" language="JavaScript">
+  <!--
+  var focusControl = document.forms["departBean"].elements["departBean.deptName"];
+
+  if (focusControl.type != "hidden") {
+     focusControl.focus();
+  }
+  // -->
+</script>
+
+<p><font size="2">　巡检员巡检明细查询结果</font></p>
+<table border="1" width="100%" bordercolorlight="#C0C0C0" bordercolordark="#C0C0C0" bordercolor="#C0C0C0">
+  <tr>
+    <td width="12%"><span style="font-family:楷体_GB2312;mso-hansi-font-family:宋体;color:black"><font size="2">巡检员名称</font></span></td>
+    <td width="12%"><span style="font-family:楷体_GB2312;mso-hansi-font-family:宋体;color:black"><font size="2">巡检点名称</font></span></td>
+    <td width="12%"><span style="font-family:楷体_GB2312;mso-hansi-font-family:宋体;color:black"><font size="2">所属段名称</font></span></td>
+    <td width="12%"><span style="font-family:楷体_GB2312;mso-hansi-font-family:宋体;color:black"><font size="2">传输设施编号</font></span></td>
+    <td width="13%"><span style="font-family:楷体_GB2312;mso-hansi-font-family:宋体;color:black"><font size="2">巡检时间</font></span></td>
+    <td width="13%"><span style="font-family:楷体_GB2312;mso-hansi-font-family:宋体;color:black"><font size="2">所属的部门</font></span></td>
+    <td width="13%"><input type="reset" value="全选" name="SelectAll"><input type="reset" value="全不选" name="NotSelectAll"></td>
+    <td width="13%"><input type="submit" value="删除所选记录" name="DeleteSelect"></td>
+  </tr>
+  <tr>
+    <td width="12%">　</td>
+    <td width="12%">　</td>
+    <td width="12%">　</td>
+    <td width="12%">　</td>
+    <td width="13%">　</td>
+    <td width="13%">　</td>
+    <td width="13%"><input type="checkbox" name="C1" value="ON"></td>
+    <td width="13%"><input type="reset" value="删除" name="Delete"></td>
+  </tr>
+  <tr>
+    <td width="12%">　</td>
+    <td width="12%">　</td>
+    <td width="12%">　</td>
+    <td width="12%">　</td>
+    <td width="13%">　</td>
+    <td width="13%">　</td>
+    <td width="13%"><input type="checkbox" name="C1" value="ON"></td>
+    <td width="13%"><input type="reset" value="删除" name="Delete"></td>
+  </tr>
+</table>
+<p>共有&nbsp;&nbsp;&nbsp; 条记录　共分　　页显示．　　首页　前一页　后一页　末页&nbsp;&nbsp;&nbsp;&nbsp; 
+<input type="submit" name="print" tabindex="16" value="打印">&nbsp;&nbsp;&nbsp; 
+<input type="submit" name="export" tabindex="16" value="输出">
+</p>

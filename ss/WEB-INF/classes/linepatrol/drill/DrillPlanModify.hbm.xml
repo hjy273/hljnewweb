@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.linepatrol.drill.module.DrillPlanModify"  table="LP_DRILLPLAN_MODIFY">
+        <id name="id" type="string" unsaved-value="null" >
+            <column name="id" sql-type="VARCHAR(12)" not-null="true"/>  
+            <generator class="com.cabletech.commons.hb.StrSequenceGenerator">
+               <param name="sequence">SEQ_LP_DRILLPLAN_MODIFY_ID</param>
+               <param name="length">12</param>
+            </generator>
+        </id>
+        <property name="planId" column="plan_id"/>
+        <property name="prevStartTime" column="prev_starttime"/>
+        <property name="prevEndTime" column="prev_endtime"/>
+        <property name="nextStartTime" column="next_starttime"/>
+        <property name="nextEndTime" column="next_endtime"/>
+        <property name="modifyCase" column="modify_cause"/>
+        <property name="modifyMan" column="modify_man"/>
+        <property name="modifyDate" column="modify_date"/>
+    </class>
+</hibernate-mapping>

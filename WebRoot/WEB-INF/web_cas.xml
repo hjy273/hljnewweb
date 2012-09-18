@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	version="2.4"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>bspweb</display-name>
+	<context-param>
+		<param-name>webAppRootKey</param-name>
+		<param-value>bspweb.root</param-value>
+	</context-param>
+	<filter>
+		<filter-name>openViewSessionFilter</filter-name>
+		<filter-class>com.cabletech.commons.filter.OpenViewSessionFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>openViewSessionFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>NoSession</filter-name>
+		<filter-class>com.cabletech.commons.filter.NoSessionFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>NoSession</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>NoSession</filter-name>
+		<url-pattern>*.jspx</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>NoSession</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+
+	<!--Displaytag 返回时，记录的上一个url -->
+	<filter>
+		<filter-name>DisplayFilter</filter-name>
+		<filter-class>com.cabletech.commons.filter.DisplayFillter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>DisplayFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+
+	<!-- 模块访问量统计 -->
+	<filter>
+		<filter-name>TrafficFilter</filter-name>
+		<filter-class>com.cabletech.component.traffic.TrafficFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>TrafficFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>TrafficFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>GBK</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+
+	<filter>
+		<filter-name>struts-cleanup</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ActionContextCleanUp</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>struts-cleanup</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>*.jspx</url-pattern>
+	</filter-mapping>
+	<!--启用GZIP压缩 -->
+    <filter>  
+            <filter-name>gzipFilter</filter-name>  
+            <filter-class>  
+                net.sf.ehcache.constructs.web.filter.GzipFilter  
+            </filter-class>  
+    </filter>  
+    <filter-mapping>  
+            <filter-name>gzipFilter</filter-name>  
+            <url-pattern>*.css</url-pattern>  
+    </filter-mapping>  
+    <filter-mapping>  
+            <filter-name>gzipFilter</filter-name>  
+            <url-pattern>*.png</url-pattern>  
+        </filter-mapping>  
+        <filter-mapping>  
+            <filter-name>gzipFilter</filter-name>  
+            <url-pattern>*.gif</url-pattern>  
+        </filter-mapping>  
+        <filter-mapping>  
+            <filter-name>gzipFilter</filter-name>  
+            <url-pattern>*.html</url-pattern>  
+        </filter-mapping>  
+        <filter-mapping>  
+            <filter-name>gzipFilter</filter-name>  
+            <url-pattern>*.jsp</url-pattern>  
+        </filter-mapping>
+         <filter-mapping>  
+            <filter-name>gzipFilter</filter-name>  
+            <url-pattern>*.jspx</url-pattern>  
+        </filter-mapping>   
+        <filter-mapping>  
+            <filter-name>gzipFilter</filter-name>  
+            <url-pattern>*.js</url-pattern>  
+        </filter-mapping>  
+        <filter-mapping>  
+            <filter-name>gzipFilter</filter-name>  
+            <url-pattern>*.json</url-pattern>  
+        </filter-mapping>  
+	<!-- 该过滤器负责用户的认证工作，必须启用它 -->
+	<filter>
+		<filter-name>CASFilter</filter-name>
+		<filter-class>
+			org.jasig.cas.client.authentication.AuthenticationFilter
+		</filter-class>
+		<init-param>
+			<param-name>casServerLoginUrl</param-name>
+			<param-value>
+				https://192.168.1.190:7002/cas/login
+			</param-value>
+		</init-param>
+		<!--这里的server是服务端的IP-->
+		<init-param>
+			<param-name>serverName</param-name>
+			<param-value>http://192.168.1.190:7001</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CASFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- 该过滤器负责对Ticket的校验工作，必须启用它 -->
+	<filter>
+		<filter-name>CAS Validation Filter</filter-name>
+		<filter-class>
+			org.jasig.cas.client.validation.Cas20ProxyReceivingTicketValidationFilter
+		</filter-class>
+		<init-param>
+			<param-name>casServerUrlPrefix</param-name>
+			<!-- 此处配置证书同名的服务 -->
+			<param-value>https://localhost:7002/cas</param-value>
+		</init-param>
+		<init-param>
+			<param-name>serverName</param-name>
+			<param-value>http://192.168.1.190:7001/</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CAS Validation Filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!--
+		该过滤器负责实现HttpServletRequest请求的包裹，
+		比如允许开发者通过HttpServletRequest的getRemoteUser()方法获得SSO登录用户的登录名，可选配置。
+	-->
+	<filter>
+		<filter-name>CAS HttpServletRequest Wrapper Filter</filter-name>
+		<filter-class>
+			org.jasig.cas.client.util.HttpServletRequestWrapperFilter
+		</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>CAS HttpServletRequest Wrapper Filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!--
+		该过滤器使得开发者可以通过org.jasig.cas.client.util.AssertionHolder来获取用户的登录名。
+		比如AssertionHolder.getAssertion().getPrincipal().getName()。
+	-->
+	<filter>
+		<filter-name>CAS Assertion Thread Local Filter</filter-name>
+		<filter-class>
+			org.jasig.cas.client.util.AssertionThreadLocalFilter
+		</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>CAS Assertion Thread Local Filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- 自动根据单点登录的结果设置本系统的用户信息 -->
+	<filter>
+		<display-name>SingleSignInFilter</display-name>
+		<filter-name>SingleSignInFilter</filter-name>
+		<filter-class>
+			com.cabletech.commons.filter.SingleSignInFilter
+		</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>SingleSignInFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- ======================== 单点登录结束 ======================== -->
+
+	<context-param>
+		<param-name>config-file</param-name>
+		<param-value>/quartz.properties</param-value>
+	</context-param>
+	<context-param>
+		<param-name>shutdown-on-unload</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath*:/applicationContext.xml</param-value>
+	</context-param>
+	<context-param>
+		<param-name>extremecomponentsMessagesLocation</param-name>
+		<param-value>applicationResources_zh_CN</param-value>
+	</context-param>
+
+
+	<!-- 非辽宁项目环境需要关闭监听 -->
+	<!-- <listener> <listener-class>org.quartz.ee.servlet.QuartzInitializerListener</listener-class> 
+		</listener> -->
+
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+	</listener>
+
+	<!-- 启动类 -->
+	<servlet>
+		<servlet-name>webAppUtils</servlet-name>
+		<servlet-class>com.cabletech.commons.web.WebAppUtils</servlet-class>
+		<init-param>
+			<param-name>approverGroupId</param-name>
+			<param-value>00025</param-value>
+		</init-param>
+		<init-param>
+			<param-name>online_period</param-name>
+			<param-value>10</param-value>
+		</init-param>
+		<load-on-startup>200</load-on-startup>
+	</servlet>
+
+	<session-config>
+		<session-timeout>120</session-timeout><!-- 默认设置为120分钟 -->
+	</session-config>
+	<!-- 附件上传 -->
+	<servlet>
+		<display-name>UploadServlet</display-name>
+		<servlet-name>UploadServlet</servlet-name>
+		<servlet-class>com.cabletech.component.upload.UploadServlet</servlet-class>
+		<init-param>
+			<param-name>AllowedExtensionsFile</param-name>
+			<param-value></param-value>
+		</init-param>
+		<init-param>
+			<param-name>DeniedExtensionsFile</param-name>
+			<param-value>
+				html|htm|php|php2|php3|php4|php5|phtml|pwml|inc|asp|aspx|ascx|jsp|cfm|cfc|pl|bat|exe|com|dll|vbs|js|reg|cgi|htaccess|asis|ftl
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>AllowedExtensionsImage</param-name>
+			<param-value>jpg|gif|jpeg|png|bmp</param-value>
+		</init-param>
+		<init-param>
+			<param-name>DeniedExtensionsImage</param-name>
+			<param-value></param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UploadServlet</servlet-name>
+		<url-pattern>/UploadServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<display-name>imageServlet</display-name>
+		<servlet-name>imageServlet</servlet-name>
+		<servlet-class>com.cabletech.component.upload.ImageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>imageServlet</servlet-name>
+		<url-pattern>/imageServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 附件上传 -->
+
+	<!-- ckeditor上传 -->
+	<servlet>
+		<servlet-name>SimpleUploader</servlet-name>
+		<servlet-class>com.cabletech.commons.ckeditor.CKEditorUploadServlet</servlet-class>
+		<init-param>
+			<param-name>baseDir</param-name>
+			<param-value>/UserFiles/</param-value>
+		</init-param>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>false</param-value>
+		</init-param>
+		<init-param>
+			<param-name>enabled</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>AllowedExtensionsFile</param-name>
+			<param-value></param-value>
+		</init-param>
+		<init-param>
+			<param-name>DeniedExtensionsFile</param-name>
+			<param-value>
+				html|htm|php|php2|php3|php4|php5|phtml|pwml|inc|asp|aspx|ascx|jsp|cfm|cfc|pl|bat|exe|com|dll|vbs|js|reg|cgi|htaccess|asis|ftl
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>AllowedExtensionsImage</param-name>
+			<param-value>jpg|gif|jpeg|png|bmp</param-value>
+		</init-param>
+		<init-param>
+			<param-name>DeniedExtensionsImage</param-name>
+			<param-value></param-value>
+		</init-param>
+		<init-param>
+			<param-name>AllowedExtensionsFlash</param-name>
+			<param-value>swf|fla</param-value>
+		</init-param>
+		<init-param>
+			<param-name>DeniedExtensionsFlash</param-name>
+			<param-value></param-value>
+		</init-param>
+		<load-on-startup>0</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>SimpleUploader</servlet-name>
+		<url-pattern>/ckeditor/uploader</url-pattern>
+	</servlet-mapping>
+	<!-- ckeditor上传 -->
+
+	<!-- 流程部署 -->
+	<servlet>
+		<display-name>DeployServlet</display-name>
+		<servlet-name>DeployServlet</servlet-name>
+		<servlet-class>com.cabletech.commons.jbpm.DeployServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeployServlet</servlet-name>
+		<url-pattern>/deploy</url-pattern>
+	</servlet-mapping>
+	<!-- 流程部署 -->
+	<!-- Asix web service 发布 -->
+	<listener>
+		<listener-class>org.apache.axis.transport.http.AxisHTTPSessionListener</listener-class>
+	</listener>
+	<servlet>
+		<servlet-name>AxisServlet</servlet-name>
+		<servlet-class>org.apache.axis.transport.http.AxisServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AdminServlet</servlet-name>
+		<servlet-class>org.apache.axis.transport.http.AdminServlet</servlet-class>
+		<load-on-startup>100</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AxisServlet</servlet-name>
+		<url-pattern>/servlet/AxisServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AxisServlet</servlet-name>
+		<url-pattern>*.jws</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AxisServlet</servlet-name>
+		<url-pattern>/services/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SOAPMonitorService</servlet-name>
+		<servlet-class>org.apache.axis.monitor.SOAPMonitorService</servlet-class>
+		<init-param>
+			<param-name>SOAPMonitorPort</param-name>
+			<param-value>5001</param-value>
+		</init-param>
+		<load-on-startup>100</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SOAPMonitorService</servlet-name>
+		<url-pattern>/SOAPMonitor</url-pattern>
+	</servlet-mapping>
+	<!-- Asix web service 发布 -->
+	<servlet>
+		<servlet-name>DisplayChart</servlet-name>
+		<servlet-class>org.jfree.chart.servlet.DisplayChart</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DisplayChart</servlet-name>
+		<url-pattern>/servlet/DisplayChart</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>action</servlet-name>
+		<servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+		<init-param>
+			<param-name>config</param-name>
+			<param-value>
+				/WEB-INF/struts-core-config.xml,
+				/WEB-INF/struts-common-config.xml,
+				/WEB-INF/struts-mam-config.xml,
+				/WEB-INF/struts-res-config.xml,
+				/WEB-INF/struts-pylon-config.xml,
+				/WEB-INF/struts-override-config.xml
+				</param-value>
+		</init-param>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>2</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet>
+		<servlet-name>GenerateChartServlet</servlet-name>
+		<servlet-class>com.cabletech.bs.analyse.servlet.GenerateChartServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GenerateChartServlet</servlet-name>
+		<url-pattern>/servlet/GenerateChart</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>action</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+
+	<mime-mapping>
+		<extension>xls</extension>
+		<mime-type>application/vnd.ms-excel</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>pdf</extension>
+		<mime-type>application/pdf</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>wsdl</extension>
+		<mime-type>text/xml</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>xsd</extension>
+		<mime-type>text/xml</mime-type>
+	</mime-mapping>
+	<welcome-file-list>
+		<welcome-file>/index.htm</welcome-file>
+	</welcome-file-list>
+	<jsp-config>
+		<taglib>
+			<taglib-uri>cabletechtag</taglib-uri>
+			<taglib-location>/WEB-INF/tlds/cabletechtags.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>templatetag</taglib-uri>
+			<taglib-location>/WEB-INF/tlds/cabletechtemplatetags.tld</taglib-location>
+		</taglib>
+		<!-- taglib> <taglib-uri>/WEB-INF/ajaxtags.tld</taglib-uri> <taglib-location>/WEB-INF/tlds/ajaxtags.tld</taglib-location> 
+			</taglib -->
+		<taglib>
+			<taglib-uri>newcabletechtags</taglib-uri>
+			<taglib-location>/WEB-INF/tlds/newcabletechtags.tld</taglib-location>
+		</taglib>
+	</jsp-config>
+	<!-- 出错页面定义 -->
+	<error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/common/500.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/common/500.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/common/404.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>403</error-code>
+		<location>/common/403.jsp</location>
+	</error-page>
+</web-app>

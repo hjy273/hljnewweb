@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="questBean" type="com.cabletech.linepatrol.quest.beans.QuestBean" />
+	</form-beans>
+	
+	<global-forwards>
+	</global-forwards>
+	
+	<action-mappings>
+		<action parameter="method" path="/questAction" scope="request" name="questBean"
+			type="com.cabletech.linepatrol.quest.action.QuestAction">
+			<forward name="addQuest" path="/linepatrol/quest/quest_add.jsp"/>
+			<forward name="addRemarkItem" path="/linepatrol/quest/quest_add_remarkitem.jsp"/>
+			<forward name="addCompany" path="/linepatrol/quest/quest_addcompany.jsp"/>
+			<forward name="closeAddCompany" path="/linepatrol/quest/quest_addcompanyclose.jsp"/>
+			<forward name="editQuest" path="/linepatrol/quest/quest_edit.jsp"/>
+			<forward name="issueFeedbackList" path="/linepatrol/quest/quest_feedback_list.jsp"/>
+			<forward name="addFeedbackIssue" path="/linepatrol/quest/quest_feedback_add2.jsp"/>
+			<forward name="showRule" path="/linepatrol/quest/quest_feedback_showrule.jsp"/>
+			<forward name="perfectIssueList" path="/linepatrol/quest/quest_perfect_list.jsp"/>
+			<forward name="addFeedbackIssueForm1" path="/linepatrol/quest/quest_feedback_add1.jsp"/>
+			<forward name="questFeedbackStat" path="/linepatrol/quest/quest_feedback_stat.jsp"/>
+			<forward name="questFeedbackStatList" path="/linepatrol/quest/quest_feedback_stat_list.jsp"/>
+			<forward name="loadQuestIssueItem" path="/linepatrol/quest/quest_add_item.jsp"/>
+			
+			<forward name="questComManagerList" path="/linepatrol/quest/quest_manager_com_list.jsp"/>
+			<forward name="editCom" path="/linepatrol/quest/quest_manager_com_edit.jsp"/>
+			<forward name="addCom" path="/linepatrol/quest/quest_manager_com_add.jsp"/>
+			<forward name="questTypeManagerList" path="/linepatrol/quest/quest_manager_type_list.jsp"/>
+			<forward name="editType" path="/linepatrol/quest/quest_manager_type_edit.jsp"/>
+			<forward name="addType" path="/linepatrol/quest/quest_manager_type_add.jsp"/>
+			<forward name="questClassManagerList" path="/linepatrol/quest/quest_manager_class_list.jsp"/>
+			<forward name="editClass" path="/linepatrol/quest/quest_manager_class_edit.jsp"/>
+			<forward name="addClass" path="/linepatrol/quest/quest_manager_class_add.jsp"/>
+			<forward name="questSortManagerList" path="/linepatrol/quest/quest_manager_sort_list.jsp"/>
+			<forward name="editSort" path="/linepatrol/quest/quest_manager_sort_edit.jsp"/>
+			<forward name="addSort" path="/linepatrol/quest/quest_manager_sort_add.jsp"/>
+			<forward name="questItemManagerList" path="/linepatrol/quest/quest_manager_item_list.jsp"/>
+			<forward name="editItem" path="/linepatrol/quest/quest_manager_item_edit.jsp"/>
+			<forward name="addItem" path="/linepatrol/quest/quest_manager_item_add.jsp"/>
+			<forward name="addRule" path="/linepatrol/quest/quest_manager_rule_add.jsp"/>
+			
+			<forward name="queryIssueByConditionForm" path="/linepatrol/quest/quest_query.jsp"/>
+			<forward name="queryIssueByConditionList" path="/linepatrol/quest/quest_query.jsp"/>
+			<forward name="viewQuestIssue" path="/linepatrol/quest/quest_view.jsp"/>
+		</action>
+	</action-mappings>
+</struts-config>
+

@@ -1,0 +1,21 @@
+[PropertyInfo]
+beginDate,String,false,false, , ,true,<default>
+endDate,String,false,false, , ,true,<default>
+errorCyc,int,false,false, , ,true,<default>
+leaderRate,int,false,false, , ,true,<default>
+lineID,String,false,false, , ,true,<default>
+orderlyBeginTime,java.util.Date,false,false, , ,true,<default>
+orderlyCyc,int,false,false, , ,true,<default>
+orderlyEndTime,java.util.Date,false,false, , ,true,<default>
+placeID,String,false,false, , ,true,<default>
+principal,String,false,false, , ,true,<default>
+principalRate,int,false,false, , ,true,<default>
+state,String,false,false, , ,true,<default>
+sublineID,String,false,false, , ,true,<default>
+timeList,java.util.List,false,false, , ,true,<default>
+watchRate,int,false,false, , ,true,<default>
+[IconNames]
+
+
+
+

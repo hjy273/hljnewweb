@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.baseinfo.domainobjects.Point"  table="pointinfo">
+        <id name="pointID" type="string" unsaved-value="null" >
+            <column name="PointID" sql-type="char(32)" not-null="true"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="pointName"/>
+        <property name="addressInfo"/>
+        <property name="gpsCoordinate"/>
+        <property name="subLineID"/>
+        <property name="lineType"/>
+        <property name="isFocus"/>
+        <property name="regionID"/>
+        <property name="state"/>
+		<property name="inumber"/>
+		<property name="patrolid"/>
+		<property name="pointtype"/>
+		
+
+    </class>
+</hibernate-mapping>
+

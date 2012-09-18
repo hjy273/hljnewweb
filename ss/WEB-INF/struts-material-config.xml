@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<!-- 资料申请管理 -->
+		<form-bean name="linePatrolManagerBean"
+			type="com.cabletech.linepatrol.material.beans.LinePatrolManagerBean"></form-bean>
+		<!-- 资料类型管理 -->
+		<form-bean name="materialTypeBean"
+			type="com.cabletech.linepatrol.material.beans.MaterialTypeBean"></form-bean>
+		<!-- 材料规格管理 -->
+		<form-bean name="materialModelBean"
+			type="com.cabletech.linepatrol.material.beans.MaterialModelBean"></form-bean>
+		<!-- 材料信息管理 -->
+		<form-bean name="materialInfoBean"
+			type="com.cabletech.linepatrol.material.beans.MaterialInfoBean"></form-bean>
+		<!-- 材料存放地点管理 -->
+		<form-bean name="materialAddrBean"
+			type="com.cabletech.linepatrol.material.beans.MaterialAddressBean"></form-bean>
+		<!-- 材料调拨管理 -->
+		<form-bean name="materialAllotBean"
+			type="com.cabletech.linepatrol.material.beans.MaterialAllotBean"></form-bean>
+		<!-- 材料月统计 -->
+		<form-bean name="monthStatBean"
+			type="com.cabletech.linepatrol.material.beans.MonthStatBean" />
+		<!-- 材料使用统计 -->
+		<form-bean name="materialStatBean"
+			type="com.cabletech.linepatrol.material.beans.MaterialStatBean" />
+		<!-- 材料盘点管理 -->
+		<form-bean name="mtUsedBean"
+			type="com.cabletech.linepatrol.material.beans.MtUsedBean"></form-bean>
+		<form-bean name="materialUsedInfoBean"
+			type="com.cabletech.linepatrol.material.beans.MaterialUsedInfoBean"></form-bean>
+		<form-bean name="mtUsedAssessBean"
+			type="com.cabletech.linepatrol.material.beans.MtUsedAssessBean"></form-bean>
+		<form-bean name="materialApplyBean"
+			type="com.cabletech.linepatrol.material.beans.MaterialApplyBean"></form-bean>
+		<form-bean name="materialPutStorageBean"
+			type="com.cabletech.linepatrol.material.beans.MaterialPutStorageBean"></form-bean>
+		<form-bean name="materialStockRecordBean"
+			type="com.cabletech.linepatrol.material.beans.MaterialStockRecordBean"></form-bean>
+	</form-beans>
+
+	<global-forwards>
+		<forward name="sucessMsg" path="/globinfo/sucessinfo.jsp" />
+		<forward name="errorMsg" path="/globinfo/errorinfo.jsp" />
+		<forward name="powererror" path="/globinfo/powererror.jsp" />
+		<forward name="giserror" path="/realtime/errorinfo.jsp" />
+	</global-forwards>
+
+	<action-mappings>
+		<!-- 资料申请管理 modify by liusq on 2009-11-25 start -->
+		<action name="linePatrolManagerBean" path="/LinePatrolManagerAction"
+			parameter="method" scope="request"
+			type="com.cabletech.linepatrol.material.action.LinePatrolManagerAction">
+			<forward name="addLinePatrolRe" path="/linepatrol/material/mt_apply_add.jsp"></forward>
+			<forward name="queryLinePatrolRe" path="/linepatrol/material/mt_apply_query.jsp"></forward>
+			<forward name="queryLinePatrolInfo" path="/linepatrol/material/mt_apply_showAll.jsp"></forward>
+			<forward name="viewLinePatrolByID" path="/linepatrol/material/mt_apply_showDetail.jsp"></forward>
+			<forward name="editLinePatrol" path="/linepatrol/material/mt_apply_edit.jsp"></forward>
+			<forward name="linePatorAssess3List" path="/linepatrol/material/mt_apply_approveList.jsp"></forward>
+			<forward name="checkLinePatrolByCon" path="/linepatrol/material/mt_apply_approve.jsp"></forward>
+			<forward name="queryParolManager" path="/linepatrol/material/mt_apply_queryTwo.jsp"></forward>
+			<forward name="import_data_list" path="/linepatrol/material/import_data_list.jsp"></forward>
+			<forward name="lookLinePatrolByCon"
+				path="/linepatrol/material/mt_apply_showDetailTwo.jsp"></forward>
+		</action>
+		<!-- 资料申请管理 modify by liusq on 2009-11-25 end -->
+
+		<!--材料类型管理 modify by liusq on 2009-11-25 start  -->
+		<action name="materialTypeBean" parameter="method" path="/materialTypeAction"
+			scope="request" type="com.cabletech.linepatrol.material.action.MaterialTypeAction">
+			<forward name="addMaterialTypeForm" path="/linepatrol/material/mt_type_add.jsp" />
+			<forward name="queryMaterialTypeForm" path="/linepatrol/material/mt_type_query.jsp" />
+			<forward name="listMaterialTypes" path="/linepatrol/material/mt_type_showAll.jsp" />
+			<forward name="addMaterialModelForm" path="/linepatrol/material/mt_type_model_add.jsp" />
+			<forward name="editMaterialTypeForm" path="/linepatrol/material/mt_type_edit.jsp" />
+			<forward name="viewMaterialType" path="/linepatrol/material/mt_type_showDetail.jsp" />
+		</action>
+		<!--材料类型管理 modify by liusq on 2009-11-25 end  -->
+
+		<!--材料规格管理 modify by liusq on 2009-11-25 start  -->
+		<action name="materialModelBean" parameter="method"
+			path="/materialModelAction" scope="request"
+			type="com.cabletech.linepatrol.material.action.MaterialModelAction">
+			<forward name="addMaterialModelForm" path="/linepatrol/material/mt_model_add.jsp" />
+			<forward name="queryMaterialModelForm" path="/linepatrol/material/mt_model_query.jsp" />
+			<forward name="listMaterialModels" path="/linepatrol/material/mt_model_showAll.jsp" />
+			<forward name="editMaterialModelForm" path="/linepatrol/material/mt_model_edit.jsp" />
+			<forward name="viewMaterialModel" path="/linepatrol/material/mt_model_showDetail.jsp" />
+		</action>
+		<!--材料规格管理 modify by liusq on 2009-11-25 end  -->
+
+		<!-- 材料信息管理 modify by liusq on 2009-11-25 start -->
+		<action name="materialInfoBean" parameter="method" path="/materialInfoAction"
+			scope="request" type="com.cabletech.linepatrol.material.action.MaterialInfoAction">
+			<forward name="addMaterialInfoForm" path="/linepatrol/material/mt_materialInfo_add.jsp" />
+			<forward name="updatepartbase" path="/linepatrol/material/mt_materialInfo_edit.jsp" />
+			<forward name="querymaterialInfoForm"
+				path="/linepatrol/material/mt_materialInfo_query.jsp" />
+			<forward name="querypartbaseresult"
+				path="/linepatrol/material/mt_materialInfo_showAll.jsp" />
+			<forward name="queryAjaxMAterial"
+				path="/linepatrol/material/mt_materialInfo_Ajax_TypeList.jsp" />
+		</action>
+		<!-- 材料信息管理 modify by liusq on 2009-11-25 end -->
+
+		<!-- 材料存放地点 modify by liusq on 2009-11-25 start -->
+		<action name="materialAddrBean" parameter="method" path="/MTAddressAction"
+			scope="request"
+			type="com.cabletech.linepatrol.material.action.MaterialAddressAction">
+			<forward name="addAddrForm"
+				path="/linepatrol/material/mt_materialAddress_add.jsp" />
+			<forward name="queryAddrForm"
+				path="/linepatrol/material/mt_materialAddress_query.jsp" />
+			<forward name="updatepartaddress"
+				path="/linepatrol/material/mt_materialAddress_edit.jsp" />
+			<forward name="queryaddressresult"
+				path="/linepatrol/material/mt_materialAddress_showAll.jsp" />
+		</action>
+		<!-- 材料存放地点 modify by liusq on 2009-11-25 end -->
+
+		<!-- 材料调拨管理 modify by liusq on 2009-11-25 start -->
+		<action name="materialAllotBean" parameter="method"
+			path="/materialAllotAction" scope="request"
+			type="com.cabletech.linepatrol.material.action.MaterialAllotAction">
+			<forward name="addAllotContraForm" path="/linepatrol/material/mt_allot_add_contra.jsp" />
+			<forward name="addAllotMobileForm" path="/linepatrol/material/mt_allot_add_mobile.jsp" />
+			<forward name="queryMaterialAllotForm" path="/linepatrol/material/mt_allot_query.jsp" />
+			<forward name="listMaterialAllots" path="/linepatrol/material/mt_allot_showAll.jsp" />
+			<forward name="listMaterialAllotItems" path="/linepatrol/material/mt_allot_showDetail.jsp" />
+		</action>
+		<!-- 材料调拨管理 modify by liusq on 2009-11-25 end -->
+
+		<!-- 材料库存管理 modify by liusq on 2009-11-25 start -->
+		<action name="materialModelBean" parameter="method"
+			path="/materialStockAction" scope="request"
+			type="com.cabletech.linepatrol.material.action.MaterialStockAction">
+			<forward name="queryMaterialStockByConForm" path="/linepatrol/material/mt_stock_conQuery.jsp" />
+			<forward name="queryMaterialStockByMTForm" path="/linepatrol/material/mt_stock_mtQuery.jsp" />
+			<forward name="marterialStocksCon" path="/linepatrol/material/mt_stock_conShow.jsp" />
+			<forward name="marterialStocksMT" path="/linepatrol/material/mt_stock_mtShow.jsp" />
+		</action>
+		<!-- 材料库存管理 modify by liusq on 2009-11-25 end -->
+
+		<!-- 材料月统计 modify by liusq on 2009-11-25 start -->
+		<action name="monthStatBean" parameter="method" path="/MonthStateAction"
+			scope="request" type="com.cabletech.linepatrol.material.action.MonthStateAction">
+			<forward name="monthstatform" path="/linepatrol/material/mt_monthStat_query.jsp" />
+			<forward name="monthstatlist" path="/linepatrol/material/mt_monthStat_show.jsp" />
+		</action>
+		<!-- 材料月统计 modify by liusq on 2009-11-25 end -->
+
+		<!-- 材料年统计 modify by liusq on 2009-11-25 start -->
+		<action name="materialModelBean" parameter="method"
+			path="/materialYearStatAction" scope="request"
+			type="com.cabletech.linepatrol.material.action.MaterialYearStatAction">
+			<forward name="materialStateYearForm" path="/linepatrol/material/mt_yearStat_query.jsp" />
+			<forward name="materialStateYearList" path="/linepatrol/material/mt_yearStat_show.jsp" />
+		</action>
+		<!-- 材料年统计 modify by liusq on 2009-11-25 end -->
+
+		<!-- 材料盘点管理 modify by liusq on 2009-11-25 start -->
+		<action name="mtUsedBean" parameter="method" path="/mtUsedAction"
+			scope="request" type="com.cabletech.linepatrol.material.action.MtUsedAction">
+			<forward name="goMtUsedApplyForm" path="/linepatrol/material/material_used_apply.jsp" />
+			<forward name="detailMtUsedApplyForm"
+				path="/linepatrol/material/material_used_apply_detail_material.jsp" />
+			<forward name="listMtUsedApplyForm" path="/linepatrol/material/material_apply_list.jsp" />
+			<forward name="goMtUsedApplyEditForm"
+				path="/linepatrol/material/material_used_apply_edit.jsp" />
+			<forward name="displayMtUsedApplyForm"
+				path="/linepatrol/material/material_approve_list.jsp" />
+			<forward name="getMtUsedApplyForm"
+				path="/linepatrol/material/material_used_approve.jsp" />
+			<forward name="mobileMtUsedQuery"
+				path="/linepatrol/material/material_mobile_query.jsp" />
+			<forward name="finishMtUsed" path="/linepatrol/material/material_finish_list.jsp" />
+			<forward name="goMtUsedApplydisForm"
+				path="/linepatrol/material/material_used_apply_dis.jsp" />
+			<forward name="detailMtUsedApplyEditedForm"
+				path="/linepatrol/material/material_used_apply_edited_detail_material.jsp" />
+		</action>
+		<action name="materialUsedInfoBean" parameter="method"
+			path="/materialUsedInfoAction" scope="request"
+			type="com.cabletech.linepatrol.material.action.MaterialUsedInfoAction">
+			<forward name="listmaterials"
+				path="/linepatrol/material/material_addrinfo_list.jsp" />
+			<forward name="materialinfo" path="/linepatrol/material/material_addrinfo.jsp" />
+			<forward name="materialinfoview"
+				path="/linepatrol/material/material_addrinfo_view.jsp" />
+		</action>
+		<action name="mtUsedAssessBean" parameter="method" path="/mtUsedAssessAction"
+			scope="request" type="com.cabletech.linepatrol.material.action.MtUsedAssessAction">
+			<forward name="goMtUsedAppoverForm"
+				path="/linepatrol/material/material_mobile_approve.jsp" />
+			<forward name="listMtUsedApplyForm" path="/linepatrol/material/material_mobile_list.jsp" />
+			<forward name="goMtUsedEditForm"
+				path="/linepatrol/material/material_used_approve_agin.jsp" />
+			<forward name="finishMtUsed" path="/linepatrol/material/material_finish_list.jsp" />
+			<forward name="displayFinishMtUsed"
+				path="/linepatrol/material/material_finish_display.jsp" />
+		</action>
+		<!-- 材料盘点管理 modify by liusq on 2009-11-25 end -->
+
+		<action name="materialApplyBean" path="/material_apply"
+			parameter="method" scope="request"
+			type="com.cabletech.linepatrol.material.action.MaterialApplyAction">
+			<forward name="add_material_apply" path="/linepatrol/material/add_material_apply.jsp"></forward>
+			<forward name="mod_material_apply" path="/linepatrol/material/mod_material_apply.jsp"></forward>
+			<forward name="approve_material_apply"
+				path="/linepatrol/material/approve_material_apply.jsp"></forward>
+			<forward name="transfer_approve_material_apply"
+				path="/linepatrol/material/transfer_approve_material_apply.jsp"></forward>
+			<forward name="read_approve_material_apply"
+				path="/linepatrol/material/read_approve_material_apply.jsp"></forward>
+			<forward name="query_material_apply" path="/linepatrol/material/query_material_apply.jsp"></forward>
+			<forward name="view_material_apply" path="/linepatrol/material/view_material_apply.jsp"></forward>
+			<forward name="list_wait_handle_material_apply"
+				path="/linepatrol/material/list_wait_handle_material_apply.jsp"></forward>
+			<forward name="list_finish_handled_material_apply"
+				path="/linepatrol/material/list_finish_handled_material_apply.jsp"></forward>
+			<forward name="list_material_apply" path="/linepatrol/material/list_material_apply.jsp"></forward>
+			<forward name="import_data_list" path="/linepatrol/material/import_data_list.jsp"></forward>
+			<forward name="list_apply_approve_info"
+				path="/linepatrol/material/list_apply_approve_info.jsp"></forward>
+			<forward name="view_material_apply_process"
+				path="/linepatrol/material/view_material_apply_process.jsp"></forward>
+			<forward name="view_material_apply_history_process"
+				path="/linepatrol/material/view_material_apply_history_process.jsp"></forward>
+			<forward name="cancel_material_apply"
+				path="/linepatrol/material/cancel_material_apply.jsp"></forward>
+		</action>
+		<action name="materialPutStorageBean" path="/material_put_storage"
+			parameter="method" scope="request"
+			type="com.cabletech.linepatrol.material.action.MaterialPutStorageAction">
+			<forward name="add_material_put_storage"
+				path="/linepatrol/material/add_material_put_storage.jsp"></forward>
+			<forward name="mod_material_put_storage"
+				path="/linepatrol/material/mod_material_put_storage.jsp"></forward>
+			<forward name="approve_material_put_storage"
+				path="/linepatrol/material/approve_material_put_storage.jsp"></forward>
+			<forward name="transfer_approve_material_put_storage"
+				path="/linepatrol/material/transfer_approve_material_put_storage.jsp"></forward>
+			<forward name="read_approve_material_put_storage"
+				path="/linepatrol/material/read_approve_material_put_storage.jsp"></forward>
+			<forward name="view_material_put_storage"
+				path="/linepatrol/material/view_material_put_storage.jsp"></forward>
+			<forward name="list_material_put_storage"
+				path="/linepatrol/material/list_material_put_storage.jsp"></forward>
+			<forward name="import_data_list" path="/linepatrol/material/import_data_list.jsp"></forward>
+			<forward name="list_put_storage_approve_info"
+				path="/linepatrol/material/list_put_storage_approve_info.jsp"></forward>
+		</action>
+		<action name="materialStatBean" parameter="method" path="/material_stat"
+			scope="request" type="com.cabletech.linepatrol.material.action.MaterialStatAction">
+			<forward name="query_material_stat" path="/linepatrol/material/query_material_stat.jsp" />
+			<forward name="list_material_stat" path="/linepatrol/material/query_material_stat.jsp" />
+		</action>
+		<action name="materialStockRecordBean" parameter="method"
+			path="/material_stock_record" scope="request"
+			type="com.cabletech.linepatrol.material.action.MaterialStockAction">
+			<forward name="material_stock_record_query" path="/linepatrol/material/material_stock_record_query.jsp" />
+			<forward name="material_stock_record_list" path="/linepatrol/material/material_stock_record_query.jsp" />
+		</action>
+	</action-mappings>
+
+
+</struts-config>
+

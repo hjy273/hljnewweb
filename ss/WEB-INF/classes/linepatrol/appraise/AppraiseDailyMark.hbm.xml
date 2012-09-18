@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.linepatrol.appraise.module.AppraiseDailyMark"  table="LP_appraise_daily_mark">
+        <id name="id" type="string" unsaved-value="null" >
+            <column name="ID" sql-type="varchar2(10)" not-null="true"/>  
+            <generator class="com.cabletech.commons.hb.StrSequenceGenerator">
+               <param name="sequence">SEQ_APPRAISE_DAILY_MARK_ID</param>
+               <param name="length">10</param>
+            </generator>        
+        </id>
+        <property name="ruleId" column="rule_id"/>
+        <property name="markDeductions" column="mark_deductions"/>
+        <property name="remark" column="remark"/>
+		<many-to-one name="appraiseDaily" 
+	        class="com.cabletech.linepatrol.appraise.module.AppraiseDaily" 
+	        cascade="none" outer-join="auto" update="true" 
+			insert="true" access="property" column="daily_id" not-null="true"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springframework.org/schema/jee
+	http://www.springframework.org/schema/jee/spring-jee-2.5.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<description>Spring公共配置文件 </description>
+	
+	<import resource="applicationContext-datasource.xml" />
+	<import resource="applicationContext-process.xml" />
+	<import resource="applicationContext-schedular.xml" />
+	<!--<import resource="applicationContext-dao.xml"/>
+	<import resource="applicationContext-service.xml" />
+	<import resource="applicationContext-action.xml" />
+
+	 使用annotation 自动注册bean,并保证@Required,@Autowired的属性被注入
+	<context:component-scan base-package="com.cabletech.bs.*" />-->
+	<context:component-scan base-package="com.cabletech.*" />
+
+
+</beans>

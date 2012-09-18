@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="conPersonBean" type="com.cabletech.mam.beans.ConPersonBean" />
+		<form-bean name="contractorBean" type="com.cabletech.mam.beans.ContractorBean" />
+		<form-bean name="patrolBean" type="com.cabletech.mam.beans.PatrolManBean" />
+		<form-bean name="patrolSonBean" type="com.cabletech.baseinfo.beans.PatrolManSonBean" />
+		<form-bean name="terminalBean" type="com.cabletech.mam.beans.TerminalBean" />
+		<form-bean name="certificateBean" type="com.cabletech.mam.beans.CertificateBean" />
+		<form-bean name="concordatBean" type="com.cabletech.mam.beans.ConcordatBean"/>
+		<form-bean name="personcertificateBean" type="com.cabletech.mam.beans.CertificateBean"/>
+	</form-beans>
+	<global-forwards>
+		<forward name="sucessMsg" path="/globinfo/sucessinfo.jsp" />
+		<forward name="errorMsg" path="/globinfo/errorinfo.jsp" />
+		<forward name="powererror" path="/globinfo/powererror.jsp" />
+		<forward name="giserror" path="/realtime/errorinfo.jsp" />
+	</global-forwards>
+	<action-mappings>
+		<action name="conPersonBean" parameter="method" path="/ConPersonAction" scope="request" type="com.cabletech.mam.action.ConPersonAction">
+			<forward name="addconperson" path="/mam/addconperson.jsp" />
+			<forward name="showconperson" path="/mam/showconperson.jsp" />
+			<forward name="showoneconperson" path="/mam/showoneconperson.jsp" />
+			<forward name="queryconperson" path="/mam/queryconperson.jsp" />
+			<forward name="editconperson" path="/mam/editconperson.jsp" />
+			<forward name="leaveconperson" path="/mam/leaveconperson.jsp" />
+			<forward name="desktopconperson" path="/mam/desktopconperson.jsp" />
+		</action>
+		<action name="contractorBean" parameter="method" path="/contractorAction" scope="request" type="com.cabletech.mam.action.ContractorAction">
+			<forward name="addContractor" path="/mam/addContractor.jsp" />
+			<forward name="querycontractorresult" path="/mam/querycontractorresult.jsp" />
+			<forward name="updateContractor" path="/mam/editContractor.jsp" />
+			<forward name="viewContractor" path="/mam/viewContractor.jsp" />
+			<forward name="queryForm" path="/mam/queryContractor.jsp" />
+		</action>
+		<action name="patrolBean" parameter="method" path="/patrolAction" scope="request" type="com.cabletech.mam.action.PatrolManAction">
+			<forward name="querypatrolmanresult" path="/mam/querypatrolmanresult.jsp" />
+			<!-- 
+			<forward name="querypatrolmanresult_login" path="/mam/querypatrolmanresult_login.jsp" />
+			 -->
+			<forward name="updatePatrol" path="/mam/editPatrolMan.jsp" />
+			<forward name="viewPatrol" path="/mam/viewPatrolMan.jsp" />
+			<forward name="showadvancedpatrolman" path="/mam/queryPatrolMan.jsp" />
+		</action>
+		<action name="patrolSonBean" parameter="method" path="/patrolSonAction" scope="request" type="com.cabletech.baseinfo.action.PatrolManSonAction">
+			<forward name="querypatrolmanSonresult" path="/mam/querypatrolmanresult_son.jsp" />
+			<forward name="updatePatrolSon" path="/mam/editPatrolMan_son.jsp" />
+			<forward name="showpatrolmanson" path="/mam/queryPatrolMan_son.jsp" />
+		</action>
+		<action name="terminalBean" parameter="method" path="/terminalAction" scope="request" type="com.cabletech.mam.action.TerminalAction">
+			<forward name="queryterminalresult" path="/mam/queryterminalresult.jsp" />
+			<forward name="updateTerminal" path="/mam/editTerminal.jsp" />
+			<forward name="commonerror" path="/mam/commonError.jsp" />
+			<forward name="terminalvoltage" path="/mam/terminalvoltage.jsp" />
+		</action>		
+		<action name="certificateBean" parameter="method" path="/CertificateAction" scope="request" type="com.cabletech.mam.action.CertificateAction">
+			<forward name="addcertificate" path="/mam/addcertificate.jsp" />
+			<forward name="showcertificate" path="/mam/showcertificate.jsp" />
+			<forward name="showonecertificate" path="/mam/showonecertificate.jsp" />
+			<forward name="querycertificate" path="/mam/querycertificate.jsp" />
+			<forward name="editcertificate" path="/mam/editcertificate.jsp" />
+		</action>
+		<action name="personcertificateBean" parameter="method" path="/PersonCertificateAction" scope="request" type="com.cabletech.mam.action.PersonCertificateAction">
+			<forward name="addcertificate" path="/mam/addpersoncertificate.jsp" />
+			<forward name="showcertificate" path="/mam/showpersoncertificate.jsp" />
+			<forward name="showonecertificate" path="/mam/showonepersoncertificate.jsp" />
+			<forward name="querycertificate" path="/mam/querypersoncertificate.jsp" />
+			<forward name="editcertificate" path="/mam/editpersoncertificate.jsp" />
+		</action>
+		<action name="concordatBean" parameter="method" path="/concordat" scope="request" type="com.cabletech.mam.action.ConcordatAction">
+			<forward name="addConcordat" path="/mam/addConcordat.jsp" />
+			<forward name="queryConcordats" path="/mam/queryConcordats.jsp" />
+			<forward name="concordats" path="/mam/concordats.jsp" />
+			<forward name="editConcordat" path="/mam/editConcordat.jsp" />
+			<forward name="viewConcordat" path="/mam/viewConcordat.jsp" />
+		</action>		
+	</action-mappings>
+	<message-resources parameter="ApplicationResources"/>
+</struts-config>

@@ -1,0 +1,170 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>云南基站巡检维护管理系统</title>
+<link href="/bspweb/css/logincss.css" rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" type="text/css" href="/bspweb/js/extjs/resources/css/ext-all.css" />
+<script type="text/javascript" src="./js/extjs/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" src="./js/extjs/ext-all.js"></script>
+<script type="text/javascript" src="/js/jQuery/jquery.min.js"></script>
+<script type="text/javascript">
+	Ext.onReady(function(){
+		Ext.QuickTips.init();
+		Ext.form.Field.prototype.msgTarget = 'under';
+		var loginForm = new Ext.form.FormPanel({
+			title : '',
+			labelWidth : 70,
+			width : 280,
+			method:'POST',
+			//增加表单键盘事件
+	        keys:[
+	        {
+	         key: [10,13],
+	         fn:login
+	        } ],
+			height : 120,
+			frame : false,
+			border : false,
+			labelSeparator : '：',
+			applyTo : 'layout_form',
+			defaults: {width: 160},
+        	defaultType: 'textfield',
+        	listeners : {
+			'render' : function() {
+			this.findByType('textfield')[0].focus(true, true); //第一个textfield获得焦点
+			}
+			},
+			items:[
+				{
+					fieldLabel:'用户名',
+					name : 'userid',
+					allowBlank : false,
+					blankText :'用户名不能为空'
+				},
+				{
+					fieldLabel:'密&nbsp;&nbsp;&nbsp;码',
+					name : 'password',
+					inputType : 'password',
+					allowBlank : false,
+					blankText :'密码不能为空'
+				}
+			],
+			buttons:[
+				new Ext.Button({
+					text : '登录',
+					id : 'login',
+					minWidth : 68,
+					handler : login
+				}),
+				new Ext.Button({
+					text : '重置',
+					id : 'reset',
+					minWidth : 68,
+					handler : reset
+				})
+			]
+		});
+
+		function login(){
+			loginForm.form.submit({
+				clientValidation:true,
+				waitMsg : '正在验证登录信息',
+				waitTitle : '提示',
+				url : 'login.do?method=validate',
+				method:'GET',
+				success:function(form,action){
+					if(action.result.success){
+						openwin();
+					}
+				},
+				failure:function(form,action){
+
+				}
+			});
+		}
+		function reset(){//重置表单
+			loginForm.form.reset();
+		}
+		function openwin() {
+			window.location="login.do?method=login";
+			
+		   /* newwin=window.open ("login.do?method=login", "", "toolbar=no, menubar=no, scrollbars=yes, resizable=yes, location=no, status=yes");
+		    newwin.moveTo(0,0);
+		    newwin.resizeTo(screen.width,screen.height);
+		    newwin.focus();
+		    
+		    window.opener=null;
+		    window.open('','_self');
+		    window.close();
+		    */
+		}
+	});
+	function winResize(){
+		window.moveTo(-4,-4);
+		var ToH=525;
+		var ToW=700;
+		if(window.navigator.appName=="Netscape"){ //firefox
+			window.innerHeight=ToH;
+			window.innerWidth=ToW;
+		}else{//ie
+			var cWinwidth=window.document.documentElement.clientWidth;
+			var cWinheight=window.document.documentElement.clientHeight;
+			window.resizeBy(ToW-cWinwidth,ToH-cWinheight);
+			cWinwidth=window.document.documentElement.clientWidth;
+			cWinheight=window.document.documentElement.clientHeight;
+			window.resizeBy(ToW-cWinwidth,ToH-cWinheight);
+		}
+	}
+	function resetWin(){
+		var long = 1024;
+		var height = 700;
+		if(screen.width > long && screen.height > height){
+			var left = (screen.width - long)/2;
+			var top = (screen.height - height)/2;
+			self.resizeTo(long,height);
+			self.moveTo(left,top);
+		}
+	}
+	
+	//winResize();
+</script>
+<style>
+.leftside{
+width:30%;
+float:left;
+text-align:left;
+}
+.rightside{
+width:70%;
+float:right;
+text-align:left;
+}
+.layout_top_mc {
+	font: bold 220%/100% "Lucida Grande", Arial, sans-serif,;
+	position:absolute;
+	margin: 5px 0 10px;
+	color: #1D7BB1;
+	face:楷体_GB2312;
+}
+
+</style>
+</head>
+
+<body onload="winResize()">
+	<div class="layout_body">
+		<div class="layout_main">
+			<div class="layout_main_left"></div>
+			<div class="layout_main_right">
+				<div class="layout_user_img"></div>
+				<div class="layout_form" id="layout_form"></div>
+			</div>
+		</div>
+		<div class="layout_top_logo"></div>
+		<div class="layout_top_mc"><font face="楷体_GB2312">云南基站巡检维护管理系统</font></div>
+ 		<div class="layout_bottom_bg">
+			<div class="layout_bottom_text"><div class="leftside">全国统一客服热线：0551-5327532&nbsp;&nbsp;&nbsp;</div><div class="rightside">&nbsp;&nbsp;&nbsp;  Copyright &copy; 2004-2010   北京鑫干线网络科技发展有限公司 版权所有</div></div>
+		</div>
+	</div>
+</body>
+</html>

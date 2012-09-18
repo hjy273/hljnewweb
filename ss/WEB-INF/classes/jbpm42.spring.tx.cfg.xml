@@ -1,0 +1,63 @@
+<jbpm-configuration>
+
+	<process-engine-context>
+		<!--结合jbpm.tx.hibernate.xml-->
+		<command-service name="txRequiredCommandService">
+			<skip-interceptor />
+			<retry-interceptor />
+			<environment-interceptor />
+			<!--使用spring管理transaction-->
+			<spring-transaction-interceptor />
+		</command-service>
+
+		<command-service name="newTxRequiredCommandService">
+			<retry-interceptor />
+			<environment-interceptor policy="requiresNew" />
+			<spring-transaction-interceptor
+				current="true" />
+		</command-service>
+		<!--
+			下面为jbpm.default.cfg.xml中的配置，由于jbpm.default.cfg.xml中需要引入jbpm.hibernate.cfg.xml，所以将配置改写到这里，或改jbpm.hibernate.cfg.xml源码，将引入jbpm.hibernate.cfg.xml注掉
+		-->
+		<repository-service />
+		<repository-cache />
+		<execution-service />
+		<history-service />
+		<management-service />
+		<identity-service />
+		<task-service />
+
+
+		<object class="org.jbpm.pvm.internal.id.DatabaseDbidGenerator">
+			<field name="commandService">
+				<ref object="newTxRequiredCommandService" />
+			</field>
+		</object>
+
+		<object class="org.jbpm.pvm.internal.id.DatabaseIdComposer"
+			init="eager" />
+
+
+		<script-manager default-expression-language="juel"
+			default-script-language="juel">
+			<script-language name="juel"
+				factory="org.jbpm.pvm.internal.script.JuelScriptEngineFactory" />
+		</script-manager>
+
+		<types resource="jbpm.variable.types.xml" />
+
+		<address-resolver />
+
+	</process-engine-context>
+
+	<transaction-context>
+		<!--强制从当前线程中获取, 删掉了原来的<transaction />-->
+		<hibernate-session factory="sessionFactory" current="true" />
+		<!--jbpm.default.cfg.xml中的配置-->
+		<repository-session />
+		<db-session />
+		<message-session />
+		<timer-session />
+		<history-session />
+	</transaction-context>
+</jbpm-configuration>  

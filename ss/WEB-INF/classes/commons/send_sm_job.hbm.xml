@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.cabletech.schedule.module.SendSmJobInfo"
+		table="SEND_SM_JOB_INFO">
+		<id name="id" type="string" unsaved-value="null">
+			<column name="ID" sql-type="char(12)" not-null="true" />
+			<generator class="com.cabletech.commons.hb.StrSequenceGenerator">
+				<param name="sequence">SEQ_SEND_SM_JOB_INFO_ID</param>
+				<param name="length">12</param>
+			</generator>
+		</id>
+		<property name="simId" column="SIM_ID" />
+		<property name="sendContent" column="SEND_CONTENT" />
+		<property name="sendType" column="SEND_TYPE" />
+		<property name="sendTimeType" column="SEND_TIME_TYPE" />
+		<property name="firstSendTime" column="FIRST_SEND_TIME" />
+		<property name="lastSendTime" column="LAST_SEND_TIME" />
+		<property name="sendTimeSpace" column="SEND_TIME_SPACE" type="int" />
+		<property name="sendState" column="SEND_STATE" />
+		<property name="schedularName" column="SCHEDULAR_NAME" />
+		<property name="sendObjectId" column="SEND_OBJECT_ID" />
+		<property name="createUserId" column="CREATE_USER_ID" />
+		<property name="createDate" column="CREATE_DATE" />
+		<property name="sendObjectName" column="SEND_OBJECT_NAME" />
+		<property name="sendCycleRule" column="SEND_CYCLE_RULE" />
+		<property name="cronExpressionString" column="CRON_EXPRESSION_STRING" />
+	</class>
+</hibernate-mapping>

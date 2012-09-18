@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.linepatrol.cut.module.CutFeedback"  table="lp_cut_feedback">
+        <id name="id" type="string" unsaved-value="null" >
+            <column name="id" sql-type="varchar(12)" not-null="true"/>  
+            <generator class="com.cabletech.commons.hb.StrSequenceGenerator">
+               <param name="sequence">SEQ_LP_CUT_FEEDBACK_ID</param>
+               <param name="length">12</param>
+            </generator>         
+        </id>
+        <property name="cutId" column="CUT_ID"/>
+        <property name="isInterrupt" column="ISINTERRUPT"/>
+        <property name="td" column="TD"/>
+        <property name="bs" column="BS"/>
+        <property name="beginTime" column="BEGINTIME"/>
+        <property name="endTime" column="ENDTIME"/>
+        <property name="cutTime" column="CUTTIME"/>
+        <property name="afterLength" column="AFTER_LENGTH"/>
+        <property name="flag" column="FLAG"/>
+        <property name="beforeWastage" column="BEFORE_WASTAGE"/>
+        <property name="afterWastage" column="AFTER_WASTAGE"/>
+        <property name="fibercoreNumber" column="FIBERCORENUMBER"/>
+        <property name="liveChargeMan" column="LIVE_CHARGEMAN"/>
+        <property name="mobileChargeMan" column="MOBILE_CHARGEMAN"/>
+        <property name="isTimeOut" column="ISTIMEOUT"/>
+        <property name="timeOutCase" column="TIMEOUT_CAUSE"/>
+        <property name="implementation" column="IMPLEMENTATION"/>
+        <property name="legacyQuestion" column="LEGACY_QUESTION"/>
+        <property name="unapproveNumber" column="UNAPPROVE_NUMBER"/>
+        <property name="cancelCause" column="CANCEL_CAUSE"/>
+        <property name="feedbackType" column="FEEDBACK_TYPE"/>
+        <property name="creator" column="creator"/>
+        <property name="createTime" column="create_time"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,84 @@
+﻿.tabWelcome{
+	background-image:url(../images/pic_login_top_normal.jpg);
+	background-position:top left;
+	background-repeat:no-repeat;
+	width:497px;
+	height:287px;
+	border:1px solid #000000;
+	margin-top:80px;
+	}
+.noticeTab{
+	background-image:url(../images/bg_notice_normal.jpg);
+	background-position:top left;
+	background-repeat:no-repeat;
+	width:497px;
+	height:287px;
+	border:1px solid #000000;
+	margin-top:80px;
+	}
+.errorTab{
+	background-image:url(../images/bg_error_normal.jpg);
+	background-position:top left;
+	background-repeat:no-repeat;
+	width:497px;
+	height:287px;
+	border:1px solid #000000;
+	margin-top:80px;
+}
+.successTab{
+	background-image:url(../images/bg_success_normal.jpg);
+	background-position:top left;
+	background-repeat:no-repeat;
+	width:497px;
+	height:287px;
+	border:1px solid #000000;
+	margin-top:80px;
+	}
+.titleTopTd{
+	height:187px;
+	}
+.titleChn{
+	font-family:"黑体";
+	font-size:30px;
+	line-height:140%;
+	color:#FFFFFF;
+	text-align:right;
+	margin-top:20px;
+	margin-right:30px;
+	font-weight:bold;
+	}
+.titleEng{
+	text-align:right;
+	font-family:Geneva, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#FFFFFF;
+	font-weight:bold;
+	margin-right:40px;
+	}
+table.noticeWordTab{
+	width:260px;
+	height:50px;
+	margin-left:200px;
+	margin-top:0px;
+	}
+table.noticeWordTab td{
+	color:#FF6600;
+	}
+table.errorWordTab{
+	width:260px;
+	height:50px;
+	margin-left:200px;
+	margin-top:0px;
+	}
+table.errorWordTab td{
+	color:#FF0000;
+	}
+table.successWordTab{
+	width:260px;
+	height:50px;
+	margin-left:200px;
+	margin-top:0px;
+	}
+table.successWordTab td{
+	color:#000000;
+	}

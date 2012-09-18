@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.planstat.domainobjects.PlanStat"  table="plan_stat">
+        <id name="planid" type="string" unsaved-value="null" >
+            <column name="planid" sql-type="char(32)" not-null="true"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="planname" column="planname" type="string"/>
+        <property name="contractorid" column="contractorid" type="string"/>
+        <property name="executorid" column="executorid" type="string"/>
+        <property name="startdate" column="startdate" type="date"/>
+        <property name="enddate" column="enddate" type="date"/>
+        <property name="planpointn" column="planpointn" type="java.lang.Integer"/>
+        <property name="factpointn" column="factpointn" type="java.lang.Integer"/>
+        <property name="leakpointn" column="leakpointn" type="java.lang.Integer"/>
+        <property name="planpoint" column="planpoint" type="java.lang.Integer"/>
+        <property name="factpoint" column="factpoint" type="java.lang.Integer"/>
+        <property name="patrolp" column="patrolp" type="java.lang.Float"/>
+        <property name="keypoint" column="keypoint" type="java.lang.Integer"/>
+        <property name="leakkeypoint" column="leakkeypoint" type="java.lang.Integer"/>
+        <property name="patrolkm" column="patrolkm" type="java.lang.Float"/>
+        <property name="createdate" column="createdate" type="date"/>
+        <property name="examineresult" column="examineresult" type="string"/>
+        <property name="nofinishreason" column="nofinishreason" type="string"/>
+    </class>
+</hibernate-mapping>
+

@@ -1,0 +1,12 @@
+<jbpm-configuration>  
+  
+  <import resource="jbpm.jpdl.cfg.xml" />  
+  <import resource="jbpm42.spring.tx.cfg.xml" />  
+  <import resource="jbpm.identity.cfg.xml" />  
+  <import resource="jbpm.businesscalendar.cfg.xml" />
+  <!--   
+  <import resource="jbpm.console.cfg.xml" />  
+   -->   
+<!--  <import resource="jbpm.jobexecutor.cfg.xml" />-->  
+  
+</jbpm-configuration> 

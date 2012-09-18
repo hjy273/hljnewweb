@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.lineinfo.domainobjects.Msginfo"  table="messageinfo">
+        <id name="msgID" type="string" unsaved-value="null" >
+            <column name="msgID" sql-type="char(32)" not-null="true"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="sendID"/>
+        <property name="acceptID"/>
+        <property name="simID"/>
+        <property name="msgTime"/>
+        <property name="msgInfo"/>
+        <property name="msgType"/>
+
+    </class>
+</hibernate-mapping>
+

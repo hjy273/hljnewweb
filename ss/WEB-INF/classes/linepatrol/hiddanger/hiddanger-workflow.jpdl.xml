@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="hiddanger" xmlns="http://jbpm.org/4.0/jpdl">
+   <start g="211,3,48,48" name="start">
+      <transition g="-46,-13" name="start" to="confirm_task"/>
+   </start>
+   <task candidate-users="#{assignee}" g="188,83,92,52" name="confirm_task">
+      <transition g="-47,-17" name="ignore" to="end"/>
+      <transition g="-62,-19" name="self_process" to="self_process_task"/>
+      <transition g="4,-15" name="report" to="report_task"/>
+   </task>
+   <end g="183,1404,48,48" name="end"/>
+   <task candidate-users="#{assignee}" g="30,466,92,52" name="self_process_task">
+      <transition g="-22,-9" name="end" to="end"/>
+   </task>
+   <task candidate-users="#{assignee}" g="350,168,92,52" name="report_task">
+      <transition g="-30,-9" name="add_approve" to="add_approve_task"/>
+      <transition g="537,329:4,-7" name="makeplan" to="make_plan"/>
+   </task>
+   <task candidate-users="#{assignee}" g="335,270,126,52" name="add_approve_task">
+      <transition g="347,353:-44,-8" name="passed" to="add_approver_decide"/>
+      <transition g="-46,20" name="not_passed" to="confirm_task"/>
+   </task>
+   <task candidate-users="#{assignee}" g="351,1042,92,52" name="close_task">
+      <transition g="348,1121:-75,-23" name="close_approve" to="close_approve_task"/>
+   </task>
+   <task candidate-users="#{assignee}" g="330,1145,138,52" name="close_approve_task">
+      <transition g="5,-7" name="not_passed" to="close_task"/>
+      <transition g="352,1221:-47,-8" name="passed" to="close_approver_decide"/>
+   </task>
+   <task candidate-users="#{assignee}" g="353,1317,92,52" name="evaluate_task">
+      <transition g="-16,-12" name="end" to="end"/>
+   </task>
+   <decision expr="#{transition}" g="373,359,48,48" name="add_approver_decide">
+      <transition g="6,-7" name="transfer" to="add_approve_task"/>
+      <transition g="-60,-7" name="makeplan" to="make_plan"/>
+   </decision>
+   <decision expr="#{transition}" g="372,1231,48,48" name="close_approver_decide">
+      <transition g="5,-1" name="transfer" to="close_approve_task"/>
+      <transition g="-71,-17" name="evaluate" to="evaluate_task"/>
+   </decision>
+   <task candidate-users="#{assignee}" g="350,448,92,52" name="make_plan">
+      <transition g="344,515:-61,-7" name="toapprove" to="plan_approve"/>
+      <transition g="483,638:-1,15" name="toexecute" to="end_plan"/>
+   </task>
+   <task candidate-users="#{assignee}" g="348,537,92,52" name="plan_approve">
+      <transition g="351,617:-40,-6" name="passed" to="plan_approve_decide"/>
+      <transition g="-32,-6" name="not_passed" to="make_plan"/>
+   </task>
+   <decision expr="#{transition}" g="371,623,48,48" name="plan_approve_decide">
+      <transition g="9,-6" name="transfer" to="plan_approve"/>
+      <transition g="-63,-11" name="toexecute" to="end_plan"/>
+   </decision>
+   <task candidate-users="#{assignee}" g="353,736,92,52" name="end_plan">
+      <transition g="358,824:-40,10" name="approve" to="end_approve"/>
+      <transition g="235,891:7,-6" name="toclose" to="close_task"/>
+   </task>
+   <task candidate-users="#{assignee}" g="349,854,92,52" name="end_approve">
+      <transition g="355,936:-42,-8" name="passed" to="exclusive1"/>
+      <transition g="-12,-6" name="not_passed" to="end_plan"/>
+   </task>
+   <decision expr="#{transition}" g="370,951,48,48" name="exclusive1">
+      <transition g="-20,-5" name="transfer" to="end_approve"/>
+      <transition g="657,693:-57,-4" name="makeplan" to="make_plan"/>
+      <transition g="8,-9" name="toclose" to="close_task"/>
+   </decision>
+</process>

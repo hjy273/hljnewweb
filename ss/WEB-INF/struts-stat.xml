@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<!-- 修缮查询统计 -->
+
+		<form-bean name="statRemedyBean"
+			type="com.cabletech.linepatrol.remedy.beans.StatRemedyBean">
+		</form-bean>
+	</form-beans>
+	<global-forwards>
+		<forward name="sucessMsg" path="/globinfo/sucessinfo.jsp" />
+		<forward name="errorMsg" path="/globinfo/errorinfo.jsp" />
+		<forward name="powererror" path="/globinfo/powererror.jsp" />
+		<forward name="giserror" path="/realtime/errorinfo.jsp" />
+	</global-forwards>
+	<action-mappings>
+		<!-- 修缮查询统计（新） -->
+
+		<action name="statRemedyBean" path="/statRemedyAction"
+			parameter="method" scope="request"
+			type="com.cabletech.linepatrol.remedy.action.RemedyStatAction">
+			<forward name="statQueryByTown"
+				path="/linepatrol/remedy/statQueryByTown.jsp" />
+			<forward name="statQueryByContractor"
+				path="/linepatrol/remedy/statQueryByContractor.jsp" />
+			<forward name="statQueryForContractor"
+				path="/linepatrol/remedy/statQueryForContractor.jsp" />
+			<forward name="statRemedyList"
+				path="/linepatrol/remedy/statRemedyList.jsp" />
+			<forward name="statRemedyDetailList"
+				path="/linepatrol/remedy/statRemedyDetailList.jsp" />
+			<forward name="statRemedyForPieChart"
+				path="/linepatrol/remedy/xmlForPieChart.jsp" />
+			
+		</action>
+	</action-mappings>
+	
+</struts-config>

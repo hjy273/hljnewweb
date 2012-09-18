@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="overHaulBean" type="com.cabletech.linepatrol.overhaul.beans.OverHaulBean" />
+		<form-bean name="overHaulApplyBean" type="com.cabletech.linepatrol.overhaul.beans.OverHaulApplyBean" />
+		<form-bean name="overHaulQueryBean" type="com.cabletech.linepatrol.overhaul.beans.OverHaulQueryBean" />
+		<form-bean name="overHaulExamBean" type="com.cabletech.linepatrol.overhaul.beans.OverHaulExamBean" />
+	</form-beans>
+	
+	<global-forwards>
+		<forward name="sucessMsg" path="/globinfo/sucessinfo.jsp" />
+		<forward name="errorMsg" path="/globinfo/errorinfo.jsp" />
+	</global-forwards>
+	
+	<action-mappings>	
+		<action parameter="method" path="/overHaulAction" scope="request" name="overHaulBean"
+			type="com.cabletech.linepatrol.overhaul.action.OverHaulAction">
+			<forward name="addTask" path="/linepatrol/overhaul/task.jsp" />
+			<forward name="apply" path="/linepatrol/overhaul/apply.jsp" />
+			<forward name="editApply" path="/linepatrol/overhaul/editApply.jsp" />
+			<forward name="treat" path="/linepatrol/overhaul/treat.jsp" />
+			<forward name="query" path="/linepatrol/overhaul/query.jsp" />
+			<forward name="view" path="/linepatrol/overhaul/view.jsp" />
+			<forward name="cancel_over_haul" path="/linepatrol/overhaul/cancel_over_haul.jsp" />
+			<forward name="toDoWork" path="/linepatrol/overhaul/toDoWork.jsp" />
+			<forward name="query_overhaul_state" path="/linepatrol/overhaul/query_overhaul_state.jsp" />
+			<forward name="processMap" path="/linepatrol/overhaul/processMap.jsp" />
+			<forward name="finishedWork" path="/linepatrol/overhaul/finishedWork.jsp" />
+			<forward name="viewExamInfo" path="/linepatrol/overhaul/examinfo.jsp" />
+		</action>
+		
+		<action parameter="method" path="/overHaulApplyAction" scope="request" name="overHaulApplyBean"
+			type="com.cabletech.linepatrol.overhaul.action.OverHaulAction" >
+			<forward name="approve" path="/linepatrol/overhaul/approve.jsp" />
+		</action>
+		
+		<action parameter="method" path="/overHaulQueryAction" scope="request" name="overHaulQueryBean"
+			type="com.cabletech.linepatrol.overhaul.action.OverHaulAction">
+			<forward name="result" path="/linepatrol/overhaul/query.jsp" />
+			<forward name="queryCut" path="/linepatrol/overhaul/chooseCut.jsp" />
+			<forward name="queryProject" path="/linepatrol/overhaul/chooseProject.jsp" />
+		</action>
+		
+		<action parameter="method" path="/overHaulExamAction" scope="request" name="overHaulExamBean"
+			type="com.cabletech.linepatrol.overhaul.action.OverHaulExamAction">
+			<forward name="examList" path="/linepatrol/overhaul/overHaul_exam_list.jsp"/>
+			<forward name="overHaulExamForm" path="/linepatrol/overhaul/overHaul_exam_form.jsp"/>
+		</action>
+	</action-mappings>
+	
+</struts-config>

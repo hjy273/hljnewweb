@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.cabletech.linepatrol.specialplan.module.WatchPlanStat"  table="LP_SPEC_PLAN_STAT">
+        <id name="id" type="string" unsaved-value="null" >
+            <column name="ID" sql-type="varchar(12)" not-null="true"/>  
+            <generator class="com.cabletech.commons.hb.StrSequenceGenerator">
+               <param name="sequence">SEQ_LP_SPEC_PLAN_STAT_ID</param>
+               <param name="length">12</param>
+            </generator>
+        </id>
+        <property name="specPlanId" column="SPEC_PLAN_ID"/>
+        <property name="specPlanName" column="SPEC_PLAN_NAME"/>
+        <property name="specPlanType" column="SPEC_PLAN_TYPE"/>
+        <property name="factDate" column="FACT_DATE"/>
+        <property name="createDate" column="CREATE_DATE"/>
+        <property name="planPointNumber" column="PLAN_POINT_NUMBER"/>
+        <property name="planPointTimes" column="PLAN_POINT_TIMES"/>
+        <property name="planWatchNumber" column="PLAN_WATCH_NUMBER"/>
+        <property name="factPointNumber" column="FACT_POINT_NUMBER"/>
+        <property name="factPointTimes" column="FACT_POINT_TIMES"/>
+        <property name="factWatchNumber" column="FACT_WATCH_NUMBER"/>
+        <property name="patrolRatio" column="PATROL_RATIO"/>
+        <property name="watchRatio" column="WATCH_RATIO"/>
+        <property name="planPatrolMileage" column="PLAN_PATROL_MILEAGE"/>
+        <property name="factPatrolMileage" column="FACT_PATROL_MILEAGE"/>
+        <property name="planSublineNumber" column="PLAN_SUBLINE_NUMBER"/>
+        <property name="noPatrolSublineNumber" column="NO_PATROL_SUBLINE_NUMBER"/>
+        <property name="noCompleteSublineNumber" column="NO_COMPLETE_SUBLINE_NUMBER"/>
+        <property name="completeSublineNumber" column="COMPLETE_SUBLINE_NUMBER"/>
+        <property name="planWatchAreaNumber" column="PLAN_WATCH_AREA_NUMBER"/>
+        <property name="noWatchAreaNumber" column="NO_WATCH_AREA_NUMBER"/>
+        <property name="noCompleteAreaNumber" column="NO_COMPLETE_AREA_NUMBER"/>
+        <property name="completeAreaNumber" column="COMPLETE_AREA_NUMBER"/>
+        <property name="patrolStatState" column="PATROL_STAT_STATE"/>
+    </class>
+</hibernate-mapping>

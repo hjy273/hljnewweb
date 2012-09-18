@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="appraiseTableBean" type="com.cabletech.linepatrol.appraise.beans.AppraiseTableBean" />
+		<form-bean name="appraiseResultBean" type="com.cabletech.linepatrol.appraise.beans.AppraiseResultBean"></form-bean>
+		<form-bean name="appraiseDailyBean" type="com.cabletech.linepatrol.appraise.beans.AppraiseDailyBean"></form-bean>
+		<form-bean name="appraiseMonthStatBean" type="com.cabletech.linepatrol.appraise.beans.AppraiseMonthStatBean"/>
+		<form-bean name="appraiseYearResultBean" type="com.cabletech.linepatrol.appraise.beans.AppraiseYearResultBean"/>
+	</form-beans>
+
+	<action-mappings>
+		<action parameter="method" path="/appraiseTableMonthAction" scope="request" validate="false" 
+			name="appraiseTableBean" type="com.cabletech.linepatrol.appraise.action.AppraiseTableMonthAction">
+			<forward name="appraiseTableList" path="/linepatrol/appraise/appraiseTableMonthList.jsp"></forward>
+		</action>
+		
+		<action path="/appraiseMonthAction" parameter="method" name="appraiseResultBean" validate="false" scope="request" type="com.cabletech.linepatrol.appraise.action.AppraiseMonthAction">
+			<forward name="createAppraiseMonthTableForm" path="/linepatrol/appraise/createAppraiseMonthTableForm.jsp"></forward>
+			<forward name="createAppraiseMonthTable" path="/linepatrol/appraise/createAppraiseMonthTable.jsp"></forward>
+			<forward name="appraiseMonthTable" path="/linepatrol/appraise/appraiseMonthTable.jsp"></forward>
+			<forward name="viewExamBase" path="/linepatrol/appraise/viewExamBase.jsp"></forward>
+			<forward name="queryAppraiseListForm" path="/linepatrol/appraise/queryAppraiseMonthListForm.jsp"></forward>
+			<forward name="queryAppraiseMonthListForm" path="/linepatrol/appraise/queryAppraiseMonthListForm.jsp"></forward>
+			<forward name="viewAppraiseMonth" path="/linepatrol/appraise/viewAppraiseMonth.jsp"></forward>
+			<forward name="queryAppraiseMonthStatForm" path="/linepatrol/appraise/queryAppraiseMonthStatForm.jsp"></forward>
+			<forward name="queryAppraiseStatForm" path="/linepatrol/appraise/queryAppraiseMonthStatForm.jsp"></forward>
+			<forward name="querySendAppraiseForm" path="/linepatrol/appraise/sendAppraiseMonthForm.jsp"></forward>
+			<forward name="verifyAppraiseList" path="/linepatrol/appraise/verifyAppraiseMonthList.jsp"></forward>
+			<forward name="verifyResultAppraise" path="/linepatrol/appraise/verifyResultAppraiseMonthForm.jsp"></forward>
+			<forward name="queryVerifyResultAppraiseForm" path="/linepatrol/appraise/queryVerifyResultAppraiseMonthForm.jsp"></forward>
+			<forward name="waitToDoWork" path="/linepatrol/appraise/verifyMonthWaitToDoWork.jsp"></forward>
+			<forward name="viewVerifyHistory" path="/linepatrol/appraise/viewVerifyHistory.jsp"></forward>
+		</action>
+		
+		<action path="/appraiseDailyOtherAction" parameter="method" name="appraiseDailyBean" validate="false" scope="request" type="com.cabletech.linepatrol.appraise.action.AppraiseDailyOtherAction">
+			<forward name="appraiseDailyOtherForm" path="/linepatrol/appraise/appraiseDailyOtherForm.jsp"></forward>
+			<forward name="appraiseDailyOther" path="/linepatrol/appraise/appraiseDailyOther.jsp"></forward>
+			<forward name="queryAppraiseDailyOtherFrom"  path="/linepatrol/appraise/queryAppraiseDailyOtherList.jsp"></forward>
+			<forward name="viewAppraiseDaily" path="/linepatrol/appraise/appraise_daily_view.jsp"></forward>
+		</action>
+		
+		<action parameter="method" path="/appraiseMonthStatAction" scope="request" validate="false" 
+			name="appraiseMonthStatBean" type="com.cabletech.linepatrol.appraise.action.AppraiseMonthStatAction">
+			<forward name="appraiseMonthStatList" path="/linepatrol/appraise/appraise_stat_query_list.jsp"></forward>
+		</action>
+		
+		<action parameter="method" path="/appraiseDailyDailyAction" scope="request" validate="false" 
+			name="appraiseDailyBean" type="com.cabletech.linepatrol.appraise.action.AppraiseDailyDailyAction">
+		</action>
+		
+		<action path="/appraiseTableSpecialAction" parameter="method" scope="request" validate="false" name="appraiseTableBean" type="com.cabletech.linepatrol.appraise.action.AppraiseTableSpecialAction">
+			<forward name="appraiseTableList" path="/linepatrol/appraise/appraiseTableSpecialList.jsp"></forward>
+		</action>
+		
+		<action path="/appraiseTableYearAction" parameter="method" scope="request" validate="false" name="appraiseTableBean" type="com.cabletech.linepatrol.appraise.action.AppraiseTableYearAction">
+			<forward name="appraiseTableList" path="/linepatrol/appraise/appraiseTableYearList.jsp"></forward>
+		</action>
+		
+		<action path="/appraiseTableYearEndAction" parameter="method" scope="request" validate="false" name="appraiseTableBean" type="com.cabletech.linepatrol.appraise.action.AppraiseTableYearEndAction">
+			<forward name="appraiseTableList" path="/linepatrol/appraise/appraiseTableYearEndList.jsp"></forward>
+		</action>
+		
+		<action path="/appraiseDailySpecialAction" parameter="method" scope="request" validate="false" name="appraiseDailyBean" type="com.cabletech.linepatrol.appraise.action.AppraiseDailySpecialAction">
+		</action>
+		
+		<action name="appraiseResultBean" path="/appraiseSpecialAction" parameter="method" scope="request" validate="false" type="com.cabletech.linepatrol.appraise.action.AppraiseSpecialAction">
+			<forward name="createAppraiseSpecialTableForm" path="/linepatrol/appraise/createAppraiseSpecialTableForm.jsp"></forward>
+			<forward name="viewExamBase" path="/linepatrol/appraise/viewExamBase.jsp"></forward>
+			<forward name="queryAppraiseSpecialListForm" path="/linepatrol/appraise/queryAppraiseSpecialListForm.jsp"></forward>
+			<forward name="queryAppraiseListForm" path="/linepatrol/appraise/queryAppraiseSpecialListForm.jsp"></forward>
+			<forward name="queryAppraiseSpecialStatForm" path="/linepatrol/appraise/queryAppraiseSpecialStatForm.jsp"></forward>
+			<forward name="queryAppraiseStatForm" path="/linepatrol/appraise/queryAppraiseSpecialStatForm.jsp"></forward>
+			<forward name="querySendAppraiseForm" path="/linepatrol/appraise/sendAppraiseSpecialForm.jsp"></forward>
+			<forward name="verifyAppraiseList" path="/linepatrol/appraise/verifyAppraiseSpecialList.jsp"></forward>
+			<forward name="verifyResultAppraise" path="/linepatrol/appraise/verifyResultAppraiseSpecialForm.jsp"></forward>
+			<forward name="queryVerifyResultAppraiseForm" path="/linepatrol/appraise/queryVerifyResultAppraiseSpecialForm.jsp"></forward>
+			<forward name="waitToDoWork" path="/linepatrol/appraise/verifySpecialWaitToDoWork.jsp"></forward>
+			<forward name="viewVerifyHistory" path="/linepatrol/appraise/viewVerifyHistory.jsp"></forward>
+		</action>
+		
+		<action path="/appraiseDailyYearEndAction" name="appraiseDailyBean" parameter="method" scope="request" validate="false" type="com.cabletech.linepatrol.appraise.action.AppraiseDailyYearEndAction">
+			<forward name="appraiseDailyYearEndForm" path="/linepatrol/appraise/appraiseDailyYearEndForm.jsp"></forward>
+			<forward name="appraiseDailyYearEnd" path="/linepatrol/appraise/appraiseDailyYearEnd.jsp"></forward>
+			<forward name="queryAppraiseDailyYearEndListForm" path="/linepatrol/appraise/queryAppraiseDailyYearEndListForm.jsp"></forward>
+			<forward name="viewAppraiseDailyYearEnd" path="/linepatrol/appraise/viewAppraiseDailyYearEnd.jsp"></forward>
+		</action>
+		
+		<action path="/appraiseYearEndAction" name="appraiseResultBean" parameter="method" scope="request" validate="false" type="com.cabletech.linepatrol.appraise.action.AppraiseYearEndAction">
+			<forward name="createAppraiseYearEndTableForm" path="/linepatrol/appraise/createAppraiseYearEndTableForm.jsp"></forward>
+			<forward name="viewExamBase" path="/linepatrol/appraise/viewExamBaseYearEnd.jsp"></forward>
+			<forward name="queryAppraiseYearEndListForm" path="/linepatrol/appraise/queryAppraiseYearEndListForm.jsp"></forward>
+			<forward name="queryAppraiseListForm" path="/linepatrol/appraise/queryAppraiseYearEndListForm.jsp"></forward>
+			<forward name="querySendAppraiseForm" path="/linepatrol/appraise/sendAppraiseYearEndForm.jsp"></forward>
+			<forward name="verifyAppraiseList" path="/linepatrol/appraise/verifyAppraiseYearEndList.jsp"></forward>
+			<forward name="verifyResultAppraise" path="/linepatrol/appraise/verifyResultAppraiseYearEndForm.jsp"></forward>
+			<forward name="queryAppraiseYearEndStatForm" path="/linepatrol/appraise/queryAppraiseYearEndStatForm.jsp"></forward>
+			<forward name="queryAppraiseStatForm" path="/linepatrol/appraise/queryAppraiseYearEndStatForm.jsp"></forward>
+			<forward name="queryVerifyResultAppraiseForm" path="/linepatrol/appraise/queryVerifyResultAppraiseYearEndForm.jsp"></forward>
+			<forward name="waitToDoWork" path="/linepatrol/appraise/verifyYearEndWaitToDoWork.jsp"></forward>
+			<forward name="viewVerifyHistory" path="/linepatrol/appraise/viewVerifyHistory.jsp"></forward>
+		</action>
+		
+		<action path="/appraiseYearAction" name="appraiseResultBean" parameter="method" scope="request" validate="false" type="com.cabletech.linepatrol.appraise.action.AppraiseYearAction">
+			<forward name="createAppraiseYearForm" path="/linepatrol/appraise/createAppraiseYearForm.jsp"></forward>
+			<forward name="createAppraiseYear" path="/linepatrol/appraise/createAppraiseYear.jsp"></forward>
+			<forward name="appraiseYearViewBase" path="/linepatrol/appraise/appraiseYearViewBase.jsp"></forward>
+			<forward name="queryAppraiseYearForm" path="/linepatrol/appraise/queryAppraiseYearForm.jsp"></forward>
+			<forward name="viewAppraiseYear" path="/linepatrol/appraise/viewAppraiseYear.jsp"></forward>
+			<forward name="queryAppraiseYearStatForm" path="/linepatrol/appraise/queryAppraiseYearStatForm.jsp"></forward>
+			<forward name="verifyAppraiseList" path="/linepatrol/appraise/verifyAppraiseYearList.jsp"></forward>
+			<forward name="querySendAppraiseForm" path="/linepatrol/appraise/sendAppraiseYearForm.jsp"></forward>
+			<forward name="verifyAppraiseList" path="/linepatrol/appraise/verifyAppraiseYearList.jsp"></forward>
+			<forward name="verifyResultAppraise" path="/linepatrol/appraise/verifyResultAppraiseYearForm.jsp"></forward>
+			<forward name="editAppraiseYear" path="/linepatrol/appraise/editAppraiseYear.jsp"></forward>
+			<forward name="viewTrouble" path="/linepatrol/appraise/viewTrouble.jsp"></forward>
+			<forward name="queryVerifyResultAppraiseForm" path="/linepatrol/appraise/queryVerifyResultAppraiseYearForm.jsp"></forward>
+			<forward name="waitToDoWork" path="/linepatrol/appraise/verifyYearWaitToDoWork.jsp"></forward>
+			<forward name="viewVerifyHistory" path="/linepatrol/appraise/viewVerifyHistory.jsp"></forward>
+		</action>
+		<action path="/appraiseYearResultAction" name="appraiseYearResultBean" parameter="method" scope="request" validate="false" type="com.cabletech.linepatrol.appraise.action.AppraiseYearAction">
+		</action>
+	</action-mappings>
+</struts-config>
+

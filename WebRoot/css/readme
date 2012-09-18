@@ -1,0 +1,26 @@
+css 样式使用:
+css4cnltreemenu.css  ---  main_init.jsp
+ajaxtags.css  ---querySublineAjax.jsp,inputSublineForRequestAjax.jsp
+dlgbox.css  --- 日期样式  dlg_calendar.html
+extremecomponents.css --showplanprogresstext.jsp，showreceiverlist.jsp，showSublineRealTime.jsp，smreceiverlistforplanend.jsp
+foot_style.css --foot.jsp
+forOtherSystem.css --showWatchExeStaRealResult.jsp
+head_style.css -- head.jsp
+justforplanstat.css -- analysis模块，baseinfo模块，planstat模块 ；主要是对display的控制，以及tab的样式
+linker.css --getMoudle2Edit.jsp，getUsers2Edit.jsp 对html a标签的控制
+login_style.css -- 登陆样式 mainweb.jsp sqclogin.jsp stateError.jsp 
+main_style.css -- main.jsp 主页面的样式
+menu_style.css -- 菜单树样式
+notice_style.css -- 系统提示样式 success.jsp，notice.jsp，error.jsp
+styleWithoutBodyColor.css -- getMoudle2Edit.jsp，getUsers2Edit.jsp
+tab.css -- 可以删除
+
+common中的样式没有用到
+
+
+
+
+
+
+
+

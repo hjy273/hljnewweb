@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<!-- 修缮申请流程ActionFormBean -->
+		<form-bean name="RemedyApplyBean"
+			type="com.cabletech.linepatrol.remedy.beans.RemedyApplyBean">
+		</form-bean>
+		<form-bean name="RemedyApproveBean"
+			type="com.cabletech.linepatrol.remedy.beans.RemedyApproveBean">
+		</form-bean>
+		<form-bean name="RemedyCheckBean"
+			type="com.cabletech.linepatrol.remedy.beans.RemedyCheckBean">
+		</form-bean>
+		<form-bean name="RemedySquareBean"
+			type="com.cabletech.linepatrol.remedy.beans.RemedySquareBean">
+		</form-bean>
+		<form-bean name="RemedyMaterialBean"
+			type="com.cabletech.linepatrol.remedy.beans.RemedyMaterialBean">
+		</form-bean>
+	</form-beans>
+	<action-mappings>
+		<!-- 修缮申请流程Action -->
+		<action name="RemedyApplyBean" path="/remedy_apply"
+			parameter="method" scope="request"
+			type="com.cabletech.linepatrol.remedy.action.RemedyApplyAction">
+			<forward name="insert_remedy_apply"
+				path="/linepatrol/remedy/remedy_apply_insert.jsp" />
+			<forward name="update_remedy_apply"
+				path="/linepatrol/remedy/remedy_apply_update.jsp" />
+			<forward name="view_remedy_apply"
+				path="/linepatrol/remedy/remedy_apply_view.jsp" />
+			<forward name="view_square_remedy_apply"
+				path="/linepatrol/remedy/remedy_apply_square_view.jsp" />
+			<forward name="list_remedy_apply"
+				path="/linepatrol/remedy/remedy_apply_list.jsp" />
+			<forward name="query_remedy_apply"
+				path="/linepatrol/remedy/remedy_apply_query.jsp" />
+		</action>
+		<action name="RemedyApproveBean" path="/remedy_apply_approve"
+			parameter="method" scope="request"
+			type="com.cabletech.linepatrol.remedy.action.RemedyApproveAction">
+			<forward name="approve_remedy_apply"
+				path="/linepatrol/remedy/remedy_apply_approve.jsp" />
+			<forward name="list_remedy_apply"
+				path="/linepatrol/remedy/remedy_apply_list.jsp" />
+		</action>
+		<action name="RemedyCheckBean" path="/remedy_apply_check"
+			parameter="method" scope="request"
+			type="com.cabletech.linepatrol.remedy.action.RemedyCheckAction">
+			<forward name="check_remedy_apply"
+				path="/linepatrol/remedy/remedy_apply_check.jsp" />
+			<forward name="list_remedy_apply"
+				path="/linepatrol/remedy/remedy_apply_list.jsp" />
+		</action>
+		<action name="RemedySquareBean" path="/remedy_apply_square"
+			parameter="method" scope="request"
+			type="com.cabletech.linepatrol.remedy.action.RemedySquareAction">
+			<forward name="square_remedy_apply"
+				path="/linepatrol/remedy/remedy_apply_square.jsp" />
+			<forward name="list_remedy_apply"
+				path="/linepatrol/remedy/remedy_apply_list.jsp" />
+			<forward name="list_square_remedy_apply"
+				path="/linepatrol/remedy/remedy_apply_square_list.jsp" />
+			<forward name="query_square_remedy_apply"
+				path="/linepatrol/remedy/remedy_apply_square_query.jsp" />
+		</action>
+		<action name="RemedyMaterialBean" path="/remedy_material"
+			parameter="method" scope="request"
+			type="com.cabletech.linepatrol.remedy.action.RemedyMaterialAction">
+			<forward name="list_remedy_material"
+				path="/linepatrol/remedy/remedy_material_list.jsp" />
+			<forward name="query_remedy_material"
+				path="/linepatrol/remedy/remedy_material_query.jsp" />
+			<forward name="adjust_remedy_material"
+				path="/linepatrol/remedy/remedy_material_adjust.jsp" />
+		</action>
+	</action-mappings>
+</struts-config>

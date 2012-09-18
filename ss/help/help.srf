@@ -1,0 +1,138 @@
+
+
+<script language="JavaScript">
+<!-- //
+var H_FILTER=''
+var H_VER='1.5'
+var H_TOPIC='' 
+var H_BRAND=''
+var H_URL_BASE='help.htm'  // 修改此处为你要打开的文件
+var H_CONFIG=''
+var L_H_APP='Microsoft .NET Passport'
+var L_H_TEXT='有关问题' 
+var H_KEY='ppMemServHome' 
+var v3='%3Flc%3D2052'
+var bSearch=true
+var bScreen=true
+var agent_isNS=(navigator.userAgent.indexOf("Mozilla") >= 0 && !(navigator.userAgent.indexOf("MSIE")) < 0 )
+var agent_isIE=(navigator.userAgent.indexOf("MSIE") >= 0)
+var agent_isMac=(navigator.userAgent.indexOf("Mac")>=0)
+var agent_isAOL=(navigator.userAgent.indexOf("AOL") >= 0)
+if (agent_isIE && navigator.appVersion.indexOf("MSN") == -1)
+{
+	agent_Major = navigator.appVersion.substr(navigator.appVersion.indexOf("MSIE") + 5,navigator.appVersion.indexOf("."))
+	agent_Major = parseInt(agent_Major)
+}
+if(agent_isNS){agent_Major = parseInt(navigator.appVersion.substr(0,2))}
+var h_win
+var iTopicTimer
+var Topic_URL
+var help_w, help_h, help_l, help_t, fudgeW
+
+function DoHelp(agent_isNS, agent_isMac, agent_isAOL, agent_isIE, bScreen)
+{
+	
+	if (H_TOPIC != "")
+	{
+		bSearch = false
+	}
+	Topic_URL="INI="+H_CONFIG+"&H_APP="+escape(L_H_APP)
+	if (bSearch==true)
+	{
+		Topic_URL = "?"+Topic_URL+"&DIR=search"+"&SearchTerm="+H_KEY+"&S_Text="+escape(L_H_TEXT)
+	}
+	else
+	{	
+		Topic_URL = "?Topic="+H_TOPIC+"&"+Topic_URL
+	}
+	if(agent_isAOL==false || agent_isMac==true)
+	{
+		myURL = H_URL_BASE+Topic_URL+"&BrandID="+H_BRAND+"&Filter="+H_FILTER+"&H_VER="+H_VER
+	}
+	else
+	{
+		myURL = H_URL_BASE+Topic_URL+"&BrandID="+H_BRAND+"&Filter="+H_FILTER+"&H_VER="+H_VER
+	}
+	myURL = myURL + "&v3=" + v3
+	help_w=230;help_h=450;help_l=640-help_w;help_t=0;
+	if(bScreen == true)
+	{
+		if (agent_isMac==true)
+		{
+			mac_heightoffset = 1.7
+			startbarH = (screen.height-screen.availHeight)
+			startbarW = (screen.width-screen.availWidth)
+			if(agent_isAOL==true)
+			{
+				WIDTH = 248
+				aoltoolbar = 70
+			}
+			else
+			{
+				WIDTH = 255
+				aoltoolbar=0
+			}
+		}
+		else
+		{
+			mac_heightoffset = 0
+			startbarH = 0
+			startbarW = 0
+			if(screen.width <= 800)
+			{
+				WIDTH = 180
+			}
+			else
+			{
+				WIDTH = 230
+			}
+			if(agent_isAOL==true)
+			{
+				aoltoolbar = 150
+			}
+			else
+			{
+				aoltoolbar=0
+			}
+		}
+		help_w = WIDTH;
+		help_h = screen.availHeight;
+		help_l = screen.availWidth - WIDTH;
+		if(agent_isNS==true && (screen.availWidth - WIDTH != window.innerWidth) && agent_Major < 5)
+		{
+			window.opener.resizeTo(window.opener.screen.availWidth  - WIDTH - (window.opener.window.outerWidth - window.opener.window.innerWidth), window.opener.screen.availHeight - (window.opener.window.outerHeight-window.opener.window.innerHeight))
+			window.opener.moveTo(0,(startbarH * mac_heightoffset)+aoltoolbar)
+		}
+		else
+		{
+			help_h=help_h - startbarH - aoltoolbar
+			if(agent_isAOL==false || agent_isMac==true)
+			{
+				window.opener.resizeTo(screen.availWidth - WIDTH - startbarW*4, screen.availHeight - startbarH-aoltoolbar)
+				window.opener.moveTo(0,(startbarH * mac_heightoffset)+aoltoolbar)
+			}
+		}
+		if(agent_isAOL==false || agent_isMac==true)
+		{
+			window.opener.moveTo(0,(startbarH * mac_heightoffset)+aoltoolbar)
+		}
+		w_dressing = "toolbar=0,status=0,menubar=0,width="+help_w+",height="+help_h+",left="+help_l+",top="+help_t+",resizable=1"
+	}
+	else
+	{
+		w_dressing = "toolbar=0,status=0,menubar=0,width="+help_w+",height="+help_h+",,,resizable=1"
+	}
+	if(bScreen == false && agent_isIE == true && h_win != null && agent_isMac == false)
+	{
+		h_win.close()
+	}
+	h_win=window.open(myURL,"_help", w_dressing)
+}
+window.close()
+DoHelp(agent_isNS, agent_isMac, agent_isAOL, agent_isIE, bScreen)
+// --></script>
+<html>
+<head><title>Passport Help</title></head>
+<body bgcolor="#FFFFFF">
+</body>
+</html>

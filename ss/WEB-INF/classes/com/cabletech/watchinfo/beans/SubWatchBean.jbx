@@ -1,0 +1,17 @@
+[PropertyInfo]
+corenum,String,false,false,corenum,corenum,true,<default>
+fiber_kid,String,false,false,fiber_kid,fiber_kid,true,<default>
+fibername,String,false,false,fibername,fibername,true,<default>
+ifneedcut,String,false,false,ifneedcut,ifneedcut,true,<default>
+kid,String,false,false,kid,kid,true,<default>
+laytype,String,false,false,laytype,laytype,true,<default>
+monitortype,String,false,false,monitortype,monitortype,true,<default>
+netlayer,String,false,false,netlayer,netlayer,true,<default>
+segment_kid,String,false,false,segment_kid,segment_kid,true,<default>
+segmentname,String,false,false,segmentname,segmentname,true,<default>
+watchid,String,false,false,watchid,watchid,true,<default>
+[IconNames]
+
+
+
+

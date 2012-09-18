@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.linepatrol.cut.module.Cut"  table="LP_CUT">
+        <id name="id" type="string" unsaved-value="null" >
+            <column name="id" sql-type="VARCHAR(12)" not-null="true"/>  
+            <generator class="com.cabletech.commons.hb.StrSequenceGenerator">
+               <param name="sequence">SEQ_LP_CUT_ID</param>
+               <param name="length">12</param>
+            </generator>
+        </id>
+        <property name="workOrderId" column="WORKORDER_ID"/>
+        <property name="cutName" column="CUT_NAME"/>
+        <property name="cutLevel" column="CUT_LEVEL"/>
+        <property name="builder" column="BUILDER"/>
+        <property name="chargeMan" column="CHARGE_MAN"/>
+        <property name="beginTime" column="BEGINTIME"/>
+        <property name="endTime" column="ENDTIME"/>
+        <property name="budget" column="BUDGET"/>
+        <property name="isCompensation" column="ISCOMPENSATION"/>
+        <property name="compCompany" column="COMPENSATION_COMPANY"/>
+        <property name="beforeLength" column="BEFORE_LENGTH"/>
+        <property name="cutCause" column="CUT_CAUSE"/>
+        <property name="state" column="STATE"/>
+        <property name="cutPlace" column="CUT_PLACE"/>
+        <property name="unapproveNumber" column="UNAPPROVE_NUMBER"/>
+        <property name="replyBeginTime" column="REPLY_BEGINTIME"/>
+        <property name="replyEndTime" column="REPLY_ENDTIME"/>
+        <property name="linkNamePhone" column="LINKMAN_PHONE"/>
+        <property name="proposer" column="PROPOSER"/>
+        <property name="applyDate" column="APPLY_DATE"/>
+        <property name="regionId" column="REGION_ID"/>
+        <property name="otherImpressCable" column="OTHER_IMPRESS_CABLE"/>
+        <property name="useMateral" column="USER_MATERAL"/>
+        <property name="liveChargeman" column="LIVE_CHARGEMAN"/>
+        <property name="applyState" column="APPLY_STATE"/>
+        <property name="deadline" column="deadline"/>
+		<property column="CANCEL_USER_ID" generated="never" lazy="false"
+			name="cancelUserId" />
+		<property column="CANCEL_TIME" generated="never" lazy="false"
+			name="cancelTime" />
+		<property column="CANCEL_REASON" generated="never" lazy="false"
+			name="cancelReason" />
+    </class>
+</hibernate-mapping>

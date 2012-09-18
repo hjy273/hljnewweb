@@ -1,0 +1,13 @@
+[PropertyInfo]
+lable,String,false,false, , ,true,<default>
+maxsize,String,false,false, , ,true,<default>
+remark,String,false,false, , ,true,<default>
+state,String,false,false, , ,true,<default>
+tables,String,false,false, , ,true,<default>
+type,String,false,false, , ,true,<default>
+value,String,false,false, , ,true,<default>
+[IconNames]
+
+
+
+

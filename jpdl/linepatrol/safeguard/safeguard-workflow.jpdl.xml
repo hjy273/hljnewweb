@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="safeguard" xmlns="http://jbpm.org/4.0/jpdl">
+   <start g="249,1,48,48" name="start">
+      <transition g="-36,-9" name="start" to="create_guard_proj_task"/>
+   </start>
+   <end g="247,819,48,48" name="end"/>
+   <task candidate-users="#{assignee}" g="199,85,145,52" name="create_guard_proj_task">
+      <transition g="-48,-11" name="approve" to="approve_guard_proj_task"/>
+   </task>
+   <task candidate-users="#{assignee}" g="197,180,149,52" name="approve_guard_proj_task">
+      <transition g="-44,-6" name="passed" to="guard_proj_approve_decide"/>
+      <transition g="306,157:5,-7" name="not_passed" to="create_guard_proj_task"/>
+   </task>
+   <decision expr="#{transition}" g="247,266,48,48" name="guard_proj_approve_decide">
+      <transition g="-47,-8" name="execute" to="guard_plan_execute_state"/>
+      <transition g="302,257:4,-10" name="transfer" to="approve_guard_proj_task"/>
+   </decision>
+   <task candidate-users="#{assignee}" g="192,352,158,52" name="guard_plan_execute_state">
+      <transition g="-61,-9" name="summarize" to="create_guard_summary_task"/>
+   </task>
+   <task candidate-users="#{assignee}" g="195,438,150,52" name="create_guard_summary_task">
+      <transition g="-50,-4" name="approve" to="approve_guard_summary_task"/>
+   </task>
+   <task candidate-users="#{assignee}" g="190,544,158,52" name="approve_guard_summary_task">
+      <transition g="-41,-2" name="passed" to="guard_summary_approve_decide"/>
+      <transition g="306,518:4,-6" name="not_passed" to="create_guard_summary_task"/>
+   </task>
+   <decision expr="#{transition}" g="245,639,48,48" name="guard_summary_approve_decide">
+      <transition g="-50,-11" name="evaluate" to="evaluate_task"/>
+      <transition g="301,619:8,-6" name="transfer" to="approve_guard_summary_task"/>
+   </decision>
+   <task candidate-users="#{assignee}" g="224,723,92,52" name="evaluate_task">
+      <transition g="-25,-4" name="end" to="end"/>
+   </task>
+</process>

@@ -1,0 +1,426 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+	<form-beans>
+		<!-- 报告上传 -->
+		<form-bean name="ReportBean" type="com.cabletech.linepatrol.report.beans.Report"></form-bean>
+		<!-- 资料管理系统 -->
+		<form-bean name="DatumSystem" type="com.cabletech.linepatrol.datum.bean.DatumSystem"></form-bean>
+		<form-bean name="DatumCriterion" type="com.cabletech.linepatrol.datum.bean.DatumCriterion"></form-bean>
+		<form-bean name="DatumExperience" type="com.cabletech.linepatrol.datum.bean.DatumExperience"></form-bean>
+
+		<!-- 备件管理使用 杨隽 2008-11-20 -->
+		<form-bean name="SparepartApplyBean" type="com.cabletech.linepatrol.sparepartmanage.beans.SparepartApplyBean" />
+		<form-bean name="SparepartAuditingBean" type="com.cabletech.linepatrol.sparepartmanage.beans.SparepartAuditingBean" />
+		<form-bean name="SparepartStorageBean" type="com.cabletech.linepatrol.sparepartmanage.beans.SparepartStorageBean" />
+		<form-bean name="SparepartBaseInfoBean" type="com.cabletech.linepatrol.sparepartmanage.beans.SparepartBaseInfoBean"></form-bean>
+
+		<!-- 中继站管理使用-->
+		<form-bean name="RepeaterStationBean" type="com.cabletech.linepatrol.station.beans.RepeaterStationBean"></form-bean>
+		<form-bean name="RepeaterStationPlanBean" type="com.cabletech.linepatrol.station.beans.RepeaterStationPlanBean"></form-bean>
+		<form-bean name="FlowWorkInfoBean" type="com.cabletech.linepatrol.station.beans.FlowWorkInfoBean"></form-bean>
+		<form-bean name="PlanPatrolResultBean" type="com.cabletech.linepatrol.station.beans.PlanPatrolResultBean"></form-bean>
+
+		<!-- 机房巡检2008-12-22 -->
+		<form-bean name="MobileTaskBean" type="com.cabletech.linepatrol.machine.beans.MobileTaskBean"></form-bean>
+		<form-bean name="PollingContentBean" type="com.cabletech.linepatrol.machine.beans.PollingContentBean"></form-bean>
+		<form-bean name="PollingTaskBean" type="com.cabletech.linepatrol.machine.beans.PollingTaskBean"></form-bean>
+		<form-bean name="PollingConMicroBean" type="com.cabletech.linepatrol.machine.beans.PollingConMicroBean"></form-bean>
+		<form-bean name="PollingConFsoBean" type="com.cabletech.linepatrol.machine.beans.PollingConFsoBean"></form-bean>
+		<form-bean name="EquipmentInfoBean" type="com.cabletech.linepatrol.machine.beans.EquipmentInfoBean"></form-bean>
+		<form-bean name="PollingConFiberBean" type="com.cabletech.linepatrol.machine.beans.PollingConFiberBean"></form-bean>
+<!-- 派单管理模块 -->
+		<form-bean name="SendTaskBean"	type="com.cabletech.linepatrol.sendtask.beans.SendTaskBean" />
+	
+	<!-- 资料申请管理 -->
+		<form-bean name="linePatrolManagerBean" type="com.cabletech.linepatrol.material.beans.LinePatrolManagerBean"></form-bean>
+		<!-- 资料类型管理 -->
+		<form-bean name="materialTypeBean" type="com.cabletech.linepatrol.material.beans.MaterialTypeBean"></form-bean>
+		<!-- 材料规格管理 -->
+		<form-bean name="materialModelBean" type="com.cabletech.linepatrol.material.beans.MaterialModelBean"></form-bean>
+		<!-- 材料信息管理 -->
+		<form-bean name="materialInfoBean" type="com.cabletech.linepatrol.material.beans.MaterialInfoBean"></form-bean>
+		<!-- 材料存放地点管理 -->
+		<form-bean name="materialAddrBean" type="com.cabletech.linepatrol.material.beans.MaterialAddressBean"></form-bean>
+		<!-- 材料调拨管理 -->
+		<form-bean name="materialAllotBean" type="com.cabletech.linepatrol.material.beans.MaterialAllotBean"></form-bean>
+		<!-- 材料月统计 -->
+		<form-bean name="monthStatBean" type="com.cabletech.linepatrol.material.beans.MonthStatBean"/>
+		<!-- 材料盘点管理 -->
+		<form-bean name="mtUsedBean" type="com.cabletech.linepatrol.material.beans.MtUsedBean"></form-bean>
+		<form-bean name="materialUsedInfoBean" type="com.cabletech.linepatrol.material.beans.MaterialUsedInfoBean"></form-bean>
+		<form-bean name="mtUsedAssessBean" type="com.cabletech.linepatrol.material.beans.MtUsedAssessBean"></form-bean>
+	</form-beans>
+	<global-forwards>
+		<forward name="sucessMsg" path="/globinfo/sucessinfo.jsp" />
+		<forward name="errorMsg" path="/globinfo/errorinfo.jsp" />
+		<forward name="powererror" path="/globinfo/powererror.jsp" />
+		<forward name="giserror" path="/realtime/errorinfo.jsp" />
+	</global-forwards>
+	<action-mappings>
+		<!-- 报告管理 -->
+		<action path="/ReportAction" name="ReportBean" parameter="method" scope="request" type="com.cabletech.linepatrol.report.action.ReportAction">
+			<forward name="queryreport" path="/linepatrol/report/queryresult.jsp"></forward>
+			<forward name="edit" path="/linepatrol/report/editreport.jsp"></forward>
+			<forward name="read" path="/linepatrol/report/lookreport.jsp"></forward>
+			<forward name="auditing" path="/linepatrol/report/auditingreport.jsp"></forward>
+		</action>
+		<!-- 知识管理系统 -->
+		<action path="/DatumSystemAction" name="DatumSystem" parameter="method" scope="request" type="com.cabletech.linepatrol.datum.action.DatumSystemAction">
+			<forward name="queryresult" path="/linepatrol/datum/queryresult.jsp"></forward>
+			<forward name="edit" path="/linepatrol/datum/editsystemfile.jsp"></forward>
+			<forward name="look" path="/linepatrol/datum/looksystemfile.jsp"></forward>
+		</action>
+		<action path="/DatumCriterionAction" name="DatumCriterion" parameter="method" scope="request" type="com.cabletech.linepatrol.datum.action.DatumCriterionAction">
+			<forward name="queryresult" path="/linepatrol/datum/queryresult.jsp"></forward>
+			<forward name="edit" path="/linepatrol/datum/editcriterionfile.jsp"></forward>
+			<forward name="look" path="/linepatrol/datum/lookcriterionfile.jsp"></forward>
+		</action>
+		<action path="/DatumExperienceAction" name="DatumExperience" parameter="method" scope="request" type="com.cabletech.linepatrol.datum.action.DatumExperienceAction">
+			<forward name="queryresult" path="/linepatrol/datum/queryresult.jsp"></forward>
+			<forward name="edit" path="/linepatrol/datum/editexperiencefile.jsp"></forward>
+			<forward name="look" path="/linepatrol/datum/lookexperiencefile.jsp"></forward>
+		</action>
+		<!-- 备件管理 杨隽 2008-11-20 -->
+		<action name="SparepartApplyBean" parameter="method" path="/SparepartApplyAction" scope="request" type="com.cabletech.linepatrol.sparepartmanage.action.SparepartApplyAction">
+			<forward name="addApplyForm" path="/linepatrol/sparepartmanage/apply_add_form.jsp" />
+			<forward name="editApplyForm" path="/linepatrol/sparepartmanage/apply_edit_form.jsp" />
+			<forward name="queryApplyForm" path="/linepatrol/sparepartmanage/apply_query_form.jsp" />
+			<forward name="listApply" path="/linepatrol/sparepartmanage/apply_list.jsp" />
+			<forward name="viewOneApply" path="/linepatrol/sparepartmanage/view_one_apply.jsp" />
+			<forward name="audit_query_result" path="/linepatrol/sparepartmanage/audit_query_result.jsp"></forward>
+			<forward name="viewOneApplyInfo" path="/linepatrol/sparepartmanage/view_one_applyinfo.jsp"></forward>
+			<forward name="showQueryForApply" path="/linepatrol/sparepartmanage/apply_query_form.jsp"></forward>
+			<forward name="apply_query_list" path="/linepatrol/sparepartmanage/apply_query_list.jsp"></forward>
+			<forward name="viewOneApplyInfoForAppply" path="/linepatrol/sparepartmanage/view_oneApply.jsp"></forward>
+		</action>
+		<action name="SparepartAuditingBean" parameter="method" path="/SparepartAuditingAction" scope="request" type="com.cabletech.linepatrol.sparepartmanage.action.SparepartAuditingAction">
+			<forward name="auditingApplyForm" path="/linepatrol/sparepartmanage/auditing_apply_form.jsp" />
+			<forward name="listAuditingApplyHistory" path="/linepatrol/sparepartmanage/auditing_history_list.jsp" />
+		</action>
+		<action name="SparepartStorageBean" parameter="method" path="/SparepartStorageAction" scope="request" type="com.cabletech.linepatrol.sparepartmanage.action.SparepartStorageAction">
+			<forward name="saveToStorageForm" path="/linepatrol/sparepartmanage/storage_saved_form.jsp" />
+			<forward name="updateSaveToStorageForm" path="/linepatrol/sparepartmanage/storage_update_saved_form.jsp" />
+			<forward name="takeOutFromStorageForm" path="/linepatrol/sparepartmanage/storage_taken_out_form.jsp" />
+			<forward name="giveBackToStorageForm" path="/linepatrol/sparepartmanage/storage_given_back_form.jsp" />
+			<forward name="restoreToStorageForm" path="/linepatrol/sparepartmanage/storage_restored_form.jsp" />
+			<forward name="querySparepartStorageForm" path="/linepatrol/sparepartmanage/storage_query_form.jsp" />
+			<forward name="listSparepartStorage" path="/linepatrol/sparepartmanage/storage_list.jsp" />
+			<forward name="viewSavedStorage" path="/linepatrol/sparepartmanage/view_one_storage.jsp" />
+			<forward name="listSparepartStorageForDraw" path="/linepatrol/sparepartmanage/storage_listForDraw.jsp"></forward>
+			<forward name="listSparepartStorageForRe" path="/linepatrol/sparepartmanage/storage_listForRe.jsp"></forward>
+			<forward name="listForRestore" path="/linepatrol/sparepartmanage/storage_listForRestore.jsp"></forward>
+			<forward name="querySparepartStorageFormForAu" path="/linepatrol/sparepartmanage/audit_query.jsp"></forward>
+			<forward name="listSparepartStorageForOne" path="/linepatrol/sparepartmanage/sparePartOneAllList.jsp"></forward>
+			<forward name="showRestoredQuery" path="/linepatrol/sparepartmanage/storage_query_restored_form.jsp"></forward>
+			<forward name="doQueryForRestored" path="/linepatrol/sparepartmanage/restored_list.jsp"></forward>
+			<forward name="showOneRestoreInfo" path="/linepatrol/sparepartmanage/showOneRestoreInfo.jsp"></forward>
+		</action>
+		<action name="SparepartBaseInfoBean" parameter="method" path="/SeparepartBaseInfoAction" scope="request" type="com.cabletech.linepatrol.sparepartmanage.action.SeparepartBaseInfoAction">
+			<forward name="showAddSparepart" path="/linepatrol/sparepartmanage/addSparePart.jsp" />
+			<forward name="showQuery" path="/linepatrol/sparepartmanage/querySparepart.jsp"></forward>
+			<forward name="showQueryRes" path="/linepatrol/sparepartmanage/queryResult.jsp"></forward>
+			<forward name="showOneInfo" path="/linepatrol/sparepartmanage/showOneAllInfo.jsp"></forward>
+			<forward name="showEdit" path="/linepatrol/sparepartmanage/showEdit.jsp"></forward>
+		</action>
+		<action name="SparepartBaseInfoBean" parameter="method" path="/SeparepartBaseInfoAction" scope="request" type="com.cabletech.linepatrol.sparepartmanage.action.SeparepartBaseInfoAction">
+			<forward name="showAddSparepart" path="/linepatrol/sparepartmanageByF/addSparePart.jsp" />
+			<forward name="showQuery" path="/linepatrol/sparepartmanageByF/querySparepart.jsp"></forward>
+			<forward name="showQueryRes" path="/linepatrol/sparepartmanageByF/queryResult.jsp"></forward>
+			<forward name="showOneInfo" path="/linepatrol/sparepartmanageByF/showOneInfo.jsp"></forward>
+			<forward name="showEdit" path="/linepatrol/sparepartmanageByF/showEdit.jsp"></forward>
+		</action>
+
+		<action name="SparepartStorageBean" parameter="method" path="/SparepartStorageAction" scope="request" type="com.cabletech.linepatrol.sparepartmanage.action.SparepartStorageAction">
+			<forward name="saveToStorageForm" path="/linepatrol/sparepartmanageByF/storageSavedForm.jsp" />
+			<forward name="updateSaveToStorageForm" path="/linepatrol/sparepartmanageByF/storageUpdateSavedForm.jsp" />
+			<forward name="takeOutFromStorageForm" path="/linepatrol/sparepartmanageByF/storageTakenOutForm.jsp" />
+			<forward name="giveBackToStorageForm" path="/linepatrol/sparepartmanageByF/storageGivenBackForm.jsp" />
+			<forward name="restoreToStorageForm" path="/linepatrol/sparepartmanageByF/storage_restored_form.jsp" />
+			<forward name="querySparepartStorageForm" path="/linepatrol/sparepartmanageByF/storageQueryForm.jsp" />
+			<forward name="listSparepartStorage" path="/linepatrol/sparepartmanageByF/storageList.jsp" />
+			<forward name="viewSavedStorage" path="/linepatrol/sparepartmanageByF/viewOneStorage.jsp" />
+			<forward name="listSparepartStorageForDraw" path="/linepatrol/sparepartmanageByF/storageListForDraw.jsp"></forward>
+			<forward name="listSparepartStorageForRe" path="/linepatrol/sparepartmanageByF/storageListForRe.jsp"></forward>
+			<forward name="listForRestore" path="/linepatrol/sparepartmanageByF/storage_listForRestore.jsp"></forward>
+			<forward name="querySparepartStorageFormForAu" path="/linepatrol/sparepartmanageByF/auditQuery.jsp"></forward>
+			<forward name="listSparepartStorageForOne" path="/linepatrol/sparepartmanageByF/sparePartOneAllList.jsp"></forward>
+			<forward name="showAgainRestoredQueryPage" path="/linepatrol/sparepartmanageByF/storageAgainRestoredQueryForm.jsp"></forward>
+			<forward name="againRestoredList" path="/linepatrol/sparepartmanageByF/restoredAgainList.jsp"></forward>
+			<forward name="showOneRestoreInfo" path="/linepatrol/sparepartmanageByF/showOneRestoreInfo.jsp"></forward>
+			<forward name="againToStorageForm" path="/linepatrol/sparepartmanageByF/storageAgain.jsp"></forward>
+			<forward name="storageRepairInfo" path="/linepatrol/sparepartmanageByF/storageRepairInfo.jsp"></forward>
+		</action>
+		<action name="SparepartApplyBean" parameter="method" path="/SparepartApplyAction" scope="request" type="com.cabletech.linepatrol.sparepartmanage.action.SparepartApplyAction">
+			<forward name="addApplyForm" path="/linepatrol/sparepartmanageByF/applyAddForm.jsp" />
+			<forward name="editApplyForm" path="/linepatrol/sparepartmanageByF/applyEditForm.jsp" />
+			<forward name="queryApplyForm" path="/linepatrol/sparepartmanage/apply_query_form.jsp" />
+			<forward name="listApply" path="/linepatrol/sparepartmanageByF/applyList.jsp" />
+			<forward name="viewOneApply" path="/linepatrol/sparepartmanage/view_one_apply.jsp" />
+			<forward name="audit_query_result" path="/linepatrol/sparepartmanageByF/auditQueryResult.jsp"></forward>
+			<forward name="viewOneApplyInfo" path="/linepatrol/sparepartmanage/view_one_applyinfo.jsp"></forward>
+			<forward name="showQueryForApply" path="/linepatrol/sparepartmanageByF/applyQueryForm.jsp"></forward>
+			<forward name="applyQueryList" path="/linepatrol/sparepartmanageByF/applyQueryList.jsp"></forward>
+			<forward name="viewOneApplyInfoForAppply" path="/linepatrol/sparepartmanageByF/applyViewOne.jsp"></forward>
+		</action>
+		<action name="SparepartAuditingBean" parameter="method" path="/SparepartAuditingAction" scope="request" type="com.cabletech.linepatrol.sparepartmanage.action.SparepartAuditingAction">
+			<forward name="auditingApplyForm" path="/linepatrol/sparepartmanageByF/auditingApplyForm.jsp" />
+			<forward name="listAuditingApplyHistory" path="/linepatrol/sparepartmanage/auditing_history_list.jsp" />
+		</action>
+
+		<!-- 中继站管理 杨隽 2009-04-09 START -->
+		<action name="RepeaterStationBean" parameter="method" path="/station_info" scope="request" type="com.cabletech.linepatrol.station.action.RepeaterStationAction">
+			<forward name="addRepeaterStationForm" path="/linepatrol/station/add_repeater_station_form.jsp" />
+			<forward name="modRepeaterStationForm" path="/linepatrol/station/mod_repeater_station_form.jsp" />
+			<forward name="queryRepeaterStationForm" path="/linepatrol/station/query_repeater_station_form.jsp" />
+			<forward name="listRepeaterStation" path="/linepatrol/station/list_repeater_station.jsp" />
+			<forward name="viewRepeaterStation" path="/linepatrol/station/view_repeater_station.jsp" />
+			<forward name="loadStationByRegion" path="/linepatrol/station/load_station_by_region.jsp" />
+			<forward name="loadStationSelectByRegion" path="/linepatrol/station/load_station_select_by_region.jsp" />
+		</action>
+		<action name="RepeaterStationPlanBean" parameter="method" path="/station_plan" scope="request" type="com.cabletech.linepatrol.station.action.RepeaterStationPlanAction">
+			<forward name="addRepeaterStationPlanForm" path="/linepatrol/station/add_repeater_station_plan_form.jsp" />
+			<forward name="modRepeaterStationPlanForm" path="/linepatrol/station/mod_repeater_station_plan_form.jsp" />
+			<forward name="copyRepeaterStationPlanForm" path="/linepatrol/station/copy_repeater_station_plan_form.jsp" />
+			<forward name="auditingRepeaterStationPlanForm" path="/linepatrol/station/auditing_repeater_station_plan_form.jsp" />
+			<forward name="queryRepeaterStationPlanForm" path="/linepatrol/station/query_repeater_station_plan_form.jsp" />
+			<forward name="listRepeaterStationPlan" path="/linepatrol/station/list_repeater_station_plan.jsp" />
+			<forward name="listWaitAuditingPlan" path="/linepatrol/station/list_wait_auditing_plan.jsp" />
+			<forward name="listNotFinishedPlan" path="/linepatrol/station/list_not_finished_plan.jsp" />
+			<forward name="viewRepeaterStationPlan" path="/linepatrol/station/view_repeater_station_plan.jsp" />
+			<forward name="viewRepeaterStationPlanAllInfo" path="/linepatrol/station/view_repeater_station_plan_all_info.jsp" />
+		</action>
+
+		<action name="PlanPatrolResultBean" parameter="method" path="/plan_patrol_result" scope="request" type="com.cabletech.linepatrol.station.action.PlanPatrolResultAction">
+			<forward name="writeStationPatrolResultForm" path="/linepatrol/station/write_station_patrol_result_form.jsp" />
+			<forward name="queryPlanPatrolResultForm" path="/linepatrol/station/query_plan_patrol_result_form.jsp" />
+			<forward name="listPlan" path="/linepatrol/station/list_plan.jsp" />
+			<forward name="viewPlanPatrolResult" path="/linepatrol/station/view_plan_patrol_result.jsp" />
+			<forward name="viewRepeaterStationPlanWaitWrite" path="/linepatrol/station/view_repeater_station_plan_wait_write.jsp" />
+		</action>
+		<!-- 中继站管理 杨隽 2009-04-09 END -->
+
+		<!-- 机房巡检2008-12-22 haozi -->
+		<action path="/MobileTaskAction" name="MobileTaskBean" scope="request" parameter="method" type="com.cabletech.linepatrol.machine.action.MobileTaskAction">
+			<forward name="addTaskStepOne" path="/linepatrol/machine/addTaskStepOne.jsp"></forward>
+			<forward name="addTaskStepTwo" path="/linepatrol/machine/addTaskStepTwo.jsp"></forward>
+			<forward name="showQueryForTask" path="/linepatrol/machine/showQueryForTask.jsp"></forward>
+			<forward name="showQueryList" path="/linepatrol/machine/showQueryList.jsp"></forward>
+			<forward name="getTaskForCon" path="/linepatrol/machine/showTaskListForSign.jsp"></forward>
+			<forward name="showTaskQueryForCon" path="/linepatrol/machine/showTaskQueryForCon.jsp"></forward>
+			<forward name="showTaskListForRestore" path="/linepatrol/machine/showTaskListForRestore.jsp"></forward>
+			<forward name="showQueryForRestore" path="/linepatrol/machine/showQueryForRestore.jsp"></forward>
+			<forward name="showTaskListForCheck" path="/linepatrol/machine/showTaskListForCheck.jsp"></forward>
+			<forward name="showQueryForCheck" path="/linepatrol/machine/showQueryForCheck.jsp"></forward>
+			<forward name="showQueryListForCheck" path="/linepatrol/machine/showQueryListForCheck.jsp"></forward>
+		</action>
+
+		<action path="/PollingContentAction" name="PollingContentBean" scope="request" parameter="method" type="com.cabletech.linepatrol.machine.action.PollingContentAction">
+			<forward name="showContentForCoreAndSDH" path="/linepatrol/machine/showContentForCoreAndSDH.jsp"></forward>
+			<forward name="showContentForMicro" path="/linepatrol/machine/showContentForMicro.jsp"></forward>
+			<forward name="showContentForSDH" path="/linepatrol/machine/showContentForSDH.jsp"></forward>
+			<forward name="addContentForCoreAndSDH" path="/linepatrol/machine/addContentForCoreAndSDH.jsp"></forward>
+			<forward name="addCheckForCoreAndSDH" path="/linepatrol/machine/addCheckForCoreAndSDH.jsp"></forward>
+			<forward name="addContentForSDH" path="/linepatrol/machine/addContentForSDH.jsp"></forward>
+			<forward name="showOneAllInfoForCoreAndADH" path="/linepatrol/machine/showOneAllInfoForCoreAndADH.jsp"></forward>
+		</action>
+
+		<action path="/PollingConMicroAction" name="PollingConMicroBean" scope="request" parameter="method" type="com.cabletech.linepatrol.machine.action.PollingConMicroAction">
+			<forward name="addContentForMicro" path="/linepatrol/machine/addContentForMicro.jsp"></forward>
+			<forward name="showOneInfo" path="/linepatrol/machine/showContentForMicro.jsp"></forward>
+			<forward name="addCheckForMicro" path="/linepatrol/machine/addCheckForMicro.jsp"></forward>
+			<forward name="showOneAllInfoForMicro" path="/linepatrol/machine/showOneAllInfoForMicro.jsp"></forward>
+		</action>
+
+		<action path="/PollingConFsoAction" name="PollingConFsoBean" scope="request" parameter="method" type="com.cabletech.linepatrol.machine.action.PollingConFsoAction">
+			<forward name="addContentForFSO" path="/linepatrol/machine/addContentForFSO.jsp"></forward>
+			<forward name="showOneInfo" path="/linepatrol/machine/showContentForFso.jsp"></forward>
+			<forward name="addCheckForFso" path="/linepatrol/machine/addCheckForFso.jsp"></forward>
+			<forward name="showOneAllInfoForFso" path="/linepatrol/machine/showOneAllInfoForFso.jsp"></forward>
+		</action>
+
+		<action path="/PollingConFiberAction" name="PollingConFiberBean" scope="request" parameter="method" type="com.cabletech.linepatrol.machine.action.PollingConFiberAction">
+			<forward name="addContentForFiber" path="/linepatrol/machine/addContentForFiber.jsp"></forward>
+			<forward name="showOneInfo" path="/linepatrol/machine/showContentForFiber.jsp"></forward>
+			<forward name="addCheckForFiber" path="/linepatrol/machine/addCheckForFiber.jsp"></forward>
+			<forward name="showContentForFiber" path="/linepatrol/machine/showContentForFiber.jsp"></forward>
+			<forward name="showOneAllInfoForFiber" path="/linepatrol/machine/showOneAllInfoForFiber.jsp"></forward>
+		</action>
+
+		<action path="/PollingTaskAction" name="PollingTaskBean" scope="request" parameter="method" type="com.cabletech.linepatrol.machine.action.PollingTaskAction">
+			<forward name="showOneListForCoreAndSDH" path="/linepatrol/machine/showOneListForCoreAndSDH.jsp"></forward>
+			<forward name="showOneListForMicro" path="/linepatrol/machine/showOneListForMicro.jsp"></forward>
+			<forward name="showOneListForFSO" path="/linepatrol/machine/showOneListForFSO.jsp"></forward>
+			<forward name="showOneListForFiber" path="/linepatrol/machine/showOneListForFiber.jsp"></forward>
+			<forward name="showOneToSignForCoreAndSDH" path="/linepatrol/machine/showOneToSignForCoreAndSDH.jsp"></forward>
+			<forward name="showOneToSignForMicro" path="/linepatrol/machine/showOneToSignForMicro.jsp"></forward>
+			<forward name="showOneToSignForFSO" path="/linepatrol/machine/showOneToSignForFSO.jsp"></forward>
+			<forward name="showOneToSignForFiber" path="/linepatrol/machine/showOneToSignForFiber.jsp"></forward>
+			<forward name="showOneToRestoreForCoreAndSDH" path="/linepatrol/machine/showOneToRestoreForCoreAndSDH.jsp"></forward>
+			<forward name="showOneToRestoreForMicro" path="/linepatrol/machine/showOneToRestoreForMicro.jsp"></forward>
+			<forward name="showOneToRestoreForFiber" path="/linepatrol/machine/showOneToRestoreForFiber.jsp"></forward>
+			<forward name="showOneToRestoreForFSO" path="/linepatrol/machine/showOneToRestoreForFSO.jsp"></forward>
+			<forward name="showOneToCheckForCoreAndSDH" path="/linepatrol/machine/showOneToCheckForCoreAndSDH.jsp"></forward>
+			<forward name="showOneToCheckForFiber" path="/linepatrol/machine/showOneToCheckForFiber.jsp"></forward>
+			<forward name="showOneToCheckForMicro" path="/linepatrol/machine/showOneToCheckForMicro.jsp"></forward>
+			<forward name="showOneToCheckForFSO" path="/linepatrol/machine/showOneToCheckForFso.jsp"></forward>
+			<forward name="showCoreAndSDHListForCheck" path="/linepatrol/machine/showCoreAndSDHListForCheck.jsp"></forward>
+			<forward name="showMicroListForCheck" path="/linepatrol/machine/showMicroListForCheck.jsp"></forward>
+			<forward name="showFsoListForCheck" path="/linepatrol/machine/showFsoListForCheck.jsp"></forward>
+			<forward name="showFiberListForCheck" path="/linepatrol/machine/showFiberListForCheck.jsp"></forward>
+		</action>
+
+		<action path="/EquipmentInfoAction" name="EquipmentInfoBean" scope="request" parameter="method" type="com.cabletech.linepatrol.machine.action.EquipmentInfoAction">
+			<forward name="showAddEqu" path="/linepatrol/machine/showAddEquipment.jsp"></forward>
+			<forward name="showQueryForEqu" path="/linepatrol/machine/showQueryEquipment.jsp"></forward>
+			<forward name="showQueryEqu" path="/linepatrol/machine/showQueryListForEquipment.jsp"></forward>
+			<forward name="showOneToEquipment" path="/linepatrol/machine/showOneToEquipment.jsp"></forward>
+		</action>
+<!--  派单管理模块  fjj -->
+		<action name="SendTaskBean" parameter="method"	path="/SendTaskAction" scope="request"
+			type="com.cabletech.linepatrol.sendtask.action.SendTaskAction">
+			<forward name="success" path="/linepatrol/sendTaskManage/sendtask.jsp" />
+			<forward name="querytotal"	path="/linepatrol/sendTaskManage/queryTotal.jsp" />
+		</action>
+		<action name="SendTaskBean" parameter="method"	path="/EndorseAction" scope="request"
+			type="com.cabletech.linepatrol.sendtask.action.EndorseAction">
+			<forward name="success" path="/linepatrol/sendTaskManage/endorseTask.jsp" />
+		</action>
+		<action name="SendTaskBean" parameter="method"	path="/ReplyAction" scope="request"
+			type="com.cabletech.linepatrol.sendtask.action.ReplyAction">
+			<forward name="success"	path="/linepatrol/sendTaskManage/replyTask.jsp" />
+		</action>
+		<action name="SendTaskBean" parameter="method"	path="/ValidateAction" scope="request"
+			type="com.cabletech.linepatrol.sendtask.action.ValidateAction">
+			<forward name="success"	path="/linepatrol/sendTaskManage/validateTask.jsp" />
+		</action>
+		
+		<!-- 资料申请管理 modify by liusq on 2009-11-25 start -->
+        <action name="linePatrolManagerBean" path="/LinePatrolManagerAction" parameter="method" scope="request" type="com.cabletech.linepatrol.material.action.LinePatrolManagerAction">
+           <forward name="addLinePatrolRe" path="/linepatrol/material/mt_apply_add.jsp"></forward>
+           <forward name="queryLinePatrolRe" path="/linepatrol/material/mt_apply_query.jsp"></forward>
+           <forward name="queryLinePatrolInfo" path="/linepatrol/material/mt_apply_showAll.jsp"></forward>
+           <forward name="viewLinePatrolByID" path="/linepatrol/material/mt_apply_showDetail.jsp"></forward>
+           <forward name="editLinePatrol" path="/linepatrol/material/mt_apply_edit.jsp"></forward>
+           <forward name="linePatorAssess3List" path="/linepatrol/material/mt_apply_approveList.jsp"></forward>
+           <forward name="checkLinePatrolByCon" path="/linepatrol/material/mt_apply_approve.jsp"></forward>
+           <forward name="queryParolManager" path="/linepatrol/material/mt_apply_queryTwo.jsp"></forward>
+           <forward name="lookLinePatrolByCon" path="/linepatrol/material/mt_apply_showDetailTwo.jsp"></forward>
+        </action>
+        <!-- 资料申请管理 modify by liusq on 2009-11-25 end -->
+		
+		<!--材料类型管理 modify by liusq on 2009-11-25 start  -->
+		<action name="materialTypeBean" parameter="method" path="/materialTypeAction" scope="request" 
+			type="com.cabletech.linepatrol.material.action.MaterialTypeAction">
+			<forward name="addMaterialTypeForm" path="/linepatrol/material/mt_type_add.jsp" />
+			<forward name="queryMaterialTypeForm" path="/linepatrol/material/mt_type_query.jsp" />
+			<forward name="listMaterialTypes" path="/linepatrol/material/mt_type_showAll.jsp" />
+			<forward name="addMaterialModelForm" path="/linepatrol/material/mt_type_model_add.jsp" />
+			<forward name="editMaterialTypeForm" path="/linepatrol/material/mt_type_edit.jsp" />
+			<forward name="viewMaterialType" path="/linepatrol/material/mt_type_showDetail.jsp" />
+		</action>
+		<!--材料类型管理 modify by liusq on 2009-11-25 end  -->
+		
+		<!--材料规格管理 modify by liusq on 2009-11-25 start  -->
+		<action name="materialModelBean" parameter="method" path="/materialModelAction" scope="request" 
+		type="com.cabletech.linepatrol.material.action.MaterialModelAction">
+			<forward name="addMaterialModelForm" path="/linepatrol/material/mt_model_add.jsp" />
+			<forward name="queryMaterialModelForm" path="/linepatrol/material/mt_model_query.jsp" />
+			<forward name="listMaterialModels" path="/linepatrol/material/mt_model_showAll.jsp" />
+			<forward name="editMaterialModelForm" path="/linepatrol/material/mt_model_edit.jsp" />
+			<forward name="viewMaterialModel" path="/linepatrol/material/mt_model_showDetail.jsp" />
+		</action>
+		<!--材料规格管理 modify by liusq on 2009-11-25 end  -->
+		
+		<!-- 材料信息管理 modify by liusq on 2009-11-25 start -->
+		<action name="materialInfoBean" parameter="method" path="/materialInfoAction" scope="request" 
+		type="com.cabletech.linepatrol.material.action.MaterialInfoAction">
+			<forward name="addMaterialInfoForm" path="/linepatrol/material/mt_materialInfo_add.jsp"/>
+			<forward name="updatepartbase" path="/linepatrol/material/mt_materialInfo_edit.jsp"/>
+			<forward name="querymaterialInfoForm" path="/linepatrol/material/mt_materialInfo_query.jsp"/>
+			<forward name="querypartbaseresult" path="/linepatrol/material/mt_materialInfo_showAll.jsp"/>
+			<forward name="queryAjaxMAterial"   path="/linepatrol/material/mt_materialInfo_Ajax_TypeList.jsp" />
+		</action> 
+		<!-- 材料信息管理 modify by liusq on 2009-11-25 end -->
+		
+		<!-- 材料存放地点 modify by liusq on 2009-11-25 start -->
+		<action name="materialAddrBean" parameter="method" path="/MTAddressAction" scope="request" 
+			type="com.cabletech.linepatrol.material.action.MaterialAddressAction">
+			<forward name="addAddrForm" path="/linepatrol/material/mt_materialAddress_add.jsp" />
+			<forward name="queryAddrForm" path="/linepatrol/material/mt_materialAddress_query.jsp" />
+			<forward name="updatepartaddress" path="/linepatrol/material/mt_materialAddress_edit.jsp"/>
+			<forward name="queryaddressresult" path="/linepatrol/material/mt_materialAddress_showAll.jsp"/>
+		</action>
+		<!-- 材料存放地点 modify by liusq on 2009-11-25 end -->
+		
+		<!-- 材料调拨管理 modify by liusq on 2009-11-25 start -->
+		<action name="materialAllotBean" parameter="method" path="/materialAllotAction" scope="request" 
+			type="com.cabletech.linepatrol.material.action.MaterialAllotAction">
+			<forward name="addAllotContraForm" path="/linepatrol/material/mt_allot_add_contra.jsp" />
+			<forward name="addAllotMobileForm" path="/linepatrol/material/mt_allot_add_mobile.jsp" />
+			<forward name="queryMaterialAllotForm" path="/linepatrol/material/mt_allot_query.jsp" />
+			<forward name="listMaterialAllots" path="/linepatrol/material/mt_allot_showAll.jsp" />
+			<forward name="listMaterialAllotItems" path="/linepatrol/material/mt_allot_showDetail.jsp" />
+		</action>
+		<!-- 材料调拨管理 modify by liusq on 2009-11-25 end -->
+		
+		<!-- 材料库存管理 modify by liusq on 2009-11-25 start -->
+		<action name="materialModelBean" parameter="method" path="/materialStockAction" scope="request" 
+			type="com.cabletech.linepatrol.material.action.MaterialStockAction">
+			<forward name="queryMaterialStockByConForm" path="/linepatrol/material/mt_stock_conQuery.jsp" />
+			<forward name="queryMaterialStockByMTForm" path="/linepatrol/material/mt_stock_mtQuery.jsp" />
+			<forward name="marterialStocksCon" path="/linepatrol/material/mt_stock_conShow.jsp" />
+			<forward name="marterialStocksMT" path="/linepatrol/material/mt_stock_mtShow.jsp" />
+		</action>
+		<!-- 材料库存管理 modify by liusq on 2009-11-25 end -->
+		
+		<!-- 材料月统计 modify by liusq on 2009-11-25 start -->
+		<action name="monthStatBean" parameter="method" path="/MonthStateAction" scope="request" 
+			type="com.cabletech.linepatrol.material.action.MonthStateAction">
+			<forward name="monthstatform" path="/linepatrol/material/mt_monthStat_query.jsp" />
+			<forward name="monthstatlist" path="/linepatrol/material/mt_monthStat_show.jsp" />
+		</action>
+		<!-- 材料月统计 modify by liusq on 2009-11-25 end -->
+		
+		<!-- 材料年统计 modify by liusq on 2009-11-25 start -->
+		<action name="materialModelBean" parameter="method" path="/materialYearStatAction" scope="request" 
+			type="com.cabletech.linepatrol.material.action.MaterialYearStatAction">
+			<forward name="materialStateYearForm" path="/linepatrol/material/mt_yearStat_query.jsp" />
+			<forward name="materialStateYearList" path="/linepatrol/material/mt_yearStat_show.jsp" />
+		</action>
+		<!-- 材料年统计 modify by liusq on 2009-11-25 end -->
+		
+		<!-- 材料盘点管理 modify by liusq on 2009-11-25 start -->
+		<action name="mtUsedBean" parameter="method" path="/mtUsedAction" scope="request" 
+			type="com.cabletech.linepatrol.material.action.MtUsedAction">
+			<forward name="goMtUsedApplyForm" path="/linepatrol/material/material_used_apply.jsp" />
+			<forward name="detailMtUsedApplyForm" path="/linepatrol/material/material_used_apply_detail_material.jsp" />
+			<forward name="listMtUsedApplyForm" path="/linepatrol/material/material_apply_list.jsp" />
+			<forward name="goMtUsedApplyEditForm" path="/linepatrol/material/material_used_apply_edit.jsp" />
+			<forward name="displayMtUsedApplyForm" path="/linepatrol/material/material_approve_list.jsp" />
+			<forward name="getMtUsedApplyForm" path="/linepatrol/material/material_used_approve.jsp" />
+			<forward name="mobileMtUsedQuery" path="/linepatrol/material/material_mobile_query.jsp" />
+			<forward name="finishMtUsed" path="/linepatrol/material/material_finish_list.jsp" />
+			<forward name="goMtUsedApplydisForm" path="/linepatrol/material/material_used_apply_dis.jsp" />
+			<forward name="detailMtUsedApplyEditedForm" path="/linepatrol/material/material_used_apply_edited_detail_material.jsp" />
+		</action>
+		<action name="materialUsedInfoBean" parameter="method" path="/materialUsedInfoAction" scope="request" 
+			type="com.cabletech.linepatrol.material.action.MaterialUsedInfoAction">
+			<forward name="listmaterials" path="/linepatrol/material/material_addrinfo_list.jsp" />
+			<forward name="materialinfo" path="/linepatrol/material/material_addrinfo.jsp" />
+			<forward name="materialinfoview" path="/linepatrol/material/material_addrinfo_view.jsp" />
+		</action>
+		<action name="mtUsedAssessBean" parameter="method" path="/mtUsedAssessAction" scope="request" 
+			type="com.cabletech.linepatrol.material.action.MtUsedAssessAction">
+			<forward name="goMtUsedAppoverForm" path="/linepatrol/material/material_mobile_approve.jsp" />
+			<forward name="listMtUsedApplyForm" path="/linepatrol/material/material_mobile_list.jsp" />
+			<forward name="goMtUsedEditForm" path="/linepatrol/material/material_used_approve_agin.jsp" />
+			<forward name="finishMtUsed" path="/linepatrol/material/material_finish_list.jsp" />
+			<forward name="displayFinishMtUsed" path="/linepatrol/material/material_finish_display.jsp" />
+		</action>
+		<!-- 材料盘点管理 modify by liusq on 2009-11-25 end -->
+	</action-mappings>
+
+</struts-config>
+

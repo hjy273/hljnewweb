@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<script type="text/javascript" src="/WebApp/js/jquery-1.3.2.min.js"></script>
+<script language="JavaScript" src="/WebApp/js/prototype.js"></script>
+<script language="JavaScript" src="/WebApp/js/WdatePicker/WdatePicker.js"></script>
+<link type="text/css" rel="stylesheet" href="/WebApp/js/WdatePicker/skin/WdatePicker.css">
+<link href="/WebApp/css/style.css" rel="stylesheet" type="text/css">
+<script type='text/javascript' src='/WebApp/js/extjs/adapter/ext/ext-base.js'></script>
+<script type='text/javascript' src='/WebApp/js/extjs/ext-all.js'></script>
+<link rel='stylesheet' type='text/css' href='/WebApp/js/extjs/resources/css/ext-all.css' />
+<script language="JavaScript" src="/WebApp/linepatrol/quest/js/quest.js"></script>
+<HTML>
+<head>
+	<title>Test</title>
+	<script type="text/javascript">
+			function saveTable(){
+    			if(confirm("确定要添加该模板？")){
+					window.location.href="/WebApp/appraiseTable${typeName}Action.do?method=saveTable";
+				}
+			}
+			function back(){
+				window.location.href="/WebApp/appraiseTable${typeName}Action.do?method=appraiseTableList";
+			}
+			function cancel(){
+				window.location.href="/WebApp/linepatrol/appraise/import${typeName}Excel.jsp";
+			}
+		</script>
+</head>
+<BODY>
+
+<br/>
+<div class='title2' style='font-size:14px; font-weight:600;bottom:1' align='center'>
+	${table.tableName}
+</div>
+<br/>
+<table width="100%">
+			<tr align="center">
+				<td>
+					被考核单位：
+				</td>
+				
+					<td>
+					标包号：
+				</td>
+			
+				<td>
+					考核日期：
+				</td>
+				<td>
+					考核人：
+				</td>
+			</tr>
+		</table>
+<table border="0"  align="center" cellpadding="3" cellspacing="0" class="tabout" width="100%">
+	<tr class="trcolor">
+		<td class="tdulright" style="text-align:center;" width="12%"><b>项目</b></td>
+		<td width="3%" class="tdulright" style="text-align:center;"><b>权重</b></td>
+		<td class="tdulright" style="text-align:center;" width="30%"><b>内容</b></td>
+		<td width="3%" class="tdulright" style="text-align:center;"><b>权重</b></td>
+		<td class="tdulright" style="text-align:center;" width="20%"><b>细则</b></td>
+		<td width="3%" class="tdulright" style="text-align:center;"><b>满分</b></td>
+		<td width="3%" class="tdulright" style="text-align:center;"><b>得分</b></td>
+		<td class="tdulright" style="text-align:center;"><b>评分说明</b></td>
+	</tr>
+	#foreach($item in $table.appraiseItems)
+		<tr  class="trcolor">
+			<td rowspan="${item.getItemSize()}" class="tdulright"  >${item.itemName}</td>
+			<td rowspan="${item.getItemSize()}" class="tdulright"  >${item.weight}</td>
+			#set ($contentIndex = 1)
+		#foreach($content in $item.appraiseContents)
+			#if($contentIndex!=1)
+				<tr  class="trcolor">
+			#end
+			<td rowspan="${content.appraiseRules.size()}" class="tdulright"  >${content.contentDescription}</td>
+			<td rowspan="${content.appraiseRules.size()}" class="tdulright"  >${content.weight}</td>
+			#set ($ruleIndex = 1)
+			#foreach($rule in $content.appraiseRules)
+				#if($ruleIndex!=1)
+					<tr  class="trcolor">
+				#end
+				<td class="tdulright">${rule.ruleDescription}</td>	
+				<td class="tdulright">${rule.weight}</td>
+				<td class="tdulright">&nbsp;</td>
+				<td class="tdulright">${rule.gradeDescription}&nbsp;</td>
+				#set ($ruleIndex = $ruleIndex+1)
+			#end
+			#set ($contentIndex = $contentIndex+1)
+		#end
+		</tr>	
+	#end
+	<tr class="trcolor">
+		<td style="text-align: center; vertical-align: middle;">合计</td>
+		<td class="tdulright">${table.getAllWeight().get("tableWeight")}</td>
+		<td class="tdulright"></td>
+		<td class="tdulright">${table.getAllWeight().get("itemWeight")}</td>
+		<td class="tdulright"></td>
+		<td class="tdulright">${table.getAllWeight().get("contentWeight")}</td>
+		<td class="tdulright"></td>
+		<td class="tdulright"></td>
+	</tr>		
+</table>
+		<div align="center" style="height:40px">
+			<br/>
+			#if($flag == "import")
+				<input type="button" value="确认导入" class="button" onclick="javascript:saveTable();">&nbsp;&nbsp; <input type="button" value="取消导入" class="button" onclick="javascript:cancel();">
+			#end
+			#if($flag == "view")
+				<button class="button" onclick="history.back()">返回</button>
+			#end
+		</div>
+</BODY>
+</HTML>

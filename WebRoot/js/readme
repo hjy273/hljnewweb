@@ -1,0 +1,17 @@
+js文件使用模块与用途
+js文件	          	|使用模块                		|用途
+prototype.js	   	多数模块使用					ajax
+parsexml.js			baseinfo，planmanage			xml解析
+overlib.js			analysis					js提示窗口
+no_right.js			frames						禁止右键，禁止选择
+md5.js				baseinfo，systemmanage		用户密码加密
+json2.js			linecut、sparepartmangage	json
+					station、watchmanage		
+ftiens4.js、ua.js	getMoudle2Edit、getUsers2Edit 权限树加载
+validate.js			station						验证
+
+
+
+---以下不在使用
+tree_tpl.js、tree.js、frame_head.js、frame_tree.js、frame_foot.js
+dojo.js（如果有模块使用请修改）

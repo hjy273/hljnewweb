@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.linepatrol.hiddanger.model.HiddangerClose"  table="LP_HIDDANGER_CLOSE">
+        <id name="id" type="string" unsaved-value="null" >
+            <column name="ID" sql-type="varchar(12)" not-null="true"/>  
+            <generator class="com.cabletech.commons.hb.StrSequenceGenerator">
+               <param name="sequence">SEQ_LP_HIDDANGER_CLOSE_ID</param>
+               <param name="length">12</param>
+            </generator>        
+        </id>
+        <property name="hiddangerId" column="HIDDANGER_ID"/>
+        <property name="reliefTime" column="RELIEF_TIME"/>
+        <property name="reliefReason" column="RELIEF_REASON"/>
+        <property name="closerId" column="CLOSER_ID"/>
+        <property name="closeTime" column="CLOSE_TIME"/>
+        <property name="remark" column="REMARK"/>
+        <property name="approveTimes" column="APPROVE_TIMES"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.linepatrol.resource.model.RepeaterSectionHistory"  table="REPEATERSECTION_HISTORY" lazy="false">
+        <id name="id" type="java.lang.String">
+        	<generator class="com.cabletech.commons.hb.StrSequenceGenerator">
+               <param name="sequence">SEQ_REPEATERSECTION_HISTORY_ID</param>
+               <param name="length">12</param>
+            </generator>
+		</id>
+		<property name="kid" />
+        <property name="assetno" />
+        <property name="segmentid"/>
+        <property name="segmentname"/>
+        <property name="place"/>
+        <property name="cableLevel" column="cable_level"/>
+        <property name="pointa"/>
+        <property name="pointaodf"/>
+        <property name="pointaport"/>
+        <property name="pointz"/>
+        <property name="pointzodf"/>
+        <property name="pointzport"/>
+        <property name="fiberType"/>
+        <property name="coreNumber"/>
+        <property name="producer"/>
+        <property name="currentState" column="current_state"/>
+        <property name="projectName" column="project_name"/>
+        <property name="laytype"/>
+        <property name="issueNumber" column="ISSUENUMBER"/>
+       	<property name="grossLength" type="float"/>
+		<property name="reservedLength" type="float"/>
+		<property name="owner"/>
+		<property name="builder"/>
+		<property name="cabletype"/>
+		<property name="finishtime"/>
+		<property name="isCheckOut"/>
+		<property name="refactiveIndex" column="refactive_index"/>
+		<property name="havePicture" column="have_picture"/>
+		<property name="remark"/>
+		<property name="maintenanceId" column="maintenance_id"/>
+		<property name="isMaintenance" column="is_maintenance"/>
+		<property name="scetion"/>
+    </class>
+</hibernate-mapping>

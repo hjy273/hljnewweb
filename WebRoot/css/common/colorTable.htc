@@ -1,0 +1,59 @@
+<attach event="onreadystatechange" onevent="color_table()"/>
+<script language=javascript>
+// Title: tigra tables
+// Description: See the demo at url
+// URL: http://www.softcomplex.com/products/tigra_tables/
+// Version: 1.0
+// Date: 03-04-2002 (mm-dd-yyyy)
+// Author: Denis Gritcyuk <denis@softcomplex.com>
+// Notes: Permission given to use this script in any kind of applications if
+//    header lines are left unchanged. Feel free to contact the author
+//    for feature requests and/or donations
+
+
+
+
+function color_table(){
+		tigra_tables(0, 0, '#FFFFFF', '#F4F4F4', '#ffffd6', '#FFFFFF');	
+}
+function tigra_tables (
+		num_header_offset, // how many rows to skip before applying effects at the begining (opt.)
+		num_footer_offset, // how many rows to skip at the bottom of the table (opt.)
+		str_odd_color, // background color for odd rows (opt.)
+		str_even_color, // background color for even rows (opt.)
+		str_mover_color, // background color for rows with mouse over (opt.)
+		str_onclick_color // background color for marked rows (opt.)
+	) {
+		//alert(this.ownerDocument.body.innerHTML);
+		//eTable = document.getElementById("color_table");
+		//alert(eTable);
+		//alert(this.innerHTML);
+		loop = this.rows.length-num_footer_offset;
+		 
+		for(i=num_header_offset;i<loop;i++){
+			eTr = rows[i];
+			 
+			//alert(eTr.innerHTML);	
+			eTr.order = (i - num_header_offset) % 2;
+			eTr.style.backgroundColor  = eTr.order ? str_odd_color:str_even_color;
+			eTr.temp1 = eTr.order ? str_odd_color:str_even_color;
+			//eTr.temp2 = str_onclick_color;
+			//eTr.config = col_config;
+			//eTr.lconfig = col_lconfig;
+			//eTr.set_color = tt_set_color;
+			
+			eTr.onmouseover = function(){
+				this.style.backgroundColor  = str_mover_color;
+			}; 
+			eTr.onmouseout = function(){
+				this.style.backgroundColor  = this.temp1;
+			};
+			
+			//eTr.onmousedown = function(){
+			//	eTr.style.backgroundColor  = Tr.temp1;
+			//};
+		}
+	
+}
+
+</script>

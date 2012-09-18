@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.cabletech.commons.process.module.ProcessHistory"
+		table="PROCESS_HISTORY_INFO">
+		<id name="id" type="string" unsaved-value="null">
+			<column name="ID" sql-type="char(12)" not-null="true" />
+			<generator class="com.cabletech.commons.hb.StrSequenceGenerator">
+				<param name="sequence">SEQ_PROCESS_HISTORY_INFO_ID</param>
+				<param name="length">12</param>
+			</generator>
+		</id>
+		<property name="objectId" column="OBJECT_ID	" />
+		<property name="objectType" column="OBJECT_TYPE" />
+		<property name="operateUserId" column="OPERATE_USER_ID" />
+		<property name="nextOperateUserId" column="NEXT_OPERATE_USER_ID" />
+		<property name="handledTime" column="HANDLED_TIME" />
+		<property name="handledTaskId" column="HANDLED_TASK_ID" />
+		<property name="handledTaskName" column="HANDLED_TASK_NAME" />
+		<property name="executionId" column="EXECUTION_ID" />
+		<property name="processAction" column="PROCESS_ACTION" />
+		<property name="taskOutCome" column="TASK_OUT_COME" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,43 @@
+<attach event="onmouseover" onevent="over()"/>
+<attach event="onmouseout" onevent="out()"/>
+<attach event="onmousedown" onevent="down()"/>
+<attach event="onmouseup" onevent="up()"/>
+<attach event="onfocus" onevent="getfocus()"/>
+<attach event="onblur" onevent="getblur()"/>
+<script language="Javascript">
+function over(){
+	style.borderColor="#91b0ea";
+	style.borderWidth="1px";
+	style.color="#FFFFFF";
+	style.filter="progid:DXImageTransform.Microsoft.Gradient(startColorStr='#afd3ff', endColorStr='#91b0ea', gradientType='0')";
+}
+
+function out(){
+	style.borderColor="#aabee6";
+	style.borderWidth="1px";
+	style.color="#ffffff";
+	style.filter="progid:DXImageTransform.Microsoft.Gradient(startColorStr='#90baf2', endColorStr='#688bcc', gradientType='0')";
+	
+}
+
+function down(){
+	style.borderColor="#9A9A9A";
+}
+
+function up(){
+	style.borderColor="#fabe49";
+}
+
+function getfocus(){
+	style.borderColor="#91b0ea";
+	style.borderWidth="1px";
+	style.color="#FFFFFF";
+	style.filter="progid:DXImageTransform.Microsoft.Gradient(startColorStr='#afd3ff', endColorStr='#91b0ea', gradientType='0')";
+}
+function getblur(){
+	style.borderColor="#aabee6";
+	style.borderWidth="1px";
+	style.color="#FFFFFF";
+	style.filter="progid:DXImageTransform.Microsoft.Gradient(startColorStr='#90baf2', endColorStr='#688bcc', gradientType='0')";
+}
+</script>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="overhaul" xmlns="http://jbpm.org/4.0/jpdl">
+   <start g="260,116,48,48" name="start">
+      <transition g="-67,-6" name="toapprove" to="treat"/>
+   </start>
+   <task candidate-users="#{assignee}" g="239,218,92,52" name="treat">
+      <transition g="-38,-13" name="toend" to="end"/>
+   </task>
+   <end g="262,309,48,48" name="end"/>
+</process>

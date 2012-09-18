@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.linepatrol.acceptance.model.ApplyPipe"  table="LP_ACCEPTANCE_PIPE">
+        <id name="id" type="string" unsaved-value="null" >
+            <column name="ID" sql-type="varchar(12)" not-null="true"/>  
+            <generator class="com.cabletech.commons.hb.StrSequenceGenerator">
+               <param name="sequence">SEQ_LP_ACCEPTANCE_PIPE_ID</param>
+               <param name="length">12</param>
+            </generator>
+        </id>
+        <property name="projectName" column="PROJECT_NAME"/>
+        <property name="issueNumber" column="ISSUENUMBER"/>
+        <property name="pipeAddress" column="PIPE_ADDRESS"/>
+        <property name="pipeRoute" column="PIPE_ROUTE"/>
+        <property name="pipeLength0" column="PIPE_LENGTH_0"/>
+        <property name="pipeLength1" column="PIPE_LENGTH_1"/>
+        <property name="pipeProperty" column="PIPE_PROPERTY"/>
+        <property name="pipeType" column="PIPE_TYPE"/>
+        <property name="workingDrawing" column="WORKING_DRAWING"/>
+        <property name="moveScale0" column="MOVE_SCALE_0"/>
+        <property name="moveScale1" column="MOVE_SCALE_1"/>
+        <property name="builder" column="BUILDER"/>
+        <property name="builderPhone" column="BUILDER_PHONE"/>
+        <property name="pcpm" column="PCPM"/>
+        <property name="maintenance" column="MAINTENANCE"/>
+        <property name="remark" column="REMARK"/>
+        <property name="isrecord" column="ISRECORD"/>
+        <property name="ispassed" column="ISPASSED"/>
+        <property name="contractorId" column="CONTRACTORID"/>
+        <property name="planAcceptanceTime" column="PLAN_ACCEPTANCE_TIME"/>
+		<many-to-one name="apply" 
+	        class="com.cabletech.linepatrol.acceptance.model.Apply" 
+	        cascade="none" outer-join="auto" update="true" 
+			insert="true" access="property" column="APPLY_ID" not-null="true"/>
+    </class>
+</hibernate-mapping>

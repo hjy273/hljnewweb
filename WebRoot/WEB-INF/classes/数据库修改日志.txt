@@ -1,0 +1,2035 @@
+--6/19   在故障处理中，添加图片存储信息 --数据库Accident表中增加datumid字段
+       alter table ACCIDENT add datumid VARCHAR2(180);
+--6/20   在材料申请单表中（part_requsition），增加目标处理人字段(targetman)
+       alter table part_requisition add targetman VARCHAR2(20);
+--6/26   在三级菜单表中(sonmenu)添加修改和删除周计划
+       insert into sonmenu (id,lablename,parentid) values('20304','修改周计划','203');
+       insert into sonmenu (id,lablename,parentid) values('20305','删除周计划','203');
+--6/26   修改添加周计划,查询周计划菜单的URL
+       update sonmenu set hrefurl='/WebApp/PlanAction.do?method=addWPlanShow' where id='20302';
+       update sonmenu set hrefurl='/WebApp/PlanAction.do?method=searchWPlanShow' where id='20303';
+--6/26   修改添加自定义周期计划菜单的URL
+      set define off;
+      update sonmenu set hrefurl='/WebApp/PlanAction.do?method=addWPlanShow&type=custom' where id='20402';
+--6/26   添加三级菜单表中(sonmenu)添加修改和删除自定义周期计划
+       insert into sonmenu (id,lablename,parentid) values('20404','修改自定义计划','204');
+       insert into sonmenu (id,lablename,parentid) values('20405','删除自定义计划','204');
+--6/26   修改查找自定义周期计划菜单的URL
+       set define off;
+       update sonmenu set hrefurl='/WebApp/PlanAction.do?method=searchWPlanShow&searchtype=custom' where id='20403';
+--6/26   在三级菜单表中(sonmenu)添加修改和删除年计划
+       insert into sonmenu (id,lablename,parentid) values('20104','修改年计划','201');
+       insert into sonmenu (id,lablename,parentid) values('20105','删除年计划','201');
+--6/26 在三级菜单表中(sonmenu)添加修改和删除月计划
+       insert into sonmenu (id,lablename,parentid) values('20204','修改月计划','202');
+       insert into sonmenu (id,lablename,parentid) values('20205','删除月计划','202');
+--6/26   在sonmenu表中添加修改用户密码模块
+        insert into sonmenu(id,lablename,parentid,hrefurl,type) values('71202','修改用户密码','712','/WebApp/baseinfo/validatePsw.jsp','');
+--6/26   userinfo表中的password字段改为32位,存放MD5
+        ALTER TABLE USERINFO MODIFY(PASSWORD VARCHAR2(32 BYTE));
+--6/27   修改计划任务对应表计划编号字段的长度
+       alter  table plantasklist modify planid VARCHAR2(26) ;
+--6/27  在三级菜单表中(sonmenu)增加线路修改、删除
+        insert into sonmenu(id,lablename,parentid) values('70904','修改线路信息','709');
+        insert into sonmenu(id,lablename,parentid) values('70905','删除线路信息','709');
+
+--6/28  修改三级菜单表中查询巡检明细的url
+        update sonmenu set hrefurl='/WebApp/StatisticAction.do?method=showSearchPatrolDetail' where id='20601';
+        update sonmenu set hrefurl='/WebApp/StatisticAction.do?method=showSearchPatrolloss' where id='20701';
+--6/30  设置代维单位表的state字段为null
+        update contractorinfo set state = null;
+--6/30   修改三级菜单表中查询巡检率的url
+        update sonmenu set hrefurl='/WebApp/StatisticAction.do?method=showSearchPatrolRate' where id='20801';
+--6/30   修改三级菜单表中查询巡检率的url
+        update sonmenu set hrefurl='/WebApp/StatisticAction.do?method=showNewQueryPlanForm' where id='21001';
+--6/28  在三级菜单表中(sonmenu)增加部门修改、删除
+        insert into sonmenu(id,lablename,parentid) values('70204','修改部门信息','702');
+        insert into sonmenu(id,lablename,parentid) values('70205','删除部门信息','702');
+--6/29  在三级菜单表中(sonmenu) 更新增加巡检线段url
+        update sonmenu set hrefurl='/WebApp/sublineAction.do?method=loadSublineForm' where id='71002';
+        update sonmenu set hrefurl='' where id='71102';
+--7/1   设置是否给目标处理人发送短信
+        insert into sysdictionary(value,lable,type,remark) values('00000003','是否给目标处理人发送短信','1','有新的申请或审批情况时是否给目标处理人或申请人发送短信,当type值为"1"时，给目标处理人发送短信。当type值为"0"或为null时，则反之。');
+--7/1   在线路迁改表中添加迁改申请人ID以及在年月计划表中添加计划申请人ID字段
+        ALTER TABLE LINECHANGEAPPLY ADD (appuserid  VARCHAR2(10));
+        ALTER TABLE YEARMONTHPLAN ADD (createuserid  VARCHAR2(10));
+--7/2   在三级菜单表中(sonmenu)增加用户修改、删除
+        insert into sonmenu(id,lablename,parentid) values('70504','修改用户信息','705');
+        insert into sonmenu(id,lablename,parentid) values('70505','删除用户信息','705');
+--7/2   在三级菜单表中(sonmenu)增加巡检操作码修改、删除
+        insert into sonmenu(id,lablename,parentid) values('71404','修改用户信息','714');
+        insert into sonmenu(id,lablename,parentid) values('71405','删除用户信息','714');
+        update sonmenu set lablename='修改巡检操作码' where id='71404';
+        update sonmenu set lablename='删除巡检操作码' where id='71405';
+--7/5   盯防核查和报表问题：新建表watchcheckinfo，sql语句如下：
+        CREATE TABLE watchcheckinfo
+        (
+          watchid     VARCHAR2(24)                      NOT NULL,
+          patrolid    VARCHAR2(20),
+          patroltime  DATE,
+          checkinfo   VARCHAR2(50)
+        );
+--------------7/5   佛山数据库结构更新  --------------------
+---7/5  判断账户密码三个月内有效以及5个周期内不得重复 更新userinfo 表
+       ALTER TABLE USERINFO ADD (newpsdate  DATE);
+       ALTER TABLE USERINFO ADD (oldps  VARCHAR2(200));
+       update userinfo set newpsdate=sysdate;
+--------------7/7  佛山数据库结构更新  --------------------
+--7/8  为备件库存增加区域字段
+        alter table toolstorage ADD  regionid VARCHAR2(6);
+        alter table tool_base ADD  regionid VARCHAR2(6);
+        alter table tool_base ADD  state VARCHAR2(2);
+--7/9  为材料表增加字段
+        alter table part_requisition add ( regionid varchar(6));
+        alter table part_baseinfo add ( regionid varchar(6));
+        alter table part_baseinfo add ( state varchar(2));
+        alter table part_storage add ( regionid varchar(6));
+--7/10  userinfo表userid字段增加20位 ---佛山
+        ALTER TABLE USERINFO MODIFY(USERID VARCHAR2(32 BYTE));
+        ALTER TABLE ALERTRECEIVERLIST MODIFY(USERID VARCHAR2(32 BYTE));
+        ALTER TABLE LINECHANGEAPPLY MODIFY(APPUSERID VARCHAR2(32 BYTE));
+        ALTER TABLE LINECHANGECHECK MODIFY(USERID VARCHAR2(32 BYTE));
+        ALTER TABLE LINECHANGEDESIGN MODIFY(USERID VARCHAR2(32 BYTE));
+        ALTER TABLE LINECHANGERECON MODIFY(USERID VARCHAR2(32 BYTE));
+        ALTER TABLE LINECHANGESUPERVISE MODIFY(USERID VARCHAR2(32 BYTE));
+        ALTER TABLE LINE_CUTINFO MODIFY(AUDITUSERID VARCHAR2(32 BYTE));
+        ALTER TABLE LINE_CUTINFO MODIFY(WORKUSERID VARCHAR2(32 BYTE));
+        ALTER TABLE LINE_CUTINFO MODIFY(REUSERID VARCHAR2(32 BYTE));
+        ALTER TABLE PART_REQUISITION MODIFY(USERID VARCHAR2(32 BYTE));
+        ALTER TABLE PART_REQUISITION MODIFY(AUDITUSERID VARCHAR2(32 BYTE));
+        ALTER TABLE PART_STOCK MODIFY(STOCKUSERID VARCHAR2(32 BYTE));
+        ALTER TABLE PART_USE  MODIFY(USEUSERID VARCHAR2(32 BYTE));
+        ALTER TABLE PLAN MODIFY(APPROVER VARCHAR2(32 BYTE));
+        ALTER TABLE SENDMSGLOG MODIFY(USERID VARCHAR2(32 BYTE));
+        ALTER TABLE TOOLMAINTAIN MODIFY(USERID VARCHAR2(32 BYTE));
+        ALTER TABLE TOOLSTOCK MODIFY(USERID VARCHAR2(32 BYTE));
+        ALTER TABLE TOOLUSE MODIFY(USERID VARCHAR2(32 BYTE));
+        ALTER TABLE TOOLUSE MODIFY(BUSERID VARCHAR2(32 BYTE));
+        ALTER TABLE USERGOURPUSERLIST MODIFY(USERID VARCHAR2(32 BYTE));
+        ALTER TABLE YEARMONTHPLAN MODIFY(APPROVER VARCHAR2(32 BYTE));
+        ALTER TABLE YEARMONTHPLAN MODIFY(CREATEUSERID VARCHAR2(32 BYTE));
+        ---佛山
+
+---7/10 增加权限
+        insert into sonmenu(id,lablename,parentid) values('70604','修改巡检组','706');
+        insert into sonmenu(id,lablename,parentid) values('70605','删除巡检组','706');
+        insert into sonmenu(id,lablename,parentid) values('70804','修改巡检设备','708');
+        insert into sonmenu(id,lablename,parentid) values('70805','删除巡检设备','708');
+        insert into sonmenu(id,lablename,parentid) values('71004','修改巡检段信息','710');
+        insert into sonmenu(id,lablename,parentid) values('71005','删除巡检段信息','710');
+
+        insert into sonmenu(id,lablename,parentid) values('71104','修改巡检点信息','711');
+        insert into sonmenu(id,lablename,parentid) values('71105','删除巡检点信息','711');
+        insert into sonmenu(id,lablename,parentid) values('71304','修改事故码','713');
+        insert into sonmenu(id,lablename,parentid) values('71305','删除事故码','713');
+        insert into sonmenu(id,lablename,parentid) values('71504','修改报警号码','715');
+        insert into sonmenu(id,lablename,parentid) values('71505','删除报警号码','715');
+        insert into sonmenu(id,lablename,parentid) values('70304','修改代维单位','703');
+        insert into sonmenu(id,lablename,parentid) values('70305','删除代维单位','703');
+        insert into sonmenu(id,lablename,parentid) values('70704','修改巡检员','707');
+        insert into sonmenu(id,lablename,parentid) values('70705','删除巡检员','707');
+--7/10 修改二级菜单表
+        update submenu set lablename = '盯防管理' where id='402';
+        update submenu set lablename = '盯防统计' where id='403';
+        delete from sonmenu where id='40202';
+        ALTER TABLE PATROLMAN_SON_INFO MODIFY(FAMILYADDRESS VARCHAR2(40 BYTE));
+--------------7/10  佛山数据库结构更新  --------------------
+
+-- 区域state置null
+        update region set state = null;
+        update deptinfo set state = null;
+--7/12
+        update sonmenu set lablename='盯防明细查询' where id ='40302';
+        delete from sonmenu  where id ='71103';
+        insert into sonmenu (id,lablename,parentid) values('70806','设备初始化','708');
+--7/20 用户组修改和删除
+         insert into sonmenu(id,lablename,parentid) values('70404','修改用户组信息','704');
+        insert into sonmenu(id,lablename,parentid) values('70405','删除用户组信息','704');
+--7/25 修改材料表
+        ALTER TABLE PART_BASEINFO
+        MODIFY(NAME VARCHAR2(50 BYTE));
+
+        ALTER TABLE PART_BASEINFO
+        MODIFY(TYPE VARCHAR2(100 BYTE));
+
+        ALTER TABLE PART_BASEINFO
+        MODIFY(FACTORY VARCHAR2(200 BYTE));
+
+        ALTER TABLE TOOLMAINTAIN
+        MODIFY(MAINNAME VARCHAR2(20 BYTE));
+
+
+        ALTER TABLE TOOLMAINTAIN
+        MODIFY(MAINUNIT VARCHAR2(100 BYTE));
+
+        ALTER TABLE TOOLMAINTAIN
+        MODIFY(MAINADD VARCHAR2(200 BYTE));
+
+        ALTER TABLE TOOLMAINTAIN
+        MODIFY(MAINPHONE VARCHAR2(30 BYTE));
+
+--－－－－－－－－－－－－－－－－－－7月29日佛山更新－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+--8/4   修改用户表,增加设置主页面故障/在线人员/正在执行的盯防信息显示的时间段.
+        ALTER TABLE USERINFO  ADD (accidenttime  VARCHAR2(5 BYTE));
+        ALTER TABLE USERINFO  ADD (onlinemantime  VARCHAR2(5 BYTE));
+        ALTER TABLE USERINFO  ADD (watchtime  VARCHAR2(5 BYTE));
+        commit;
+        update userinfo set accidenttime='24' where accidenttime is null;
+        update userinfo set onlinemantime='2' where onlinemantime is null;
+        update userinfo set watchtime='72' where watchtime is null;
+        update userinfo set passwordterm = to_Date('2008/12/30','yyyy/mm/dd') where passwordterm is null;
+--8/8   修改巡检段高级查询
+        update sonmenu set hrefurl='/WebApp/sublineAction.do?method=loadQuerySublineForm' where id='71003';
+        commit;
+--8/8   新增光缆信息维护
+
+        ----fiberroute
+        ALTER TABLE FIBERROUTE MODIFY(SYSTEMNAME VARCHAR2(240 BYTE));
+        ALTER TABLE FIBERROUTE MODIFY(POINTA VARCHAR2(240 BYTE));
+        ALTER TABLE FIBERROUTE MODIFY(POINTAPORT VARCHAR2(240 BYTE));
+        ALTER TABLE FIBERROUTE MODIFY(POINTAODF VARCHAR2(240 BYTE));
+        ALTER TABLE FIBERROUTE MODIFY(ROUTE VARCHAR2(480 BYTE));
+        ALTER TABLE FIBERROUTE MODIFY(POINTZ VARCHAR2(240 BYTE));
+        ALTER TABLE FIBERROUTE MODIFY(POINTZPORT VARCHAR2(240 BYTE));
+        ALTER TABLE FIBERROUTE MODIFY(POINTZODF VARCHAR2(240 BYTE));
+        ALTER TABLE FIBERROUTE MODIFY(CROSSINFO VARCHAR2(480 BYTE));
+        ALTER TABLE FIBERROUTE MODIFY(OWNER VARCHAR2(240 BYTE));
+        ALTER TABLE CABLESEGMENT RENAME COLUMN SEGEMNTDESC TO SEGMENTDESC;
+        --foshan （注）
+        --insert into submenu (id,lablename,parentid,showno) values('721','光缆信息管理','7','5');
+        -- other
+        insert into submenu (id,lablename,parentid,showno) values('721','光缆信息管理','10','2');
+        insert into sonmenu (id,lablename,parentid,hrefurl) values('72101','查看光缆信息','721','/WebApp/CableSegmentAction.do?method=queryCableSegment');
+        insert into sonmenu (id,lablename,parentid,hrefurl) values('72102','增加光缆信息','721','/WebApp/CableSegmentAction.do?method=loadAddForm');
+        insert into sonmenu (id,lablename,parentid,hrefurl) values('72103','高级查询','721','/WebApp/CableSegmentAction.do?method=loadQueryForm');
+        insert into sonmenu (id,lablename,parentid) values ('72104','修改光缆信息','721');
+        insert into sonmenu (id,lablename,parentid) values ('72105','删除光缆信息','721');
+--8/9   注:在更新cablesegment表 时 先导出数据后在更新表结构,否则无法设置主健
+        ------------------------------------------------------------------------------------
+        alter table CABLESEGMENT
+          add constraint PK_CABLESEGMENT primary key (KID);
+        ALTER TABLE CABLESEGMENT MODIFY(SEGMENTNAME VARCHAR2(240 BYTE));
+        ALTER TABLE CABLESEGMENT MODIFY(SEGEMNTDESC VARCHAR2(240 BYTE));
+        ALTER TABLE CABLESEGMENT MODIFY(POINTA VARCHAR2(240 BYTE));
+        ALTER TABLE CABLESEGMENT MODIFY(POINTZ VARCHAR2(240 BYTE));
+        ALTER TABLE CABLESEGMENT MODIFY(ROUTE VARCHAR2(480 BYTE));
+        ALTER TABLE CABLESEGMENT MODIFY(LAYTYPE VARCHAR2(24 BYTE));
+        ALTER TABLE CABLESEGMENT MODIFY(OWNER VARCHAR2(240 BYTE));
+        ALTER TABLE CABLESEGMENT MODIFY(PRODUCER VARCHAR2(240 BYTE));
+        ALTER TABLE CABLESEGMENT MODIFY(BUILDER VARCHAR2(240 BYTE));
+        ALTER TABLE CABLESEGMENT MODIFY(CABLETYPE VARCHAR2(24 BYTE));
+        ALTER TABLE CABLESEGMENT MODIFY(FINISHTIME VARCHAR2(24 BYTE));
+        ALTER TABLE CABLESEGMENT MODIFY(FIBERTYPE VARCHAR2(24 BYTE));
+--8/15 建立线路割接审批表,用于记录多次的审批结果(含施工审核.)
+        CREATE TABLE line_cutapprove
+        (
+          id           VARCHAR2(10 BYTE),
+          reid         VARCHAR2(10 BYTE),
+          auditresult  VARCHAR2(10 BYTE),
+          audituserid  VARCHAR2(32 BYTE),
+          audittime    DATE,
+          deptid       VARCHAR2(10 BYTE),
+          auditremark  VARCHAR2(512 BYTE),
+          auditacce    VARCHAR2(512 BYTE),
+          type         VARCHAR2(10 BYTE)
+        )
+        LOGGING
+        NOCACHE
+        NOPARALLEL
+        NOMONITORING;
+        ALTER TABLE line_cutapprove ADD ( PRIMARY KEY (id));
+        commit;
+--8/15 建立线路割接施工表,用于一个割接的多次施工.
+        CREATE TABLE line_cutwork
+        (
+          id          VARCHAR2(10 BYTE),
+          reid        VARCHAR2(10 BYTE),
+          workuserid  VARCHAR2(32 BYTE),
+          ENDVALUE    NUMBER(6,2),
+          manpower    NUMBER(6,2),
+          usetime     NUMBER(6,2),
+          essetime    DATE,
+          workremark  VARCHAR2(512 BYTE),
+          workacce    VARCHAR2(512 BYTE)
+        )
+        LOGGING
+        NOCACHE
+        NOPARALLEL
+        NOMONITORING;
+        ALTER TABLE line_cutwork ADD ( PRIMARY KEY (id));
+        commit;
+--8/16 添加修改割接施工菜单
+        insert into sonmenu(id,lablename,parentid,type) values('30304','修改施工信息','303','2');
+        update  sonmenu set type='2' where id='30302';
+        update submenu set type='9' where id='305';
+        commit;
+--9/18修改割接部分时的修改
+        insert into sonmenu(id,lablename,parentid,hrefurl) values('30601','查看割接验收','306','/WebApp/LineCutAcceptAction.do?method=showAllAcc');
+        insert into sonmenu(id,lablename,parentid,hrefurl) values('30602','验收割接','306','/WebApp/LineCutAcceptAction.do?method=showAllWorkForAcc');
+        insert into sonmenu(id,lablename,parentid,hrefurl) values('30603','查询割接验收','306','/WebApp/LineCutAcceptAction.do?method=showAccQuery');
+        insert into sonmenu(id,lablename,parentid) values('30602','修改割接验收','306');
+        insert into submenu (id,lablename,parentid,showno) values('306','割接验收管理','3','9');
+        update sonmenu set lablename='查看归档' where id='30401';
+
+        ALTER TABLE LINE_CUTINFO ADD (workid  VARCHAR2(10 BYTE));
+         ALTER TABLE LINE_CUTINFO ADD (acceptid  VARCHAR2(10 BYTE));
+        ALTER TABLE LINE_CUTINFO ADD (updoc  VARCHAR2(10 BYTE));
+        commit;
+
+--9/22 开始做任务派送模块时的修改与添加工作(添加三个表).
+        CREATE TABLE SENDTASK
+        (
+          ID            VARCHAR2(10 BYTE),
+          SENDUSERID    VARCHAR2(32 BYTE),
+          SENDDEPTID    VARCHAR2(10 BYTE),
+          SENDTIME      DATE,
+          SENDTYPE      VARCHAR2(50 BYTE),
+          PROCESSTERM   VARCHAR2(10 BYTE),
+           SENDTOPIC     VARCHAR2(200 BYTE),
+           SENDTEXT      VARCHAR2(1024 BYTE),
+            SENDACCE      VARCHAR2(512 BYTE),
+           ACCEPTDEPTID  VARCHAR2(10 BYTE),
+          ACCEPTUSERID  VARCHAR2(32 BYTE),
+          WORKSTATE     VARCHAR2(10 BYTE),
+          ENDORSEID     VARCHAR2(10 BYTE),
+          REPLYID       VARCHAR2(10 BYTE),
+          REGIONID      VARCHAR2(6 BYTE)
+        )
+        LOGGING
+        NOCOMPRESS
+        NOCACHE
+        NOPARALLEL
+        MONITORING;
+
+        COMMENT ON COLUMN SENDTASK.ID IS 'workstate取值:1待签收   3待回复   6待验证    9已结束';
+
+
+        ALTER TABLE SENDTASK ADD (
+          PRIMARY KEY
+         (ID));
+
+         CREATE TABLE SENDTASKENDORSE
+        (
+          ID          VARCHAR2(10 BYTE),
+          TIME        DATE,
+          DEPTID      VARCHAR2(10 BYTE),
+          USERID      VARCHAR2(32 BYTE),
+          RESULT      VARCHAR2(10 BYTE),
+          REMARK      VARCHAR2(1024 BYTE),
+          ACCE        VARCHAR2(512 BYTE),
+          SENDTASKID  VARCHAR2(10 BYTE)
+        )
+        LOGGING
+        NOCOMPRESS
+        NOCACHE
+        NOPARALLEL
+        MONITORING;
+
+        COMMENT ON COLUMN SENDTASKENDORSE.ID IS 'result取值: 1签收  0拒签';
+
+
+        ALTER TABLE SENDTASKENDORSE ADD (
+          PRIMARY KEY
+         (ID));
+
+        CREATE TABLE SENDTASKREPLY
+        (
+          ID              VARCHAR2(10 BYTE),
+          REPLYTIME       DATE,
+          REPLYUSERID     VARCHAR2(32 BYTE),
+          REPLYRESULT     VARCHAR2(10 BYTE),
+          REPLYACCE       VARCHAR2(512 BYTE),
+          REPLYREMARK     VARCHAR2(1024 BYTE),
+          VALIDATETIME    DATE,
+          VALIDATEUSERID  VARCHAR2(32 BYTE),
+          VALIDATERESULT  VARCHAR2(10 BYTE),
+          VALIDATEACCE    VARCHAR2(512 BYTE),
+          VALIDATEREMARK  VARCHAR2(1024 BYTE),
+          SENDTASKID      VARCHAR2(10 BYTE)
+        )
+        LOGGING
+        NOCOMPRESS
+        NOCACHE
+        NOPARALLEL
+        MONITORING;
+
+        COMMENT ON COLUMN SENDTASKREPLY.ID IS 'validateresult取值:0未通过验证,1通过验证.';
+
+        ALTER TABLE SENDTASKREPLY ADD (
+          PRIMARY KEY
+         (ID));
+         commit;
+        --添加三个表结束
+
+        insert into mainmodulemenu (id,lablename,imgurl,showno) values ('11','派单管理','../images/iconmenu/xjsjcjsz.gif','13');
+        insert into submenu (id,lablename,parentid,showno) values ('1101','指派任务','11','1');
+        insert into submenu (id,lablename,parentid,showno) values ('1102','签收任务','11','2');
+        insert into submenu (id,lablename,parentid,showno) values ('1103','回复任务','11','3');
+        insert into submenu (id,lablename,parentid,showno) values ('1104','验证任务','11','4');
+
+        insert into sonmenu(id,lablename,parentid,hrefurl) values ('110101','查看派单','1101','/WebApp/SendTaskAction.do?method=showAllSendTask');
+        insert into sonmenu(id,lablename,parentid,hrefurl) values ('110102','指派任务','1101','/WebApp/SendTaskAction.do?method=showSendTask');
+        insert into sonmenu(id,lablename,parentid,hrefurl) values ('110103','高级查询','1101','/WebApp/SendTaskAction.do?method=showQuerySendTask');
+        insert into sonmenu(id,lablename,parentid) values ('110104','派单修改','1101');
+
+        insert into sonmenu(id,lablename,parentid,hrefurl) values ('110201','查看签收','1102','/WebApp/EndorseAction.do?method=showAllEndorse');
+        insert into sonmenu(id,lablename,parentid,hrefurl) values ('110202','签收任务','1102','/WebApp/EndorseAction.do?method=showTaskToEndorse');
+        insert into sonmenu(id,lablename,parentid,hrefurl) values ('110203','高级查询','1102','/WebApp/EndorseAction.do?method=showQueryEndorse');
+
+        insert into sonmenu(id,lablename,parentid,hrefurl) values ('110301','查看回复','1103','/WebApp/ReplyAction.do?method=showAllReply');
+        insert into sonmenu(id,lablename,parentid,hrefurl) values ('110302','回复任务','1103','/WebApp/ReplyAction.do?method=showTaskToReply');
+        insert into sonmenu(id,lablename,parentid,hrefurl) values ('110303','高级查询','1103','/WebApp/ReplyAction.do?method=showQueryReply');
+        insert into sonmenu(id,lablename,parentid) values ('110304','修改回复','1103');
+
+        insert into sonmenu(id,lablename,parentid,hrefurl) values ('110401','查看验证','1104','/WebApp/ValidateAction.do?method=showAllValidate');
+        insert into sonmenu(id,lablename,parentid,hrefurl) values ('110402','验证任务','1104','/WebApp/ValidateAction.do?method=showTaskToValidate');
+        insert into sonmenu(id,lablename,parentid,hrefurl) values ('110403','高级查询','1104','/WebApp/ValidateAction.do?method=showQueryValidate');
+
+--10/9 为解决安徽用户排序问题增加排序字段.
+        ALTER TABLE USERINFO ADD (positionno  VARCHAR2(5 BYTE));
+
+---迁改(修缮)表结构
+        CREATE TABLE CHANGEBUILD
+        (
+          ID            VARCHAR2(11 BYTE)               NOT NULL,
+          CHANGEID      VARCHAR2(10 BYTE),
+          STARTTIME     DATE,
+          ENDTIME       DATE,
+          BUILDUNIT     VARCHAR2(50 BYTE),
+          BUILDADDR     VARCHAR2(100 BYTE),
+          BUILDPHONE    VARCHAR2(20 BYTE),
+          BUILDPERSON   VARCHAR2(20 BYTE),
+          BUILDREMARK   VARCHAR2(512 BYTE),
+          BUILDDATUM    VARCHAR2(180 BYTE),
+          BUILDVALUE    VARCHAR2(512 BYTE),
+          FILLINPERSON  VARCHAR2(32 BYTE),
+          FILLINUNIT    VARCHAR2(10 BYTE),
+          FILLINDATE    DATE
+        );
+        ALTER TABLE CHANGEBUILD ADD (
+          CONSTRAINT PK_CHANGEBUILD
+         PRIMARY KEY
+         (ID));
+
+
+        CREATE TABLE CHANGECHECK
+        (
+          ID            VARCHAR2(11 BYTE)               NOT NULL,
+          CHANGEID      VARCHAR2(10 BYTE),
+          CHECKDATE     DATE,
+          CHECKPERSON   VARCHAR2(20 BYTE),
+          CHECKRESULT   VARCHAR2(10 BYTE),
+          CHECKREMARK   VARCHAR2(512 BYTE),
+          CHECKDATUM    VARCHAR2(180 BYTE),
+          FILLINPERSON  VARCHAR2(32 BYTE),
+          FILLINTIME    DATE
+        );
+        ALTER TABLE CHANGECHECK ADD (
+          CONSTRAINT PK_CHANGECHECK
+         PRIMARY KEY
+         (ID));
+
+        CREATE TABLE CHANGEINFO
+        (
+          ID                VARCHAR2(10 BYTE)           NOT NULL,
+          CHANGENAME        VARCHAR2(50 BYTE),
+          CHANGEPRO         VARCHAR2(30 BYTE),
+          CHANGEADDR        VARCHAR2(100 BYTE),
+          LINECLASS         VARCHAR2(10 BYTE),
+          INVOLVED_SYSTEM   VARCHAR2(200 BYTE),
+          CHANGELENGTH      NUMBER(6,2),
+          STARTDATE         DATE,
+          PLANTIME          NUMBER(6,2),
+          REMARK            VARCHAR2(512 BYTE),
+          APPLYPERSON       VARCHAR2(32 BYTE),
+          APPLYDATUMID      VARCHAR2(180 BYTE),
+          APPLYTIME         DATE,
+          STEP              VARCHAR2(2 BYTE),
+          REGIONID          VARCHAR2(10 BYTE),
+          BUDGET            NUMBER(6,2),
+          APPROVERESULT     VARCHAR2(10 BYTE),
+          ENAME             VARCHAR2(50 BYTE),
+          EADDR             VARCHAR2(100 BYTE),
+          EPERSON           VARCHAR2(20 BYTE),
+          EPHONE            VARCHAR2(20 BYTE),
+          SNAME             VARCHAR2(50 BYTE),
+          SADDR             VARCHAR2(100 BYTE),
+          SPHONE            VARCHAR2(20 BYTE),
+          SPERSON           VARCHAR2(20 BYTE),
+          SGRADE            VARCHAR2(10 BYTE),
+          SEXPENSE          NUMBER(6,2),
+          DNAME             VARCHAR2(50 BYTE),
+          DADDR             VARCHAR2(100 BYTE),
+          DPERSON           VARCHAR2(20 BYTE),
+          DPHONE            VARCHAR2(20 BYTE),
+          DGRADE            VARCHAR2(10 BYTE),
+          DEXPENSE          NUMBER(6,2),
+          SETOUTDATUM       VARCHAR2(180 BYTE),
+          SETOUTREMARK      VARCHAR2(512 BYTE),
+          SETOUTPERSON      VARCHAR2(32 BYTE),
+          SETOUTTIME        DATE,
+          ENTRUSTUNIT       VARCHAR2(50 BYTE),
+          ENTRUSTADDR       VARCHAR2(100 BYTE),
+          ENTRUSTPHONE      VARCHAR2(20 BYTE),
+          ENTRUSTPERSON     VARCHAR2(20 BYTE),
+          ENTRUSTGRADE      VARCHAR2(10 BYTE),
+          CONSTARTDATE      DATE,
+          ENTRUSTREMARK     VARCHAR2(512 BYTE),
+          ENTRUSTDATUM      VARCHAR2(180 BYTE),
+          ENTRUSTNOTE       VARCHAR2(20 BYTE),
+          ENTRUSTTIME       DATE,
+          COST              NUMBER(6,2),
+          PAGEONHOLEDATE    DATE,
+          SQUARE            NUMBER(6,2),
+          ISCHANGEDATUM     VARCHAR2(2 BYTE),
+          PAGEONHOLEPERSON  VARCHAR2(32 BYTE),
+          PAGEONHOLEDATUM   VARCHAR2(180 BYTE),
+          APPLYUNIT         VARCHAR2(50 BYTE),
+          PAGEONHOLEREMARK  VARCHAR2(512 BYTE)
+        );
+        ALTER TABLE CHANGEINFO ADD (
+          CONSTRAINT PK_CHANGEINFO
+         PRIMARY KEY
+         (ID));
+
+        CREATE TABLE CHANGESURVEY
+        (
+          ID             VARCHAR2(11 BYTE)              NOT NULL,
+          CHANGEID       VARCHAR2(10 BYTE),
+          SURVEYDATE     DATE,
+          PRINCIPAL      VARCHAR2(20 BYTE),
+          BUDGET         NUMBER(6,2),
+          SURVEYREMARK   VARCHAR2(512 BYTE),
+          SURVEYDATUM    VARCHAR2(180 BYTE),
+          FILLINDATE     DATE,
+          APPROVERESULT  VARCHAR2(10 BYTE),
+          APPROVER       VARCHAR2(32 BYTE),
+          APPROVEDEPT    VARCHAR2(50 BYTE),
+          APPROVEREMARK  VARCHAR2(512 BYTE),
+          APPROVEDATE    DATE
+        );
+        ALTER TABLE CHANGESURVEY ADD (
+          CONSTRAINT PK_CHANGESURVEY
+         PRIMARY KEY
+         (ID));
+         ALTER TABLE CHANGEBUILD MODIFY(ID VARCHAR2(11 BYTE));
+         ALTER TABLE CHANGECHECK MODIFY(ID VARCHAR2(11 BYTE));
+         ALTER TABLE CHANGESURVEY MODIFY(ID VARCHAR2(11 BYTE));
+         -----------
+        delete submenu where id like '50%';
+        INSERT INTO SUBMENU ( ID, LABLENAME, HREFURL, PARENTID, REMARK, REGIONID, SHOWNO,TYPE ) VALUES ( '507', '修缮归档', NULL, '5', NULL, NULL, 7, NULL);
+        INSERT INTO SUBMENU ( ID, LABLENAME, HREFURL, PARENTID, REMARK, REGIONID, SHOWNO,TYPE ) VALUES ( '508', '查询统计', NULL, '5', NULL, NULL, 8, NULL);
+        INSERT INTO SUBMENU ( ID, LABLENAME, HREFURL, PARENTID, REMARK, REGIONID, SHOWNO,TYPE ) VALUES ( '501', '修缮申请', NULL, '5', NULL, NULL, 1, NULL);
+        INSERT INTO SUBMENU ( ID, LABLENAME, HREFURL, PARENTID, REMARK, REGIONID, SHOWNO,TYPE ) VALUES ( '506', '修缮验收', NULL, '5', NULL, NULL, 6, NULL);
+        INSERT INTO SUBMENU ( ID, LABLENAME, HREFURL, PARENTID, REMARK, REGIONID, SHOWNO,TYPE ) VALUES ( '502', '勘查审定', NULL, '5', NULL, NULL, 2, NULL);
+        INSERT INTO SUBMENU ( ID, LABLENAME, HREFURL, PARENTID, REMARK, REGIONID, SHOWNO,TYPE ) VALUES ( '503', '施工准备', NULL, '5', NULL, NULL, 3, NULL);
+        INSERT INTO SUBMENU ( ID, LABLENAME, HREFURL, PARENTID, REMARK, REGIONID, SHOWNO,TYPE ) VALUES ( '504', '施工委托', NULL, '5', NULL, NULL, 4, NULL);
+        INSERT INTO SUBMENU ( ID, LABLENAME, HREFURL, PARENTID, REMARK, REGIONID, SHOWNO,TYPE ) VALUES ( '505', '施工信息', NULL, '5', NULL, NULL, 5, NULL);
+        ---------
+        delete sonmenu where id like '50%';
+        set define off;
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE ) VALUES ( '50101', '修缮查询', '501', '/WebApp/changeapplyaction.do?method=getApplyInfoList', NULL, NULL);
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE ) VALUES ( '50102', '修缮填写', '501', '/WebApp/changeapplyaction.do?method=loadAddForm', NULL, NULL);
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE ) VALUES ( '50601', '查看验收信息', '506', '/WebApp/checkaction.do?method=getCheckInfo', NULL, NULL);
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE ) VALUES ( '50301', '查看准备信息', '503', '/WebApp/buildsetoutaction.do?method=listBuildSetout', NULL, '1');
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE ) VALUES ( '50401', '查看委托信息', '504', '/WebApp/consignaction.do?method=listConsign', NULL, '1');
+
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE ) VALUES ( '50103', '高级查询', '501', '/WebApp/changeapplyaction.do?method=loadQueryForm', NULL, NULL);
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE ) VALUES ( '50104', '修改修缮', '501', NULL, NULL, NULL);
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE ) VALUES ( '50105', '删除修缮', '501', NULL, NULL, NULL);
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE ) VALUES ( '50201', '查看勘查审定', '502', '/WebApp/changesurveyaction.do?method=getSurveyInfoList', NULL, '1');
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE ) VALUES ( '50501', '查看施工信息', '505', '/WebApp/buildaction.do?method=getBuildInfo', NULL, '1');
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE ) VALUES ( '50602', '填写验收信息', '506', '/WebApp/checkaction.do?method=getChangeInfo', NULL, NULL);
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE ) VALUES ( '50202', '填写勘查审定', '502', '/WebApp/changeapplyaction.do?method=getApplyInfoList&op=survey', NULL, NULL);
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE ) VALUES ( '50203', '高级查询', '502', '/WebApp/changesurveyaction.do?method=loadQueryForm', NULL, NULL);
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE ) VALUES ( '50204', '二次填写勘查', '502', NULL, NULL, NULL);
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE ) VALUES ( '50302', '填写准备信息', '503', '/WebApp/buildsetoutaction.do?method=listChangeInfo', NULL, NULL);
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE ) VALUES ( '50303', '高级查询', '503', '/WebApp/buildsetoutaction.do?method=loadQueryForm', NULL, NULL);
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE ) VALUES ( '50402', '填写委托信息', '504', '/WebApp/consignaction.do?method=listChangeInfo', NULL, NULL);
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE ) VALUES ( '50403', '查询委托信息', '504', '/WebApp/consignaction.do?method=loadQueryForm', NULL, NULL);
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE ) VALUES ( '50502', '填写施工信息', '505', '/WebApp/buildaction.do?method=getChangeInfo', NULL, NULL);
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE ) VALUES ( '50503', '查询施工信息', '505', '/WebApp/buildaction.do?method=loadQueryForm', NULL, NULL);
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE ) VALUES ( '50504', '修改', '505', NULL, NULL, NULL);
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE ) VALUES ( '50603', '查询验收信息', '506', '/WebApp/checkaction.do?method=loadQueryForm', NULL, NULL);
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE ) VALUES ( '50701', '查看归档信息', '507', '/WebApp/pageonholeaction.do?method=getPageonholeList', NULL, NULL);
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE ) VALUES ( '50702', '信息归档', '507', '/WebApp/pageonholeaction.do?method=getChangeInfoList', NULL, NULL);
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE ) VALUES ( '50703', '查询归档信息', '507', '/WebApp/pageonholeaction.do?method=loadQueryForm', NULL, NULL);
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE ) VALUES ( '50801', '查询修缮信息', '508', '/WebApp/stataction.do?method=loadQueryForm', NULL, NULL);
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE ) VALUES ( '50802', '统计修缮信息', '508', NULL, NULL, NULL);
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE ) VALUES ( '50304', '修改', '503', NULL, NULL, NULL);
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE ) VALUES ( '50404', '修改', '504', NULL, NULL, NULL);
+
+        ALTER TABLE CHANGEBUILD ADD (state  VARCHAR2(8 BYTE));
+        ALTER TABLE CHANGECHECK ADD (state  VARCHAR2(8 BYTE));
+        ALTER TABLE CHANGESURVEY ADD (state  VARCHAR2(8 BYTE));
+        commit;
+
+--区域排序
+        ALTER TABLE REGION  ADD (sortno  VARCHAR2(5 BYTE));
+--到佛山后修改
+        ALTER TABLE USERGROUPMOUDULELIST MODIFY(SONMENUID VARCHAR2(10 BYTE));
+        ALTER TABLE SENDTASK MODIFY(PROCESSTERM DATE);
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL ) VALUES ( '80404', '入库统计', '804', '/WebApp/PartStockAction.do?method=queryShowForStat');
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL ) VALUES ( '80504', '入库统计', '805', '/WebApp/PartStockAction.do?method=queryShowForOldStat');
+        ALTER TABLE ACCIDENT  ADD (reporttime  DATE);
+
+        ALTER TABLE CHANGEINFO  ADD (squared  NUMBER(6,2));
+        ALTER TABLE CHANGEINFO  MODIFY(SQUARED  DEFAULT 0);
+        ALTER TABLE CHANGEINFO  ADD (sqdate  DATE);
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL ) VALUES ( '50704', '结算付款', '507', '/WebApp/pageonholeaction.do?method=showSquare');
+
+
+-----------------------------------以上为v2.0--------------------------------------------------------------
+--修改系统字典remark字段的长度
+        ALTER TABLE SYSDICTIONARY MODIFY(REMARK VARCHAR2(512 BYTE));
+        insert into sysdictionary (value,lable,maxsize,remark) values ('00000004','密码有效期期限','0','maxsize的值必须进行设置，如果Maxsize的值为0 表示系统将不对其进行密码期限验证；若maxsize的值大于0要求系统对其进行密码有效期验证，密码有效期一天为计算单位');
+---设备编号的提升
+    ALTER TABLE TERMINALINFO MODIFY(TERMINALID VARCHAR2(20 BYTE));
+--添加设备电压菜单
+    insert into sonmenu (id,lablename,parentid,hrefurl) values ('70807','查看设备电压','708','/WebApp/terminalAction.do?method=showVoltage');
+--1206 添加设备的通讯录
+        ALTER TABLE TERMINALINFO ADD (phonebook  VARCHAR2(512 BYTE));
+        --调度信息及反馈信息
+        CREATE TABLE ATTEMPER_MSG
+        (
+          KEYID       NVARCHAR2(16) PRIMARY KEY,             --主键
+          MSGID       NVARCHAR2(16),                         --消息ID
+          DEVICEID  VARCHAR2(8 BYTE) NOT NULL,               --设备号
+          SIMID       NVARCHAR2(11) NOT NULL,                --SIM卡号
+          MSGCONTENT  NVARCHAR2(256),                        --调度信息内容
+          SENDER      NVARCHAR2(32),                         --调度信息发送者
+          NEEDREPLY   CHAR(1 BYTE)  DEFAULT 'N'  NOT NULL,   --是否需要回复
+          RESPSTATE   CHAR(1 BYTE)  DEFAULT '0'  NOT NULL,   --调度信息的反馈状态()
+          SENDTIME    DATE          NOT NULL,                --调度信息的发出时间
+          RESPTIME    DATE                                   --调度信息被反馈回来的时间
+
+        );
+
+        --查询手持设备电压
+
+        CREATE TABLE QUERY_VOLTAGE
+        (
+          KEYID        NVARCHAR2(16) PRIMARY KEY,   --主键
+          MSGID        VARCHAR2(16 BYTE),           --消息ID
+          DEVICEID  VARCHAR2(8 BYTE) NOT NULL,      --设备号
+          SIMID        NVARCHAR2(11) NOT NULL,      --SIM卡号
+          QUERYMAN     NVARCHAR2(32),               --查询人
+          QUERYTIME    DATE,                        --查询时间
+          RESPVOLTAGE  FLOAT,                       --反馈电压
+          RESPTIME     DATE                         --发回反馈电压的时间
+        );
+
+        --手持设备反馈电压历史记录
+        CREATE TABLE VOLTAGE_HISTORY
+        (
+          KEYID     NVARCHAR2(16) PRIMARY KEY,      --主键
+          MSGID     VARCHAR2(16 BYTE) NOT NULL,     --消息ID
+          DEVICEID  VARCHAR2(8 BYTE) NOT NULL,      --设备号
+          SIMID     NVARCHAR2(11) NOT NULL,         --SIM卡号
+          RESPVOLTAGE   FLOAT,                      --反馈电压
+          RESPTIME  DATE                            --发回反馈电压的时间
+        );
+--2.0版本部署后修改的
+        ALTER TABLE DEPTINFO MODIFY(PARENTID VARCHAR2(10 BYTE));
+
+-----事故码新表
+
+        CREATE TABLE TROUBLECODE
+        (
+            ID              VARCHAR2(10 BYTE)           NOT NULL,
+          TROUBLECODE     VARCHAR2(3 BYTE)              NOT NULL,
+          TROUBLETYPE     VARCHAR2(10 BYTE)             NOT NULL,
+          TROUBLENAME     VARCHAR2(20 BYTE)             NOT NULL,
+          EMERGENCYLEVEL  NUMBER,
+          REMARK          VARCHAR2(200 BYTE)
+
+        );
+        CREATE TABLE TROUBLETYPE
+        (
+            ID        VARCHAR2(10 BYTE)                   NOT NULL,
+          CODE      VARCHAR2(3 BYTE)                    NOT NULL,
+          TYPENAME  VARCHAR2(20 BYTE)                   NOT NULL,
+          REGIONID  VARCHAR2(6 BYTE)                    NOT NULL
+
+        );
+        ALTER TABLE TROUBLETYPE ADD PRIMARY KEY (ID);
+        ALTER TABLE TROUBLECODE ADD PRIMARY KEY (ID);
+---添加修改菜单
+        update submenu set lablename='NV系列故障码管理' where id='713';
+        insert into submenu (id,lablename,parentid,showno) values('722','CT系列故障码管理','7','15');
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE ) VALUES ( '70808', '通讯录管理', '708', '/WebApp/terminalAction.do?method=showPhoneBook', NULL, NULL);
+
+---0116-----
+        创建用户在线时间表
+        CREATE TABLE USERONLINETIME
+        (
+          KEYID       VARCHAR2(16 BYTE)    PRIMARY KEY,
+          USERID      VARCHAR2(32 BYTE),
+          LOGINIP     VARCHAR2(64 BYTE),
+          LOGINTIME   DATE,
+          LOGOUTTIME  DATE,
+          ONLINETIME  NUMBER
+        );
+---添加修改菜单
+
+       update sonmenu set hrefurl='/WebApp/BusinesslogAction.do?method=showQueryUserLog' where id='71601';
+       INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE ) VALUES ( '71802', '查询登录信息', '718', '/WebApp/onlineuseraction.do?method=showQueryUser', NULL, NULL);
+
+--GIS部分的,为了解决巡检轨迹出不来而修改的数据库
+        ALTER TABLE LOCALIZERRSPLOG ADD (regionid  VARCHAR2(6 BYTE));
+        CREATE OR REPLACE PROCEDURE AddRegion IS
+        BEGIN
+
+        DECLARE
+           CURSOR emp_cur IS (select p.PATROLID,p.REGIONID from patrolmaninfo p);
+        BEGIN
+           FOR rec IN emp_cur
+           LOOP
+              update localizerrsplog set localizerrsplog.regionid=rec.regionid where localizerrsplog.EXECUTORID=rec.PATROLID;
+           END LOOP;
+        END;
+        END AddRegion;
+
+---------------------------- 2007.02.26 Version 2.5--------------------------------
+--070302,更改一级菜单迁改管理的名称。
+        UPDATE MAINMODULEMENU SET LABLENAME='修缮管理' WHERE  ID='5';
+--070305,修改三级菜单表，设置默认权限分配。修改用户组表
+        ALTER TABLE SONMENU ADD (POWER  VARCHAR2(50 BYTE));
+        ALTER TABLE USERGROUPMASTER  ADD (TYPE  VARCHAR2(1 BYTE));
+--070307,修改三级菜单
+        update sonmenu set hrefurl='/WebApp/watchAction.do?method=showQueryWatch' where id='40207';
+        update sonmenu set hrefurl='/WebApp/watchAction.do?method=showQueryWatchExe' where id='40302';
+        update sonmenu set hrefurl='/WebApp/watchAction.do?method=showQueryWatchExeSta' where id='40301';
+--0703013 修改三级菜单表中年月计划的高级查询连接
+         set define off;
+        update sonmenu set hrefurl='/WebApp/YearMonthPlanAction.do?method=SearchYMPlan&fID=1' where id='20103';
+        update sonmenu set hrefurl='/WebApp/YearMonthPlanAction.do?method=SearchYMPlan&fID=2' where id='20203';
+        update sonmenu set hrefurl='/WebApp/StatisticAction.do?method=showSearchApproveRate' where id='20901';
+
+--070319 --ysj 修改三级菜单.重做CT故障码管理
+        ALTER TABLE LINEINFO MODIFY(LINENAME VARCHAR2(100 BYTE));
+        ALTER TABLE SUBLINEINFO MODIFY(SUBLINENAME VARCHAR2(100 BYTE));
+        ALTER TABLE POINTINFO MODIFY(POINTNAME VARCHAR2(100 BYTE));
+
+        ALTER TABLE TROUBLECODE  ADD (regionid  VARCHAR2(6 BYTE));
+        delete from sonmenu where PARENTID= '722';
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE,power ) VALUES ( '72201', '查看事故码', '722', '/WebApp/TroubleCodeAction.do?method=load_TroubleCode', NULL, NULL,'11,12');
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE,power ) VALUES ( '72204', '修改事故码', '722',NULL, NULL, NULL,'11,12');
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE,power ) VALUES ( '72205', '删除事故码', '722', NULL, NULL, NULL,'11,12');
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE,power ) VALUES ( '72202', '增加事故码', '722', '/WebApp/TroubleCodeAction.do?method=show_add_TroubleCode', NULL, NULL,'11,12');
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE,power ) VALUES ( '72206', '管理事故类型', '722', '/WebApp/TroubleCodeAction.do?method=load_TroubleType', NULL, NULL,'11,12');
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE,power ) VALUES ( '72207', '增加事故类型', '722', NULL, NULL, NULL,'11,12');
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE,power ) VALUES ( '72208', '修改事故类型', '722', NULL, NULL, NULL,'11,12');
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE,power ) VALUES ( '72209', '删除事故类型', '722',NULL, NULL, NULL,'11,12');
+        INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE,power ) VALUES ( '72210', '下发事故码', '722','/WebApp/TroubleCodeAction.do?method=showSend_TroubleCode', NULL, NULL,'11,12');
+
+
+
+--2007-3-16 修改sonmenu数据表中增加用户信息和用户信息高级查询子菜单的hrefurl路径
+        update sonmenu set hrefurl='/WebApp/userinfoAction.do?method=addUserInfoForm' where id='70502';
+        update sonmenu set hrefurl='/WebApp/userinfoAction.do?method=queryUserinfoForm' where id='70503';
+
+--2007-3-17 修改sonmenu数据表中增加报警号码和报警号码高级查询信息子菜单的hrefurl路径
+        update sonmenu set hrefurl='/WebApp/AlertreceiverListAction.do?method=addAlertreceiverListForm' where id='71502';
+        update sonmenu set hrefurl='/WebApp/AlertreceiverListAction.do?method=queryAlertreceiverListForm' where id='71503';
+
+--2007-3-19 修改sonmenu数据表中短信发送日志和短信接收日志子菜单的hrefurl路径
+        update sonmenu set hrefurl='/WebApp/smsLogAction.do?method=querySMS_ReciveLogForm' where id='71701';
+        update sonmenu set hrefurl='/WebApp/smsLogAction.do?method=querySMS_SendLogForm' where id='71702';
+
+--070314,修改三级菜单
+        update sonmenu set hrefurl='/WebApp/patrolSonAction.do?method=showPatrolManSon' where id='70703';
+--070319,修改三级菜单
+        update sonmenu set hrefurl='/WebApp/lineAction.do?method=showAddLine' where id='70902';
+
+
+
+
+--070329,用于创建所有事故代码表的函数
+drop function getAllTroubleCodes;
+drop type tabletypes;
+drop type rowtypes;
+create type rowtypes as object(
+   operationcode varchar2(20),operationdes varchar2(20),emergencylevel varchar2(20),
+   musthandle char(1),noticecycle integer,handlecycle integer,
+   regionid varchar2(6),remark varchar2(100)
+   );
+create type tabletypes as table of rowtypes;
+
+/******************************************************************************
+   NAME:       getAllTroubleCodes
+   PURPOSE:    获得不同设备的所有故障原因
+******************************************************************************/
+create or replace function getAllTroubleCodes return tabletypes pipelined as
+  v rowtypes;
+begin
+  for myrow in (
+    select operationcode c, operationdes d ,emergencylevel l ,
+	       musthandle m , noticecycle n , handlecycle h,regionid r,remark re
+	from
+	patroloperation
+	) loop
+    v := rowtypes(myrow.c,myrow.d,myrow.l,myrow.m,myrow.n,myrow.h,myrow.r,myrow.re);
+    pipe row (v);
+  end loop;
+  for myrow in (
+      select concat(to_char(t2.code),to_char(t1.troublecode)) c,
+             t1.troublename d ,t1.emergencylevel l,t1.musthandle m,t1.noticecycle n,
+			 t1.handlecycle h,t1.regionid r,t1.remark re
+      from troublecode t1,troubletype t2
+	  where t1.troubletype=t2.id
+	  ) loop
+    v:=rowtypes(myrow.c,myrow.d,myrow.l,myrow.m,myrow.n,myrow.h,myrow.r,myrow.re);
+	pipe row (v);
+  end loop;
+  return;
+end;
+--070330,更改故障表中的故障码字段长度
+alter table accident modify (operationcode varchar2(6));
+
+--070402,添加故障表中的处理周期、响应周期和是否必须处理字段
+alter table troublecode
+add (
+   musthandle char(1) default '1' not null,
+   noticecycle integer default 24 not null,
+   handlecycle integer default 24 not null
+   );
+ALTER TABLE WATCHINFO
+MODIFY(TERMINALID VARCHAR2(20 BYTE));
+--AddRegion存储过程
+CREATE OR REPLACE PROCEDURE AddRegion IS
+        BEGIN
+
+        DECLARE
+           CURSOR emp_cur IS (SELECT p.PATROLID,p.REGIONID FROM PATROLMANINFO p);
+        BEGIN
+           FOR rec IN emp_cur
+           LOOP
+              UPDATE LOCALIZERRSPLOG SET LOCALIZERRSPLOG.regionid=rec.regionid WHERE LOCALIZERRSPLOG.EXECUTORID=rec.PATROLID;
+           END LOOP;
+        END;
+        END AddRegion;
+----------------------------------更新数据库时要注意----------------------------------------------------
+--    1 材料基本表要加区域字段的值(part_baseinfo)
+--    2 材料申请表要加区域字段的值(part_requisition)
+--    3 材料库存表要加区域字段的值(part_storage)
+--    4 备件库存表要加区域字段的值(toolstorage)
+--    5 安徽sonmenu表 id=40302 的name修改为:盯防明细查询
+--    6 在更新cablesegment表 时 先导出数据后在更新表结构,否则无法设置主健
+--	  7 执行完该语句后要运行 AddRegion存储过程
+--    8 更新完毕后一定要在每一个用户组的type字段设置值，1表示为移动的用户组，2表示为代维的用户组
+--	  9 更新完毕后，一定要设置sonmenu表中的power字段的值.
+--    10 三级菜单表要导入现在开发中的表,troubletype,toublecode也要导入现在的表,以便初始化.
+
+--------------------2.7 版本以后 --数据修改请在下面添加------------------------------------------------
+
+---070428 巡检计划修改
+update submenu set LABLENAME='制定巡检计划' where id='203';
+update submenu set LABLENAME='制定计划模板' where id='204';
+update SONMENU set lablename='查询制定计划' where id='20301';
+update SONMENU set lablename='增加制定计划' where id='20302';
+update SONMENU set lablename='修改制定计划' where id='20304';
+update SONMENU set lablename='删除制定计划' where id='20305';
+
+--070428 计划模板
+update SONMENU set lablename='查询计划模板',hrefurl='/WebApp/StencilAction.do?method=queryStencil',power='22' where id='20401';
+update SONMENU set lablename='增加计划模板',hrefurl='/WebApp/StencilAction.do?method=addStencil',power='22'  where id='20402';
+update SONMENU set lablename='修改计划模板',power='22' where id='20404';
+update SONMENU set lablename='删除计划模板',power='22' where id='20405';
+update SONMENU set hrefurl='/WebApp/StencilAction.do?method=searchStencil',power='22' where id='20403';
+create table plantasksubline  (
+   tsblid             VARCHAR2(10)                    not null,
+   sublineid          VARCHAR2(20),
+   taskid             VARCHAR2(20),
+   constraint PK_PLANTASKSUBLINE primary key (tsblid)
+);
+--070430 巡检计划模板涉及表
+    create table SUBTASKOPER_STENCIL(
+        STOID VARCHAR2(10) not null,
+       TASKID VARCHAR2(10),
+       TOID VARCHAR2(10),
+        constraint PK_SUBTASKOPER_STENCIL primary key (STOID)
+    );
+    comment on column SUBTASKOPER_STENCIL.TOID is '操作码类型';
+    create unique index PK_SUBTASKOPER_STENCIL on SUBTASKOPER_STENCIL(STOID);
+    create table SUBTASK_STENCIL(
+        TASKID VARCHAR2(10) not null,
+       STENCILID VARCHAR2(10),
+       DESCRIPTION VARCHAR2(50),
+       LINELEVEL NUMBER,
+       EXCUTETIMES NUMBER,
+        constraint PK_SUBTASK_STENCIL primary key (TASKID)
+    );
+    comment on column SUBTASK_STENCIL.DESCRIPTION is '子任务名称';
+    comment on column SUBTASK_STENCIL.LINELEVEL is '线路的类型指的是一干、二干、本地、接入';
+	create unique index PK_SUBTASK_STENCIL on SUBTASK_STENCIL(TASKID);
+    create table TASKPOINT_STENCIL(
+        ID VARCHAR2(20) not null,
+       TASKID VARCHAR2(10),
+       POINTID VARCHAR2(24),
+        constraint PK_TASKPOINT_STENCIL primary key (ID)
+    );
+    create unique index PK_TASKPOINT_STENCIL on TASKPOINT_STENCIL(ID);
+    create table TASK_STENCIL(
+        STENCILID VARCHAR2(10) not null,
+       STENCILNAME VARCHAR2(50),
+       PATROLID VARCHAR2(20),
+       CREATEDATE DATE,
+       REGIONID VARCHAR2(6),
+       CONTRACTORID VARCHAR2(10),
+        constraint PK_TASK_STENCIL primary key (STENCILID)
+    );
+    create unique index PK_TASK_STENCIL on TASK_STENCIL(STENCILID);
+commit;
+
+--查询计划时用到的函数
+CREATE OR REPLACE FUNCTION         
+TO_CONCATROWSBYCOLUMN (
+taskid in Varchar2  --renwuid的值
+)
+  return varchar2 is
+  v_Result varchar2(32767);
+  type cur_type is ref cursor;
+  myCur cur_type;
+  v_Column1Value varchar2(4000);
+begin
+  Open myCur for 'select o.operationname from taskinfo t ,taskoperationlist ol,taskoperation o where t.id=ol.taskid and ol.operationid=o.id and t.id='||taskid;
+  Loop
+    Fetch myCur Into v_Column1Value;
+    Exit When myCur%notfound;
+    v_Result:=v_Result||v_Column1Value||'、';
+  End Loop;
+  Close myCur;
+  return(v_Result);
+end TO_ConcatRowsByColumn;
+
+CREATE OR REPLACE function SUBLINE_CONCATROWSBYCOLUMN(
+taskid in Varchar2  --renwuid的值
+)
+  return varchar2 is
+  v_Result varchar2(32767);
+  type cur_type is ref cursor;
+  myCur cur_type;
+  v_Column1Value varchar2(4000);
+begin
+  Open myCur for 'select s.sublinename  from taskinfo t,plantasksubline sl, sublineinfo s where t.id=sl.taskid and sl.sublineid=s.sublineid and t.id='||taskid;
+  Loop
+    Fetch myCur Into v_Column1Value;
+    Exit When myCur%notfound;
+    v_Result:=v_Result||v_Column1Value||'、';
+  End Loop;
+  Close myCur;
+  return(v_Result);
+end subline_ConcatRowsByColumn;
+
+ALTER TABLE taskinfo add (TASKPOINT VARCHAR2(10));
+------------------巡检计划查询统计新增相关表及其它(start) by steven gong----------------------
+--070430,增加计划执行情况统计表
+create table PLAN_STAT
+(
+  PLANID       VARCHAR2(26) not null,
+  PLANNAME     VARCHAR2(50),
+  CONTRACTORID VARCHAR2(10),
+  EXECUTORID   VARCHAR2(10),
+  STARTDATE    DATE,
+  ENDDATE      DATE,
+  PLANPOINTN   NUMBER,
+  FACTPOINTN   NUMBER,
+  LEAKPOINTN   NUMBER,
+  PLANPOINT    NUMBER,
+  FACTPOINT    NUMBER,
+  PATROLP      NUMBER(5,2),
+  KEYPOINT     NUMBER,
+  LEAKKEYPOINT NUMBER,
+  PATROLKM     NUMBER(8,2),
+  CREATEDATE   DATE,
+  constraint PK_PLAN_STAT primary key (PLANID)
+);
+--070430,增加巡检明细表
+create table PLAN_STATPATROLDAD
+(
+  PDADID     VARCHAR2(20) not null,
+  PLANID     VARCHAR2(26),
+  POINTID    VARCHAR2(20),
+  PATROLDATE DATE,
+  ISMODIFIED VARCHAR2(2),
+  constraint PK_PLAN_STATPATROLDAD primary key (PDADID)
+);
+--070430,增加漏检明细表
+create table PLAN_STATLEAKDAD
+(
+  LDADID       VARCHAR2(20) not null,
+  PLANID       VARCHAR2(26),
+  POINTID      VARCHAR2(20),
+  EXECUTETIMES NUMBER,
+  LEAKTIME     NUMBER,
+  constraint PK_PLAN_STATLEAKDAD primary key (LDADID)
+);
+--070430,增加巡检线段信息表
+create table PLAN_STATSUBLINE
+(
+  PSSID        VARCHAR2(10) not null,
+  PLANID       VARCHAR2(26),
+  SUBLINEID    VARCHAR2(20),
+  PLANPOINTN   NUMBER,
+  FACTPOINTN   NUMBER,
+  PLANPOINT    NUMBER,
+  FACTPOINT     NUMBER,
+  PATROLP      NUMBER(5,2),
+  LEAKPOINT    NUMBER,
+  LEAKKEYPOINT NUMBER,
+  SUBLINEKM    NUMBER(8,2),
+  KEYPOINT     NUMBER,
+  FACTKM       NUMBER(8,2),
+  constraint PK_PLAN_STATSUBLINE primary key (PSSID)
+);
+--070430,增加计划统计与巡检员月统计关联表
+create table PLANSTAT_PATROLSTAT
+(
+  ID     VARCHAR2(30) not null,
+  PLANID VARCHAR2(26) not null,
+  PPID   VARCHAR2(10),
+  constraint PK_PLANSTAT_PATROLSTAT primary key (ID)
+);
+--070430,增加巡检员月统计结果表
+create table PLAN_PATROLSTAT
+(
+  PPID           VARCHAR2(10) not null,
+  EXECUTORID     VARCHAR2(10),
+  STATDATE       DATE,
+  PLANPOINT      NUMBER,
+  FACTPOINT      NUMBER,
+  TROUBLE        NUMBER,
+  OVERALLPATROLP NUMBER(8,2),
+  REGIONID       VARCHAR2(6),
+  CONTRACTORID   VARCHAR2(10),
+  constraint PK_PLAN_PATROLSTAT primary key (PPID)
+);
+--070430,增加市移动月统计结果表
+create table PLAN_MSTAT
+(
+  MSTATID        VARCHAR2(10) not null,
+  DEPTID         VARCHAR2(10),
+  STATDATE       DATE,
+  OVERALLPATROLP NUMBER(8,2),
+  REGIONID       VARCHAR2(6),
+  constraint PK_PLAN_MSTAT primary key (MSTATID)
+);
+--070430,增加市移动与市代维的关联表
+create table PLANSTAT_MC
+(
+  MCID    VARCHAR2(30) not null,
+  CSTATID VARCHAR2(10) not null,
+  MSTATID VARCHAR2(10) not null,
+  constraint PK_PLANSTAT_MC primary key (MCID)
+);
+--070430,增加市代维月统计结果表
+create table PLAN_CSTAT
+(
+  CSTATID      VARCHAR2(10) not null,
+  STATDATE     DATE,
+  CDEPTID      VARCHAR2(10),
+  PATROLP      NUMBER(5,2),
+  TROUBLE      NUMBER,
+  KEYPOINT     NUMBER,
+  LEAKKEYPOINT NUMBER,
+  LEAKPOINT    NUMBER,
+  PATROLKM     NUMBER(8,2),
+  REGIONID     VARCHAR2(6),
+  constraint PK_PLAN_CSTAT primary key (CSTATID)
+);
+--070430,增按线段月统计结果表
+create table PLAN_SUBLINESTAT
+(
+  SLSID        VARCHAR2(10) not null,
+  SUBLINEID    VARCHAR2(8),
+  LINEID       VARCHAR2(16),
+  STATDATE     DATE,
+  EXECUTETIMES NUMBER,
+  PATROLP      NUMBER(5,2),
+  FACTPOINT    NUMBER,
+  FACTKM       NUMBER(8,2),
+  KEYPOINT     NUMBER,
+  LEAKPOINT    NUMBER,
+  LEAKKEYPOINT NUMBER,
+  SUBLINEKM    NUMBER(8,2),
+  REGIONID     VARCHAR2(6),
+  constraint PK_PLAN_SUBLINESTAT primary key (SLSID)
+);
+--070430,增按线路月统计结果表
+create table PLAN_LINESTAT
+(
+  LSID      VARCHAR2(10) not null,
+  PLANPOINT NUMBER,
+  FACTPOINT NUMBER,
+  PATROLP   NUMBER(5,2),
+  LINEID    VARCHAR2(8),
+  SUBLINEN  NUMBER,
+  FACTKM    NUMBER(8,2),
+  LINEKM    NUMBER(8,2),
+  STATDATE  DATE,
+  constraint PK_PLAN_LINESTAT primary key (LSID)
+);
+--070430,给二级菜单表增加记录
+insert into submenu (id,lablename,parentid,showno) values('214','计划执行信息查询','2','14');
+insert into submenu (id,lablename,parentid,showno) values('215','月统计查询','2','15');
+--070430,给三级菜单表增加记录
+insert into sonmenu(id,lablename,parentid,hrefurl,power) values ('21401','计划执行信息查询','214','/WebApp/PlanExeResultAction.do?method=queryPlanExeResult','12,22');
+insert into sonmenu(id,lablename,parentid,hrefurl,power) values ('21501','按巡检人员','215','/WebApp/PlanMonthlyStatAction.do?method=queryPatrolmanMonthlyStat','22');
+insert into sonmenu(id,lablename,parentid,hrefurl,power) values ('21502','按市代维公司','215','/WebApp/PlanMonthlyStatAction.do?method=queryConMonthlyStat','12,21');
+insert into sonmenu(id,lablename,parentid,hrefurl,power) values ('21503','按市移动公司','215','/WebApp/PlanMonthlyStatAction.do?method=queryMobileMonthlyStat','11');
+insert into sonmenu(id,lablename,parentid,hrefurl,power) values ('21504','按线段','215','/WebApp/PlanMonthlyStatAction.do?method=querySublineMonthlyStat','12,22');
+insert into sonmenu(id,lablename,parentid,hrefurl,power) values ('21505','按线路','215','/WebApp/PlanMonthlyStatAction.do?method=queryLineMonthlyStat','12,22');
+alter table PLAN_PATROLSTAT
+add (
+   FACTDATE DATE
+   );
+alter table PLAN_CSTAT
+add (
+   FACTDATE DATE
+   );
+alter table PLAN_MSTAT
+add (
+   FACTDATE DATE
+   );
+alter table PLAN_SUBLINESTAT
+add (
+   FACTDATE DATE
+   );
+alter table PLAN_LINESTAT
+add (
+   FACTDATE DATE
+   );
+-------------------巡检计划查询统计新增相关表及其它(end) by steven gong----------------------
+ALTER TABLE CHANGEBUILD MODIFY (FILLINUNIT VARCHAR2(20));
+
+-------------------杨隽对数据库表进行的修改(begin)---------------------------------------------------
+alter table plan_cstat
+add(
+  planpoint number,
+  factpoint number
+);
+
+alter table plan_patrolstat
+add(
+  keypoint number,
+  leakkeypoint number,
+  leakpoint number,
+  patrolkm number(8,2)
+);
+
+create table plan_restatistic
+(
+  id varchar2(20),
+  planid varchar2(26),
+  constraint PK_PLAN_RESTATISTIC primary key (id) using index
+);
+
+create table plan_sm
+(
+  ID        VARCHAR2(20 BYTE),
+  EXECUTORID  VARCHAR2(10 BYTE),
+  SIMID     VARCHAR2(20 BYTE),
+  INHALT    VARCHAR2(150 BYTE),
+  SENDTYPE  VARCHAR2(4 BYTE),
+  CREATEDATE  DATE,
+  PRIMARY KEY (ID) USING INDEX
+);
+
+alter table plan_statsubline
+add (
+  createdate date
+);
+
+alter table plan_sublinestat
+add(
+  planpoint number
+);
+-------------------杨隽对数据库表进行的修改(end)---------------------------------------------------
+commit;
+--070514，省用户材料查看功能
+INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE,POWER ) VALUES (
+'80109', '查询所有申请单', '801', '/WebApp/PartRequisitionAction.do?method=queryAllRequisition', NULL, NULL, '11,21');
+INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE,POWER ) VALUES (
+'80209', '查询所有审批单', '802', '/WebApp/PartRequisitionAction.do?method=queryAllAudit', NULL, NULL, '11');
+INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE,POWER ) VALUES (
+'80309', '查询材料使用信息', '803', '/WebApp/PartUseAction.do?method=queryAllUse', NULL, NULL, '11,21');
+INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE,POWER ) VALUES (
+'80409', '查询所有入库单', '804', '/WebApp/PartStockAction.do?method=queryAllStock', NULL, NULL, '11,21');
+INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE,POWER ) VALUES (
+'80509', '查询所有利旧信息', '805', '/WebApp/PartStockAction.do?method=queryAllOldStock', NULL, NULL, '11,21');
+INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE,POWER ) VALUES (
+'80609', '查询所有库存信息', '806', '/WebApp/PartStorageAction.do?method=queryAllStorage', NULL, NULL, '11,21');
+INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE,POWER ) VALUES (
+'80709', '查询所有材料信息', '807', '/WebApp/PartBaseInfoAction.do?method=queryAllPartInfo', NULL, NULL, '11,21');
+--070523批量添加计划
+CREATE TABLE BATCHPLAN
+(
+  ID            VARCHAR2(10 BYTE)               NOT NULL,
+  BATCHNAME     VARCHAR2(100 BYTE),
+  STARTDATE     DATE,
+  ENDDATE       DATE,
+  CONTRACTORID  VARCHAR2(10 BYTE),
+  CREATEDATE    DATE,
+  constraint PK_BATCHPLAN primary key (id)
+);
+create table batch_plan  (
+   id                 VARCHAR(20)                     not null,
+   batchid            VARCHAR(10),
+   planid             VARCHAR(26),
+   constraint PK_BATCH_PLAN primary key (id)
+);
+--添加批量制定计划菜单
+insert into submenu (id,lablename,parentid,showno) values('216','批量制定计划','2','4');
+update submenu set showno='5' where id='204';
+
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('21601','查询批量计划','216','/WebApp/batchPlan.do?method=queryBatchPlan','22');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('21602','批量计划制定','216','/WebApp/planManage/addBatchPlan.jsp','22');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('21603','高级查询','216','/WebApp/batchPlan.do?method=searchBatchPlan','22');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('21605','删除批量计划','216','','22');
+--将plan_stat表中的planname字段长度改为100
+ALTER TABLE plan_stat MODIFY(planname VARCHAR2(100 BYTE));
+
+---070529 更新巡检计划查询权限
+update sonmenu set power='22' where parentid='216';
+update sonmenu set power='22' where parentid='204';
+update sonmenu set power='11,12,22,21' where id='21502';
+update sonmenu set power='12,22' where id='21504';
+update sonmenu set power='11,12,22' where id='21505';
+
+---070613 添加实时查询菜单 steven
+insert into submenu (id,lablename,parentid,showno) values('217','实时查询','2','16');
+
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('21701','当天实时查询','217','/WebApp/RealTimeAction.do?method=queryRealTime','11,12,22');
+
+---070702 添加短信通知计划开始菜单 steven
+insert into submenu (id,lablename,parentid,showno) values('218','短信通知计划开始','2','17');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('21801','通知计划开始','218','/WebApp/SMNoticePlanStartAction.do?method=showNoticeList','22');
+update sysdictionary set type='1' where lable='是否给目标处理人发送短信';
+
+---070704 建表：当前正在进行的计划统计表 steven
+create table plancurrent_stat  (
+   curplanid          VARCHAR2(26)                    not null,
+   percentage         Number(5,2),
+   planpointtimes     Number,
+   actualpointtimes   NUMBER,
+   patroldate         DATE,
+   constraint PK_PLANCURRENT_STAT primary key (curplanid)
+);
+----建表：巡检员/组发送短信统计表 steven
+create table stat_messagedaily  (
+   msid               VARCHAR2(20)                    not null,
+   patrolmanid        VARCHAR2(20),
+   simid            VARCHAR2(20),
+   operatedate        DATE,
+   totalnum           NUMBER,
+   matchnum           NUMBER,
+   unmatchnum         NUMBER,
+   collectnum         NUMBER,
+   watchmatchnum      NUMBER,
+   constraint PK_STAT_MESSAGEDAILY primary key (msid)
+);
+
+
+insert into submenu (id,lablename,parentid,showno) values('219','查看计划执行进度','2','18');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('21901','查看计划进度','219','/WebApp/PlanProgressAction.do?method=queryProgress','12,22');
+
+---070706 添加短信通知计划完成菜单 steven
+insert into submenu (id,lablename,parentid,showno) values('220','短信通知计划完成','2','19');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('22001','通知计划完成','220','/WebApp/SMNoticePlanEndAction.do?method=showNoticeList','22');
+
+---070710 修改计划执行结果菜单 steven
+update submenu  set lablename='查看计划执行结果',showno=20 where id='214';
+update sonmenu  set lablename='计划执行结果查询' where id='21401';
+insert into mainmodulemenu (id,lablename,imgurl,showno) values('12','巡检分析','../images/iconmenu/ssjk.gif','14');
+
+insert into submenu (id,lablename,parentid,showno) values('1201','日工作查询','12','1');
+insert into submenu (id,lablename,parentid,showno) values('1202','月工作统计','12','2');
+
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('120101','实时查询','1201','/WebApp/RealTimeAction.do?method=queryRealTime','11,12,22');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('120102','历史查询','1201','/WebApp/RealTimeAction.do?method=queryHistory','11,12,22');
+
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('120201','按巡检人员','1202','/WebApp/PlanMonthlyStatAction.do?method=queryPatrolmanMonthlyStat','22');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('120202','按市代维公司','1202','/WebApp/PlanMonthlyStatAction.do?method=queryConMonthlyStat','12,21');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('120203','按市移动公司','1202','/WebApp/PlanMonthlyStatAction.do?method=queryConMonthlyStat','11');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('120204','按线段','1202','/WebApp/PlanMonthlyStatAction.do?method=querySublineMonthlyStat','12,22');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('120205','按线路','1202','/WebApp/PlanMonthlyStatAction.do?method=queryLineMonthlyStat','12,22');
+
+insert into submenu (id,lablename,parentid,showno) values('1203','对比分析','12','3');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('120301','按巡检人员','1203','/WebApp/CompAnalysisAction.do?method=queryPmCompAnalysis','11,12,21,22');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('120302','按代维公司','1203','/WebApp/CompAnalysisAction.do?method=queryConCompAnalysis','11,12,21,22');
+
+---070720 屏闭相关菜单 steven 由于新建了“巡检分析”一级菜单，所以，原“巡检管理”一级菜单中的“实时查询”和“KPI关键指标查询”两项二级菜单将搬至“巡检分析”中，下面的语句是将原来的二级菜单屏闭
+update submenu  set type='9' where id='215';
+update submenu  set type='9' where id='217';
+update sonmenu  set type='9' where id='21501';
+update sonmenu  set type='9' where id='21502';
+update sonmenu  set type='9' where id='21503';
+update sonmenu  set type='9' where id='21504';
+update sonmenu  set type='9' where id='21505';
+update sonmenu  set type='9' where id='21701';
+
+--2007-07-20 公告发布
+drop table notice;
+create table notice (
+	id  varchar2(10) not null, 
+	title varchar2(50) not null,  --title
+	type varchar2(20) not null,--信息类型 版本升级、通知、公告、新闻
+	grade varchar2(20) not null, -- 信息级别 重要、一般。
+	fileinfo varchar2(180) ,--附件
+	content varchar2(3000),    --内容
+	isissue varchar2(1),     --是否发布
+	regionid varchar2(6),    --区域
+	issueperson varchar2(30),  --发布人
+	issuedate date,   --发布时间
+	isread varchar2(1), --是否已读
+	constraint PK_NOTICE primary key (id)
+);
+
+insert into submenu (id,lablename,parentid,showno) values('723','公告管理','7','3');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('72301','查询公告','723','/WebApp/NoticeAction.do?method=queryNoticeForm','11,12');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('72302','添加公告','723','/WebApp/NoticeAction.do?method=addForm','11,12');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('72303','修改公告','723','','11,12');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('72304','删除公告','723','','11,12');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('72305','发布公告','723','','11,12');
+
+
+
+--2007-07-25桌面设置
+drop table tabmenu;
+create table tabmenu(
+	id varchar2(10) not null,
+	tabname varchar2(20) not null,
+	power varchar2(20),
+	constraint PK_TABMENU primary key(id)
+);
+drop table usertabmenu;
+create table usertabmenu(
+	userid varchar2(32) not null,
+	tabcode varchar2(10) not null,
+	constraint PK_USERTABMENU primary key(userid,tabcode)
+);
+insert into tabmenu(id,tabname,power) values('001','待办事宜','');
+insert into tabmenu(id,tabname,power) values('002','计划任务','12,22');
+insert into tabmenu(id,tabname,power) values('003','短信调度','');
+insert into tabmenu(id,tabname,power) values('004','数据采集','');
+
+--2007-07-30 标注是否已读
+alter table notice add (isread  varchar2(1));
+update tabmenu set power='12,22' where id='002';
+
+--2007-08-06 针对按巡检维护组管理的情况
+update sonmenu  set lablename='按巡检维护组' where id='120301';
+UPDATE sonmenu  SET lablename='按巡检维护组' WHERE ID='120201';
+UPDATE sonmenu  SET lablename='按巡检维护组' WHERE ID='21501';
+
+--2007-08-10 
+update sonmenu set lablename = '按巡检线段' where id='21504';
+update sonmenu set lablename = '按巡检线路' where id='21505';
+update sonmenu set lablename = '按巡检线段' where id='120204';
+update sonmenu set lablename = '按巡检线路' where id='120205';
+update sonmenu set lablename = '按市代维公司' where id='120302';
+
+--去掉待办事宜、短信调度、数据采集
+update tabmenu set power='' where id='001';
+update tabmenu set power='' where id='003';
+update tabmenu set power='' where id='004';
+--重要公告信息是否已读
+     create table NOTICE_ISREAD(
+        USERID VARCHAR2(50) not null,
+        NOTICEID VARCHAR2(10) not null,
+        constraint PK_NOTICE_ISREAD primary key (USERID,NOTICEID)
+    );
+    comment on column NOTICE_ISREAD.USERID is '用户id';
+    comment on column NOTICE_ISREAD.NOTICEID is '公告id';
+    
+--2007-08-13   修改一级菜单重复图标
+update MAINMODULEMENU set imgurl = '../images/iconmenu/zlgl.gif' where id='10'；
+update MAINMODULEMENU set imgurl = '../images/iconmenu/xjfx.gif' where id='12'；
+
+--2007-08-16 月统计
+--巡检员/组发送短信统计表
+ALTER TABLE stat_messagedaily  ADD (firstdate  DATE);--当日第一条短信时间
+ALTER TABLE stat_messagedaily  ADD (lastdate DATE);--最后一条短信时间
+--计划执行情况统计
+ALTER TABLE plan_stat  ADD (troublenum NUMBER);--隐患数量
+ALTER TABLE plan_stat  ADD (examineresult varchar2(1));--考核结果
+--巡检员月统计结果
+ALTER TABLE plan_patrolstat  ADD (examineresult varchar2(1));--考核结果
+---按线段月统计结果
+ALTER TABLE plan_sublinestat  ADD (examineresult varchar2(1));--考核结果
+--市代维月统计结果
+ALTER TABLE plan_cstat  ADD (examineresult varchar2(1));--考核结果
+--巡检线段信息
+ALTER TABLE plan_statsubline  ADD (examineresult varchar2(1));--考核结果
+
+--计划制定添加巡检方式
+alter table plan add (
+  patrolmode varchar2(10)       --巡检方式 01：手动巡检 ；02：自动巡检
+);
+update plan set patrolmode='01';
+alter table plan modify (
+  patrolmode varchar2(10) default '01'
+);
+--添加巡检线段计划统计的实际日期
+alter table plan_statsubline add(
+  factdate date
+);
+
+drop table nonplansubline cascade constraints;
+
+create table nonplansubline  (
+   id                 VARCHAR(10)                     not null,
+   sublineid          VARCHAR2(8),
+   lineid             VARCHAR2(16),
+   statdate           date, --实际统计月份
+   factdate           date, --统计月份
+   constraint PK_NONPLANSUBLINE primary key (id)
+);
+--07.08.30
+ALTER TABLE YEARMONTHPLAN MODIFY(PLANNAME VARCHAR2(100 BYTE));
+
+
+
+--删除原来的巡检员/组发送短信统计表,再建一个同名但有些字段与原来不同的新表
+--drop table stat_messagedaily cascade constraints;
+/*==============================================================*/
+/* Table: stat_messagedaily                                   */
+/*==============================================================*/
+--create table stat_messagedaily  (
+--   msid               VARCHAR2(20)                    not null,
+--   patrolmanid        VARCHAR2(20),
+--   simid              VARCHAR2(20),
+--   operatedate        DATE,
+--   totalnum           NUMBER,
+--   patrolnum          NUMBER,
+--  troublenum         NUMBER,
+--   collectnum         NUMBER,
+--   watchnum           NUMBER,
+--   firstdate          DATE,
+--   lastdate           DATE,
+--   othernum           NUMBER,
+--   constraint PK_STAT_MESSAGEDAILY primary key (msid)
+--);            以上几行因为杨隽在后台程序的数据库修改日志中已经对此表进行create，所以在此屏蔽
+
+---070831 添加巡检线段实时查询菜单 steven
+INSERT INTO submenu (ID,lablename,parentid,showno) VALUES('1204','巡检线段实时信息','12','4');
+INSERT INTO submenu (ID,lablename,parentid,showno) VALUES('1205','巡检点实时信息','12','5');
+INSERT INTO sonmenu (ID,lablename,parentid,hrefurl,POWER) VALUES('120401','巡检线段实时查询','1204','/WebApp/SublineRealTimeAction.do?method=querySublineRealTime','22');
+INSERT INTO sonmenu (ID,lablename,parentid,hrefurl,POWER) VALUES('120402','查看实时查询结果','1204','/WebApp/SublineRealTimeAction.do?method=showRequestInfo','22');
+INSERT INTO sonmenu (ID,lablename,parentid,hrefurl,POWER) VALUES('120501','巡检点确认查询','1205','/WebApp/PointConfirmAction.do?method=queryPointRealTime','22');
+
+---070903 添加线段当日巡检请求表 steven
+DROP TABLE subline_request cascade constraints;
+CREATE TABLE subline_request  (
+   requestid          VARCHAR2(10)   NOT NULL,
+   requesttime        DATE,
+   userid             VARCHAR2(32),
+   responsetime       DATE,
+   CONSTRAINT PK_SUBLINE_REQUEST PRIMARY KEY (requestid)
+);
+--070903 添加线段当日巡检结果(回复)查询总表  steven
+DROP TABLE subline_response CASCADE CONSTRAINTS;
+CREATE TABLE subline_response  (
+   ID                 VARCHAR2(10)      NOT NULL,
+   requestid          VARCHAR2(10),
+   planid             VARCHAR2(26),
+   sublineid          VARCHAR2(16),
+   nonpatrolnum       NUMBER DEFAULT 0,
+   planpointnum       NUMBER DEFAULT 0,
+   actualpointnum     NUMBER DEFAULT 0,
+   todaypointnum      NUMBER DEFAULT 0,
+   deadlinedays       VARCHAR2(3),
+   state              VARCHAR2(1) DEFAULT '0',
+   finishtime         DATE,
+   CONSTRAINT PK_SUBLINE_RESPONSE PRIMARY KEY (ID)
+);
+
+--070904 添加线段未巡检点表  steven
+DROP TABLE subline_responsenonpatrol CASCADE CONSTRAINTS;
+CREATE TABLE subline_responsenonpatrol  (
+   ID                   VARCHAR2(10)     NOT NULL,
+   sublineid          VARCHAR2(16),
+   pointid            VARCHAR2(24),
+   lacktimes          NUMBER,
+   CONSTRAINT PK_SUBLINE_RESPONSENONPATROL PRIMARY KEY (ID)
+);
+
+--070904 添加线段今日巡检表  steven
+drop table subline_responsetoday cascade constraints;
+create table subline_responsetoday  (
+   ID                 VARCHAR2(10)                    not null,
+   sublineid          VARCHAR2(24),
+   pointid            VARCHAR2(24),
+   patroltime         DATE,
+   constraint PK_SUBLINE_RESPONSETODAY primary key (ID)
+);
+
+--070905以后
+---资料管理系统
+drop TABLE DATUMSYSTEM;
+drop TABLE DATUMCRITERION;
+drop table DATUMEXPERIENCE;
+    create table DATUMEXPERIENCE(
+        ID VARCHAR2(10) not null,
+       FILENAME VARCHAR2(200),
+       documenttype VARCHAR2(20),
+       DESCRIPTION VARCHAR2(1024),
+       VALIDATETIME DATE,
+       ADJUNCT VARCHAR2(500),
+       USERID VARCHAR2(100),
+       CREATEDATE DATE,
+       REGIONID VARCHAR2(10),
+        constraint PK_DATUMEXPERIENCE primary key (ID)
+    );    
+    create table DATUMCRITERION(
+        ID VARCHAR2(10) not null,
+       FILENAME VARCHAR2(200),
+       documenttype VARCHAR2(20),
+       DESCRIPTION VARCHAR2(1024),
+       VALIDATETIME DATE,
+       ADJUNCT VARCHAR2(500),
+       USERID VARCHAR2(100),
+       CREATEDATE DATE,
+       REGIONID VARCHAR2(10),
+        constraint PK_DATUMCRITERION primary key (ID)
+    );
+    create table DATUMSYSTEM(
+        ID VARCHAR2(10) not null,
+       FILENAME VARCHAR2(200),
+       documenttype VARCHAR2(20),
+       DESCRIPTION VARCHAR2(1024),
+       VALIDATETIME DATE,
+       ADJUNCT VARCHAR2(500),
+       USERID VARCHAR2(100),
+       CREATEDATE DATE,
+       REGIONID VARCHAR2(10),
+        constraint PK_DATUMSYSTEM primary key (ID)
+    );
+    create table DOCUMENTTYPE(
+        CODE VARCHAR2(10) not null,
+       TYPENAME VARCHAR2(30),
+       CATEGORY VARCHAR2(10),
+        constraint PK_DOCUMENTTYPE primary key (CODE)
+    );
+insert into mainmodulemenu(id,lablename,imgurl,showno) values('13','知识管理','../images/iconmenu/zhshgl.gif','15');
+insert into submenu (id,lablename,parentid,showno) values('1301','代维制度管理','13','1');
+insert into submenu (id,lablename,parentid,showno) values('1302','工程资料管理','13','2');
+insert into submenu (id,lablename,parentid,showno) values('1303','代维经验管理','13','3');
+insert into submenu (id,lablename,parentid,showno) values('1304','资料搜索','13','4');
+
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('130401','关键字搜索','1304','/WebApp/datum/forwardsearch.jsp','11,12,22');
+--------------
+delete sonmenu where parentid in ('1301','1302','1303');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('130101','添加代维制度','1301','/WebApp/datum/addsystemfile.jsp','11,12');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('130102','查询代维制度','1301','/WebApp/datum/querysystemfile.jsp','11,12,22');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('130103','修改代维制度','1301','','11,12');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('130104','删除代维制度','1301','','11,12');
+
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('130201','添加工程资料','1302','/WebApp/datum/addcriterionfile.jsp','11,12');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('130202','查询工程资料','1302','/WebApp/datum/querycriterionfile.jsp','11,12,22');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('130203','修改工程资料','1302','','11,12');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('130204','删除工程资料','1302','','11,12');
+
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('130301','添加经验','1303','/WebApp/datum/addexperiencefile.jsp','22');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('130302','查询经验','1303','/WebApp/datum/queryexperiencefile.jsp','11,12,22');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('130303','修改经验','1303','','22');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('130304','删除经验','1303','','22');
+---设置文档类型
+insert into DOCUMENTTYPE (code,TYPENAME,CATEGORY) values('0001','代维管理制度','1');
+insert into DOCUMENTTYPE (code,TYPENAME,CATEGORY) values('0002','代维规范','1');
+insert into DOCUMENTTYPE (code,TYPENAME,CATEGORY) values('0003','图纸','2');
+insert into DOCUMENTTYPE (code,TYPENAME,CATEGORY) values('0004','技术文档','2');
+insert into DOCUMENTTYPE (code,TYPENAME,CATEGORY) values('0005','技术规范','2');
+insert into DOCUMENTTYPE (code,TYPENAME,CATEGORY) values('0006','管理经验','3');
+insert into DOCUMENTTYPE (code,TYPENAME,CATEGORY) values('0007','技术经验','3');
+insert into DOCUMENTTYPE (code,TYPENAME,CATEGORY) values('0008','巡检经验','3');
+--
+drop table report cascade constraints;
+create table report  (
+   ID                 VARCHAR2(10)                    not null,
+   reportname         VARCHAR2(100),
+   reporturl         VARCHAR2(500),
+   reporttype         VARCHAR2(10),
+   remark             VARCHAR2(1024),
+   userid             VARCHAR(50),
+   createdate         DATE,
+   regionid           VARCHAR(10),
+   Auditingremark     VARCHAR2(20),
+   AuditingResult     VARCHAR2(1024),
+   auditingman        VARCHAR(50),
+   constraint PK_REPORT primary key (ID)
+);
+comment on table report is '报告信息';
+comment on column report.ID is '标示';
+comment on column report.reportname is '报告名称';
+comment on column report.reporturl is '报告附件';
+comment on column report.reporttype is '报告类型';
+comment on column report.remark is '备注信息';
+comment on column report.Auditingremark is '审批说明';
+comment on column report.AuditingResult is '审批结果';
+
+create table reporttype  (
+   code               VARCHAR2(10)                    not null,
+   typename           VARCHAR2(50),
+   constraint PK_REPORTTYPE primary key (code)
+);
+
+insert into reporttype(code,typename) values('00001','光缆线路的月计划报告');
+insert into reporttype(code,typename) values('00002','月末线路维护工作总结报告');
+insert into reporttype(code,typename) values('00003','月维护材料使用报告');
+---菜单
+insert into mainmodulemenu(id,lablename,imgurl,showno) values('14','报告管理','../images/iconmenu/bggl.gif','15');
+insert into submenu (id,lablename,parentid,showno) values('1401','上传报告','14','1');
+insert into submenu (id,lablename,parentid,showno) values('1402','审核报告','14','2');
+insert into submenu (id,lablename,parentid,showno) values('1403','查阅报告','14','3');
+set define off;
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('140101','上传报告','1401','/WebApp/report/addreport.jsp','22');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('140102','查询报告','1401','/WebApp/report/queryreport.jsp','22');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('140103','修改报告','1401','','22');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('140104','删除报告','1401','','22');
+
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('140201','报告审核','1402','/WebApp/ReportAction?method=queryReport&con=auditing','12');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('140301','查阅报告','1403','/WebApp/report/queryauditingreport.jsp','11,12');
+
+---070919  steven
+UPDATE submenu  SET lablename='巡检维护组日工作查询',showno='7' WHERE ID='1201';
+INSERT INTO submenu (ID,lablename,parentid,showno) VALUES('1207','代维公司日工作查询','12','8');
+INSERT INTO submenu (ID,lablename,parentid,showno) VALUES('1208','移动公司日工作查询','12','9');
+INSERT INTO sonmenu (ID,lablename,parentid,hrefurl,POWER) VALUES('120701','历史查询','1207','/WebApp/RealTimeAction.do?method=queryConHistory','12,22');
+INSERT INTO sonmenu (ID,lablename,parentid,hrefurl,POWER) VALUES('120801','历史查询','1208','/WebApp/RealTimeAction.do?method=queryRegionHistory','11');
+
+---070925  steven
+INSERT INTO SUBMENU (ID,lablename,parentid,showno) VALUES('1206','月工作报表','12','6');
+INSERT INTO SONMENU (ID,lablename,parentid,hrefurl,POWER) VALUES('120601','按巡检维护组','1206','/WebApp/MonthlyReportAction.do?method=queryPatrolmanMonthlyReport','22');
+INSERT INTO SONMENU (ID,lablename,parentid,hrefurl,POWER) VALUES('120602','按代维公司','1206','/WebApp/MonthlyReportAction.do?method=queryConMonthlyReport','12,22');
+INSERT INTO SONMENU (ID,lablename,parentid,hrefurl,POWER) VALUES('120603','按移动公司','1206','/WebApp/MonthlyReportAction.do?method=queryMobileMonthlyReport','11,12');
+update sonmenu  set hrefurl='/WebApp/PlanMonthlyStatAction.do?method=queryMobileMonthlyStat' where id='120203';
+update sonmenu set hrefurl='/WebApp/ReportAction.do?method=queryReport&con=noauditing' where id='140201'
+commit;
+create table syslogger  (
+   id                 VARCHAR(20)                     not null,
+   userid             VARCHAR(50),
+   usertype           VARCHAR(2),
+   visitdate               DATE,
+   mainmenuid         VARCHAR(10),
+   submenuid          VARCHAR(10),
+   sonmenuid          VARCHAR(10),
+   regionid           VARCHAR(10),
+   state              VARCHAR(2),
+   constraint PK_LOGGER primary key (id)
+);
+
+---071012  steven
+INSERT INTO mainmodulemenu(ID,lablename,imgurl,showno) VALUES('15','日志管理','../images/iconmenu/rzgl.gif','16');
+insert into submenu (id,lablename,parentid,showno) values('1501','模块访问量查询','15','1');
+INSERT INTO SONMENU (ID,lablename,parentid,hrefurl,POWER) VALUES('150101','查询模块访问量','1501','/WebApp/LogPathAction.do?method=queryVisitorsTraffic','11');
+
+---071018 steven
+DELETE FROM mainmodulemenu WHERE ID='15';
+UPDATE submenu SET ID='724',parentid='7',showno='10' WHERE ID='1501';
+UPDATE sonmenu SET ID='72401',parentid='724' WHERE ID='150101';
+
+-2007-12-11巡检过程分析新功能
+INSERT INTO submenu (ID,lablename,parentid,showno) VALUES('1209','巡检过程实时信息','12','10');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('120901','人员监控','1209','/WebApp/RealTimeOnlineAction.do?method=getOnlineNum','11,12,22');
+
+insert into submenu (id,lablename,parentid,showno,type) values('727','设备使用状况','7','12','1');
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('72701','设备使用情况','727','/WebApp/baseinfo/queryUseTerminal.jsp','11');
+ 
+INSERT INTO submenu (ID,lablename,parentid,showno) VALUES('1210','巡检过程历史信息','12','11');
+INSERT INTO sonmenu (ID,lablename,parentid,hrefurl,POWER) VALUES('121001','巡检过程分析','1210','/WebApp/WorkInfoHistoryAction.do?method=queryWorkInfo','11,12,22');
+ 
+
+
+drop table STAT_SMREALTIME cascade constraints;
+/*==============================================================*/
+/* Table: STAT_SMREALTIME                                       */
+/*==============================================================*/
+create table STAT_SMREALTIME  (
+   ID                   VARCHAR2(15)                    not null,
+   ARRIVETIME           DATE,
+   SIMID                VARCHAR2(15),
+   HANDLESTATE          VARCHAR2(2),
+   TYPE                 VARCHAR2(2),
+   constraint PK_STAT_SMREALTIME primary key (ID)
+);
+
+comment on table STAT_SMREALTIME is
+'从短信_接收日志表 （RECIEVEMSGLOG）拷贝而来，但只保存当天的短信信息
+';
+
+comment on column STAT_SMREALTIME.HANDLESTATE is
+'接收日志表(RecieveMsgLog)的处理状态(HandleState)编码
+0      待处理状态
+1      非法的消息
+2      未注册的手机号
+3      创建临时点
+4      匹配不到巡检点
+6      该点是外力盯防点,已经把该点记入WatchInfo表
+7      已写入巡检记录
+8      本日已有该点巡检记录,信息写入定位表
+9      制定盯防点
+10    工作时间之外发回的巡检信息,不作处理
+11    未找到匹配的盯防点
+12    巡检状态下发回来的座标超出本地地图范围
+13    PDA巡检
+16    PDA定位
+14    PDA报告工单
+15    PDA派送工单
+19    电压低自动报警';
+
+comment on column STAT_SMREALTIME.TYPE is
+'信息类型(type)编码
+0	未知
+1	制定线路
+2	巡检
+4	盯防
+';
+
+drop table STAT_ONLINESTATUS cascade constraints;
+
+/*==============================================================*/
+/* Table: STAT_ONLINESTATUS                                     */
+/*==============================================================*/
+create table STAT_ONLINESTATUS  (
+   ID                   VARCHAR2(15)                    not null,
+   SIMID                VARCHAR2(15),
+   FIRSTSMRECEIVETIME   DATE,
+   FLAG                 VARCHAR2(48),
+   constraint PK_STAT_ONLINESTATUS primary key (ID)
+);
+
+comment on table STAT_ONLINESTATUS is
+'统计每个SIM卡一天中各个时段的在线状况（用0和1表示，1为在线，0为不在线），各个时段的划分依据配置文件中约定写入，比如：半个小时为一个时段';
+
+comment on column STAT_ONLINESTATUS.FLAG is
+'这个标记的位数不是一位，而是多位，具体位数依配置文件对时段的划分及统计时间（默认为从6：00至21：00）而定，比如：半小时为一个时段，在默认统计时间的情况下，有31个小时段(5：30至5:59:59也算一个小时段），那么FLAG就有31位，每一位都用0或者1表示，用来表明这一小段时间的在线与否情况。';
+
+drop table STAT_ONLINENUMBER cascade constraints;
+
+/*==============================================================*/
+/* Table: STAT_ONLINENUMBER                                     */
+/*==============================================================*/
+create table STAT_ONLINENUMBER  (
+   ID                   VARCHAR2(20)                    not null,
+   CONTRACTORID         VARCHAR2(10),
+   REGIONID             VARCHAR2(6),
+   INTERSECTPOINT       DATE,
+   ONLINENUMBER         NUMBER,
+   SMTOTALNUM           NUMBER,
+   ONLINESIMINFO        VARCHAR2(2048),
+   constraint PK_STAT_ONLINENUMBER primary key (ID)
+);
+
+comment on table STAT_ONLINENUMBER is
+'在线人数纪录表（包含各地市、各代维公司、和巡检组在线人数）';
+
+comment on column STAT_ONLINENUMBER.INTERSECTPOINT is
+'这个点是依据配置文件中的小时段及统计时间（默认：6：00至21：00）而计算出来的，比如：半小时为一时段，在默认统计时间内，这个交叉点只可能在整点或者整半点时候出现，即交叉点为：6：00，6：30，7：00，7：30，8：00..........，直至21：00，同时注意，虽然，交叉点只是个时间点，但实际上这个表统计出的在线人数是指一个时间段，这个时段的长度依据配置文件中的小时段而来，比如：当交叉点为6：00时，实际统计的是5:30:00至5:59:59的在线信息，当交叉点为21：00时，实际统计的20:30至20:59:59的在线信息';
+
+comment on column STAT_ONLINENUMBER.ONLINENUMBER is
+'是指某一个小时段的在线人数（比如8：01至8：30）';
+
+comment on column STAT_ONLINENUMBER.ONLINESIMINFO is
+'这个字段是巡检组与在线SIM卡联合组成的信息，如：A组：138000000<br>B组：137000000，即组与SIM卡用冒号分隔，而它们组成的对，用<br>分隔。';
+
+alter table STAT_CONMESSAGEDAILY add ONLINENUMBER NUMBER;
+comment on table STAT_CONMESSAGEDAILY is
+'各代维公司每日短信统计表
+
+';
+
+comment on column STAT_CONMESSAGEDAILY.CONTRACTORID is
+'代维公司ID';
+
+comment on column STAT_CONMESSAGEDAILY.OPERATEDATE is
+'操作日期';
+
+comment on column STAT_CONMESSAGEDAILY.TOTALNUM is
+'短信总条数';
+
+comment on column STAT_CONMESSAGEDAILY.PATROLNUM is
+'巡检短信条数';
+
+comment on column STAT_CONMESSAGEDAILY.TROUBLENUM is
+'隐患短信条数';
+
+comment on column STAT_CONMESSAGEDAILY.COLLECTNUM is
+'采集短信条数';
+
+comment on column STAT_CONMESSAGEDAILY.WATCHNUM is
+'盯防短信条数';
+
+comment on column STAT_CONMESSAGEDAILY.OTHERNUM is
+'其它短信条数';
+
+comment on column STAT_CONMESSAGEDAILY.DAILYKM is
+'每日巡检公里数';
+
+comment on column STAT_CONMESSAGEDAILY.STATDATE is
+'统计日期';
+
+comment on column STAT_CONMESSAGEDAILY.ONLINENUMBER is
+'指该天有多少巡检人员在线';
+
+ALTER TABLE STAT_REGIONMESSAGEDAILY ADD ONLINENUMBER NUMBER;
+COMMENT ON TABLE STAT_REGIONMESSAGEDAILY IS
+'各地区（市移动公司）每日短信统计表
+
+
+';
+
+COMMENT ON COLUMN STAT_REGIONMESSAGEDAILY.REGIONID IS
+'区域ID';
+
+COMMENT ON COLUMN STAT_REGIONMESSAGEDAILY.OPERATEDATE IS
+'操作日期';
+
+COMMENT ON COLUMN STAT_REGIONMESSAGEDAILY.TOTALNUM IS
+'短信总条数';
+
+COMMENT ON COLUMN STAT_REGIONMESSAGEDAILY.PATROLNUM IS
+'巡检短信条数';
+
+COMMENT ON COLUMN STAT_REGIONMESSAGEDAILY.TROUBLENUM IS
+'隐患短信条数';
+
+COMMENT ON COLUMN STAT_REGIONMESSAGEDAILY.COLLECTNUM IS
+'采集短信条数';
+
+COMMENT ON COLUMN STAT_REGIONMESSAGEDAILY.WATCHNUM IS
+'盯防短信条数';
+
+COMMENT ON COLUMN STAT_REGIONMESSAGEDAILY.OTHERNUM IS
+'其它短信条数';
+
+COMMENT ON COLUMN STAT_REGIONMESSAGEDAILY.DAILYKM IS
+'各区域每日短信统计的发送里程';
+
+COMMENT ON COLUMN STAT_REGIONMESSAGEDAILY.STATDATE IS
+'统计日期';
+
+COMMENT ON COLUMN STAT_REGIONMESSAGEDAILY.ONLINENUMBER IS
+'指该天有多少巡检人员在线';
+
+ALTER TABLE STAT_MESSAGEDAILY ADD ONLINENUMBER NUMBER;
+COMMENT ON TABLE STAT_MESSAGEDAILY IS
+'巡检员/组发送短信统计表';
+
+COMMENT ON COLUMN STAT_MESSAGEDAILY.MSID IS
+'短信统计ID';
+
+COMMENT ON COLUMN STAT_MESSAGEDAILY.PATROLMANID IS
+'巡检员/组ID';
+
+COMMENT ON COLUMN STAT_MESSAGEDAILY.SIMID IS
+'SIM卡号';
+
+COMMENT ON COLUMN STAT_MESSAGEDAILY.OPERATEDATE IS
+'短信发送日期';
+
+COMMENT ON COLUMN STAT_MESSAGEDAILY.TOTALNUM IS
+'短信总条数';
+
+COMMENT ON COLUMN STAT_MESSAGEDAILY.PATROLNUM IS
+'巡检短信数';
+
+COMMENT ON COLUMN STAT_MESSAGEDAILY.TROUBLENUM IS
+'隐患短信数';
+
+COMMENT ON COLUMN STAT_MESSAGEDAILY.COLLECTNUM IS
+'采集短信数';
+
+COMMENT ON COLUMN STAT_MESSAGEDAILY.WATCHNUM IS
+'盯防短信数';
+
+COMMENT ON COLUMN STAT_MESSAGEDAILY.OTHERNUM IS
+'其它短信数';
+
+COMMENT ON COLUMN STAT_MESSAGEDAILY.FIRSTDATE IS
+'当日第一条短信时间';
+
+COMMENT ON COLUMN STAT_MESSAGEDAILY.LASTDATE IS
+'最后一条短信时间';
+
+COMMENT ON COLUMN STAT_MESSAGEDAILY.DAILYKM IS
+'发送短信的发送里程';
+
+COMMENT ON COLUMN STAT_MESSAGEDAILY.AVGSENDTIME IS
+'发送短信的平均发送间隔时间，以秒为单位';
+
+COMMENT ON COLUMN STAT_MESSAGEDAILY.AVGSENDDISTANCE IS
+'平均发送间隔距离，以米为单位';
+
+COMMENT ON COLUMN STAT_MESSAGEDAILY.STATDATE IS
+'发送短信的统计日期';
+
+COMMENT ON COLUMN STAT_MESSAGEDAILY.ONLINENUMBER IS
+'指该天有多少巡检人员在线';
+
+
+
+
+
+
+
+
+DROP TABLE STAT_TERMINALMONTHLYUSE CASCADE CONSTRAINTS;
+
+/*==============================================================*/
+/* Table: STAT_TERMINALMONTHLYUSE                               */
+/*==============================================================*/
+CREATE TABLE STAT_TERMINALMONTHLYUSE  (
+   MSID                 VARCHAR2(20)                    NOT NULL,
+   PATROLMANID          VARCHAR2(20),
+   SIMID                VARCHAR2(20),
+   StatedMonth          DATE,
+   TOTALNUM             NUMBER,
+   PATROLNUM            NUMBER,
+   TROUBLENUM           NUMBER,
+   COLLECTNUM           NUMBER,
+   WATCHNUM             NUMBER,
+   OTHERNUM             NUMBER,
+   MONTHLYKM            NUMBER(8,2),
+   STATDATE             DATE,
+   ONLINEDAYS           NUMBER,
+   CONSTRAINT PK_STAT_TERMINALMONTHLYUSE PRIMARY KEY (MSID)
+);
+COMMENT ON TABLE STAT_TERMINALMONTHLYUSE IS
+'系统_手持设备使用情况月统计表';
+
+COMMENT ON COLUMN STAT_TERMINALMONTHLYUSE.MSID IS
+'短信统计ID';
+
+COMMENT ON COLUMN STAT_TERMINALMONTHLYUSE.PATROLMANID IS
+'巡检员/组ID';
+
+COMMENT ON COLUMN STAT_TERMINALMONTHLYUSE.SIMID IS
+'SIM卡号';
+
+COMMENT ON COLUMN STAT_TERMINALMONTHLYUSE.StatedMonth IS
+'统计月份（含年月信息）';
+
+COMMENT ON COLUMN STAT_TERMINALMONTHLYUSE.TOTALNUM IS
+'短信总条数';
+
+COMMENT ON COLUMN STAT_TERMINALMONTHLYUSE.PATROLNUM IS
+'巡检短信数';
+
+COMMENT ON COLUMN STAT_TERMINALMONTHLYUSE.TROUBLENUM IS
+'隐患短信数';
+
+COMMENT ON COLUMN STAT_TERMINALMONTHLYUSE.COLLECTNUM IS
+'采集短信数';
+
+COMMENT ON COLUMN STAT_TERMINALMONTHLYUSE.WATCHNUM IS
+'盯防短信数';
+
+COMMENT ON COLUMN STAT_TERMINALMONTHLYUSE.OTHERNUM IS
+'其它短信数';
+
+COMMENT ON COLUMN STAT_TERMINALMONTHLYUSE.MONTHLYKM IS
+'发送短信的发送里程';
+
+COMMENT ON COLUMN STAT_TERMINALMONTHLYUSE.STATDATE IS
+'发送短信的统计日期';
+
+
+--2007-12-04 更新代维短信统计中在线人员数目
+update stat_conmessagedaily t set t.onlinenumber=0;
+--2007-12-04 更新移动短信统计中在线人员数目
+update stat_regionmessagedaily t set t.onlinenumber=0;
+--2007-12-04 更新巡检员短信统计中在线人员数目
+update stat_messagedaily t set t.onlinenumber=0;
+
+--2008-01-02 增加市移动公司月统计三级菜单
+update sonmenu set type='9' where id='120203';
+INSERT INTO SONMENU (ID,lablename,parentid,hrefurl,POWER) VALUES('120207','按市移动公司','1202','/WebApp/MonthlyStatCityMobileAction.do?method=queryMonthlyStat','11,12');
+
+--省移动月统计
+ALTER TABLE PLAN_MSTAT ADD (EXAMINERESULT  VARCHAR2(1));
+insert into sonmenu (id,lablename,parentid,hrefurl,power) values('120206','全省月统计','1202','/WebApp/analysis/queryprovstat.jsp','11');
+
+--2007-12-27 创建省移动公司月统计
+CREATE TABLE PLAN_PMSTAT
+(	
+  PMSTATID VARCHAR2(10) NOT NULL, 
+	STATDATE DATE, 
+	OVERALLPATROLP NUMBER(5,2), 
+	EXAMINERESULT VARCHAR2(1), 
+	FACTDATE DATE, 
+	CONSTRAINT PK_PLAN_PMSTAT PRIMARY KEY (PMSTATID)
+);
+
+comment on table Plan_PMstat is
+'分析_省移动月统计结果';
+
+comment on column Plan_PMstat.Pmstatid is
+'省月统计id';
+
+comment on column Plan_PMstat.Statdate is
+'统计日期';
+
+comment on column Plan_PMstat.OVERALLPATROLP is
+'总巡检率';
+
+comment on column Plan_PMstat.EXAMINERESULT is
+'考核结果';
+
+comment on column Plan_PMstat.Factdate is
+'统计月份';
+
+--由于巡检过程分析已经全面取代了原来的日工作查询，所以要将日工作查询所涉三级菜单全部屏蔽
+update sonmenu set type='9' where parentid='1201';
+update sonmenu set type='9' where parentid='1207';
+update sonmenu set type='9' where parentid='1208';
+
+
+insert into submenu (id,lablename,parentid) values('725','资源重新分配','10');
+insert into sonmenu (id,lablename,parentid,hrefurl,power,type) values('72501','线段分配','725','/WebApp/baseinfo/assignsubline.jsp','12','1');
+insert into sonmenu (id,lablename,parentid,hrefurl,power,type) values('72502','设备分配','725','/WebApp/baseinfo/assignterminal.jsp','12','1');
+
+--修改和增加市移动月报表和省移动月报表 20080219
+update sonmenu set lablename='按市移动公司' where id='120603';
+INSERT INTO SONMENU (ID,lablename,parentid,hrefurl,POWER) VALUES('120604','按省移动公司','1206','/WebApp/MonthlyReportAction.do?method=queryPMobileMonthlyReport','11');
+
+--屏蔽巡检线路管理的"查询线路管理"的三级菜单 20080219
+update sonmenu set type='9' where id='70901';
+
+--2008年6月16日 添加新需求，功能：显示漏做巡检任务的线段情况
+insert into submenu (id,lablename,parentid) values('1211','漏做任务巡检线段','12');
+insert into sonmenu (id,lablename,parentid,hrefurl,power,type) values('121101','按市移动公司','1211','/WebApp/LeakSublineAction.do?method=showLeakSubline412','12','1');
+insert into sonmenu (id,lablename,parentid,hrefurl,power,type) values('121102','按市代维公司','1211','/WebApp/LeakSublineAction.do?method=showLeakSubline422','22','2');
+
+--2008年6月17日 导出巡检点及相关属性（省移动、市移动用户）
+insert into submenu (id,lablename,parentid) values('728','导出巡检点','7');
+insert into sonmenu (id,lablename,parentid,hrefurl,power,type) values('72801','导出巡检点','728','/WebApp/PointOutputAction.do?method=queryPointOutput','11,12','1');
+
+--2008/07/30 巡检计划制定结果
+
+create table EXECUTELOG 
+(
+    ID                   VARCHAR2(10 CHAR)              not null,
+    USERID               VARCHAR2(32 CHAR),
+    CREATEDATE           DATE,
+    ENDDATE              DATE,
+    TYPE                 VARCHAR2(1 CHAR),
+    RESULT               VARCHAR2(1000 CHAR),
+    "EXCEPTION"          VARCHAR2(2000 CHAR),
+    constraint PK_EXECUTELOG primary key (ID)
+);
+INSERT INTO SUBMENU ( ID, LABLENAME, HREFURL, PARENTID, REMARK, REGIONID, SHOWNO,
+TYPE ) VALUES ( 
+'230', '计划制定结果', NULL, '2', NULL, NULL, 5, NULL); 
+INSERT INTO SONMENU ( ID, LABLENAME, PARENTID, HREFURL, REMARK, TYPE,
+POWER ) VALUES ( 
+'23001', '计划制定结果', '230', '/WebApp/ExecuteLogAction.do?method=queryExecuteLog'
+, NULL, NULL, '22'); 
+--20080708盯防附件表
+alter table watchinfo_attach add flag integer;
+alter table watchinfo_attach add uploadtime Date DEFAULT SYSDATE NOT NULL
+commit;
+
+
+

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="NoticeBean" type="com.cabletech.notice.beans.NoticeBean">
+		</form-bean>
+	</form-beans>
+	<action-mappings>
+		<action name="NoticeBean" parameter="method" path="/NoticeAction"
+			scope="request" type="com.cabletech.notice.action.NoticeAction">
+			<forward name="addform" path="/notice/add_notice.jsp">
+			</forward>
+			<forward name="querynotice" path="/notice/query_notice_list.jsp">
+			</forward>
+			<forward name="queryallissuenotice" path="/notice/query_all_issue_notice.jsp">
+			</forward>
+			<forward name="querynoticemeet" path="/notice/query_notice_meet.jsp">
+			</forward>
+			<forward name="editform" path="/notice/edit_notice.jsp">
+			</forward>
+			<forward name="shownotice" path="/notice/show_notice.jsp">
+			</forward>
+			<forward name="allnoticelist" path="/notice/all_notice_list.jsp">
+			</forward>
+			<forward name="queryform" path="/notice/query_notice_form.jsp">
+			</forward>
+		</action>
+	</action-mappings>
+</struts-config>
+

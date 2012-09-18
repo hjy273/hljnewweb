@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.cabletech.linepatrol.dispatchtask.module.DispatchTask"
+		table="LP_SENDTASK">
+		<id name="id" type="string">
+			<column name="id" not-null="true" sql-type="VARCHAR(12)" />
+			<generator class="com.cabletech.commons.hb.StrSequenceGenerator">
+				<param name="sequence">SEQ_SENDTASK_ID</param>
+				<param name="length">12</param>
+			</generator>
+		</id>
+		<property column="SENDUSERID" generated="never" lazy="false"
+			name="senduserid" />
+		<property column="SENDDEPTID" generated="never" lazy="false"
+			name="senddeptid" />
+		<property column="SENDTIME" generated="never" lazy="false"
+			name="sendtime" />
+		<property column="SENDTYPE" generated="never" lazy="false"
+			name="sendtype" />
+		<property column="PROCESSTERM" generated="never" lazy="false"
+			name="processterm" />
+		<property column="SENDTOPIC" generated="never" lazy="false"
+			name="sendtopic" />
+		<property column="SENDTEXT" generated="never" lazy="false"
+			name="sendtext" />
+		<property column="SENDACCE" generated="never" lazy="false"
+			name="sendacce" />
+		<property column="REGIONID" generated="never" lazy="false"
+			name="regionid" />
+		<property column="SERIALNUMBER" generated="never" lazy="false"
+			name="serialnumber" />
+		<property column="REPLY_REQUEST" generated="never" lazy="false"
+			name="replyRequest" />
+		<property column="CANCEL_USER_ID" generated="never" lazy="false"
+			name="cancelUserId" />
+		<property column="CANCEL_TIME" generated="never" lazy="false"
+			name="cancelTime" />
+		<property column="CANCEL_REASON" generated="never" lazy="false"
+			name="cancelReason" />
+		<property column="WORKSTATE" generated="never" lazy="false"
+			name="workState" />
+	</class>
+</hibernate-mapping>

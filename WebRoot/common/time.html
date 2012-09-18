@@ -1,0 +1,173 @@
+<html>
+<title>请选择时间</title>
+<head>
+<link REL="stylesheet" TYPE="text/css" HREF="timebox.css">
+<link href="../css/style.css" rel="stylesheet" type="text/css">
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+<SCRIPT LANGUAGE="JavaScript">
+var openerWindH = null;
+
+function doTime(timeValue) {
+	if (timeInput.value.length == 8)
+		sub();
+	var doTime;
+	doTime = timeInput.value + timeValue;
+	if (doTime.length==2){
+		if(doTime>24){
+			doTime="0"+doTime.substring(0,1)+":"+doTime.substring(1,2);
+		}
+	}
+	if(doTime.length==5){
+		var temp=doTime.substring(3,5);
+		if (temp>59){
+			doTime=doTime.substring(0,3)+"0"+doTime.substring(3,4)+":"+doTime.substring(4,5);
+		}
+	}
+	if(doTime.length==7){
+		var temp=doTime.substring(6,7);
+		if (temp>5){
+			doTime=doTime.substring(0,6)+"0"+doTime.substring(6,7);
+		}
+	}
+	if(doTime.length==2||doTime.length==5){
+		doTime=doTime+":";
+		//alert(doTime);
+	}
+	if(doTime.length<9){
+		timeInput.value=doTime;
+	}
+	else{
+		return false;
+	}
+}
+
+function sub() {
+	timeInput.value = "";
+}
+
+function setTime() {
+	if (timeInput.value == "")
+		timeInput.value = "00:00:00";
+	pairs = timeInput.value.split(":");
+	for (i = 0;i < pairs.length;i++) {
+		if (pairs[i] == "")
+			pairs[i] = "00";
+
+		if (pairs[i].length == 1) {
+			tmp = parseInt(pairs[i] + "0");
+			if (i == 0)
+				if (tmp > 23)
+					pairs[i] = "0" + pairs[i];
+				else
+					pairs[i] = tmp;
+			if (i == 1)
+				if (tmp > 59)
+					pairs[i] = "0" + pairs[i];
+				else
+					pairs[i] = tmp;
+			if (i == 2)
+				if (tmp > 59)
+					pairs[i] = "0" + pairs[i];
+				else
+					pairs[i] = tmp;
+			if (pairs[i] == "0")
+				pairs[i] = "00";
+		}
+	}
+
+	time = "";
+	for (i = 0;i < 3;i++) {
+		if (i < pairs.length) {
+			time += ":" + pairs[i];
+		}
+		else {
+			time += ":" + "00";
+		}
+	}
+	time = time.substring(1);
+	timeInput.value  = time;
+}
+
+function apply() {
+	setTime();
+	//window.returnValue = timeInput.value;
+	openerWindH = window.dialogArguments;
+	//alert(openerWindH.iteName);
+	openerWindH.setSelecteTime(timeInput.value);
+	self.close();
+}
+</script>
+</head>
+<body topmargin="5" leftmargin="0" marginheight="0" marginwidth="0" >
+<table width="216" align="center">
+<tr>
+<td width="208">
+<fieldset><LEGEND><font size=2>&nbsp;时间&nbsp;</LEGEND>
+<table align="center"  height=182 border="0" cellspacing="0" cellpadding="1" width="100">
+  <tr height="5">
+	<td colspan="3"></td>
+  </tr>
+  <tr align="center">
+    <td>
+      <input type="button" name="numBtn1" value="1" class="numBtn" onclick="doTime(1)">
+    </td>
+    <td>
+      <input type="button" name="numBtn2" value="2" class="numBtn" onclick="doTime(2)">
+    </td>
+    <td>
+      <input type="button" name="numBtn3" value="3" class="numBtn" onclick="doTime(3)">
+    </td>
+  </tr>
+  <tr align="center">
+    <td>
+      <input type="button" name="numBtn4" value="4" class="numBtn" onclick="doTime(4)">
+    </td>
+    <td>
+      <input type="button" name="numBtn5" value="5" class="numBtn" onclick="doTime(5)">
+    </td>
+    <td>
+      <input type="button" name="numBtn6" value="6" class="numBtn" onclick="doTime(6)">
+    </td>
+  </tr>
+  <tr align="center">
+    <td>
+      <input type="button" name="numBtn7" value="7" class="numBtn" onclick="doTime(7)">
+    </td>
+    <td>
+      <input type="button" name="numBtn8" value="8" class="numBtn" onclick="doTime(8)">
+    </td>
+    <td>
+      <input type="button" name="numBtn9" value="9" class="numBtn" onclick="doTime(9)">
+    </td>
+  </tr>
+  <tr align="center">
+    <td>
+      <input type="button" name="numBtn10" value=":" class="numBtn">
+    </td>
+    <td>
+      <input type="button" name="numBtn11" value="0" class="numBtn" onclick="doTime(0)">
+    </td>
+    <td>
+      <input type="button" name="numBtn12" value="C" class="numBtn" onclick="sub()">
+    </td>
+  </tr>
+
+	<tr><td colspan="3" valign="bottom">&nbsp;<input readonly="true" type="text" ID="timeInput" class="timeInput" value="00:00:00"></td></tr>
+  <tr height="5">
+	<td colspan="3"></td>
+  </tr>
+</table>
+</fieldset>
+
+</td>
+</tr>
+</table>
+<table width="216" height="28" align="center">
+<tr height="30">
+<td width="208" height="24" align="center" valign="bottom">
+<input  onclick="apply()" type=button Class="button" value=" 确认 ">&nbsp;
+<input  onclick="self.close()" type=button Class="button" value=" 取消 "></td>
+</tr>
+</table>
+</body>
+</html>

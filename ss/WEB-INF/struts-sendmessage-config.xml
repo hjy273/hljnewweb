@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="SendMessageBean"
+			type="com.cabletech.sysmanage.beans.SendMessageBean" />
+	</form-beans>
+	<global-forwards>
+		<forward name="sucessMsg" path="/globinfo/sucessinfo.jsp" />
+		<forward name="errorMsg" path="/globinfo/errorinfo.jsp" />
+		<forward name="powererror" path="/globinfo/powererror.jsp" />
+		<forward name="giserror" path="/realtime/errorinfo.jsp" />
+	</global-forwards>
+	<action-mappings>
+		<action name="SendMessageBean" parameter="method"
+			path="/sendmessage/send_message" scope="request"
+			type="com.cabletech.sysmanage.action.SendMessageAction">
+			<forward name="send_message_add" path="/SystemManage/send_message_add.jsp" />
+		</action>
+	</action-mappings>
+</struts-config>
+
+

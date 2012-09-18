@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="maintence" xmlns="http://jbpm.org/4.0/jpdl">
+   <start g="320,-5,48,48" name="start">
+      <transition g="-43,-12" name="start" to="create_test_plan_task"/>
+   </start>
+   <end g="320,799,48,48" name="end"/>
+   <task candidate-users="#{assignee}" g="275,171,135,52" name="approve_test_plan_task">
+      <transition g="-51,-3" name="passed" to="test_plan_approve_decide"/>
+      <transition g="395,150:9,-6" name="not_passed" to="create_test_plan_task"/>
+   </task>
+   <decision expr="#{transition}" g="318,262,48,48" name="test_plan_approve_decide">
+      <transition g="-53,-13" name="record" to="record_test_data_task"/>
+      <transition g="405,249:11,-5" name="transfer" to="approve_test_plan_task"/>
+   </decision>
+   <task candidate-users="#{assignee}" g="274,348,137,52" name="record_test_data_task">
+      <transition g="-50,-6" name="record" to="test_data_submit_decide"/>
+   </task>
+   <task candidate-users="#{assignee}" g="259,521,163,52" name="approve_test_data_task">
+      <transition g="-41,-7" name="passed" to="test_data_approve_decide"/>
+      <transition g="229,458:-62,-5" name="not_passed" to="record_test_data_task"/>
+   </task>
+   <decision expr="#{transition}" g="318,439,48,48" name="test_data_submit_decide">
+      <transition g="-61,-12" name="submited" to="approve_test_data_task"/>
+      <transition g="386,428:10,-7" name="not_submited" to="record_test_data_task"/>
+   </decision>
+   <decision expr="#{transition}" g="318,618,48,48" name="test_data_approve_decide">
+      <transition g="-55,-5" name="evaluate" to="evaluate_task"/>
+      <transition g="406,596:4,-4" name="transfer" to="approve_test_data_task"/>
+   </decision>
+   <task candidate-users="#{assignee}" g="297,707,92,52" name="evaluate_task">
+      <transition g="-26,-3" name="end" to="end"/>
+   </task>
+   <task candidate-users="#{assignee}" g="274,80,138,52" name="create_test_plan_task">
+      <transition g="-90,-10" name="apply_approve" to="approve_test_plan_task"/>
+   </task>
+</process>

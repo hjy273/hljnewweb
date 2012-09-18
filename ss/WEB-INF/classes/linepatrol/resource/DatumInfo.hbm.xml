@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.linepatrol.resource.model.DatumInfo" table="DATUM_INFO" lazy="false">
+        <id name="id" type="java.lang.String">
+			<generator class="com.cabletech.commons.hb.StrSequenceGenerator">
+				<param name="sequence">SEQ_DATUM_INFO_ID</param>
+				<param name="length">12</param>
+			</generator>
+		</id>
+		<property name="typeId" column="TYPEID" />
+		<property name="name" column="NAME" />
+		<property name="info" column="INFO" />
+		<property name="contractorId" column="CONTRACTORID" />
+		<property name="regionId" column="REGIONID" />
+		<property name="datumState" column="DATUM_STATE" />
+    </class>
+</hibernate-mapping>

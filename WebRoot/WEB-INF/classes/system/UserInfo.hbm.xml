@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.baseinfo.domainobjects.UserInfo"  table="UserInfo">
+        <id name="userID" type="string" unsaved-value="null" >
+            <column name="userID" sql-type="char(100)" not-null="true"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="userName"/>
+        <property name="deptID"/>
+        <property name="regionid"/>
+        <property name="workID"/>
+        <property name="password"/>
+        <property name="accountTerm"/>
+        <property name="passwordTerm" />
+        <property name="accountState"/>
+        <property name="phone"/>
+        <property name="email"/>
+        <property name="position"/>
+        <property name="state"/>
+		<property name="deptype"/>
+        <property name="newpsdate"/>
+        <property name="oldps"/>
+        <property name="accidenttime"/>
+        <property name="onlinemantime"/>
+        <property name="watchtime"/>
+        <property name="isSuperviseUnit" column="is_supervise_unit" />
+    </class>
+</hibernate-mapping>

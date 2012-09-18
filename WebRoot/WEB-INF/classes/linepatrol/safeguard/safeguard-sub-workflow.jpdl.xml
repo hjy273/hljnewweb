@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="safeguard-sub" xmlns="http://jbpm.org/4.0/jpdl">
+   <start g="293,16,48,48" name="start">
+      <transition g="-46,-9" name="start" to="change_guard_plan_task"/>
+   </start>
+   <end g="295,462,48,48" name="end"/>
+   <task candidate-users="#{assignee}" g="232,98,168,52" name="change_guard_plan_task">
+      <transition g="-54,-10" name="approve" to="change_guard_plan_approve_task"/>
+   </task>
+   <task candidate-users="#{assignee}" g="200,202,233,52" name="change_guard_plan_approve_task">
+      <transition g="-49,-3" name="passed" to="is_approve_transfer_decide"/>
+      <transition g="351,174:13,-8" name="not_passed" to="change_guard_plan_task"/>
+   </task>
+   <decision expr="#{transition}" g="294,296,29,4" name="is_approve_transfer_decide">
+      <transition g="-47,-17" name="end" to="end"/>
+      <transition g="346,279:9,-9" name="transfer" to="change_guard_plan_approve_task"/>
+      <transition g="4,-14" name="re_planed" to="wait_replan_task"/>
+   </decision>
+   <task candidate-users="#{assignee}" g="386,366,127,52" name="wait_replan_task">
+      <transition g="4,1" name="end" to="end"/>
+   </task>
+</process>

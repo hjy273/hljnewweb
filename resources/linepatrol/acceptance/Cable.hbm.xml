@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.linepatrol.acceptance.model.ApplyCable"  table="LP_ACCEPTANCE_CABLE">
+        <id name="id" type="string" unsaved-value="null" >
+            <column name="ID" sql-type="varchar(12)" not-null="true"/>  
+            <generator class="com.cabletech.commons.hb.StrSequenceGenerator">
+               <param name="sequence">SEQ_LP_ACCEPTANCE_CABLE_ID</param>
+               <param name="length">12</param>
+            </generator>        
+        </id>
+        <property name="sid" column="SID"/>
+        <property name="cableNo" column="CABLE_NO"/>
+        <property name="issueNumber" column="ISSUENUMBER"/>
+        <property name="a" column="A"/>
+        <property name="z" column="Z"/>
+        <property name="trunk" column="TRUNK"/>
+        <property name="cableLevel" column="CABLE_LEVEL"/>
+        <property name="layingMethod" column="LAYING_METHOD"/>
+        <property name="fibercoreNo" column="FIBERCORE_NO"/>
+        <property name="cableLength" column="CABLE_LENGTH"/>
+        <property name="builder" column="BUILDER"/>
+        <property name="builderPhone" column="BUILDER_PHONE"/>
+        <property name="prcpm" column="PRCPM"/>
+        <property name="remark" column="REMARK"/>
+        <property name="isrecord" column="ISRECORD"/>
+        <property name="ispassed" column="ISPASSED"/>
+        <property name="contractorId" column="CONTRACTORID"/>
+        <property name="planAcceptanceTime" column="PLAN_ACCEPTANCE_TIME"/>
+        <property name="planAcceptanceTime2" column="PLAN_ACCEPTANCE_TIME2"/>
+		<many-to-one name="apply" 
+	        class="com.cabletech.linepatrol.acceptance.model.Apply" 
+	        cascade="none" outer-join="auto" update="true" 
+			insert="true" access="property" column="APPLY_ID" not-null="true"/>
+    </class>
+</hibernate-mapping>

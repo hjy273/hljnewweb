@@ -1,0 +1,140 @@
+@charset "gb2312";
+
+.eXtremeTable {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+.eXtremeTable SELECT {
+	BORDER-RIGHT: #eee 1px solid; BORDER-TOP: #eee 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #eee 1px solid; WIDTH: 75px; BORDER-BOTTOM: #eee 1px solid; FONT-FAMILY: Verdana
+}
+.eXtremeTable .tableRegion {
+	BORDER-RIGHT: silver 0px solid; PADDING-RIGHT: 2px; BORDER-TOP: silver 0px solid; MARGIN-TOP: 7px; PADDING-LEFT: 2px; FONT-SIZE: 12px; PADDING-BOTTOM: 2px; BORDER-LEFT: silver 0px solid; PADDING-TOP: 2px; BORDER-BOTTOM: silver 0px solid; FONT-FAMILY: Verdana
+}
+.eXtremeTable .filter {
+	BACKGROUND-COLOR: #efefef
+}
+.eXtremeTable .filter INPUT {
+	FONT-SIZE: 12px; WIDTH: 100%; FONT-FAMILY: Verdana ;
+}
+.eXtremeTable .filter SELECT {
+	BORDER-RIGHT: #eee 1px solid; BORDER-TOP: #eee 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #eee 1px solid; WIDTH: 100%; BORDER-BOTTOM: #eee 1px solid; FONT-FAMILY: Verdana
+}
+.eXtremeTable .tableHeader {
+	BORDER-RIGHT: white 1px solid; PADDING-RIGHT: 3px; PADDING-LEFT: 3px; FONT-WEIGHT: bold; FONT-SIZE: 11px; BORDER-LEFT-COLOR: white; BORDER-BOTTOM-COLOR: white; PADDING-BOTTOM: 4px; MARGIN: 0px; COLOR: white; BORDER-TOP-COLOR: white; PADDING-TOP: 4px; FONT-FAMILY: Verdana; BACKGROUND-COLOR: #92afcd; TEXT-ALIGN: left
+}
+.eXtremeTable .tableHeaderSort {
+	BORDER-RIGHT: #dfddce 0px solid; BORDER-TOP: #dfddce 0px solid; FILTER: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#FFFFFF', endColorStr='#CBCEE0', gradientType='0'); VERTICAL-ALIGN: middle; BORDER-LEFT: #dfddce 0px solid; COLOR: #000000; BORDER-BOTTOM: #BDADDA 1px solid;BORDER-right: #BDADDA 1px solid; HEIGHT: 24px; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: center
+}
+.eXtremeTable .odd A {
+	FONT-SIZE: 12px; COLOR: black
+}
+.even A {
+	FONT-SIZE: 12px; COLOR: black
+}
+.eXtremeTable .odd TD {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; FONT-SIZE: 12px; PADDING-BOTTOM: 2px; VERTICAL-ALIGN: middle; PADDING-TOP: 2px; FONT-FAMILY: Verdana;
+	text-align:center;
+	
+}
+
+.eXtremeTable .even TD {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; FONT-SIZE: 12px; PADDING-BOTTOM: 2px; VERTICAL-ALIGN: middle; PADDING-TOP: 2px; FONT-FAMILY: Verdana;
+}
+.eXtremeTable .odd {
+	BACKGROUND-COLOR: #ffffff
+}
+.eXtremeTable .even {
+	BACKGROUND-COLOR: #FFFFFF
+}
+.eXtremeTable .highlight TD {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; FONT-SIZE: 12px; PADDING-BOTTOM: 2px; VERTICAL-ALIGN: middle; COLOR: black; PADDING-TOP: 2px; BACKGROUND-COLOR: #fdecae
+}
+.eXtremeTable .highlight A {
+	FONT-SIZE: 12px; COLOR: black
+}
+.highlight A {
+	FONT-SIZE: 12px; COLOR: black
+} 
+.eXtremeTable .toolbar {
+	BORDER-RIGHT: silver 1px solid; BORDER-TOP: silver 1px solid; FONT-SIZE: 12px; MARGIN-BOTTOM: 3px; BORDER-LEFT: silver 1px solid; MARGIN-RIGHT: 1px; BORDER-BOTTOM: silver 1px solid; FONT-FAMILY: Verdana; BACKGROUND-COLOR: #f4f4f4
+}
+.eXtremeTable .toolbar TD {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 0px; COLOR: #444444; PADDING-TOP: 0px; TEXT-ALIGN: center
+}
+.eXtremeTable .separator {
+	WIDTH: 7px
+}
+.eXtremeTable .statusBar {
+	FONT-SIZE: 12px; FONT-FAMILY: Verdana; background-color:#B4DEF7; 
+	padding:5px; TEXT-ALIGN: left;
+	height:29px;
+	
+	border-left-color:#000000;
+}
+.eXtremeTable .filterButtons {
+	BACKGROUND-COLOR: #efefef; TEXT-ALIGN: right
+}
+.eXtremeTable .title {
+	FONT-WEIGHT: bold; FONT-SIZE: 15px; VERTICAL-ALIGN: middle; COLOR: #444444; FONT-FAMILY: Verdana
+}
+.eXtremeTable .title SPAN {
+	MARGIN-LEFT: 7px
+}
+.eXtremeTable .formButtons {
+	MARGIN-TOP: 12px; DISPLAY: block; MARGIN-LEFT: 5px
+}
+.eXtremeTable .formButton {
+	BORDER-RIGHT: #333 1px outset; BORDER-TOP: #333 1px outset; MARGIN-TOP: 5px; FONT-WEIGHT: bold; FONT-SIZE: 12px; VERTICAL-ALIGN: middle; BORDER-LEFT: #333 1px outset; CURSOR: pointer; COLOR: white; BORDER-BOTTOM: #333 1px outset; FONT-FAMILY: Verdana; BACKGROUND-COLOR: #308dbb
+}
+.eXtremeTable .tableTotal {
+	BORDER-TOP: silver 1px solid; BACKGROUND-COLOR: #ffffff
+}
+.eXtremeTable .tableTotalEmpty {
+	BACKGROUND-COLOR: #ffffff
+}
+.trlist {
+	BORDER-RIGHT: #eae9e4 1px solid; BORDER-TOP: #9a9a9a 0px solid; BACKGROUND-IMAGE: url(../../images/bg_th_main.gif); BORDER-LEFT: #9a9a9a 0px solid; BORDER-BOTTOM: #9a9a9a 1px solid; HEIGHT: 23px; TEXT-ALIGN: center
+}
+
+
+/*±ß¿ò±³¾°ÑùÊ½*/
+.bkbg1{
+	width:13px;
+	height:31px;
+	background-image: url(../../images/lbleft.jpg);
+	}
+.bkbg2{
+	width:13px;
+	height:31px;
+	background-image: url(../../images/lbright.jpg);
+	}
+.bkbg3{
+	width:13px;
+	height:28px;
+	background-image: url(../../images/lbleftx.jpg);
+	}
+.bkbg4{
+	width:19px;
+	height:28px;
+	background-image: url(../../images/lbrightx.jpg);
+	}
+.bkbg5{
+	width:13px;
+	height:13px;
+	background-image: url(../../images/lbleftb.jpg);
+	}
+.bkbg6{
+	width:19px;
+	height:11px;
+	background-image: url(../../images/lbrightb.jpg);
+	}
+.bkbg7{
+	width:13px;
+	height:28px;
+	background-image: url(../../images/lbxiab.jpg);
+	}
+
+.bkbg8{
+	width:6px;
+	height:29px;
+	background-image:url(../../images/lb-1.jpg);
+	}

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.linepatrol.overhaul.model.OverHaulApply"  table="LP_OVERHAUL_APPLY">
+        <id name="id" type="string" unsaved-value="null" >
+            <column name="ID" sql-type="varchar(12)" not-null="true"/>  
+            <generator class="com.cabletech.commons.hb.StrSequenceGenerator">
+               <param name="sequence">SEQ_LP_OVERHAUL_APPLY_ID</param>
+               <param name="length">12</param>
+            </generator>        
+        </id>
+        <property name="taskId" column="TASK_ID"/>
+        <property name="contractorId" column="CONTRACTORID"/>
+        <property name="applicant" column="APPLICANT"/>
+        <property name="fee" column="FEE"/>
+        <property name="creator" column="CREATOR"/>
+        <property name="createTime" column="CREATE_TIME"/>
+        <property name="processInstanceId" column="PROCESSINSTANCEID"/>
+        <property name="state" column="STATE"/>
+        <set name="overHaulCuts" cascade="all" inverse="true">
+		    <key column="APPLY_ID"/>
+		    <one-to-many class="com.cabletech.linepatrol.overhaul.model.OverHaulCut"/>
+		</set>
+        <set name="overHaulProjects" cascade="all" inverse="true">
+		    <key column="APPLY_ID"/>
+		    <one-to-many class="com.cabletech.linepatrol.overhaul.model.OverHaulProject"/>
+		</set>
+    </class>
+</hibernate-mapping>

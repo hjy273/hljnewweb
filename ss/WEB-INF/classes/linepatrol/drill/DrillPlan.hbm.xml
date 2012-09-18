@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.linepatrol.drill.module.DrillPlan"  table="LP_DRILLPLAN">
+        <id name="id" type="string" unsaved-value="null" >
+            <column name="id" sql-type="VARCHAR(12)" not-null="true"/>  
+            <generator class="com.cabletech.commons.hb.StrSequenceGenerator">
+               <param name="sequence">SEQ_LP_DRILLPLAN_ID</param>
+               <param name="length">12</param>
+            </generator>
+        </id>
+        <property name="taskId" column="TASK_ID"/>
+        <property name="contractorId" column="CONTRACTOR_ID"/>
+        <property name="personNumber" column="PERSON_NUMBER"/>
+        <property name="carNumber" column="CAR_NUMBER"/>
+        <property name="scenario" column="SCENARIO"/>
+        <property name="remark" column="REMARK"/>
+        <property name="unapproveNumber" column="UNAPPROVE_NUMBER"/>
+        <property name="creator" column="CREATOR"/>
+        <property name="createTime" column="CREATETIME"/>
+        <property name="realBeginTime" column="BEGINTIME"/>
+        <property name="realEndTime" column="ENDTIME"/>
+        <property name="address" column="ADDRESS"/>
+        <property name="equipmentNumber" column="equipment_NUMBER"/>
+        <property name="deadline" column="DEADLINE"/>
+    </class>
+</hibernate-mapping>

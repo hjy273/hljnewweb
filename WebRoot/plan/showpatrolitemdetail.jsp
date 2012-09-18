@@ -1,0 +1,26 @@
+<%@include file="/common/header.jsp"%>
+<%@ page contentType="text/html; charset=GBK"%>
+
+<html>
+
+	<link rel="stylesheet" href="${ctx}/css/screen.css" type="text/css"
+		media="screen, print" />
+	<head>
+		<title>RFIDÑ²¼ìÃ÷Ï¸</title>
+	</head>
+	<body>
+		<template:titile value="RFIDÑ²¼ìÃ÷Ï¸"/>
+		<display:table name="sessionScope.QUERYREUSLT" id="currentRowObject"
+			pagesize="18">
+			<display:column property="patrold_time" title="Ñ²¼ìÊ±¼ä"
+				format="{0,date,yyyy-MM-dd HH:mm:ss}" />
+			<display:column title="Ñ²¼ìµØÖ·" property="address" />
+			<display:column title="RFID" property="rfid" />
+			<display:column title="LACCI" property="lacci" />
+		</display:table>
+		<div align="center">
+			<input type="button" class="button" value="·µ»Ø"
+				onclick="javascript:history.back(-1);">
+		</div>
+	</body>
+</html>

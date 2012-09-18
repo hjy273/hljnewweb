@@ -1,0 +1,13 @@
+[PropertyInfo]
+begindate,String,false,false,begindate,begindate,true,<default>
+enddate,String,false,false,enddate,enddate,true,<default>
+executorid,String,false,false,executorid,executorid,true,<default>
+queryby,String,false,false,queryby,queryby,true,<default>
+regionid,String,false,false,regionid,regionid,true,<default>
+sublineid,String,false,false,sublineid,sublineid,true,<default>
+watchid,String,false,false,watchid,watchid,true,<default>
+[IconNames]
+
+
+
+

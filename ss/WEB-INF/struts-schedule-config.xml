@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+	</form-beans>
+	<global-forwards>
+		<forward name="sucessMsg" path="/globinfo/sucessinfo.jsp" />
+		<forward name="errorMsg" path="/globinfo/errorinfo.jsp" />
+		<forward name="powererror" path="/globinfo/powererror.jsp" />
+		<forward name="giserror" path="/realtime/errorinfo.jsp" />
+	</global-forwards>
+	<action-mappings>
+		<action path="/schedule" parameter="method" scope="request"
+			type="com.cabletech.schedule.action.SendSmJobAction">
+			<forward name="schedule_job_query_form" path="/schedule/schedule_job_query_form.jsp" />
+			<forward name="schedule_job_list" path="/schedule/schedule_job_list.jsp" />
+			<forward name="schedule_job_view" path="/schedule/schedule_job_view.jsp" />
+		</action>
+	</action-mappings>
+</struts-config>
+
+

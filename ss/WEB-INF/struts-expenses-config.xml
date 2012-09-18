@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="expensesBean" type="com.cabletech.linepatrol.expenses.beans.ExpensesBean"></form-bean>
+		<form-bean name="expenseFactorBean" type="com.cabletech.linepatrol.expenses.beans.ExpenseFactorBean"></form-bean>
+		<form-bean name="expensePriceBean" type="com.cabletech.linepatrol.expenses.beans.ExpensePriceBean"></form-bean>
+		<form-bean name="budgetFactorBean" type="com.cabletech.linepatrol.expenses.beans.BudgetFactorBean"></form-bean>
+		<form-bean name="expenseAffirmBean" type="com.cabletech.linepatrol.expenses.beans.ExpenseAffirmBean"></form-bean>
+	</form-beans>
+	
+	<global-forwards>
+		<forward name="sucessMsg" path="/globinfo/sucessinfo.jsp" />
+		<forward name="errorMsg" path="/globinfo/errorinfo.jsp" />
+		<forward name="powererror" path="/globinfo/powererror.jsp" />
+		<forward name="giserror" path="/realtime/errorinfo.jsp" />
+	</global-forwards>
+	
+	<action-mappings>	
+        <action name="expensesBean" path="/expensesAction" parameter="method" scope="request" type="com.cabletech.linepatrol.expenses.action.ExpensesAction">
+           <forward name="createExpensesForm" path="/linepatrol/expenses/expenses_create_form.jsp"></forward>
+           <forward name="editMonthExpenseForm" path="/linepatrol/expenses/expenses_edit_monthprice.jsp"></forward>
+           <forward name="viewMonthExpenseForm" path="/linepatrol/expenses/expenses_view_monthprice.jsp"></forward>
+           
+           <forward name="queryExpensesForm" path="/linepatrol/expenses/expenses_query_form.jsp"></forward>
+           <forward name="expensesList" path="/linepatrol/expenses/expenses_view.jsp"></forward>
+           
+           <forward name="viewAffrimEexpense" path="/linepatrol/expenses/expenses_affrim_view.jsp"></forward>
+           <forward name="affirmExepenseList" path="/linepatrol/expenses/expenses_affrim_list.jsp"></forward>
+        </action>
+        <!-- 维护系数 -->
+        <action name="expenseFactorBean" path="/expensesFactorAction" parameter="method" scope="request" type="com.cabletech.linepatrol.expenses.action.ExpensesAction">
+           <forward name="cableGradeFactorList" path="/linepatrol/expenses/expenses_factor_list.jsp"></forward>
+           <forward name="addFactorForm" path="/linepatrol/expenses/expenses_factor_add_form.jsp"></forward>
+           <forward name="editFactorForm" path="/linepatrol/expenses/expenses_factor_edit_form.jsp"></forward>
+        </action>
+          <!-- 维护单价-->
+         <action name="expensePriceBean" path="/expensesPriceAction" parameter="method" scope="request" type="com.cabletech.linepatrol.expenses.action.ExpensesAction">
+           <forward name="unitPriceList" path="/linepatrol/expenses/expenses_price_list.jsp"></forward>
+           <forward name="addUnitPriceForm" path="/linepatrol/expenses/expenses_price_add_form.jsp"></forward>
+           <forward name="editCableUnitPriceForm" path="/linepatrol/expenses/expenses_price_edit_form.jsp"></forward>
+        </action>
+         <!-- 预算管理-->
+         <action name="budgetFactorBean" path="/budgeExpensesAction" parameter="method" scope="request" type="com.cabletech.linepatrol.expenses.action.BudgeExpensesAction">
+           <forward name="addBudgetExpenseForm" path="/linepatrol/expenses/budget_add_form.jsp"></forward>
+           <forward name="editBudgetForm" path="/linepatrol/expenses/budget_edit_form.jsp"></forward>
+           <forward name="budgetExpenses" path="/linepatrol/expenses/budget_list.jsp"></forward>
+        </action>
+        <!-- 费用核实 -->
+         <action name="expenseAffirmBean" path="/expensesAffirmAction" parameter="method" scope="request" type="com.cabletech.linepatrol.expenses.action.ExpensesAction">
+        </action>
+	</action-mappings>
+	
+	
+</struts-config>
+

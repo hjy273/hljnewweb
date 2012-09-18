@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.planstat.domainobjects.SublineRequest"  table="subline_request">
+        <id name="requestid" type="string" unsaved-value="null" >
+            <column name="requestid" sql-type="char(10)" not-null="true"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="requesttime" column="requesttime" type="timestamp"/>
+        <property name="userid" column="userid" type="string"/>
+        <property name="responsetime" column="responsetime" type="date"/>
+    </class>
+</hibernate-mapping>

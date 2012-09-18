@@ -1,0 +1,16 @@
+/* A CSS Framework by Mike Stenhouse of Content with Style */
+	label {
+		font-weight: bold;
+	}
+	input, select, textarea {
+		font-size:1em; 
+		font-family: arial, helvetica, verdana, sans-serif;
+        background:#C6D6E2;
+        margin: 0;
+		padding: 2px;
+	}
+	input, select {
+		vertical-align:middle;
+	}
+/* END FORM ELEMENTS */
+		

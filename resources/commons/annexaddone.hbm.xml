@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.commons.upload.module.AnnexAddOne"  table="ANNEX_ADD_ONE">
+        <id name="id" type="string" unsaved-value="null" >
+            <column name="id" sql-type="char(15)" not-null="true"/>
+            <generator class="com.cabletech.commons.hb.StrSequenceGenerator">
+            	<param name="sequence">SEQ_ANNEX_ADD_ONE_ID</param>
+               	<param name="length">15</param>
+            </generator>
+        </id>
+        <property name="entityId" column="entity_id"/>
+        <property name="entityType" column="entity_type"/>
+        <property name="fileId"/>
+        <property name="module"/>
+        <property name="moduleCatalog" column="module_catalog"/>
+        <property name="timeStamp" column="time_stamp"/>
+        <property name="uploader" column="uploader"/>
+        <property name="uploadDate" column="upload_date"/>
+        <property name="isUsable"  column="is_usable"/>
+        <property name="state" column="state"/>
+    </class>
+</hibernate-mapping>

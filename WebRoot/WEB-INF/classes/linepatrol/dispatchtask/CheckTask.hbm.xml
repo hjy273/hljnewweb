@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.cabletech.linepatrol.dispatchtask.module.CheckTask"
+		table="LP_SENDTASK_CHECK">
+		<id name="id" type="string" unsaved-value="null">
+			<column name="id" sql-type="VARCHAR(12)" not-null="true" />
+			<generator class="com.cabletech.commons.hb.StrSequenceGenerator">
+				<param name="sequence">SEQ_SENDTASKCHECK_ID</param>
+				<param name="length">12</param>
+			</generator>
+		</id>
+		<property name="replyid" column="REPLYID" />
+		<property name="validatetime" column="VALIDATETIME" />
+		<property name="validateuserid" column="VALIDATEUSERID" />
+		<property name="validateresult" column="VALIDATERESULT" />
+		<property name="validateacce" column="VALIDATEACCE" />
+		<property name="validateremark" column="VALIDATEREMARK" />
+		<property name="sendacceptdeptid" column="SENDACCID" />
+		<property name="examFlag" column="exam_flag" />
+	</class>
+</hibernate-mapping>

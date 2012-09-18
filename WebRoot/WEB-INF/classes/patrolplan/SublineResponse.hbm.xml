@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.planstat.domainobjects.SublineResponse"  table="subline_response">
+        <id name="id" type="string" unsaved-value="null" >
+            <column name="id" sql-type="char(10)" not-null="true"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="requestid" column="requestid" type="string"/>
+        <property name="planid" column="planid" type="string"/>
+        <property name="sublineid" column="sublineid" type="string"/>
+        <property name="nonpatrolnum" column="nonpatrolnum" type="java.lang.Integer"/>
+        <property name="planpointnum" column="planpointnum" type="java.lang.Integer"/>
+        <property name="actualpointnum" column="actualpointnum" type="java.lang.Integer"/>
+        <property name="todaypointnum" column="todaypointnum" type="java.lang.Integer"/>
+        <property name="deadlinedays" column="deadlinedays" type="string"/>
+        <property name="state" column="state" type="string"/>
+        <property name="finishtime" column="finishtime" type="date"/>
+    </class>
+</hibernate-mapping>

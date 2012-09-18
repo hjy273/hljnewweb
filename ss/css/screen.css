@@ -1,0 +1,170 @@
+BODY {font-size: 9pt; 
+	}
+table {
+    font-size: 9pt; line-height: 140%;
+	border: 1px solid #B2DCF6;
+	width: 100%;
+	margin-left:0.2%;
+	margin-right:0.2%;
+	border-collapse:collapse;
+	margin-bottom:10px;
+}
+th{
+	border: 1px solid #B2DCF6;
+}
+td{
+	border:1px solid #B2DCF6;
+	line-height: 25px;
+	padding:0px;
+}
+span.pagebanner {
+	background-color: #F2FAFF;
+	border: 1px dotted #999;
+	padding: 2px 4px 2px 4px;
+	
+	width: 100%;
+	margin-left:0.1%;
+	margin-right:0.1%;
+	margin-top: 10px;
+	display:block;
+	border-bottom: none;
+}
+span.empty_list{
+	background-color: #F2FAFF;
+	border: 1px dotted #999;
+	padding: 2px 4px 2px 4px;
+	width: 100%;
+	margin-top:1%;
+	margin-left:0.1%;
+	margin-right:0.1%;
+	display:block;
+	color: red;
+	height: 25px;
+}
+span.pagelinks {
+	background-color: #F2FAFF;
+	border: 1px dotted #999;
+	padding: 2px 4px 2px 4px;
+	width: 100%;
+	margin-left:0.1%;
+	margin-right:0.1%;
+	display:block;
+	border-top: none;
+	margin-bottom:2px;
+}
+
+thead tr {
+  height:25px;background-image:url("../images2/bg/list_bg.gif"); line-height:25px; text-align:center;vertical-align:center;
+}
+
+th.sorted {
+   height:25px;background-image:url("../images2/bg/listbg.png");text-align:center;vertical-align:center;border:#9A9A9A solid 1px;border-width:0 0 1 0; border-right:#EAE9E4 solid 1px;
+}
+
+th a, th a:visited {
+  color: black;
+}
+th a:hover {
+  text-decoration: underline;
+  color: black;
+}
+th.sorted a, th.sortable a { 
+	background-position: right;
+	display: block;
+	width: 100%;
+	height:25px;
+	line-height:25px;
+}
+/**
+th.sortable a {
+	background-image: url(../img/arrow_off.png);
+}
+th.order1 a {
+	background-image: url(../img/arrow_down.png);
+}
+th.order2 a {
+	background-image: url(../img/arrow_up.png);
+}
+
+ul#showsource {
+	float: right;
+	background-color: #eee;
+	border: 1px dotted #999;
+	padding: 2px 4px 2px 4px;
+	margin: 5px;
+	width:100px;
+	list-style-type: none;
+}
+**/
+
+tr.odd {
+	background:#FFFFFF;
+}
+tr.tableRowEven, tr.even {
+	background:#F2FAFF;
+}
+
+
+table.report td, table.report th{
+	font:menu;
+	border:#999 solid 1px dotted;
+}
+
+table.report idcol {
+	background: buttonface;
+}
+
+table.report tr.even{
+	background-color: #399;
+}
+table.report tbody {
+	height: 100px;
+	overflow: auto;
+}
+
+table.report {
+	height: 120px;
+	overflow: auto;
+}
+
+table.report tbody tr{
+	height: 10px;
+}
+
+table.mark td.tableCellError {
+	background-color: #d00;
+	color: #fff;
+	border:#999 solid 1px dotted;
+}
+
+table.sublist {
+	margin: 0 0 0 0;
+	width: 100%;
+}
+table.sublist td, table.sublist th {
+	width: 50%;
+	border:#999 solid 1px dotted;
+}
+
+div.exportlinks {
+	background-color: #F2FAFF;
+	border: 1px dotted #999;
+	padding: 2px 4px 2px 4px;
+	margin: -10px 0 10px 0;
+	width: 79%;
+}
+
+span.export {
+	padding: 0 4px 1px 20px;
+	display:inline; display:inline-block;
+	cursor: pointer;
+}
+span.excel {
+	background-image: url(../img/ico_file_excel.png);
+}
+span.csv {
+	background-image: url(../img/ico_file_csv.png);
+}
+span.xml {
+	background-image: url(../img/ico_file_xml.png);
+}

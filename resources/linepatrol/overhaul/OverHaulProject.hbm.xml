@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.linepatrol.overhaul.model.OverHaulProject"  table="LP_OVERHAUL_PROJECT">
+        <id name="id" type="string" unsaved-value="null" >
+            <column name="ID" sql-type="varchar(12)" not-null="true"/>  
+            <generator class="com.cabletech.commons.hb.StrSequenceGenerator">
+               <param name="sequence">SEQ_LP_OVERHAUL_PROJECT_ID</param>
+               <param name="length">12</param>
+            </generator>        
+        </id>
+        <property name="projectName" column="PROJECT_NAME"/>
+        <property name="projectId" column="PROJECT_ID"/>
+        <property name="projectRefFee" column="PROJECT_REF_FEE"/>
+        <property name="projectFee" column="PROJECT_FEE"/>
+        <many-to-one name="overHaulApply" 
+	        class="com.cabletech.linepatrol.overhaul.model.OverHaulApply" 
+	        cascade="none" outer-join="auto" update="true" 
+			insert="true" access="property" column="APPLY_ID" not-null="true"/>
+    </class>
+</hibernate-mapping>

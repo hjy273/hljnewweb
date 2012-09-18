@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="drill" xmlns="http://jbpm.org/4.0/jpdl">
+   <start g="275,-8,48,48" name="start">
+      <transition g="-35,-14" name="start" to="drill_proj_create_decide"/>
+   </start>
+   <end g="275,787,48,48" name="end"/>
+   <decision expr="#{transition}" g="274,79,48,48" name="drill_proj_create_decide">
+      <transition g="-98,-14" name="create_drill_proj" to="create_drill_proj_task"/>
+      <transition g="3,-15" name="apporve" to="approve_drill_proj_task"/>
+   </decision>
+   <task candidate-users="#{assignee}" g="21,144,142,52" name="create_drill_proj_task">
+      <transition g="160,238:-61,-12" name="approve" to="approve_drill_proj_task"/>
+   </task>
+   <task candidate-users="#{assignee}" g="216,215,165,52" name="approve_drill_proj_task">
+      <transition g="271,297:-39,-5" name="passed" to="drill_proj_decide"/>
+      <transition g="249,170:-45,-16" name="not_passed" to="create_drill_proj_task"/>
+   </task>
+   <task candidate-users="#{assignee}" g="208,411,179,52" name="create_drill_summary_task">
+      <transition g="252,484:-46,-5" name="approve" to="approve_drill_summary_task"/>
+   </task>
+   <task candidate-users="#{assignee}" g="215,508,165,52" name="approve_drill_summary_task">
+      <transition g="263,588:-40,-15" name="passed" to="drill_summary_decide"/>
+      <transition g="7,-4" name="not_passed" to="create_drill_summary_task"/>
+   </task>
+   <decision expr="#{transition}" g="275,315,48,48" name="drill_proj_decide">
+      <transition g="4,-7" name="transfer" to="approve_drill_proj_task"/>
+      <transition name="passed" to="create_drill_summary_task" g="-45,-9"/>
+   </decision>
+   <decision expr="#{transition}" g="274,604,48,48" name="drill_summary_decide">
+      <transition g="-53,-11" name="evaluate" to="evaluate_task"/>
+      <transition g="6,-7" name="transfer" to="approve_drill_summary_task"/>
+   </decision>
+   <task candidate-users="#{assignee}" g="252,690,92,52" name="evaluate_task">
+      <transition g="-25,-5" name="end" to="end"/>
+   </task>
+</process>

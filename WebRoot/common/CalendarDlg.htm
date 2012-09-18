@@ -1,0 +1,39 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Language" content="zh-cn">
+<META HTTP-EQUIV="Expires" CONTENT="0">
+<head>
+<title>
+日期选择
+</title>
+
+<META HTTP-EQUIV="pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+<META HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1997 08:21:57 GMT">
+<META HTTP-EQUIV="expires" CONTENT="0">
+</head>
+<body onload="fload()" bgcolor='#6699cc'>
+<script SRC=calendar.js>
+</script>
+
+<script>
+function fload()
+{
+	fPopCalendar(document.all.txt1, document.all.txt1,window.dialogArguments);
+}
+
+function fkeydown()
+{
+	if(event.keyCode==27){
+		event.returnValue = null;
+		window.returnValue = null;
+		window.close();
+	}
+
+}
+
+document.onkeydown=fkeydown;
+</script>
+<input type=text id="txt1" style="display:none" name="text">
+</body>
+</html>

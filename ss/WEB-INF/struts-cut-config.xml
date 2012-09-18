@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="cutBean" type="com.cabletech.linepatrol.cut.beans.CutBean" />
+		<form-bean name="cutFeedbackBean"
+			type="com.cabletech.linepatrol.cut.beans.CutFeedbackBean" />
+		<form-bean name="cutAcceptanceBean"
+			type="com.cabletech.linepatrol.cut.beans.CutAcceptanceBean" />
+		<form-bean name="queryConditionBean"
+			type="com.cabletech.linepatrol.cut.beans.QueryConditionBean" />
+		<form-bean name="cutExamBean" type="com.cabletech.linepatrol.cut.beans.CutExamBean" />
+	</form-beans>
+
+	<global-forwards>
+	</global-forwards>
+
+	<action-mappings>
+		<action parameter="method" path="/cutAction" scope="request"
+			name="cutBean" type="com.cabletech.linepatrol.cut.action.CutAction">
+			<forward name="addCutApplyForm" path="/linepatrol/cut/cut_apply_add.jsp" />
+			<forward name="editCutApplyForm" path="/linepatrol/cut/cut_apply_edit.jsp" />
+			<forward name="approveCutApplyForm" path="/linepatrol/cut/cut_apply_approve.jsp" />
+			<forward name="cutCancelForm" path="/linepatrol/cut/cut_task_cancel.jsp" />
+			<forward name="viewCut" path="/linepatrol/cut/cut_apply_view.jsp" />
+			<forward name="tranferCutApplyForm" path="/linepatrol/cut/cut_apply_transfer.jsp" />
+			<forward name="viewApplyList" path="/linepatrol/cut/cut_apply_viewApplyList.jsp" />
+			<forward name="cutTempList" path="/linepatrol/cut/cut_apply_cutTempList.jsp" />
+			<forward name="prefectCutApply" path="/linepatrol/cut/cut_apply_prefect_apply.jsp" />
+			<forward name="query_cut_state" path="/linepatrol/cut/query_cut_state.jsp" />
+			<forward name="view_cut_process" path="/linepatrol/cut/view_cut_process.jsp" />
+			<forward name="queryCutInfoForm" path="/linepatrol/cut/cut_apply_query.jsp" />
+			<forward name="getAllCut" path="/linepatrol/cut/cut_task_list.jsp" />
+			<forward name="queryFinishHandledCutApplyList" path="/linepatrol/cut/cut_task_finish_list.jsp" />
+			<forward name="view_cut_history_process" path="/linepatrol/cut/view_task_finish_process.jsp" />
+		</action>
+		<action parameter="method" path="/cutFeedbackAction" scope="request"
+			name="cutFeedbackBean" type="com.cabletech.linepatrol.cut.action.CutFeedbackAction">
+			<forward name="addCutFeedbackForm" path="/linepatrol/cut/cut_feedback_add.jsp" />
+			<forward name="editCutFeedbackForm" path="/linepatrol/cut/cut_feedback_edit.jsp" />
+			<forward name="addCutFeedbackApproveForm" path="/linepatrol/cut/cut_feedback_approve.jsp" />
+			<forward name="viewCutFeedback" path="/linepatrol/cut/cut_feedback_view.jsp" />
+		</action>
+		<action parameter="method" path="/cutAcceptanceAction" scope="request"
+			name="cutAcceptanceBean" type="com.cabletech.linepatrol.cut.action.CutAcceptanceAction">
+			<forward name="addCutAcceptanceForm" path="/linepatrol/cut/cut_acceptance_add.jsp" />
+			<forward name="editCutAcceptanceForm" path="/linepatrol/cut/cut_acceptance_edit.jsp" />
+			<forward name="cutAcceptanceApproveForm" path="/linepatrol/cut/cut_acceptance_approve.jsp" />
+			<forward name="viewCutAcceptance" path="/linepatrol/cut/cut_acceptance_view.jsp" />
+		</action>
+		<action parameter="method" path="/cutQueryStatAction" scope="request"
+			name="queryConditionBean" type="com.cabletech.linepatrol.cut.action.CutQueryStatAction">
+			<forward name="cutQueryForm" path="/linepatrol/cut/cut_querystat_query.jsp" />
+			<forward name="cutStatForm" path="/linepatrol/cut/cut_querystat_query.jsp" />
+			<forward name="queryCutInfo" path="/linepatrol/cut/cut_querystat_query.jsp" />
+			<forward name="viewQueryCut" path="/linepatrol/cut/cut_querystat_view.jsp" />
+		</action>
+		<action parameter="method" path="/checkAndMarkAction" scope="request"
+			name="cutExamBean" type="com.cabletech.linepatrol.cut.action.CheckAndMarkAction">
+			<forward name="getCheckAndMarkList" path="/linepatrol/cut/cut_mark_list.jsp" />
+			<forward name="viewApply" path="/linepatrol/cut/cut_mark_view.jsp" />
+			<forward name="checkAndMarkFrom" path="/linepatrol/cut/cut_mark_remark.jsp" />
+		</action>
+
+		<!-- 2010-4-17  杨隽  添加WAP操作的action START	-->
+		<action parameter="method" path="/wap/cutAction" scope="request"
+			name="cutBean" type="com.cabletech.linepatrol.cut.action.CutAction">
+			<forward name="read_cut_apply_wap_task" path="/wap/cut/read_cut_apply_wap_task.jsp" />
+			<forward name="cut_task_wait_handle_wap_list" path="/wap/cut/cut_task_wait_handle_wap_list.jsp" />
+			<forward name="approve_cut_apply_wap_task" path="/wap/cut/approve_cut_apply_wap_task.jsp" />
+		</action>
+		<action parameter="method" path="/wap/cutFeedbackAction" scope="request"
+			name="cutFeedbackBean" type="com.cabletech.linepatrol.cut.action.CutFeedbackAction">
+			<forward name="read_cut_feedback_wap_task" path="/wap/cut/read_cut_feedback_wap_task.jsp" />
+			<forward name="approve_cut_feedback_wap_task" path="/wap/cut/approve_cut_feedback_wap_task.jsp" />
+		</action>
+		<action parameter="method" path="/wap/cutAcceptanceAction"
+			scope="request" name="cutAcceptanceBean"
+			type="com.cabletech.linepatrol.cut.action.CutAcceptanceAction">
+			<forward name="read_cut_acceptance_wap_task" path="/wap/cut/read_cut_acceptance_wap_task.jsp" />
+			<forward name="approve_cut_acceptance_wap_task" path="/wap/cut/approve_cut_acceptance_wap_task.jsp" />
+		</action>
+		<!-- 2010-4-17  杨隽  添加WAP操作的action END	-->
+
+	</action-mappings>
+
+
+</struts-config>
+

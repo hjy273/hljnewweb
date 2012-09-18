@@ -1,0 +1,1891 @@
+<?xml version='1.0' ?>
+<SystemMsgs>
+	<!-- 巡检计划管理 -->
+	<Message id="warn01">
+		<info>该年度计划已制定.</info>
+		<link>/WebApp/planManage/addYearPlan.jsp</link>
+	</Message>
+	<Message id="warn02">
+		<info>该月计划已制定.</info>
+		<link>/WebApp/planManage/addMonthPlan.jsp</link>
+	</Message>
+	<Message id="warn03">
+		<info>该计划还没有制定或还未进行审批,请与管理员联系!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="warn0301">
+		<info>该计划已经过期，不能制定!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="s20101">
+		<info>添加年计划成功!</info>
+		<link>/WebApp/YearMonthPlanAction.do?method=queryYMPlan&amp;fID=1&amp;year=</link>
+	</Message>
+
+	<Message id="f20101">
+		<info>添加年计划失败!</info>
+		<link>/WebApp/planManage/addYearPlan.jsp</link>
+	</Message>
+	
+	<Message id="s20102">
+		<info>更新年计划成功!</info>
+		<link>/WebApp/YearMonthPlanAction.do?method=queryYMPlan&amp;fID=1&amp;year=</link>
+	</Message>
+	<Message id="f20102">
+		<info>更新年计划失败!</info>
+		<link>/WebApp/planManage/addYearPlan.jsp</link>
+	</Message>
+
+	<Message id="s20201">
+		<info>添加月计划成功!</info>
+		<link>/WebApp/YearMonthPlanAction.do?method=queryYMPlan&amp;fID=2&amp;year=</link>
+	</Message>
+	<Message id="f20201">
+		<info>添加月计划失败!</info>
+		<link>/WebApp/planManage/addMonthPlan.jsp</link>
+	</Message>
+	<Message id="s20202">
+		<info>更新月计划成功!</info>
+		<link>/WebApp/YearMonthPlanAction.do?method=queryYMPlan&amp;fID=2&amp;year=</link>
+	</Message>
+	<Message id="f20202">
+		<info>更新月计划失败!</info>
+		<link>/WebApp/planManage/addMonthPlan.jsp</link>
+	</Message>
+
+	<Message id="s20301">
+		<info>添加计划成功!</info>
+		<link>/WebApp/PlanAction.do?method=queryPlan</link>
+	</Message>
+	<Message id="f20301">
+		<info>对不起，您的计划保存失败，请重新制定!</info>
+		<link>/WebApp/PlanAction.do?method=addWPlanShow</link>
+	</Message>
+	<Message id="w20301">
+		<info>该计划已制定!</info>
+		<link>/WebApp/PlanAction.do?method=addWPlanShow</link>
+	</Message>
+	<Message id="w20302">
+		<info>该计划名称已经存在，请用其他名称!</info>
+		<link>/WebApp/PlanAction.do?method=addWPlanShow</link>
+	</Message>
+	<Message id="w20303">
+		<info>该计划的开始日期不能跨入上个计划中!</info>
+		<link>/WebApp/PlanAction.do?method=addWPlanShow</link>
+	</Message>
+	<Message id="w20304">
+		<info>该月计划还没有制定或还未进行审批,请与管理员联系!</info>
+		<link>/WebApp/PlanAction.do?method=addWPlanShow</link>
+	</Message>
+	<Message id="w20304_batch">
+		<info>该月计划还没有制定或还未进行审批,请与管理员联系!</info>
+		<link>/WebApp/planManage/addBatchPlan.jsp</link>
+	</Message>
+	<Message id="s20302">
+		<info>更新计划成功!</info>
+		<link>/WebApp/PlanAction.do?method=queryPlan</link>
+	</Message>
+	<Message id="f20302">
+		<info>更新计划失败!</info>
+		<link>/WebApp/PlanAction.do?method=queryPlan</link>
+	</Message>
+	<Message id="s20303">
+		<info>成功删除该计划！</info>
+		<link>/WebApp/PlanAction.do?method=queryPlan</link>
+	</Message>
+	<Message id="COPY01">
+		<info>系统正在复制计划,你可以在巡检执行结果中查询到相关信息。</info>
+		<link>/WebApp/PlanAction.do?method=queryPlan</link>
+	</Message>
+
+	<Message id="s20401">
+		<info>添加计划模板成功!</info>
+		<link>/WebApp/StencilAction.do?method=queryStencil</link>
+	</Message>
+	<Message id="f20401">
+		<info>添加计划模板失败!</info>
+		<link>/WebApp/StencilAction.do?method=addStencil</link>
+	</Message>
+	<Message id="e20402">
+		<info>加载模板失败!</info>
+		<link>/WebApp/StencilAction.do?method=queryStencil</link>
+	</Message>
+	<Message id="s20402">
+		<info>保存模板成功!</info>
+		<link>/WebApp/StencilAction.do?method=queryStencil</link>
+	</Message>
+	<Message id="f20402">
+		<info>保存模板失败!</info>
+		<link>/WebApp/StencilAction.do?method=queryStencil</link>
+	</Message>
+	<Message id="s20403">
+		<info>成功删除该模板!</info>
+		<link>/WebApp/StencilAction.do?method=queryStencil</link>
+	</Message>
+	<Message id="f20404">
+		<info>添加该模板失败，请添加子任务!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="f20304">
+		<info>对不起，您的计划添加失败，请先添加子任务!</info>
+		<link>返回</link>
+	</Message>
+
+	<Message id="s21601">
+		<info>成功批量生成计划！</info>
+		<link>/WebApp/planManage/addBatchPlan.jsp</link>
+	</Message>
+	<Message id="f21601">
+		<info>批量生成计划失败！</info>
+		<link>/WebApp/planManage/addBatchPlan.jsp</link>
+	</Message>
+	<Message id="batch01">
+		<info>系统正在制定批量计划,你可以在巡检执行结果中查询到相关信息。</info>
+		<link>/WebApp/planManage/addBatchPlan.jsp</link>
+	</Message>
+	<Message id="f21602">
+		<info>因没有计划模板或该时间段内已制定了计划，批量生成计划失败！</info>
+		<link>/WebApp/planManage/addBatchPlan.jsp</link>
+	</Message>
+	<Message id="s21605">
+		<info>成功删除批量计划！</info>
+		<link>{0}</link>
+	</Message>
+	<Message id="f21605">
+		<info>删除批量计划失败！</info>
+		<link>/WebApp/batchPlan.do?method=queryBatchPlan</link>
+	</Message>
+	<Message id="w21601">
+		<info>该计划的开始日期不能跨入上个计划中!</info>
+		<link>返回</link>
+	</Message>
+
+	<Message id="0201">
+		<info>成功创建计划信息！</info>
+		<link>/WebApp/PlanAction.do?method=addWPlanShow</link>
+	</Message>
+	<Message id="0202">
+		<info>成功创建周期信息！</info>
+		<link>/WebApp/planManage/addCycStandAlone.jsp</link>
+	</Message>
+	<Message id="0203">
+		<info>成功创建任务信息！</info>
+		<link>/WebApp/planManage/addTaskStandAlone.jsp</link>
+	</Message>
+	<Message id="0204">
+		<info>成功创建年度计划信息！</info>
+		<link>/WebApp/planManage/addYearPlan.jsp</link>
+	</Message>
+	<Message id="0205">
+		<info>成功创建月度计划信息！</info>
+		<link>/WebApp/planManage/addMonthPlan.jsp</link>
+	</Message>
+	<Message id="0206">
+		<info>成功审批该计划！</info>
+		<link>/WebApp/YearMonthPlanAction.do?method=getUnapprovedYMPlan</link>
+	</Message>
+	<Message id="yearPlanNotPass">
+		<info>成功审批该计划,打回年计划！</info>
+		<link>/WebApp/YearMonthPlanAction.do?method=getUnapprovedYMPlan</link>
+	</Message>
+	<Message id="monthPlanNotPass">
+		<info>成功审批该计划,打回月计划！</info>
+		<link>/WebApp/YearMonthPlanAction.do?method=getUnapprovedYMPlan</link>
+	</Message>
+	<Message id="0207">
+		<info>成功更新年计划！</info>
+		<link>/WebApp/YearMonthPlanAction.do?method=queryYMPlan&amp;fID=1&amp;year=</link>
+	</Message>
+	<Message id="0208">
+		<info>成功更新月计划！</info>
+		<link>/WebApp/YearMonthPlanAction.do?method=queryYMPlan&amp;fID=2&amp;year=</link>
+	</Message>
+	<Message id="02091">
+		<info>成功更新该自定义计划！</info>
+		<link>/WebApp/PlanAction.do?method=queryCustomWPlan</link>
+	</Message>
+	<Message id="0209">
+		<info>成功更新该计划！</info>
+		<link>/WebApp/PlanAction.do?method=queryPlan</link>
+	</Message>
+	<Message id="0210">
+		<info>成功删除该年计划！</info>
+		<link>/WebApp/YearMonthPlanAction.do?method=queryYMPlan&amp;fID=1&amp;year=</link>
+	</Message>
+	<Message id="0211">
+		<info>成功删除该月计划！</info>
+		<link>/WebApp/YearMonthPlanAction.do?method=queryYMPlan&amp;fID=2&amp;year=</link>
+	</Message>
+	<Message id="0212">
+		<info>成功删除该计划！</info>
+		<link>/WebApp/PlanAction.do?method=queryPlan</link>
+	</Message>
+	<Message id="0220">
+		<info>成功创建该计划信息！</info>
+		<link>/WebApp/PlanAction.do?method=addWPlanShow&amp;type=custom</link>
+	</Message>
+	<Message id="0221">
+		<info>成功删除该计划信息！</info>
+		<link>/WebApp/PlanAction.do?method=queryCustomWPlan</link>
+	</Message>
+
+	<!-- 割接管理 liusq 2009-12-3 start -->
+	<Message id="addCutApplySuccess">
+		<info>添加割接申请成功，等待审核！</info>
+		<link>/WebApp/cutAction.do?method=addCutApplyForm</link>
+	</Message>
+	<Message id="tempCutApplySuccess">
+		<info>临时割接申请保存成功！</info>
+		<link>/WebApp/cutAction.do?method=cutTempList</link>
+	</Message>
+	<Message id="addCutApplyError">
+		<info>添加割接申请失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="deleteTempSaveCutSuccess">
+		<info>删除临时割接申请成功！</info>
+		<link>/WebApp/cutAction.do?method=cutTempList</link>
+	</Message>
+	<Message id="deleteTempSaveCutError">
+		<info>删除临时割接申请失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="editCutApplySuccess">
+		<info>修改割接申请成功，等待审核！</info>
+		<link>/WebApp/cutAction.do?method=getAllCut</link>
+	</Message>
+	<Message id="editCutApplyError">
+		<info>修改割接申请失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="cutReadReplySuccess">
+		<info>割接申请已阅读！</info>
+		<link>/WebApp/cutAction.do?method=getAllCut</link>
+	</Message>
+	<Message id="approveCutApplyUnpass">
+		<info>割接申请审批成功，等待代维人员修改该割接申请！</info>
+		<link>/WebApp/cutAction.do?method=getAllCut</link>
+	</Message>
+	<Message id="approveCutApplyPass">
+		<info>割接申请审批成功，等待割接反馈！</info>
+		<link>/WebApp/cutAction.do?method=getAllCut</link>
+	</Message>
+	<Message id="approveCutApplyTransfer">
+		<info>转审成功，等待转审人审批！</info>
+		<link>/WebApp/cutAction.do?method=getAllCut</link>
+	</Message>
+	<Message id="approveCutApplyError">
+		<info>割接申请审批失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+
+	<Message id="invalidCutSuccess">
+		<info>割接申请作废成功！</info>
+		<link>/WebApp/cutAction.do?method=getAllCut</link>
+	</Message>
+	<Message id="invalidCutError">
+		<info>割接申请作废失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="CANCEL_CUT_SUCCESS">
+		<info>割接流程已经取消！</info>
+		<link>返回</link>
+	</Message>
+
+	<Message id="addCutFeedbackSuccess">
+		<info>添加割接反馈成功，等待审核！</info>
+		<link>/WebApp/cutAction.do?method=getAllCut</link>
+	</Message>
+	<Message id="tempSaveCutFeedbackSuccess">
+		<info>割接反馈临时保存成功！</info>
+		<link>/WebApp/cutAction.do?method=getAllCut</link>
+	</Message>
+	<Message id="addCutFeedbackError">
+		<info>添加割接反馈失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="editCutFeedbackSuccess">
+		<info>修改割接反馈成功，等待审核！</info>
+		<link>/WebApp/cutAction.do?method=getAllCut</link>
+	</Message>
+	<Message id="editCutFeedbackError">
+		<info>编辑割接反馈失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="cutFeedbackReadReplySuccess">
+		<info>割接反馈已阅读！</info>
+		<link>/WebApp/cutAction.do?method=getAllCut</link>
+	</Message>
+	<Message id="addCutFeedbackApproveUnpass">
+		<info>割接反馈审批成功，等待代维人员修改该反馈！</info>
+		<link>/WebApp/cutAction.do?method=getAllCut</link>
+	</Message>
+	<Message id="cancelCutFeedbackApproveUnpass">
+		<info>割接反馈审批不通过，等待代维人员重新填写反馈！</info>
+		<link>/WebApp/cutAction.do?method=getAllCut</link>
+	</Message>
+	<Message id="addCutFeedbackApprovePass">
+		<info>割接反馈审批成功，等待验收结算！</info>
+		<link>/WebApp/cutAction.do?method=getAllCut</link>
+	</Message>
+	<Message id="cancelCutFeedbackApprovePass">
+		<info>割接反馈审批成功，等待考核考核！</info>
+		<link>/WebApp/cutAction.do?method=getAllCut</link>
+	</Message>
+	<Message id="addCutFeedbackApproveTransfer">
+		<info>转审成功，等待转审人审批！</info>
+		<link>/WebApp/cutAction.do?method=getAllCut</link>
+	</Message>
+	<Message id="addCutFeedbackApproveError">
+		<info>割接反馈审批失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+
+	<Message id="addCutAcceptanceSuccess">
+		<info>添加割接验收结算成功，等待审核！</info>
+		<link>/WebApp/cutAction.do?method=getAllCut</link>
+	</Message>
+	<Message id="addCutAcceptanceError">
+		<info>添加割接验收结算失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="editCutAcceptanceSuccess">
+		<info>修改割接验收结算成功，等待审核！</info>
+		<link>/WebApp/cutAction.do?method=getAllCut</link>
+	</Message>
+	<Message id="editCutAcceptanceError">
+		<info>编辑割接验收结算失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="cutAcceptanceReadReplySuccess">
+		<info>割接验收结算已阅读！</info>
+		<link>/WebApp/cutAction.do?method=getAllCut</link>
+	</Message>
+	<Message id="cutAcceptanceApproveUnpass">
+		<info>割接验收结算审批成功，等待代维人员修改该验收结算！</info>
+		<link>/WebApp/cutAction.do?method=getAllCut</link>
+	</Message>
+	<Message id="cutAcceptanceApprovePass">
+		<info>割接验收结算审批成功，等待考核！</info>
+		<link>/WebApp/cutAction.do?method=getAllCut</link>
+	</Message>
+	<Message id="cutAcceptanceApproveTransfer">
+		<info>转审成功，等待转审人审批！</info>
+		<link>/WebApp/cutAction.do?method=getAllCut</link>
+	</Message>
+	<Message id="cutAcceptanceApproveError">
+		<info>割接验收结算审批失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+
+	<Message id="checkAndMarkSuccess">
+		<info>割接考核成功！</info>
+		<link>/WebApp/cutAction.do?method=getAllCut</link>
+	</Message>
+	<Message id="checkAndMarkError">
+		<info>割接考核失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="queryCutInfoError">
+		<info>查询出错，请重试！</info>
+		<link>返回</link>
+	</Message>
+
+	<Message id="approveManMustSelect">
+		<info>操作未成功，必须选择审核人！</info>
+		<link>返回</link>
+	</Message>
+	<!-- 割接管理 liusq 2009-12-3 end -->
+
+	<!-- 故障管理start -->
+	<Message id="210101ok">
+		<info>故障派单成功!</info>
+		<link>/WebApp/troubleInfoAction.do?method=addTroubleForm</link>
+	</Message>
+	<Message id="210101tempSaveok">
+		<info>临时保存故障单成功!</info>
+		<link>/WebApp/troubleInfoAction.do?method=addTroubleForm</link>
+	</Message>
+	<Message id="210101edittempSaveok">
+		<info>临时保存故障单成功!</info>
+		<link>/WebApp/troubleInfoAction.do?method=getTempSaveTrouble</link>
+	</Message>
+	<Message id="CANCEL_TROUBLE_SUCCESS">
+		<info>故障流程已经取消!</info>
+		<link>/WebApp/troubleInfoAction.do?method=getTempSaveTrouble</link>
+	</Message>
+	<Message id="210201replyok">
+		<info>故障单反馈成功!等待平台核准!</info>
+		<link>/WebApp/troubleReplyAction.do?method=getActWorkForm</link>
+	</Message>
+	<Message id="210201replyRepeat">
+		<info>该故障已经填写主办,主办只能有一个!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="210201tempsavereplyok">
+		<info>反馈单临时保存成功!</info>
+		<link>/WebApp/troubleReplyAction.do?method=getActWorkForm</link>
+	</Message>
+	<Message id="210201replyfail">
+		<info>故障单反馈失败!</info>
+		<link>返回</link>
+	</Message>
+	<Message id="210201editreplyok">
+		<info>修改反馈单成功!等待平台核准!</info>
+		<link>/WebApp/troubleReplyAction.do?method=getActWorkForm</link>
+	</Message>
+	<Message id="dispatchReplyOK">
+		<info>平台核准反馈单成功!等待移动审核!</info>
+		<link>/WebApp/troubleReplyAction.do?method=getActWorkForm</link>
+	</Message>
+	<Message id="approveReplyNoPassOK">
+		<info>审核反馈单成功!打回反馈单!</info>
+		<link>/WebApp/troubleReplyAction.do?method=getActWorkForm</link>
+	</Message>
+	<Message id="approveReplyOK">
+		<info>故障反馈审核成功!等待考核评估!</info>
+		<link>/WebApp/troubleReplyAction.do?method=getActWorkForm</link>
+	</Message>
+	<Message id="approveReplyJoinOK">
+		<info>故障反馈审核成功!</info>
+		<link>/WebApp/troubleReplyAction.do?method=getActWorkForm</link>
+	</Message>
+	<Message id="replyTrasferApproveOK">
+		<info>故障反馈转审成功!等待移动审核!</info>
+		<link>/WebApp/troubleReplyAction.do?method=getActWorkForm</link>
+	</Message>
+	<Message id="closTroubleok">
+		<info>故障关闭成功!</info>
+		<link>/WebApp/troubleReplyAction.do?method=getActWorkForm</link>
+	</Message>
+	<Message id="closReplyok">
+		<info>反馈单关闭成功!</info>
+		<link>/WebApp/troubleReplyAction.do?method=getActWorkForm</link>
+	</Message>
+	<Message id="evaluateOK">
+		<info>故障考核成功!</info>
+		<link>/WebApp/troubleReplyAction.do?method=getActWorkForm</link>
+	</Message>
+	<Message id="troubleReplyReaded">
+		<info>已阅故障反馈单!</info>
+		<link>/WebApp/troubleReplyAction.do?method=getActWorkForm</link>
+	</Message>
+
+	<Message id="210601addok">
+		<info>添加故障基准指标成功!</info>
+		<link>/WebApp/troubleQuotaAction.do?method=troubleQuotaForm</link>
+	</Message>
+
+	<Message id="210601editok">
+		<info>修改故障基准指标成功!</info>
+		<link>/WebApp/troubleQuotaAction.do?method=troubleQuotaForm</link>
+	</Message>
+
+	<Message id="210602noquota">
+		<info>还未添加故障基准指标,不能生成故障指标!</info>
+		<link>/WebApp/troubleQuotaAction.do?method=createTroubleQuotaForm</link>
+	</Message>
+
+	<Message id="210603yearnoquota">
+		<info>还未统计月故障指标,不能生成年故障指标!</info>
+		<link>/WebApp/troubleQuotaAction.do?method=yearTroubleQuotaForm</link>
+	</Message>
+	<Message id="customYearQuotaSuccess">
+		<info>该年度故障指标值保存成功。</info>
+		<link>/WebApp/linepatrol/trouble/list_custom_trouble_quota_year.jsp</link>
+	</Message>
+	<Message id="customYearQuotaError">
+		<info>该年度故障指标值已经添加，请重新选择其他年份。</info>
+		<link>返回</link>
+	</Message>
+	<!-- 故障管理end -->
+
+
+	<!-- 技术维护start -->
+	<Message id="25addPlanOK">
+		<info>提交测试计划成功!等待移动审核!</info>
+		<link>/WebApp/testPlanAction.do?method=addTestPlanForm</link>
+	</Message>
+
+	<Message id="25editPlanOK">
+		<info>修改测试计划成功!等待移动审核!</info>
+		<link>/WebApp/testPlanAction.do?method=getActWorkForm</link>
+	</Message>
+	<Message id="25addPlanTempSavedOK">
+		<info>暂存测试计划成功!!</info>
+		<link>/WebApp/testPlanAction.do?method=addTestPlanForm</link>
+	</Message>
+
+	<Message id="25editPlanTempSavedOK">
+		<info>暂存修改测试计划成功!</info>
+		<link>/WebApp/testPlanAction.do?method=getActWorkForm</link>
+	</Message>
+
+	<Message id="approveTestPlanTransferOK">
+		<info>转审测试计划成功!等待移动审核!</info>
+		<link>/WebApp/testPlanAction.do?method=getActWorkForm</link>
+	</Message>
+
+	<Message id="approveTestPlanNoPass">
+		<info>审核测试计划成功!打回测试计划!</info>
+		<link>/WebApp/testPlanAction.do?method=getActWorkForm</link>
+	</Message>
+
+	<Message id="approveTestPlanPass">
+		<info>审核测试计划成功!等待录入数据!</info>
+		<link>/WebApp/testPlanAction.do?method=getActWorkForm</link>
+	</Message>
+
+	<Message id="25saveEnteringApproveOK">
+		<info>提交录入数据成功!等待审核录入数据!</info>
+		<link>/WebApp/testPlanAction.do?method=getActWorkForm</link>
+	</Message>
+
+	<Message id="approveTestDataTransfer">
+		<info>转审录入数据成功!等待审核录入数据!</info>
+		<link>/WebApp/testPlanAction.do?method=getActWorkForm</link>
+	</Message>
+
+	<Message id="approveTestDataNoPass">
+		<info>审核录入数据成功!打回录入数据!</info>
+		<link>/WebApp/testPlanAction.do?method=getActWorkForm</link>
+	</Message>
+
+	<Message id="approveTestDataPass">
+		<info>审核录入数据成功!等待考核评估!</info>
+		<link>/WebApp/testPlanAction.do?method=getActWorkForm</link>
+	</Message>
+
+	<Message id="testPlanReaded">
+		<info>已阅测试计划!</info>
+		<link>/WebApp/testPlanAction.do?method=getActWorkForm</link>
+	</Message>
+
+	<Message id="testPlanDataReaded">
+		<info>已阅测试计划录入数据!</info>
+		<link>/WebApp/testPlanAction.do?method=getActWorkForm</link>
+	</Message>
+
+
+	<Message id="nofindPlan">
+		<info>没有找到选择的计划信息!</info>
+		<link>返回</link>
+	</Message>
+
+	<Message id="testPlanevaluateOK">
+		<info>测试计划考核成功!</info>
+		<link>/WebApp/testPlanAction.do?method=getActWorkForm</link>
+	</Message>
+
+	<Message id="testPlanProblemCableOK">
+		<info>处理问题光缆成功!</info>
+		<link>/WebApp/problemCableAction.do?method=getProblemCables</link>
+	</Message>
+
+	<Message id="25addYearPlanRepeat">
+		<info>年计划不能重复!</info>
+		<link>/WebApp/testYearPlanAction.do?method=addYearPlanForm</link>
+	</Message>
+
+	<Message id="25addYearPlanOK">
+		<info>保存年计划成功!</info>
+		<link>/WebApp/testYearPlanAction.do?method=addYearPlanForm</link>
+	</Message>
+
+	<Message id="25editYearPlanOK">
+		<info>修改年计划成功!</info>
+		<link>/WebApp/testYearPlanAction.do?method=getWaitHandelYearPlans</link>
+	</Message>
+	<Message id="25deleteYearPlanOK">
+		<info>删除年计划成功!</info>
+		<link>/WebApp/testYearPlanAction.do?method=getWaitHandelYearPlans</link>
+	</Message>
+
+	<Message id="approveYearPlanTransferOK">
+		<info>转审年计划成功!</info>
+		<link>/WebApp/testYearPlanAction.do?method=getWaitHandelYearPlans</link>
+	</Message>
+
+	<Message id="approveYearPlanPass">
+		<info>审核年计划成功!</info>
+		<link>/WebApp/testYearPlanAction.do?method=getWaitHandelYearPlans</link>
+	</Message>
+
+	<Message id="approveYearPlanNoPass">
+		<info>审核年计划成功!打回年计划!</info>
+		<link>/WebApp/testYearPlanAction.do?method=getWaitHandelYearPlans</link>
+	</Message>
+
+	<Message id="testYearPlanReaded">
+		<info>已阅年计划!</info>
+		<link>/WebApp/testYearPlanAction.do?method=getWaitHandelYearPlans</link>
+	</Message>
+	<!--技术维护end -->
+
+	<!-- 费用核实start -->
+	<Message id="E_S001">
+		<info>费用核实操作成功!</info>
+		<link>/WebApp/expensesPriceAction.do?method=cableUnitPrice</link>
+	</Message>
+	<Message id="E_F001">
+		<info>不存在费用预算!</info>
+		<link>/WebApp/expensesPriceAction.do?method=cableUnitPrice</link>
+	</Message>
+	<Message id="E_F002">
+		<info>费用核实中存在未生成费用的月份!</info>
+		<link>/WebApp/expensesPriceAction.do?method=cableUnitPrice</link>
+	</Message>
+	<Message id="E_F003">
+		<info>费用核实已经存在!</info>
+		<link>/WebApp/expensesPriceAction.do?method=cableUnitPrice</link>
+	</Message>
+	<Message id="E_F004">
+		<info>费用核实月份存在重叠的月份!</info>
+		<link>/WebApp/expensesPriceAction.do?method=cableUnitPrice</link>
+	</Message>
+
+	<Message id="30addPriceRepeat">
+		<info>维护单价不能重复!</info>
+		<link>/WebApp/expensesPriceAction.do?method=cableUnitPrice</link>
+	</Message>
+
+	<Message id="30addPriceOK">
+		<info>保存维护单价成功!</info>
+		<link>/WebApp/expensesPriceAction.do?method=cableUnitPrice</link>
+	</Message>
+
+	<Message id="30editPriceRepeat">
+		<info>维护单价不能重复!</info>
+		<link>/WebApp/expensesPriceAction.do?method=cableUnitPriceList</link>
+	</Message>
+
+	<Message id="30editCablePriceOK">
+		<info>修改维护单价成功!</info>
+		<link>/WebApp/expensesPriceAction.do?method=cableUnitPriceList</link>
+	</Message>
+
+	<Message id="30addFactorRepeat">
+		<info>取费系数不能重复!</info>
+		<link>/WebApp/expensesFactorAction.do?method=cableGradeFactor</link>
+	</Message>
+	<Message id="30addFactorOK">
+		<info>保存取费系数成功!</info>
+		<link>/WebApp/expensesFactorAction.do?method=cableGradeFactor</link>
+	</Message>
+
+	<Message id="30eidtFactorRepeat">
+		<info>取费系数不能重复!</info>
+		<link>/WebApp/expensesFactorAction.do?method=cableGradeFactorList</link>
+	</Message>
+	<Message id="30editFactorOK">
+		<info>修改取费系数成功!</info>
+		<link>/WebApp/expensesFactorAction.do?method=cableGradeFactorList</link>
+	</Message>
+
+	<Message id="30noGradeFactor">
+		<info>分级取费系数还未填写完整!不能生成月维护费用!</info>
+		<link>/WebApp/expensesAction.do?method=createExpenseForm</link>
+	</Message>
+
+	<Message id="30noUnitPrice">
+		<info>维护单价还未填写完整!不能生成月维护费用!</info>
+		<link>/WebApp/expensesAction.do?method=createExpenseForm</link>
+	</Message>
+
+	<Message id="30createExpenseRepeat">
+		<info>该月的代维费用已经生成!</info>
+		<link>/WebApp/expensesAction.do?method=createExpenseForm</link>
+	</Message>
+
+	<Message id="30addBudgetRepeat">
+		<info>预算不能重复!</info>
+		<link>/WebApp/budgeExpensesAction.do?method=addBudgetForm</link>
+	</Message>
+
+	<Message id="30addBudgetOK">
+		<info>添加预算成功!</info>
+		<link>/WebApp/budgeExpensesAction.do?method=addBudgetForm</link>
+	</Message>
+
+	<Message id="30editBudgetRepeat">
+		<info>预算不能重复!</info>
+		<link>/WebApp/budgeExpensesAction.do?method=getBudgetExpense</link>
+	</Message>
+
+	<Message id="30editBudgetOK">
+		<info>修改预算成功!</info>
+		<link>/WebApp/budgeExpensesAction.do?method=getBudgetExpense</link>
+	</Message>
+	<!-- 费用核实 end -->
+	<!-- 隐患盯防begin -->
+	<Message id="hiddangerRegistAdd">
+		<info>隐患登记成功!请去现场核实，下一步需要隐患评级。</info>
+		<link>/WebApp/hiddangerAction.do?method=findToDoWork</link>
+	</Message>
+	<Message id="hiddangerEdit">
+		<info>隐患修改成功!</info>
+		<link>/WebApp/hiddangerQueryAction.do?method=query</link>
+	</Message>
+	<Message id="hiddangerEval">
+		<info>隐患评级成功!下一步一级二级三级隐患需要上报，四级隐患需要填写自处理单，忽略隐患结束。</info>
+		<link>/WebApp/hiddangerAction.do?method=findToDoWork</link>
+	</Message>
+	<Message id="hiddangerIgnore">
+		<info>隐患忽略成功!流程结束。</info>
+		<link>/WebApp/hiddangerAction.do?method=findToDoWork</link>
+	</Message>
+	<Message id="hiddangerTreat">
+		<info>隐患处理成功!流程结束。</info>
+		<link>/WebApp/hiddangerAction.do?method=findToDoWork</link>
+	</Message>
+	<Message id="hiddangerReport">
+		<info>隐患上报成功!下一步一级隐患需要审核，二级三级隐患需要制定盯防计划</info>
+		<link>/WebApp/hiddangerAction.do?method=findToDoWork</link>
+	</Message>
+	<Message id="hiddangerApprove">
+		<info>隐患审核成功!下一步转交给代维单位制定盯防计划</info>
+		<link>/WebApp/hiddangerAction.do?method=findToDoWork</link>
+	</Message>
+	<Message id="hiddangerNotApprove">
+		<info>隐患审核未通过!下一步转交给代维单位修改上报信息</info>
+		<link>/WebApp/hiddangerAction.do?method=findToDoWork</link>
+	</Message>
+	<Message id="planApprove">
+		<info>隐患审核成功!下一步等待计划执行完成后，转交给代维单位关闭隐患</info>
+		<link>/WebApp/hiddangerAction.do?method=findToDoWork</link>
+	</Message>
+	<Message id="planNotApprove">
+		<info>隐患审核未通过!下一步转交给代维单位修改盯防计划</info>
+		<link>/WebApp/hiddangerAction.do?method=findToDoWork</link>
+	</Message>
+	<Message id="endplan">
+		<info>盯防计划终止成功!下一步等待审核</info>
+		<link>/WebApp/hiddangerAction.do?method=findToDoWork</link>
+	</Message>
+	<Message id="endplanApprove">
+		<info>终止盯防计划审核成功!当终止方式为隐患已消除，下一步转交给代维单位关闭隐患，当终止方式为重新制定计划，下一步转交给代维单位重新制定计划
+		</info>
+		<link>/WebApp/hiddangerAction.do?method=findToDoWork</link>
+	</Message>
+	<Message id="endplanNotApprove">
+		<info>终止盯防计划审核未通过!下一步转交给代维单位修改盯防计划终止信息</info>
+		<link>/WebApp/hiddangerAction.do?method=findToDoWork</link>
+	</Message>
+	<Message id="endplanTransferApprove">
+		<info>盯防计划转审成功!下一步需要盯防计划审核</info>
+		<link>/WebApp/hiddangerAction.do?method=findToDoWork</link>
+	</Message>
+	<Message id="hiddangerClose">
+		<info>隐患关闭成功!下一步需要审核。</info>
+		<link>/WebApp/hiddangerAction.do?method=findToDoWork</link>
+	</Message>
+	<Message id="hiddangerCloseApprove">
+		<info>隐患关闭审核成功!下一步需要隐患评估。</info>
+		<link>/WebApp/hiddangerAction.do?method=findToDoWork</link>
+	</Message>
+	<Message id="hiddangerCloseNotApprove">
+		<info>隐患关闭审核未通过!下一步转交给代维单位修改关闭信息。</info>
+		<link>/WebApp/hiddangerAction.do?method=findToDoWork</link>
+	</Message>
+	<Message id="examComplete">
+		<info>隐患评估成功!流程结束。</info>
+		<link>/WebApp/hiddangerAction.do?method=findToDoWork</link>
+	</Message>
+	<Message id="hiddangerTransferApprove">
+		<info>转审成功!下一步需要隐患审核。</info>
+		<link>/WebApp/hiddangerAction.do?method=findToDoWork</link>
+	</Message>
+	<Message id="readSuccess">
+		<info>操作成功。</info>
+		<link>/WebApp/hiddangerAction.do?method=findToDoWork</link>
+	</Message>
+	<!-- 隐患盯防end -->
+
+	<!-- 验收交维 -->
+	<Message id="importCableError">
+		<info>文件格式错误，请重新导入！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="importPipeError">
+		<info>文件格式错误，请重新导入！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="AcceptanceApply">
+		<info>制定计划成功!下一步需要核准。</info>
+		<link>/WebApp/acceptanceAction.do?method=applyLink</link>
+	</Message>
+	<Message id="exportError">
+		<info>导出失败，没有录入资源数据</info>
+		<link>返回</link>
+	</Message>
+	<Message id="inspectApply">
+		<info>制定复验计划成功!下一步需要核准。</info>
+		<link>/WebApp/acceptanceAction.do?method=reinspectLink</link>
+	</Message>
+	<Message id="recheckSuccess">
+		<info>复验核准成功!下一步需要代维录入数据。</info>
+		<link>/WebApp/acceptanceAction.do?method=findToDoWork</link>
+	</Message>
+	<Message id="applyError">
+		<info>申请失败!申请中不包含任何光缆或管道信息</info>
+		<link>/WebApp/acceptanceAction.do?method=applyLink</link>
+	</Message>
+	<Message id="claimError">
+		<info>认领失败!没有选中任何光缆或管道信息</info>
+		<link>返回</link>
+	</Message>
+	<Message id="chooseError">
+		<info>核准失败!没有选择任何代维</info>
+		<link>返回</link>
+	</Message>
+	<Message id="specifyError">
+		<info>核准失败!资源没有全部指定给代维</info>
+		<link>返回</link>
+	</Message>
+	<Message id="allotSuccess">
+		<info>核准成功!如果指定代维，下一步等待代维录入验收交维数据，如果选择代维，下一步等待代维认领任务</info>
+		<link>/WebApp/acceptanceAction.do?method=findToDoWork</link>
+	</Message>
+	<Message id="claimSuccess">
+		<info>认领成功!如果所有任务均已认领完毕，下一步等待核准任务</info>
+		<link>/WebApp/acceptanceAction.do?method=findToDoWork</link>
+	</Message>
+	<Message id="checkSuccess">
+		<info>核准成功!下一步等待代维录入验收交维数据.</info>
+		<link>/WebApp/acceptanceAction.do?method=findToDoWork</link>
+	</Message>
+	<Message id="pictureNotNull">
+		<info>如果有验收图纸，必须上传图纸.</info>
+		<link>返回</link>
+	</Message>
+	<Message id="recordCableSuccess">
+		<info>光缆数据录入成功.</info>
+		<link>/WebApp/linepatrol/acceptance/chooseTask.jsp</link>
+	</Message>
+	<Message id="recordPipeSuccess">
+		<info>管道数据录入成功.</info>
+		<link>/WebApp/linepatrol/acceptance/chooseTask.jsp</link>
+	</Message>
+	<Message id="recordError">
+		<info>管道或光缆没有全部录入，请返回.</info>
+		<link>返回</link>
+	</Message>
+	<Message id="subSuccess">
+		<info>提交审核成功，等待移动审核</info>
+		<link>/WebApp/acceptanceAction.do?method=findToDoWork</link>
+	</Message>
+	<Message id="approvePass">
+		<info>审核通过，下一步考核评估</info>
+		<link>/WebApp/acceptanceAction.do?method=findToDoWork</link>
+	</Message>
+	<Message id="approveNotPass">
+		<info>审核不通过，下一步修改数据</info>
+		<link>/WebApp/acceptanceAction.do?method=findToDoWork</link>
+	</Message>
+	<Message id="examSuccess">
+		<info>考核评估成功，该代维任务已完成。</info>
+		<link>/WebApp/acceptanceAction.do?method=findToDoWork</link>
+	</Message>
+	<Message id="duplicatecodeerror">
+		<info>光缆编号重复，请修改。</info>
+		<link>返回</link>
+	</Message>
+	<Message id="noexportcables">
+		<info>没有可以导出的光缆信息，请返回。</info>
+		<link>返回</link>
+	</Message>
+	<Message id="bleandError">
+		<info>数据没有改变，不能提交。</info>
+		<link>返回</link>
+	</Message>
+	<Message id="bleandSuccess">
+		<info>验收资源数据变更成功。</info>
+		<link>/WebApp/resourceBlendAction.do?method=searchForm</link>
+	</Message>
+	<Message id="importTemplateNameError">
+		<info>模板名称错误，应该为《模板.zip》！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="improtTemplateSuccess">
+		<info>模板导入成功！</info>
+		<link>返回</link>
+	</Message>
+	<!-- 验收交维end -->
+
+	<!-- 大修项目begin -->
+	<Message id="overHaulAddTask">
+		<info>大修任务添加成功。</info>
+		<link>/WebApp/overHaulAction.do?method=addTaskForm</link>
+	</Message>
+	<Message id="notMobile">
+		<info>只有移动部门可以提交大修任务。</info>
+		<link>返回</link>
+	</Message>
+	<Message id="overHaulApply">
+		<info>提交申请成功。</info>
+		<link>/WebApp/overHaulAction.do?method=toDoWork</link>
+	</Message>
+	<Message id="overHaulApprove">
+		<info>审核成功。</info>
+		<link>/WebApp/overHaulAction.do?method=toDoWork</link>
+	</Message>
+	<Message id="overHaulTreat">
+		<info>处理成功。</info>
+		<link>/WebApp/overHaulAction.do?method=toDoWork</link>
+	</Message>
+	<Message id="overHaulReadSuccess">
+		<info>操作成功。</info>
+		<link>/WebApp/overHaulAction.do?method=toDoWork</link>
+	</Message>
+	<Message id="overHaulTransfer">
+		<info>转审成功。</info>
+		<link>/WebApp/overHaulAction.do?method=toDoWork</link>
+	</Message>
+	<Message id="overHaulFileNull">
+		<info>上传文件不能为空，请上传文件</info>
+		<link>返回</link>
+	</Message>
+	<Message id="overHaulFileTooMany">
+		<info>上传文件过多，只能上传一个文件</info>
+		<link>返回</link>
+	</Message>
+	<Message id="overHaulFileNumberError">
+		<info>每个割接或工程信息都必须有一个附件，请检查</info>
+		<link>返回</link>
+	</Message>
+	<!-- 大修项目end -->
+
+	<!-- 特巡计划 -->
+	<Message id="savspecialplansuccess">
+		<info>保存“{0}”计划成功！</info>
+		<link>history.go(-2)</link>
+	</Message>
+	<Message id="savspecialplansuccessHiddanger">
+		<info>保存“{0}”计划成功！</info>
+		<link>/WebApp/hiddangerAction.do?method=findToDoWork</link>
+	</Message>
+	<Message id="savespecialplanfail">
+		<info>保存“{0}”计划失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="notsaveplan">
+		<info>保存“{0}”计划失败，计划中不包含任何类型的任务</info>
+		<link>返回</link>
+	</Message>
+	<Message id="notgroupid">
+		<info>巡检组不能为空！如果没有请先创建巡检组</info>
+		<link>返回</link>
+	</Message>
+	<Message id="saveplanerror">
+		<info>保存“{0}”计划失败，请查看计划中任务执行次数或任务线段（任务区域）是否为空，为空请选择。</info>
+		<link>返回</link>
+	</Message>
+	<!-- 特巡计划 -->
+	<!-- 中继段 -->
+	<Message id="save_res_success">
+		<info>“{0}”保存成功</info>
+		<link>history.go(-2)</link>
+	</Message>
+	<Message id="save_pipe_success">
+		<info>“{0}”保存成功。</info>
+		<link>/WebApp/pipeAction.do?method=list</link>
+	</Message>
+	<Message id="trunkSaveError">
+		<info>没有选择任何中继段，请返回</info>
+		<link>返回</link>
+	</Message>
+	<Message id="updateSuccess">
+		<info>更新资料成功，请返回</info>
+		<link>关闭</link>
+	</Message>
+	<Message id="updateApprovePass">
+		<info>资料审核通过，请返回</info>
+		<link>关闭</link>
+	</Message>
+	<Message id="updateApproveNoPass">
+		<info>资料审核不通过，请返回填写备注信息</info>
+		<link>关闭</link>
+	</Message>
+	<Message id="duplicateName">
+		<info>分类名称有重复，请返回重新填写</info>
+		<link>返回</link>
+	</Message>
+	<Message id="addTypeSuccess">
+		<info>分类名称添加成功！</info>
+		<link>关闭</link>
+	</Message>
+	<Message id="addDatumInfoSuccess">
+		<info>维护资料添加成功！</info>
+		<link>/WebApp/linepatrol/resource/datumAdd.jsp</link>
+	</Message>
+	<Message id="updateFileNull">
+		<info>更新文件不能为空，请上传文件</info>
+		<link>返回</link>
+	</Message>
+	<Message id="updateFileTooMany">
+		<info>一次只能更新一个文件</info>
+		<link>关闭</link>
+	</Message>
+	<Message id="updateFileTooManyBack">
+		<info>一次只能更新一个文件</info>
+		<link>返回</link>
+	</Message>
+	<Message id="updateInfoSuccess">
+		<info>维护资料更新成功！</info>
+		<link>/WebApp/linepatrol/resource/datumList.jsp</link>
+	</Message>
+	<Message id="datumApproveRepeatError">
+  		<info>该维护资料已审核！</info>
+  		<link>/WebApp/linepatrol/resource/datumList.jsp</link>
+  	</Message>
+	<Message id="datumApproveSuccess">
+		<info>维护资料审核成功！</info>
+		<link>/WebApp/linepatrol/resource/datumList.jsp</link>
+	</Message>
+	<Message id="cableApproveSuccess">
+		<info>中继段资料审核成功！</info>
+		<link>/WebApp/resAction.do?method=approveCableList</link>
+	</Message>
+	<Message id="pipeApproveSuccess">
+		<info>管道资料审核成功！</info>
+		<link>/WebApp/linepatrol/resource/res_approve_pipe_list.jsp</link>
+	</Message>
+	<!-- 中继段 -->
+
+	<!-- 演练start -->
+	<Message id="addDrillTaskSuccess">
+		<info>制定演练任务成功，等待代维人员制定演练方案。</info>
+		<link>/WebApp/drillTaskAction.do?method=addDrillTaskForm</link>
+	</Message>
+	<Message id="tempSaveDrillTaskSuccess">
+		<info>演练任务临时保存成功！</info>
+		<link>/WebApp/drillTaskAction.do?method=perfectDrillTaskList</link>
+	</Message>
+	<Message id="addDrillTaskError">
+		<info>制定演练任务失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="deleteDrillTempTaskSuccess">
+		<info>删除演练任务成功！</info>
+		<link>/WebApp/drillTaskAction.do?method=perfectDrillTaskList</link>
+	</Message>
+	<Message id="deleteDrillTempTaskError">
+		<info>删除演练任务失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="perfectDrillTaskSuccess">
+		<info>制定演练任务成功，等待代维人员制定演练方案。</info>
+		<link>/WebApp/drillTaskAction.do?method=perfectDrillTaskList</link>
+	</Message>
+
+	<Message id="addDrillPlanSuccess">
+		<info>制定演练方案成功，等待相关人员审核！</info>
+		<link>/WebApp/drillTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="tempSaveDrillPlanSuccess">
+		<info>演练方案临时保存成功！</info>
+		<link>/WebApp/drillTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="addDrillPlanError">
+		<info>制定演练方案失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="editDrillPlanSuccess">
+		<info>修改演练方案成功，等待相关人员审核！</info>
+		<link>/WebApp/drillTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="editDrillPlanError">
+		<info>修改演练方案失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="approveDrillPlanUnpass">
+		<info>演练方案审核成功，等待代维人员修改演练方案！</info>
+		<link>/WebApp/drillTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="approveDrillPlanPass">
+		<info>演练方案审核成功，等待代维人员提交演练总结！</info>
+		<link>/WebApp/drillTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="approveDrillPlanTransfer">
+		<info>演练方案转审成功，等待相关人员审核。</info>
+		<link>/WebApp/drillTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="approveDrillPlanError">
+		<info>演练方案审核出错，请重试！</info>
+		<link>返回</link>
+	</Message>
+
+	<Message id="addDrillPlanModifySuccess">
+		<info>演练方案变更制定成功，等待相关人员审核。</info>
+		<link>/WebApp/drillTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="addDrillPlanModifyError">
+		<info>演练方案变更制定失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="approveDrillPlanModifyUnpass">
+		<info>演练方案变更审核不通过，等待代维人员重新提交变更申请。</info>
+		<link>/WebApp/drillTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="approveDrillPlanModifyPass">
+		<info>演练方案变更审核通过，等待代维人员提交总结。</info>
+		<link>/WebApp/drillTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="approveDrillPlanModifyTransfer">
+		<info>演练方案变更转审成功，等待相关人员审核。</info>
+		<link>/WebApp/drillTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="approveDrillPlanModifyError">
+		<info>演练方案变更审核出错，请重试。</info>
+		<link>返回</link>
+	</Message>
+
+	<Message id="addDrillSummarySuccess">
+		<info>添加演练总结成功，等待相关人员审核。</info>
+		<link>/WebApp/drillTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="tempSaveDrillSummarySuccess">
+		<info>演练总结临时保存成功!</info>
+		<link>/WebApp/drillTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="addDrillSummaryError">
+		<info>添加演练总结失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="editDrillSummarySuccess">
+		<info>修改演练总结成功，等待相关人员审核。</info>
+		<link>/WebApp/drillTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="editDrillSummaryError">
+		<info>修改演练总结失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="approveDrillSummaryUnpass">
+		<info>演练总结审核成功，等待代维人员修改演练总结。</info>
+		<link>/WebApp/drillTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="approveDrillSummaryPass">
+		<info>演练总结审核成功，等待考核！</info>
+		<link>/WebApp/drillTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="approveDrillSummaryTransfer">
+		<info>演练总结转审成功，等待相关人员审核！</info>
+		<link>/WebApp/drillTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="approveDrillSummaryError">
+		<info>演练总结审核出错，请重试！</info>
+		<link>返回</link>
+	</Message>
+
+	<Message id="examDrillSuccess">
+		<info>演练考核成功。</info>
+		<link>/WebApp/drillTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="examDrillError">
+		<info>演练考核失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="drillPlanReadReplySuccess">
+		<info>演练方案已阅读！</info>
+		<link>/WebApp/drillTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="drillPlanModifyReadReplySuccess">
+		<info>演练方案变更已阅读！</info>
+		<link>/WebApp/drillTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="drillSummaryReadReplySuccess">
+		<info>演练总结已阅读！</info>
+		<link>/WebApp/drillTaskAction.do?method=getAgentList</link>
+	</Message>
+	<!-- 演练end -->
+	
+	<!-- 保障start -->
+	<Message id="addSafeguardTaskSuccess">
+		<info>制定保障任务成功，等待代维人员制定保障方案。</info>
+		<link>/WebApp/safeguardTaskAction.do?method=addSafeguardTaskForm</link>
+	</Message>
+	<Message id="tempSaveSafeguardTaskSuccess">
+		<info>保障任务临时保存成功！</info>
+		<link>/WebApp/safeguardTaskAction.do?method=getPerfectList</link>
+	</Message>
+	<Message id="addSafeguardTaskError">
+		<info>制定保障任务失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="deleteSafeguardTempTaskSuccess">
+		<info>删除保障任务成功！</info>
+		<link>/WebApp/safeguardTaskAction.do?method=getPerfectList</link>
+	</Message>
+	<Message id="deleteSafeguardTempTaskError">
+		<info>删除保障任务失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="addSafeguardPlanSuccess">
+		<info>制定保障方案成功，等待线维人员审核！</info>
+		<link>/WebApp/safeguardTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="tempSaveSafeguardPlanSuccess">
+		<info>保障方案临时保存成功！</info>
+		<link>/WebApp/safeguardTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="addSafeguardPlanError">
+		<info>制定保障方案失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="editSafeguardPlanSuccess">
+		<info>修改保障方案成功，等待线维人员审核！</info>
+		<link>/WebApp/safeguardTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="editSafeguardPlanError">
+		<info>修改保障方案失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="approveSafeguardPlanUnpass">
+		<info>保障方案审核成功，等待代维人员修改保障方案！</info>
+		<link>/WebApp/safeguardTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="approveSafeguardPlanPass">
+		<info>保障方案审核成功，等待代维人员提交保障总结！</info>
+		<link>/WebApp/safeguardTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="approveSafeguardPlanTransfer">
+		<info>保障方案转审成功，等待相关人员审核。</info>
+		<link>/WebApp/safeguardTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="approveSafeguardPlanError">
+		<info>保障方案审核出错，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="addSpecialEndPlanSuccess">
+		<info>添加保障特巡方案终止成功，等待线维人员审核！</info>
+		<link>/WebApp/safeguardTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="addSpecialEndPlanError">
+		<info>添加保障特巡方案终止失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="approveSpecialEndPlanUnpass">
+		<info>保障特巡方案终止审核成功，等待代维人员重新提交终止方案！</info>
+		<link>/WebApp/safeguardTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="approveSpecialEndPlanPass">
+		<info>保障特巡方案终止审核成功，等待代维人员提交保障总结！</info>
+		<link>/WebApp/safeguardTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="approveSpecialEndPlanPassToRedo">
+		<info>保障特巡方案终止审核成功，等待代维人员重新制定特巡计划！</info>
+		<link>/WebApp/safeguardTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="approveSpecialEndPlanTransfer">
+		<info>保障特巡方案终止转审成功，等待相关人员审核。</info>
+		<link>/WebApp/safeguardTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="approveSafeguardPlanError">
+		<info>保障特巡方案终止审核出错，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="addSafeguardSummarySuccess">
+		<info>添加保障总结成功，等待相关人员审核。</info>
+		<link>/WebApp/safeguardTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="tempSaveSafeguardSummarySuccess">
+		<info>保障总结临时保存成功!</info>
+		<link>/WebApp/safeguardTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="addSafeguardSummaryError">
+		<info>添加保障总结失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="editSafeguardSummarySuccess">
+		<info>修改保障总结成功，等待相关人员审核。</info>
+		<link>/WebApp/safeguardTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="editSafeguardSummaryError">
+		<info>修改保障总结失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="approveSafeguardSummaryUnpass">
+		<info>保障总结审核成功，等待代维人员修改保障总结。</info>
+		<link>/WebApp/safeguardTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="approveSafeguardSummaryPass">
+		<info>保障总结审核成功，请对该保障进行考核！</info>
+		<link>/WebApp/safeguardTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="approveSafeguardSummaryTransfer">
+		<info>保障总结转审成功，等待相关人员审核！</info>
+		<link>/WebApp/safeguardTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="approveSafeguardSummaryError">
+		<info>保障总结审核出错，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="examSafeguardSuccess">
+		<info>保障考核成功。</info>
+		<link>/WebApp/safeguardTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="examSafeguardError">
+		<info>保障考核失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="safeguardPlanReadReplySuccess">
+		<info>保障方案已阅读！</info>
+		<link>/WebApp/safeguardTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="planEndReadReplySuccess">
+		<info>保障特巡计划终止已阅读！</info>
+		<link>/WebApp/safeguardTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="readSpecialPlan">
+		<info>特巡计划已阅读！</info>
+		<link>/WebApp/safeguardTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="safeguardSummaryReadReplySuccess">
+		<info>保障总结已阅读！</info>
+		<link>/WebApp/safeguardTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="redoSpecialPlanSuccess">
+		<info>重新制定特巡计划成功，等待相关人员审核！</info>
+		<link>/WebApp/safeguardTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="editSpecialPlanSuccess">
+		<info>修改特巡计划成功，等待相关人员审核！</info>
+		<link>/WebApp/safeguardTaskAction.do?method=getAgentList</link>
+	</Message>
+
+	<Message id="approveSpecialPlanUnpassRedo">
+		<info>特巡计划审批成功，等待代维人员修改特巡计划！</info>
+		<link>/WebApp/safeguardTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="approveSpecialPlanPassRedo">
+		<info>特巡计划审批成功，等待代维人员提交保障总结！</info>
+		<link>/WebApp/safeguardTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="approveSpecialPlanTransferRedo">
+		<info>特巡计划转审成功，等待相关人员审核！</info>
+		<link>/WebApp/safeguardTaskAction.do?method=getAgentList</link>
+	</Message>
+	<Message id="approveSafeguardPlanErrorRedo">
+		<info>特巡计划审核出错，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<!-- 保障end -->
+	
+	<!-- 问卷start -->
+	<Message id="addQuestSuccess">
+		<info>问卷添加成功！</info>
+		<link>/WebApp/questAction.do?method=addQuestForm</link>
+	</Message>
+	<Message id="tempSaveQuestSuccess">
+		<info>问卷临时保存成功！</info>
+		<link>/WebApp/questAction.do?method=perfectIssueList</link>
+	</Message>
+	<Message id="addQuestError">
+		<info>添加问卷失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="deleteQuestSuccess">
+		<info>删除问卷成功！</info>
+		<link>/WebApp/questAction.do?method=perfectIssueList</link>
+	</Message>
+	<Message id="deleteQuestError">
+		<info>删除问卷失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+
+	<Message id="addFeedbackIssueSuccess">
+		<info>问卷调查添加成功！</info>
+		<link>/WebApp/questAction.do?method=getIssueFeedbackList</link>
+	</Message>
+	<Message id="tempSaveFeedbackIssueSuccess">
+		<info>问卷调查临时保存成功！</info>
+		<link>/WebApp/questAction.do?method=getIssueFeedbackList</link>
+	</Message>
+	<Message id="addFeedbackIssueError">
+		<info>添加问卷调查失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="addComQuestSuccess">
+		<info>添加参评对象成功！</info>
+		<link>/WebApp/questAction.do?method=questComManagerList</link>
+	</Message>
+	<Message id="editComQuestSuccess">
+		<info>编辑参评对象成功！</info>
+		<link>/WebApp/questAction.do?method=questComManagerList</link>
+	</Message>
+	<Message id="editComQuestError">
+		<info>编辑参评对象失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="deleteComQuestSuccess">
+		<info>删除参评对象成功！</info>
+		<link>/WebApp/questAction.do?method=questComManagerList</link>
+	</Message>
+	<Message id="deleteComQuestError">
+		<info>删除参评对象失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="addTypeQuestSuccess">
+		<info>添加问卷类型成功！</info>
+		<link>/WebApp/questAction.do?method=questTypeManagerList</link>
+	</Message>
+	<Message id="editTypeQuestSuccess">
+		<info>修改问卷类型成功！</info>
+		<link>/WebApp/questAction.do?method=questTypeManagerList</link>
+	</Message>
+	<Message id="editTypeQuestError">
+		<info>编辑问卷类型失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="deleteTypeQuestSuccess">
+		<info>删除问卷类型成功！</info>
+		<link>/WebApp/questAction.do?method=questTypeManagerList</link>
+	</Message>
+	<Message id="deleteTypeQuestError">
+		<info>删除问卷类型失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="addClassQuestSuccess">
+		<info>添加问卷类别成功！</info>
+		<link>/WebApp/questAction.do?method=questClassManagerList</link>
+	</Message>
+	<Message id="editClassQuestSuccess">
+		<info>修改问卷类别成功！</info>
+		<link>/WebApp/questAction.do?method=questClassManagerList</link>
+	</Message>
+	<Message id="editClassQuestError">
+		<info>编辑问卷类别失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="addSortQuestSuccess">
+		<info>添加问卷分类成功！</info>
+		<link>/WebApp/questAction.do?method=questSortManagerList</link>
+	</Message>
+	<Message id="editSortQuestSuccess">
+		<info>修改问卷分类成功！</info>
+		<link>/WebApp/questAction.do?method=questSortManagerList</link>
+	</Message>
+	<Message id="editSortQuestError">
+		<info>编辑问卷分类失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="addItemQuestSuccess">
+		<info>添加指标项成功！</info>
+		<link>/WebApp/questAction.do?method=questItemManagerList</link>
+	</Message>
+	<Message id="editItemQuestSuccess">
+		<info>修改指标项成功！</info>
+		<link>/WebApp/questAction.do?method=questItemManagerList</link>
+	</Message>
+	<Message id="editItemQuestError">
+		<info>编辑指标项失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="deleteManagerItemSuccess">
+		<info>删除指标项成功！</info>
+		<link>/WebApp/questAction.do?method=questItemManagerList</link>
+	</Message>
+	<Message id="canntDeleteManagerItemSuccess">
+		<info>调查结果中存在该指标项，不允许删除！</info>
+		<link>/WebApp/questAction.do?method=questItemManagerList</link>
+	</Message>
+	<Message id="deleteManagerItemError">
+		<info>删除指标项失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="deleteSortQuestSuccess">
+		<info>删除指标分类成功！</info>
+		<link>/WebApp/questAction.do?method=questSortManagerList</link>
+	</Message>
+	<Message id="deleteSortQuestError">
+		<info>删除指标分类失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="deleteClassQuestSuccess">
+		<info>删除指标类别成功！</info>
+		<link>/WebApp/questAction.do?method=questClassManagerList</link>
+	</Message>
+	<Message id="deleteClassQuestError">
+		<info>删除指标类别失败，请重试！</info>
+		<link>返回</link>
+	</Message>
+	<!-- 问卷end -->
+	<!--派单管理 -->
+	<Message id="110102">
+		<info>派单成功，等待受理部门人员签收！</info>
+		<link>/WebApp/SendTaskAction.do?method=showSendTask</link>
+	</Message>
+	<Message id="110102e">
+		<info>派单失败！</info>
+		<link>/WebApp/SendTaskAction.do?method=showSendTask</link>
+	</Message>
+	<Message id="110104">
+		<info>修改派单成功！</info>
+		<link>/WebApp/SendTaskAction.do?method=doQueryAfterMod</link>
+	</Message>
+	<Message id="110104e">
+		<info>修改派单失败！</info>
+		<link>/WebApp/SendTaskAction.do?method=doQueryAfterMod</link>
+	</Message>
+	<Message id="110202">
+		<info>签收派单成功，等待受理部门人员反馈！</info>
+		<link>/WebApp/EndorseAction.do?method=showTaskToEndorse</link>
+	</Message>
+	<Message id="110202e">
+		<info>签收派单失败！</info>
+		<link>/WebApp/EndorseAction.do?method=showTaskToEndorse</link>
+	</Message>
+	<Message id="110203s">
+		<info>任务派单已经拒签，等待转派人重新签收或者转派！</info>
+		<link>/WebApp/EndorseAction.do?method=showTaskToEndorse</link>
+	</Message>
+	<Message id="110203s0">
+		<info>任务派单已经拒签，等待派单部门确认！</info>
+		<link>/WebApp/EndorseAction.do?method=showTaskToEndorse</link>
+	</Message>
+	<Message id="110203e1">
+		<info>没有等待拒签确认的任务派单！</info>
+		<link>/WebApp/EndorseAction.do?method=showTaskToEndorse</link>
+	</Message>
+	<Message id="110203s1">
+		<info>任务派单拒签通过派单部门确认，任务派单结束！</info>
+		<link>/WebApp/EndorseAction.do?method=showTaskToEndorse</link>
+	</Message>
+	<Message id="110203s2">
+		<info>任务派单拒签没有通过派单部门确认，等待受理人重新签收！</info>
+		<link>/WebApp/EndorseAction.do?method=showTaskToEndorse</link>
+	</Message>
+	<Message id="110203e2">
+		<info>任务派单拒签确认失败！</info>
+		<link>/WebApp/EndorseAction.do?method=showTaskToEndorse</link>
+	</Message>
+	<Message id="110301">
+		<info>转发成功，等待转发受理部门人员签收！</info>
+		<link>/WebApp/ReplyAction.do?method=showTaskToReply</link>
+	</Message>
+	<Message id="110301e">
+		<info>转发失败！</info>
+		<link>/WebApp/ReplyAction.do?method=showTaskToReply</link>
+	</Message>
+	<Message id="110302">
+		<info>反馈派单成功，等待派单审核部门人员审核！</info>
+		<link>/WebApp/ReplyAction.do?method=showTaskToReply</link>
+	</Message>
+	<Message id="110302e">
+		<info>反馈派单失败！</info>
+		<link>/WebApp/ReplyAction.do?method=showTaskToReply</link>
+	</Message>
+	<Message id="110304">
+		<info>修改反馈成功，等待派单审核部门人员审核！</info>
+		<link>/WebApp/ReplyAction.do?method=doQueryAfterMod</link>
+	</Message>
+	<Message id="110304e">
+		<info>修改反馈失败！</info>
+		<link>/WebApp/ReplyAction.do?method=doQueryAfterMod</link>
+	</Message>
+	<Message id="110304s1">
+		<info>删除反馈成功，等待转发受理部门人员重新反馈！</info>
+		<link>/WebApp/ReplyAction.do?method=doQueryAfterMod</link>
+	</Message>
+	<Message id="110402">
+		<info>派单反馈审核通过，派单结束！</info>
+		<link>/WebApp/ValidateAction.do?method=showTaskToValidate</link>
+	</Message>
+	<Message id="11040201">
+		<info>派单反馈审核不通过，派单返回到受理单位反馈步骤！</info>
+		<link>/WebApp/ValidateAction.do?method=showTaskToValidate</link>
+	</Message>
+	<Message id="11040202">
+		<info>派单已转审，派单等待转审部门进行审核！</info>
+		<link>/WebApp/ValidateAction.do?method=showTaskToValidate</link>
+	</Message>
+	<Message id="11040203">
+		<info>派单反馈已经批阅！</info>
+		<link>/WebApp/ValidateAction.do?method=showTaskToValidate</link>
+	</Message>
+	<Message id="110402e">
+		<info>审核派单反馈失败！</info>
+		<link>/WebApp/ValidateAction.do?method=showTaskToValidate</link>
+	</Message>
+	<Message id="110402e1">
+		<info>没有可以审核的反馈！</info>
+		<link>/WebApp/ValidateAction.do?method=showTaskToValidate</link>
+	</Message>
+	<Message id="110801">
+		<info>删除派单成功！</info>
+		<link>/WebApp/ValidateAction.do?method=showTaskToValidate</link>
+	</Message>
+	<Message id="110901">
+		<info>取消派单成功！</info>
+		<link>/WebApp/ValidateAction.do?method=showTaskToValidate</link>
+	</Message>
+	
+	<!-- 光缆重新分配start -->
+	<Message id="cableAssignSuccess">
+		<info>光缆重新分配成功！</info>
+		<link>/WebApp/resAction.do?method=cableAssignOne</link>
+	</Message>
+	
+	<Message id="pipeAssignSuccess">
+		<info>管道重新分配成功！</info>
+		<link>/WebApp/pipeAction.do?method=pipeAssignOne</link>
+	</Message>
+	<Message id="assignMoreThan1000">
+		<info>重新分配数量不要超过1000个！</info>
+		<link>返回</link>
+	</Message>
+	<!-- 光缆重新分配end -->
+	<Message id="editAcceptancePlanSuccess">
+		<info>修改验收交维计划成功！</info>
+		<link>返回</link>
+	</Message>
+
+	<!-- 月考核表 -->
+	<Message id="addAppraiseMonthExcelSuccess">
+		<info>"{0}"添加模板成功！</info>
+		<link>/WebApp/appraiseTableMonthAction.do?method=appraiseTableList</link>
+	</Message>
+	<Message id="excelMonthFormatError">
+		<info>模板格式不正确！</info>
+		<link>/WebApp/linepatrol/appraise/importMonthExcel.jsp</link>
+	</Message>
+	<Message id="addAppraiseMonthExcelError">
+		<info>添加模板"{0}"失败，请重试！</info>
+		<link>/WebApp/linepatrol/appraise/importMonthExcel.jsp</link>
+	</Message>
+	<Message id="addAppraiseMonthExcelRepeatError">
+		<info>{0}已有模板，请删除该年模板后再重新操作！</info>
+		<link>/WebApp/linepatrol/appraise/importMonthExcel.jsp</link>
+	</Message>
+	<Message id="deleteAppraiseMonthExcelSuccess">
+		<info>"{0}"删除模板成功！</info>
+		<link>/WebApp/appraiseTableMonthAction.do?method=appraiseTableList</link>
+	</Message>
+	<!-- 月考核表end -->
+
+	<!-- 代维中标合同管理模块start -->
+	<Message id="addContractSuccess">
+		<info>增加代维单位中标合同成功！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="doubleContract">
+		<info>该年度代维单位中标合同已添加，不能重复添加！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="hasSameContractNo">
+		<info>分包合同项有重复，请查证！</info>
+		<link>返回</link>
+	</Message>
+	<Message id="editContractSuccess">
+		<info>更新代维单位中标合同成功！</info>
+		<link>返回</link>
+	</Message>
+	<!-- 代维中标合同管理模块end -->
+	
+	<!-- 月考核start -->
+	<Message id="appraiseMonthSuccess">
+		<info>"{0}" 月考核成功！</info>
+		<link>/WebApp/appraiseMonthAction.do?method=createMonthTableForm</link>
+	</Message>
+	<Message id="appraiseMonthRepeatError">
+		<info>该月考核已存在！</info>
+		<link>/WebApp/appraiseMonthAction.do?method=createMonthTableForm</link>
+	</Message>
+	<Message id="sendMonthAppraiseSucess">
+		<info>下发月考核成功！</info>
+		<link>/WebApp/linepatrol/appraise/sendAppraiseMonthForm.jsp</link>
+	</Message>
+	<Message id="verifyAppraiseMonthSuccess">
+		<info>月考核确认成功！</info>
+		<link>/WebApp/appraiseMonthAction.do?method=verifyAppraiseList</link>
+	</Message>
+	<Message id="editAppraiseMonthSuccess">
+		<info>月考核修改成功！</info>
+		<link>/WebApp/appraiseMonthAction.do?method=queryVerifyResultAppraiseForm</link>
+	</Message>
+	<Message id="tableMonthNonentity">
+		<info>该 年月考核表不存在！</info>
+		<link>/WebApp/appraiseMonthAction.do?method=createMonthTableForm</link>
+	</Message>
+	<!-- 月考核end -->
+
+	<Message id="examDispatchSuccess">
+		<info>考核成功！</info>
+		<link>/WebApp/dispatchExamAction.do?method=examList&amp;examFlag=unexam</link>
+	</Message>
+	<Message id="examOverHaulSuccess">
+		<info>考核成功！</info>
+		<link>/WebApp/overHaulExamAction.do?method=examList</link>
+	</Message>
+	<Message id="examRemedySuccess">
+		<info>考核成功！</info>
+		<link>/WebApp/remedyExamAction.do?method=examList</link>
+	</Message>
+	<!-- 其他日常考核start -->
+	<Message id="appraiseDailyOtherSuccess">
+		<info>其他日常考核成功！</info>
+		<link>/WebApp/appraiseDailyOtherAction.do?method=appraiseDailyOtherForm</link>
+	</Message>
+	<Message id="appraiseDailyOtherError">
+		<info>没有填写其他日常考核表，请填写！</info>
+		<link>返回</link>
+	</Message>
+	<!-- 其他日常考核end -->
+
+	<!-- 专项考核表 -->
+	<Message id="addAppraiseSpecialExcelSuccess">
+		<info>"{0}"添加模板成功！</info>
+		<link>/WebApp/appraiseTableSpecialAction.do?method=appraiseTableList</link>
+	</Message>
+	<Message id="excelSpecialFormatError">
+		<info>模板格式不正确！</info>
+		<link>/WebApp/linepatrol/appraise/importSpecialExcel.jsp</link>
+	</Message>
+	<Message id="addAppraiseSpecialExcelError">
+		<info>添加模板"{0}"失败，请重试！</info>
+		<link>/WebApp/linepatrol/appraise/importSpecialExcel.jsp</link>
+	</Message>
+	<Message id="addAppraiseSpecialExcelRepeatError">
+		<info>{0}已有模板，请删除该年模板后再重新操作！</info>
+		<link>/WebApp/linepatrol/appraise/importSpecialExcel.jsp</link>
+	</Message>
+	<Message id="deleteAppraiseSpecialExcelSuccess">
+		<info>"{0}"删除模板成功！</info>
+		<link>/WebApp/appraiseTableSpecialAction.do?method=appraiseTableList</link>
+	</Message>
+	<!-- 专项考核表end -->
+
+	<!-- 年度考核表 -->
+	<Message id="addAppraiseYearExcelSuccess">
+		<info>"{0}"添加模板成功！</info>
+		<link>/WebApp/appraiseTableYearAction.do?method=appraiseTableList</link>
+	</Message>
+	<Message id="excelYearFormatError">
+		<info>模板格式不正确！</info>
+		<link>/WebApp/linepatrol/appraise/importYearExcel.jsp</link>
+	</Message>
+	<Message id="addAppraiseYearExcelError">
+		<info>添加模板"{0}"失败，请重试！</info>
+		<link>/WebApp/linepatrol/appraise/importYearExcel.jsp</link>
+	</Message>
+	<Message id="addAppraiseYearExcelRepeatError">
+		<info>{0}已有模板，请删除该年模板后再重新操作！</info>
+		<link>/WebApp/linepatrol/appraise/importYearExcel.jsp</link>
+	</Message>
+	<Message id="deleteAppraiseYearExcelSuccess">
+		<info>"{0}"删除模板成功！</info>
+		<link>/WebApp/appraiseTableYearAction.do?method=appraiseTableList</link>
+	</Message>
+	<!-- 年度考核表end -->
+	
+	<!-- 专项考核start -->
+	<Message id="appraiseRepeatTableError">
+		<info>该时间段考核表已经存在！</info>
+		<link>/WebApp/appraiseSpecialAction.do?method=createSpecialTableForm</link>
+	</Message>
+	<Message id="appraiseSpecialSuccess">
+		<info>"{0}" 专项考核成功！</info>
+		<link>/WebApp/appraiseSpecialAction.do?method=createSpecialTableForm</link>
+	</Message>
+	<Message id="sendSpecialAppraiseSucess">
+		<info>下发专项考核成功！</info>
+		<link>/WebApp/linepatrol/appraise/sendAppraiseSpecialForm.jsp</link>
+	</Message>
+	<Message id="verifyAppraiseSpecialSuccess">
+		<info>专项考核确认成功！</info>
+		<link>/WebApp/appraiseSpecialAction.do?method=verifyAppraiseList</link>
+	</Message>
+	<Message id="editAppraiseSpecialSuccess">
+		<info>专项考核修改成功！</info>
+		<link>/WebApp/appraiseSpecialAction.do?method=queryVerifyResultAppraiseForm</link>
+	</Message>
+	<Message id="tableSpecialNonentity">
+		<info>该 年专项考核表不存在！</info>
+		<link>/WebApp/appraiseSpecialAction.do?method=createSpecialTableForm</link>
+	</Message>
+
+	<!-- 专项考核end -->
+	<!-- 年终检查表 -->
+	<Message id="addAppraiseYearEndExcelSuccess">
+		<info>"{0}"添加模板成功！</info>
+		<link>/WebApp/appraiseTableYearEndAction.do?method=appraiseTableList</link>
+	</Message>
+	<Message id="excelYearEndFormatError">
+		<info>模板格式不正确！</info>
+		<link>/WebApp/linepatrol/appraise/importYearEndExcel.jsp</link>
+	</Message>
+	<Message id="addAppraiseYearEndExcelError">
+		<info>添加模板"{0}"失败，请重试！</info>
+		<link>/WebApp/linepatrol/appraise/importYearEndExcel.jsp</link>
+	</Message>
+	<Message id="addAppraiseYearEndExcelRepeatError">
+		<info>{0}已有模板，请删除该年模板后再重新操作！</info>
+		<link>/WebApp/linepatrol/appraise/importYearEndExcel.jsp</link>
+	</Message>
+	<Message id="deleteAppraiseYearEndExcelSuccess">
+		<info>"{0}"删除模板成功！</info>
+		<link>/WebApp/appraiseTableYearEndAction.do?method=appraiseTableList</link>
+	</Message>
+	<!-- 年终检查表end -->
+
+	<!-- 年终检查start -->
+	<Message id="appraiseDailyYearEndRepeatError">
+		<info>该年终检查打分已存在！</info>
+		<link>/WebApp/appraiseDailyYearEndAction.do?method=appraiseDailyYearEndForm	</link>
+	</Message>
+	<Message id="appraiseDailyYearEndSuccess">
+		<info>年终检查打分成功！</info>
+		<link>/WebApp/appraiseDailyYearEndAction.do?method=appraiseDailyYearEndForm</link>
+	</Message>
+	<Message id="appraiseYearEndSuccess">
+		<info>年终检查汇总成功！</info>
+		<link>/WebApp/appraiseYearEndAction.do?method=createAppraiseYearEndTableForm</link>
+	</Message>
+	<Message id="appraiseYearEndRepeatError">
+		<info>该年终检查汇总已存在！</info>
+		<link>/WebApp/appraiseYearEndAction.do?method=createAppraiseYearEndTableForm</link>
+	</Message>
+	<Message id="sendYearEndAppraiseSucess">
+		<info>下发年终检查成功！</info>
+		<link>/WebApp/linepatrol/appraise/sendAppraiseYearEndForm.jsp</link>
+	</Message>
+	<Message id="verifyAppraiseYearEndSuccess">
+		<info>年终检查确认成功！</info>
+		<link>/WebApp/appraiseYearEndAction.do?method=verifyAppraiseList</link>
+	</Message>
+	<Message id="editAppraiseYearEndSuccess">
+		<info>年终检查修改成功！</info>
+		<link>/WebApp/linepatrol/appraise/verifyApprasieYearEndList.jsp</link>
+	</Message>
+
+	<Message id="tableYearEndNonentity">
+		<info>该 年年终检查表不存在！</info>
+		<link>/WebApp/appraiseYearEndAction.do?method=createAppraiseYearEndTableForm</link>
+	</Message>
+	<!-- 年终检查end -->
+
+
+	<!-- 年度考核 start -->
+	<Message id="createAppraiseYearRepeatError">
+		<info>该 年度考核已存在！</info>
+		<link>/WebApp/appraiseYearAction.do?method=createAppraiseYearForm</link>
+	</Message>
+	<Message id="createAppraiseYearSuccess">
+		<info>该年度考核成功！</info>
+		<link>/WebApp/appraiseYearAction.do?method=createAppraiseYearForm</link>
+	</Message>
+	<Message id="sendAppraiseYearSucess">
+		<info>考核结果下发成功！</info>
+		<link>/WebApp/appraiseYearAction.do?method=querySendAppraise</link>
+	</Message>
+	<Message id="verifyAppraiseYearSuccess">
+		<info>考核结果确认成功！</info>
+		<link>/WebApp/appraiseYearAction.do?method=verifyAppraiseList</link>
+	</Message>
+	<Message id="eidtAppraiseYearSuccess">
+		<info>修改考核结果成功！</info>
+		<link>/WebApp/appraiseYearAction.do?method=queryVerifyResultAppraise</link>
+	</Message>
+	<!-- 年度考核end -->
+
+</SystemMsgs>

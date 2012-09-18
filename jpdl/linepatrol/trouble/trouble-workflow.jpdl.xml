@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="trouble" xmlns="http://jbpm.org/4.0/jpdl">
+	<start g="303,3,48,48" name="start">
+		<transition g="-53,-11" name="dispatch" to="reply_task"/>
+	</start>
+	<end g="306,639,48,48" name="end"/>
+	<task candidate-users="#{assignee}" g="280,96,92,52" name="reply_task">
+		<transition g="-52,-7" name="submit" to="edit_dispatch_task"/>
+	</task>
+	<task candidate-users="#{assignee}" g="281,313,92,52" name="approve_task">
+		<transition g="-40,-9" name="passed" to="is_transfer"/>
+		<transition g="469,202:7,-6" name="not_passed" to="reply_task"/>
+	</task>
+	<decision expr="#{transition}" g="300,409,48,48" name="is_transfer">
+		<transition g="1,-11" name="evaluate" to="evaluate_task"/>
+		<transition g="444,348:10,-8" name="transfer" to="approve_task"/>
+		<transition g="238,530:-41,-17" name="close" to="end"/>
+	</decision>
+	<task candidate-users="#{assignee}" g="280,525,92,52" name="evaluate_task">
+		<transition g="5,-5" name="end" to="end"/>
+	</task>
+   <task candidate-users="#{assignee}" g="277,194,101,52" name="edit_dispatch_task">
+      <transition g="-74,-13" name="approve" to="approve_task"/>
+   </task>
+</process>

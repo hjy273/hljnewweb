@@ -1,0 +1,19 @@
+span.pagebanner {
+	display:none;
+}
+span.pagelinks {
+	display:none;
+}
+th, td {
+	padding: 2px 4px 2px 4px;
+	text-align: left;
+	vertical-align: top;
+}
+thead tr {
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr='#FFFFFF', endColorStr='#5baddf', gradientType='0');
+    height:23px;text-align:center;vertical-align:center;border:#9A9A9A solid;border-width:0 0 1 0; border-right:#EAE9E4 solid 1px;
+}
+thead tr th{
+	text-align:center;
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr='#FFFFFF', endColorStr='#5baddf', gradientType='0');
+}

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="registBean" type="com.cabletech.linepatrol.hiddanger.beans.RegistBean" />
+		<form-bean name="treatBean" type="com.cabletech.linepatrol.hiddanger.beans.TreatBean" />
+		<form-bean name="reportBean" type="com.cabletech.linepatrol.hiddanger.beans.ReportBean" />
+		<form-bean name="closeBean" type="com.cabletech.linepatrol.hiddanger.beans.CloseBean" />
+		<form-bean name="hiddangerQueryBean" type="com.cabletech.linepatrol.hiddanger.beans.QueryBean" />
+		<form-bean name="hiddangerExamBean" type="com.cabletech.linepatrol.hiddanger.beans.HiddangerExamBean" />
+	</form-beans>
+	
+	<global-forwards>
+		<forward name="sucessMsg" path="/globinfo/sucessinfo.jsp" />
+		<forward name="errorMsg" path="/globinfo/errorinfo.jsp" />
+	</global-forwards>
+	
+	<action-mappings>	
+		<action parameter="method" path="/hiddangerAction" scope="request" name="registBean"
+			type="com.cabletech.linepatrol.hiddanger.action.HiddangerAction">
+			<forward name="registLink" path="/linepatrol/hiddanger/addRegist.jsp" />
+			<forward name="editRegistLink" path="/linepatrol/hiddanger/editRegist.jsp" />
+			<forward name="evalLink" path="/linepatrol/hiddanger/eval.jsp" />
+			<forward name="treat" path="/linepatrol/hiddanger/treat.jsp" />
+			<forward name="report" path="/linepatrol/hiddanger/report.jsp" />
+			<forward name="editReportLink" path="/linepatrol/hiddanger/editReport.jsp" />
+			<forward name="reportClose" path="/linepatrol/hiddanger/reportClose.jsp" />
+			<forward name="general" path="/linepatrol/hiddanger/general.jsp" />
+			<forward name="editCloseLink" path="/linepatrol/hiddanger/editClose.jsp" />
+			<forward name="approve" path="/linepatrol/hiddanger/approve.jsp" />
+			<forward name="transferApprove" path="/linepatrol/hiddanger/transferApprove.jsp" />
+			<forward name="closeApprove" path="/linepatrol/hiddanger/closeApprove.jsp" />
+			<forward name="closeTransferApprove" path="/linepatrol/hiddanger/closeTransferApprove.jsp" />
+			<forward name="cancel_hide_danger" path="/linepatrol/hiddanger/cancel_hide_danger.jsp" />
+			<forward name="toDoWork" path="/linepatrol/hiddanger/toDoWork.jsp" />
+			<forward name="findToDoWork" path="/hiddangerAction.do?method=findToDoWork"></forward>
+			<forward name="finishedWork" path="/linepatrol/hiddanger/finishedWork.jsp" />
+			<forward name="view_hide_danger_process" path="/linepatrol/hiddanger/view_hide_danger_process.jsp" />
+			<forward name="query_hide_danger_state" path="/linepatrol/hiddanger/query_hide_danger_state.jsp" />
+			<forward name="terminalResult" path="/linepatrol/hiddanger/terminalRegistResult.jsp" />
+			<forward name="terminalRegist" path="/linepatrol/hiddanger/terminalRegist.jsp" />
+			<forward name="viewHiddanger" path="/linepatrol/hiddanger/viewHiddanger.jsp" />
+			<forward name="hiddangerForStat" path="/linepatrol/hiddanger/hiddangerForStat.jsp" />
+			<forward name="beginTreat" path="/hiddangerAction.do?method=beginTreat"></forward>
+		</action>
+		<action parameter="method" path="/hiddangerExamAction" scope="request" name="hiddangerExamBean"
+			type="com.cabletech.linepatrol.hiddanger.action.HiddangerAction">
+			<forward name="examList" path="/linepatrol/hiddanger/examList.jsp" />
+			<forward name="examLink" path="/linepatrol/hiddanger/examLink.jsp" />
+		</action>
+		<action parameter="method" path="/hiddangerTreatAction" scope="request" name="treatBean"
+			type="com.cabletech.linepatrol.hiddanger.action.HiddangerAction">
+			<forward name="registLink" path="/linepatrol/hiddanger/addRegist.jsp" />
+		</action>
+		<action parameter="method" path="/hiddangerReportAction" scope="request" name="reportBean"
+			type="com.cabletech.linepatrol.hiddanger.action.HiddangerAction" />
+		<action parameter="method" path="/hiddangerQueryAction" scope="request" name="hiddangerQueryBean"
+			type="com.cabletech.linepatrol.hiddanger.action.HiddangerAction">
+			<forward name="queryLink" path="/linepatrol/hiddanger/query.jsp" />
+			<forward name="view" path="/linepatrol/hiddanger/view.jsp" />
+			<forward name="statLink" path="/linepatrol/hiddanger/statLink.jsp" />
+			<forward name="statList" path="/linepatrol/hiddanger/statLink.jsp" />
+		</action>
+		<action parameter="method" path="/hiddangerCloseAction" scope="request" name="closeBean"
+			type="com.cabletech.linepatrol.hiddanger.action.HiddangerAction" />
+	</action-mappings>
+	
+	
+</struts-config>

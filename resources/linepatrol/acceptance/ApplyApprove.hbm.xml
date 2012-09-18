@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.linepatrol.acceptance.model.ApplyApprove"  table="LP_ACCEPTANCE_APPROVE">
+        <id name="id" type="string" unsaved-value="null" >
+            <column name="ID" sql-type="varchar(12)" not-null="true"/>  
+            <generator class="com.cabletech.commons.hb.StrSequenceGenerator">
+               <param name="sequence">SEQ_LP_ACCEPTANCE_APPROVE_ID</param>
+               <param name="length">12</param>
+            </generator>        
+        </id>
+        <property name="applyId" column="APPLY_ID"/>
+        <property name="approver" column="APPROVER"/>
+        <property name="approveTime" column="APPROVE_TIME"/>
+        <property name="state" column="STATE"/>
+    </class>
+</hibernate-mapping>

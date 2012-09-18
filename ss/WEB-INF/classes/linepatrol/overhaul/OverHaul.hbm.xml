@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.cabletech.linepatrol.overhaul.model.OverHaul"
+		table="LP_OVERHAUL">
+		<id name="id" type="string" unsaved-value="null">
+			<column name="ID" sql-type="varchar(12)" not-null="true" />
+			<generator class="com.cabletech.commons.hb.StrSequenceGenerator">
+				<param name="sequence">SEQ_LP_OVERHAUL_ID</param>
+				<param name="length">12</param>
+			</generator>
+		</id>
+		<property name="projectName" column="PROJECT_NAME" />
+		<property name="startTime" column="START_TIME" />
+		<property name="endTime" column="END_TIME" />
+		<property name="projectCreator" column="PROJECT_CREATOR" />
+		<property name="budgetFee" column="BUDGET_FEE" />
+		<property name="projectRemark" column="PROJECT_REMARK" />
+		<property name="creator" column="CREATOR" />
+		<property name="createTime" column="CREATE_TIME" />
+		<property name="processInstanceId" column="PROCESSINSTANCEID" />
+		<property name="state" column="STATE" />
+		<property column="CANCEL_USER_ID" generated="never" lazy="false"
+			name="cancelUserId" />
+		<property column="CANCEL_TIME" generated="never" lazy="false"
+			name="cancelTime" />
+		<property column="CANCEL_REASON" generated="never" lazy="false"
+			name="cancelReason" />
+	</class>
+</hibernate-mapping>

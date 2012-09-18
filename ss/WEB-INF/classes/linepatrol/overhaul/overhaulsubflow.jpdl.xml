@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="overhaulsubflow" xmlns="http://jbpm.org/4.0/jpdl">
+   <start g="292,88,48,48" name="start1">
+      <transition g="-62,-9" name="toapprove" to="approve"/>
+   </start>
+   <task candidate-users="#{assignee}" g="270,180,92,52" name="approve">
+      <transition g="261,260:-35,-8" name="pass" to="exclusive1"/>
+      <transition g="407,243:-22,6" name="not_pass" to="apply"/>
+   </task>
+   <decision expr="#{transition}" g="294,270,48,48" name="exclusive1">
+      <transition g="7,-9" name="toend" to="end1"/>
+      <transition name="transfer" to="approve" g="-20,-4"/>
+   </decision>
+   <task candidate-users="#{assignee}" g="449,176,92,52" name="apply">
+      <transition g="404,151:-20,-23" name="toapprove" to="approve"/>
+   </task>
+   <end g="295,345,48,48" name="end1"/>
+
+</process>

@@ -1,0 +1,458 @@
+		judgeItem=function(addForm){
+			if(typeof(addForm.itemUnit)=="undefined"){
+				alert("没有添加修缮定额项！");
+				return false;
+			}
+			if(typeof(addForm.itemUnit.length)=="undefined"){
+				if(addForm.itemName.value==""){
+					alert("没有选择修缮定额项！");
+					return false;
+				}
+				if(addForm.itemType.value==""){
+					alert("没有选择修缮定额项类别！");
+					//alert("没有选择修缮定额项类型！");
+					return false;
+				}
+				if(addForm.itemUnit.value==""){
+					alert("修缮定额项没有计量单位！");
+					return false;
+				}
+				if(addForm.itemUnitPrice.value==""){
+					alert("修缮定额项没有单价！");
+					return false;
+				}
+				if(addForm.itemWorkNumber.value==""){
+					alert("没有输入修缮定额项的工作量！");
+					return false;
+				}
+				if(addForm.itemFee.value==""){
+					alert("没有输入修缮定额项的费用！");
+					return false;
+				}
+				if(!regx.test(addForm.itemWorkNumber.value)){
+					alert("修缮定额项的工作量必须为数字！");
+					return false;
+				}
+				if(!regx.test(addForm.itemFee.value)){
+					alert("修缮定额项的费用必须为数字！");
+					return false;
+				}
+			}else{
+				for(i=0;i<addForm.itemUnit.length;i++){
+					if(addForm.itemName[i].value==""){
+						alert("没有选择第"+(i+1)+"个修缮定额项！");
+						return false;
+					}
+					if(addForm.itemType[i].value==""){
+						alert("没有选择第"+(i+1)+"个修缮定额项类别！");
+						//alert("没有选择第"+(i+1)+"个修缮定额项类型！");
+						return false;
+					}
+					if(addForm.itemUnit[i].value==""){
+						alert("第"+(i+1)+"个修缮定额项没有计量单位！");
+						return false;
+					}
+					if(addForm.itemUnitPrice[i].value==""){
+						alert("第"+(i+1)+"个修缮定额项没有单价！");
+						return false;
+					}
+					if(addForm.itemWorkNumber[i].value==""){
+						alert("没有输入第"+(i+1)+"个修缮定额项的工作量！");
+						return false;
+					}
+					if(addForm.itemFee[i].value==""){
+						alert("没有输入第"+(i+1)+"个修缮定额项的费用！");
+						return false;
+					}
+					if(!regx.test(addForm.itemWorkNumber[i].value)){
+						alert("第"+(i+1)+"个修缮定额项的工作量必须为数字！");
+						return false;
+					}
+					if(!regx.test(addForm.itemFee[i].value)){
+						alert("第"+(i+1)+"个修缮定额项的费用必须为数字！");
+						return false;
+					}
+				}
+			}
+			return true;
+		}
+		judgeMaterial=function(addForm){
+			if(typeof(addForm.materialStorageNumber)=="undefined"){
+				alert("没有添加修缮材料！");
+				return false;
+			}
+			if(typeof(addForm.materialStorageNumber.length)=="undefined"){
+				if(addForm.materialType.value==""){
+					alert("没有选择修缮材料类型！");
+					return false;
+				}
+				if(addForm.materialMode.value==""){
+					alert("没有选择修缮材料规格！");
+					return false;
+				}
+				if(addForm.material.value==""){
+					alert("没有选择修缮材料名称！");
+					return false;
+				}
+				if(addForm.materialStorageAddr.value==""){
+					alert("没有选择修缮材料的存放地点！");
+					return false;
+				}
+				if(addForm.materialStorageType.value==""){
+					alert("没有选择修缮材料的库存类型！");
+					return false;
+				}
+				if(addForm.materialStorageNumber.value==""){
+					alert("没有输入修缮材料的库存数量！");
+					return false;
+				}
+				if(addForm.materialUseNumber.value==""){
+					alert("没有输入修缮材料的使用数量！");
+					return false;
+				}
+				if(!regx.test(addForm.materialStorageNumber.value)){
+					alert("修缮材料的库存数量必须为数字！");
+					return false;
+				}
+				if(!regx.test(addForm.materialUseNumber.value)){
+					alert("修缮材料的使用数量必须为数字！");
+					return false;
+				}
+				if(parseFloat(addForm.materialStorageNumber.value)<parseFloat(addForm.materialUseNumber.value)){
+					alert("修缮材料的库存数量不足，请重新选择！");
+					return false;
+				}
+			}else{
+				for(i=0;i<addForm.materialStorageNumber.length;i++){
+					if(addForm.materialType[i].value==""){
+						alert("没有选择第"+(i+1)+"个修缮材料类型！");
+						return false;
+					}
+					if(addForm.materialMode[i].value==""){
+						alert("没有选择第"+(i+1)+"个修缮材料规格！");
+						return false;
+					}
+					if(addForm.material[i].value==""){
+						alert("没有选择第"+(i+1)+"个修缮材料名称！");
+						return false;
+					}
+					if(addForm.materialStorageAddr[i].value==""){
+						alert("没有选择第"+(i+1)+"个修缮材料的存放地点！");
+						return false;
+					}
+					if(addForm.materialStorageType[i].value==""){
+						alert("没有选择第"+(i+1)+"个修缮材料的库存类型！");
+						return false;
+					}
+					if(judgeExistSameMaterial(addForm,i)){
+						return false;
+					}
+					if(addForm.materialStorageNumber[i].value==""){
+						alert("没有输入第"+(i+1)+"个修缮材料的库存数量！");
+						return false;
+					}
+					if(addForm.materialUseNumber[i].value==""){
+						alert("没有输入第"+(i+1)+"个修缮材料的使用数量！");
+						return false;
+					}
+					if(!regx.test(addForm.materialStorageNumber[i].value)){
+						alert("第"+(i+1)+"个修缮材料的库存数量必须为数字！");
+						return false;
+					}
+					if(!regx.test(addForm.materialUseNumber[i].value)){
+						alert("第"+(i+1)+"个修缮材料的使用数量必须为数字！");
+						return false;
+					}
+					if(parseFloat(addForm.materialStorageNumber[i].value)<parseFloat(addForm.materialUseNumber[i].value)){
+						alert("第"+(i+1)+"个修缮材料的库存数量不足，请重新选择！");
+						return false;
+					}
+				}
+			}
+			return true;
+		}
+		judgeExistSameMaterial=function(addForm,itemSeq){
+			var material=addForm.material[itemSeq].value;
+			var materialStorageAddr=addForm.materialStorageAddr[itemSeq].value;
+			var materialStorageType=addForm.materialStorageType[itemSeq].value;
+			for(j=0;j<addForm.materialStorageNumber.length;j++){
+				if (j == itemSeq) {
+					continue;
+				}
+				var sampleMaterial=addForm.material[j].value;
+				var sampleMaterialStorageAddr=addForm.materialStorageAddr[j].value;
+				var sampleMaterialStorageType=addForm.materialStorageType[j].value;
+				if(material==sampleMaterial&&materialStorageAddr==sampleMaterialStorageAddr&&materialStorageType==sampleMaterialStorageType){
+					alert("第"+(itemSeq+1)+"个修缮材料和第"+(j+1)+"个修缮材料完全相同，请进行修改！");
+					return true;
+				}
+			}
+			return false;
+		}
+		changeItemType=function(itemId,sItemTypeId,itemTypeId,seqId){
+			var sItemType=document.getElementById(sItemTypeId);
+			var itemSeqId=document.getElementById("itemId_"+seqId);
+			var itemUnit=document.getElementById("itemUnit_"+seqId);
+			var itemType=document.getElementById(itemTypeId+"_"+seqId);
+			var item=document.getElementById(itemId+"_"+seqId);
+			var row=0;
+			if(typeof(sItemType.length)!="undefined"&&sItemType!=null){
+				for(i=0;i<sItemType.length;i++){
+					var itemTypeParentValue=sItemType.options[i].varRefId;
+					var itemTypeUnit=sItemType.options[i].varUnit;
+					var itemTypeUnitPrice=sItemType.options[i].varUnitPrice;
+					if(typeof(itemUnit.length)=="undefined"){
+						var index=item.options.selectedIndex;
+						var parentValue=item.options[index].varId;
+						itemSeqId.value=item.options[index].varId;
+						if(itemTypeParentValue==parentValue){
+							row++;
+							itemType.options.length=row;
+							itemType.options[row-1]=new Option(sItemType.options[i].text,sItemType.options[i].value,false,false);
+							itemType.options[row-1].varId=sItemType.options[i].varId;
+							itemType.options[row-1].varRefId=sItemType.options[i].varRefId;
+							itemType.options[row-1].varUnit=sItemType.options[i].varUnit;
+							itemType.options[row-1].varUnitPrice=sItemType.options[i].varUnitPrice;
+							displayUnit(itemTypeId,seqId);
+						}
+					}
+				}
+				if(row==0){
+					itemType.options.length=1;
+					itemType.options[0]=new Option("请选择","",false,false);
+					itemType.options[0].varId="";
+					itemType.options[0].varRefId="";
+					itemType.options[0].varUnit="";
+					itemType.options[0].varUnitPrice="0";
+					displayUnit(itemTypeId,seqId);
+				}
+			}
+		}
+		changeMaterialMode=function(itemId,sItemTypeId,itemTypeId,seqId){
+			var sItemType=document.getElementById(sItemTypeId);
+			var itemUnit=document.getElementById("materialStorageNumber_"+seqId);
+			var itemType=document.getElementById(itemTypeId+"_"+seqId);
+			var item=document.getElementById(itemId+"_"+seqId);
+			var row=0;
+			if(typeof(sItemType.length)!="undefined"&&sItemType!=null){
+				for(i=0;i<sItemType.length;i++){
+					var itemTypeParentValue=sItemType.options[i].varRefId;
+					if(typeof(itemUnit.length)=="undefined"){
+						var index=item.options.selectedIndex;
+						var parentValue=item.options[index].value;
+						if(itemTypeParentValue==parentValue){
+							row++;
+							itemType.options.length=row;
+							itemType.options[row-1]=new Option(sItemType.options[i].text,sItemType.options[i].value,false,false);
+							itemType.options[row-1].varRefId=sItemType.options[i].varRefId;
+							changeMaterial('materialMode','sMaterial','material',seqId);
+						}
+					}
+				}
+				if(row==0){
+					itemType.options.length=1;
+					itemType.options[0]=new Option("请选择","",false,false);
+					itemType.options[0].varRefId="";
+					changeMaterial('materialMode','sMaterial','material',seqId);
+				}
+			}
+		}
+		changeMaterial=function(itemId,sItemTypeId,itemTypeId,seqId){
+			var sItemType=document.getElementById(sItemTypeId);
+			var itemUnit=document.getElementById("materialStorageNumber_"+seqId);
+			var itemType=document.getElementById(itemTypeId+"_"+seqId);
+			var item=document.getElementById(itemId+"_"+seqId);
+			var row=0;
+			if(typeof(sItemType.length)!="undefined"&&sItemType!=null){
+				for(j=0;j<sItemType.length;j++){
+					var itemTypeParentValue=sItemType.options[j].varRefId;
+					if(typeof(itemUnit.length)=="undefined"){
+						var index=item.options.selectedIndex;
+						var parentValue=item.options[index].value;
+						if(itemTypeParentValue==parentValue){
+							row++;
+							itemType.options.length=row;
+							itemType.options[row-1]=new Option(sItemType.options[j].text,sItemType.options[j].value,false,false);
+							itemType.options[row-1].varRefId=sItemType.options[j].varRefId;
+							itemType.options[row-1].varUnitPrice=sItemType.options[j].varUnitPrice;
+							changeMaterialStorage('material','sMaterialStorageAddr','materialStorageAddr',seqId);
+						}
+					}
+				}
+				if(row==0){
+					itemType.options.length=1;
+					itemType.options[0]=new Option("请选择","",false,false);
+					itemType.options[0].varRefId="";
+					itemType.options[0].varUnitPrice="";
+					changeMaterialStorage('material','sMaterialStorageAddr','materialStorageAddr',seqId);
+				}
+			}
+		}
+		changeMaterialStorage=function(itemId,sItemTypeId,itemTypeId,seqId){
+			var sItemType=document.getElementById(sItemTypeId);
+			var itemUnit=document.getElementById("materialStorageNumber_"+seqId);
+			var itemUnitPrice=document.getElementById("materialUnitPrice_"+seqId);
+			var itemUnitPriceDis=document.getElementById("materialUnitPriceDis_"+seqId);
+			var itemType=document.getElementById(itemTypeId+"_"+seqId);
+			var item=document.getElementById(itemId+"_"+seqId);
+			var row=0;
+			if(typeof(sItemType.length)!="undefined"&&sItemType!=null){
+				for(k=0;k<sItemType.length;k++){
+					var itemTypeParentValue=sItemType.options[k].varRefId;
+					if(typeof(itemUnit.length)=="undefined"){
+						var index=item.options.selectedIndex;
+						var parentValue=item.options[index].value;
+						if(itemTypeParentValue==parentValue){
+							row++;
+							itemType.options.length=row;
+							itemType.options[row-1]=new Option(sItemType.options[k].text,sItemType.options[k].value,false,false);
+							itemType.options[row-1].varRefId=sItemType.options[k].varRefId;
+							itemType.options[row-1].varOldStorage=sItemType.options[k].varOldStorage;
+							itemType.options[row-1].varNewStorage=sItemType.options[k].varNewStorage;
+							itemUnitPrice.value=item.options[index].varUnitPrice;
+							itemUnitPriceDis.innerText=item.options[index].varUnitPrice;
+							changeMaterialStorageType(seqId);
+						}
+					}
+				}
+				if(row==0){
+					itemType.options.length=1;
+					itemType.options[0]=new Option("请选择","",false,false);
+					itemType.options[0].varRefId="";
+					itemType.options[0].varOldStorage="0";
+					itemType.options[0].varNewStorage="0";
+					itemUnitPrice.value="0";
+					itemUnitPriceDis.innerText="0";
+					changeMaterialStorageType(seqId);
+				}
+			}
+		}
+		changeMaterialStorageType=function(seqId){
+			var itemStorageType=document.getElementById("materialStorageType_"+seqId);
+			var itemStorage=document.getElementById("materialStorageNumber_"+seqId);
+			var itemStorageDis=document.getElementById("materialStorageNumberDis_"+seqId);
+			itemStorageType.options.selectedIndex=0;
+			itemStorage.value="";
+			itemStorageDis.innerText="";
+		}
+		changeMaterialStorageNumber=function(itemId,seqId){
+			var itemUnit=document.getElementById("materialStorageNumber_"+seqId);
+			var itemUnitDis=document.getElementById("materialStorageNumberDis_"+seqId);
+			var item=document.getElementById(itemId+"_"+seqId);
+			var itemStorageAddress=document.getElementById("materialStorageAddr_"+seqId);
+			if(typeof(itemUnit.length)=="undefined"){
+				var index=item.options.selectedIndex;
+				var parentValue=item.options[index].value;
+				if(parentValue=="0"){
+					index=itemStorageAddress.options.selectedIndex;
+					itemUnit.value=itemStorageAddress.options[index].varOldStorage;
+					itemUnitDis.innerText=itemStorageAddress.options[index].varOldStorage;
+				}
+				if(parentValue=="1"){
+					index=itemStorageAddress.options.selectedIndex;
+					itemUnit.value=itemStorageAddress.options[index].varNewStorage;
+					itemUnitDis.innerText=itemStorageAddress.options[index].varNewStorage;
+				}
+			}
+		}
+		displayUnit=function(itemTypeId,seqId){
+			var itemType=document.getElementById(itemTypeId+"_"+seqId);
+			var itemTypeSeqId=document.getElementById("itemTypeId_"+seqId);
+			var itemUnit=document.getElementById("itemUnit_"+seqId);
+			var itemUnitPrice=document.getElementById("itemUnitPrice_"+seqId);
+			var itemUnitDis=document.getElementById("itemUnitDis_"+seqId);
+			var itemUnitPriceDis=document.getElementById("itemUnitPriceDis_"+seqId);
+			if(typeof(itemUnit.length)=="undefined"){
+				var index=itemType.options.selectedIndex;
+				itemTypeSeqId.value=itemType.options[index].varId;
+				itemUnit.value=itemType.options[index].varUnit;
+				itemUnitDis.innerText=itemType.options[index].varUnit;
+				itemUnitPrice.value=itemType.options[index].varUnitPrice;
+				itemUnitPriceDis.innerText=itemType.options[index].varUnitPrice;
+			}
+		}
+		calculateOne=function(seqId){
+			var itemUnitPrice=document.getElementById("itemUnitPrice_"+seqId);
+			var itemWorkNumber=document.getElementById("itemWorkNumber_"+seqId);
+			var itemFee=document.getElementById("itemFee_"+seqId);
+			var itemFeeDis=document.getElementById("itemFeeDis_"+seqId);
+			if(typeof(itemUnitPrice.length)=="undefined"){
+				if(regx.test(itemWorkNumber.value)&&regx.test(itemUnitPrice.value)){
+					var fee=parseFloat(itemUnitPrice.value)*parseFloat(itemWorkNumber.value);
+					itemFee.value=""+Math.round(fee*100)/100;
+					itemFeeDis.innerText=itemFee.value;
+				}
+			}
+		}
+		calculateAll=function(){
+			var itemFee=document.forms[0].elements["itemFee"];
+			var totalFee=document.forms[0].elements["totalFee"];
+			var totalFeeDis=document.getElementById("total_fee");
+			if(typeof(itemFee)=="undefined"){
+				totalFee.value="0";
+			}else{
+				var fee=0;
+				if(typeof(itemFee.length)=="undefined"){
+					if(regx.test(itemFee.value)){
+						fee=parseFloat(itemFee.value);
+					}
+					totalFee.value=""+Math.round(fee*100)/100;
+				}else{
+					for(i=0;i<itemFee.length;i++){
+						if(regx.test(itemFee[i].value)){
+							fee=fee+parseFloat(itemFee[i].value);
+						}
+					}
+					totalFee.value=""+Math.round(fee*100)/100;
+				}
+			}
+			totalFeeDis.innerText=totalFee.value+"元";
+		}
+		calculateOneMaterial=function(seqId){
+			var itemUnitPrice=document.getElementById("materialUnitPrice_"+seqId);
+			var itemWorkNumber=document.getElementById("materialUseNumber_"+seqId);
+			var itemFee=document.getElementById("materialPrice_"+seqId);
+			var itemFeeDis=document.getElementById("materialPriceDis_"+seqId);
+			if(typeof(itemUnitPrice.length)=="undefined"){
+				if(regx.test(itemWorkNumber.value)&&regx.test(itemUnitPrice.value)){
+					var fee=parseFloat(itemUnitPrice.value)*parseFloat(itemWorkNumber.value);
+					itemFee.value=""+Math.round(fee*100)/100;
+					itemFeeDis.innerText=itemFee.value;
+				}
+			}
+		}
+		calculateAllMaterial=function(){
+			var itemFee=document.forms[0].elements["materialPrice"];
+			var totalFee=document.forms[0].elements["totalMaterialFee"];
+			var totalFeeDis=document.getElementById("total_material_fee");
+			if(typeof(itemFee)=="undefined"){
+				totalFee.value="0";
+			}else{
+				var fee=0;
+				if(typeof(itemFee.length)=="undefined"){
+					if(regx.test(itemFee.value)){
+						fee=parseFloat(itemFee.value);
+					}
+					totalFee.value=""+Math.round(fee*100)/100;
+				}else{
+					for(i=0;i<itemFee.length;i++){
+						if(regx.test(itemFee[i].value)){
+							fee=fee+parseFloat(itemFee[i].value);
+						}
+					}
+					totalFee.value=""+Math.round(fee*100)/100;
+				}
+			}
+			totalFeeDis.innerText=totalFee.value+"元";
+		}
+		compareStorageNumber=function(seqId){
+			var itemStorage=document.getElementById("materialStorageNumber_"+seqId);
+			var itemUse=document.getElementById("materialUseNumber_"+seqId);
+			if(regx.test(itemStorage.value)&&regx.test(itemUse.value)){
+				if(parseFloat(itemStorage.value)<parseFloat(itemUse.value)){
+					alert("修缮材料的库存数量不足，请重新选择！");
+					itemUse.focus();
+				}
+			}
+		}
+		

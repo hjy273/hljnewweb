@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.linepatrol.acceptance.model.PipeResult"  table="LP_ACCEPTANCE_PR">
+        <id name="id" type="string" unsaved-value="null" >
+            <column name="ID" sql-type="varchar(12)" not-null="true"/>  
+            <generator class="com.cabletech.commons.hb.StrSequenceGenerator">
+               <param name="sequence">SEQ_LP_ACCEPTANCE_PR_ID</param>
+               <param name="length">12</param>
+            </generator>
+        </id>
+        <property name="payPipeId" column="PAYPIPE_ID"/>
+        <property name="times" column="TIMES"/>
+        <property name="result" column="RESULT"/>
+        <property name="planDate" column="PLAN_DATE"/>
+        <property name="factDate" column="FACT_DATE"/>
+        <property name="remark" column="REMARK"/>
+        <property name="drawing" column="DRAWING"/>
+        <property name="isEligible0" column="IS_ELIGIBLE_0"/>
+        <property name="eligibleReason0" column="ELIGIBLE_REASON_0"/>
+        <property name="isEligible1" column="IS_ELIGIBLE_1"/>
+        <property name="eligibleReason1" column="ELIGIBLE_REASON_1"/>
+        <property name="isEligible2" column="IS_ELIGIBLE_2"/>
+        <property name="eligibleReason2" column="ELIGIBLE_REASON_2"/>
+        <property name="isEligible3" column="IS_ELIGIBLE_3"/>
+        <property name="eligibleReason3" column="ELIGIBLE_REASON_3"/>
+    </class>
+</hibernate-mapping>

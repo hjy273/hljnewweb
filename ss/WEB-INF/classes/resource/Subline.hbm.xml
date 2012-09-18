@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cabletech.baseinfo.domainobjects.Subline"  table="sublineinfo">
+        <id name="subLineID" type="string" unsaved-value="null" >
+            <column name="SubLineID" sql-type="char(32)" not-null="true"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="lineID"/>
+        <property name="subLineName"/>
+        <property name="ruleDeptID"/>
+        <property name="lineType"/>
+        <property name="checkPoints"/>
+        <property name="regionID"/>
+        <property name="state"/>
+		<property name="remark"/>
+		<property name="patrolid"/>
+
+    </class>
+</hibernate-mapping>
+

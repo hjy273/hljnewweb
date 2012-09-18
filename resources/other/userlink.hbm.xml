@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.cabletech.sysmanage.domainobjects.UserLinkInfo"
+		table="USER_LINK_INFO" lazy="false">
+		<!--
+			A 32 hex character is our surrogate key. It's automatically generated
+			by Hibernate with the UUID pattern.
+		-->
+		<id name="id" type="string">
+			<column name="id" not-null="true" sql-type="char(32)" />
+			<generator class="com.cabletech.commons.hb.StrSequenceGenerator">
+				<param name="sequence">SEQ_USER_LINK_INFO_ID</param>
+				<param name="length">12</param>
+			</generator>
+		</id>
+		<property name="linkName" column="LINK_NAME" type="string" />
+		<property name="linkAddress" column="LINK_ADDRESS" type="string" />
+		<property name="linkUserId" column="LINK_USER_ID" type="string" />
+		<property name="linkType" column="LINK_TYPE" type="string" />
+		<property name="orderNumber" column="ORDER_NUMBER" type="int" />
+	</class>
+</hibernate-mapping>

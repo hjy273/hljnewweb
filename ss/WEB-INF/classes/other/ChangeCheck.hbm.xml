@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.cabletech.linechange.domainobjects">
+  <class name="ChangeCheck" table="CHANGECHECK">
+    <id name="id" type="string" unsaved-value="null">
+      <column name="id" sql-type="long" not-null="true"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="changeid" column="changeid" type="string" not-null="false" length="10"/>
+    <property name="checkdate" column="checkdate" type="date" not-null="false" length="7"/>
+    <property name="checkperson" column="checkperson" type="string" not-null="false" length="20"/>
+    <property name="checkresult" column="checkresult" type="string" not-null="false" length="20"/>
+    <property name="checkremark" column="checkremark" type="string" not-null="false" length="512"/>
+    <property name="checkdatum" column="checkdatum" type="string" not-null="false" length="180"/>
+    <property name="fillinperson" column="fillinperson" type="string" not-null="false" length="32"/>
+    <property name="fillintime" column="fillintime" type="date" not-null="false" length="7"/>
+    <property name="state" column="state" type="string" not-null="false" length="8"/>
+  </class>
+</hibernate-mapping>
